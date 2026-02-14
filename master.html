@@ -1,0 +1,590 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Design System — Senior Frontend Engineer & UI/UX System</title>
+
+  <!--
+    Professional, single-file implementation of the redesigned "Senior Frontend Engineer and UI/UX System".
+    - Pure HTML, CSS, and vanilla JavaScript.
+    - Accessible, responsive, and easy to extend.
+    - Build info consumer: fetches /BUILD_INFO when enabled via query param ?showBuildInfo=true
+    - Comments are intentionally preserved and explanatory for maintainers.
+  -->
+
+  <style>
+    /* ===== Global layout & tokens (kept small and readable) ===== */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #4f46e5;
+      --accent-2: #06b6d4;
+      --text: #e6eef8;
+      --radius: 10px;
+      --gap: 16px;
+      --max-width: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+      --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:var(--sans);
+      background:linear-gradient(180deg,#071025 0%, #071827 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:32px auto;
+      padding:24px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:24px;
+    }
+
+    /* ===== Sidebar (navigation) ===== */
+    .sidebar{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:24px;
+      height:calc(100vh - 48px);
+      overflow:auto;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:8px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      box-shadow:0 4px 10px rgba(79,70,229,0.25);
+    }
+    .brand h1{
+      font-size:16px;
+      margin:0;
+      line-height:1;
+    }
+    .brand p{ margin:0; font-size:12px; color:var(--muted); }
+
+    nav ul{ list-style:none; padding:0; margin:12px 0 0 0; display:flex; flex-direction:column; gap:6px; }
+    nav a{
+      display:block;
+      padding:8px 10px;
+      border-radius:8px;
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+      opacity:0.95;
+    }
+    nav a:hover{ background:rgba(255,255,255,0.02); transform:translateX(4px); transition:all .12s ease; }
+
+    /* ===== Main content ===== */
+    .main{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      min-height:60vh;
+    }
+
+    header.page-header{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom:18px;
+    }
+    header h2{ margin:0; font-size:20px; }
+    header p.lead{ margin:4px 0 0 0; color:var(--muted); font-size:13px; }
+
+    .meta{
+      text-align:right;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* ===== Section cards ===== */
+    .section{
+      margin-bottom:18px;
+      border-radius:8px;
+      padding:14px;
+      background:rgba(255,255,255,0.01);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .section h3{ margin:0 0 8px 0; font-size:16px; }
+    .section p{ margin:0 0 10px 0; color:var(--muted); font-size:14px; line-height:1.5; }
+
+    /* Collapsible details */
+    .collapsible{
+      border-radius:6px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.005), rgba(255,255,255,0.002));
+      padding:10px;
+      margin-top:8px;
+    }
+    .collapsible summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:600;
+      color:var(--text);
+      outline:none;
+    }
+    .collapsible[open] summary::after{
+      content:"▲";
+      float:right;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .collapsible summary::after{
+      content:"▼";
+      float:right;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .collapsible div{ margin-top:8px; color:var(--muted); font-size:13px; }
+
+    /* ===== Footer & BuildInfo ===== */
+    footer{
+      margin-top:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .build-info{
+      font-family:var(--mono);
+      background:rgba(255,255,255,0.02);
+      padding:8px 10px;
+      border-radius:6px;
+      font-size:12px;
+      color:var(--text);
+    }
+
+    /* ===== Utilities ===== */
+    .kbd{
+      font-family:var(--mono);
+      background:rgba(255,255,255,0.02);
+      padding:2px 6px;
+      border-radius:4px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .container{ grid-template-columns: 1fr; padding:16px; }
+      .sidebar{ position:relative; height:auto; order:2; }
+      .main{ order:1; }
+      header{ flex-direction:column; align-items:flex-start; gap:8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <!-- Sidebar: navigation and quick links -->
+    <aside class="sidebar" aria-label="Design system navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">DS</div>
+        <div>
+          <h1>Design System</h1>
+          <p>Senior Frontend Engineer & UI/UX System</p>
+        </div>
+      </div>
+
+      <!--
+        Navigation links map to sections below.
+        Keep these in sync with the main content headings.
+      -->
+      <nav>
+        <ul>
+          <li><a href="#summary">Executive summary</a></li>
+          <li><a href="#goals">Goals & principles</a></li>
+          <li><a href="#tokens">Design tokens</a></li>
+          <li><a href="#components">Component library</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+          <li><a href="#visual">Visual language</a></li>
+          <li><a href="#interaction">Interaction patterns</a></li>
+          <li><a href="#code">Code standards</a></li>
+          <li><a href="#cicd">CI/CD & releases</a></li>
+          <li><a href="#governance">Governance</a></li>
+          <li><a href="#onboarding">Onboarding</a></li>
+        </ul>
+      </nav>
+
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.02);margin:12px 0;" />
+
+      <!-- Quick actions -->
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button id="copyLink" style="background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:6px;color:var(--text);cursor:pointer;">
+          Copy page link
+        </button>
+        <button id="toggleTheme" style="background:var(--accent);border:none;padding:8px;border-radius:6px;color:white;cursor:pointer;">
+          Toggle compact view
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <section class="main" aria-labelledby="pageTitle">
+      <header class="page-header">
+        <div>
+          <h2 id="pageTitle">Senior Frontend Engineer & UI/UX System</h2>
+          <p class="lead">A practical, production-ready design system guide for teams building accessible, consistent, and scalable UIs.</p>
+        </div>
+        <div class="meta" aria-hidden="true">
+          <div>Version <strong>1.0</strong></div>
+          <div style="margin-top:6px;color:var(--muted);font-size:12px;">Owner: Design Systems Team</div>
+        </div>
+      </header>
+
+      <!-- Executive summary -->
+      <article id="summary" class="section" aria-labelledby="summaryTitle">
+        <h3 id="summaryTitle">Executive summary</h3>
+        <p>
+          Purpose: Define the design system, engineering standards, and UX patterns that enable consistent,
+          accessible, and maintainable product experiences across teams.
+        </p>
+
+        <details class="collapsible" open>
+          <summary>Scope & Audience</summary>
+          <div>
+            <strong>Scope:</strong> Components, tokens, accessibility, interaction patterns, code conventions, release process, governance, and onboarding.<br />
+            <strong>Audience:</strong> Product designers, frontend engineers, QA, product managers, and technical leads.
+          </div>
+        </details>
+      </article>
+
+      <!-- Goals & principles -->
+      <article id="goals" class="section" aria-labelledby="goalsTitle">
+        <h3 id="goalsTitle">Goals and principles</h3>
+        <p>
+          Primary goals: consistency, speed, quality, and scalability. Design principles emphasize clarity, accessibility-first, composability, performance-awareness, and developer ergonomics.
+        </p>
+
+        <details class="collapsible">
+          <summary>Design principles (expanded)</summary>
+          <div>
+            <ul>
+              <li><strong>Clarity:</strong> Interfaces should be obvious and predictable.</li>
+              <li><strong>Accessibility first:</strong> WCAG AA minimum; aim for AAA where feasible.</li>
+              <li><strong>Composable:</strong> Small, well-documented primitives compose larger patterns.</li>
+              <li><strong>Performance-aware:</strong> Keep bundle size and runtime cost low.</li>
+              <li><strong>Developer ergonomics:</strong> APIs should be intuitive and well-typed.</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <!-- Design tokens -->
+      <article id="tokens" class="section" aria-labelledby="tokensTitle">
+        <h3 id="tokensTitle">Design tokens</h3>
+        <p>
+          Centralized variables for color, spacing, typography, elevation, and motion. Tokens are the single source of truth and exported to CSS variables and JS objects.
+        </p>
+
+        <details class="collapsible">
+          <summary>Token categories & distribution</summary>
+          <div>
+            <strong>Categories:</strong> color.*, spacing.*, typography.*, radius.*, elevation.*, motion.*.<br />
+            <strong>Format:</strong> tokens/*.json; export targets: CSS custom properties, SCSS, JS; versioned semantically.
+          </div>
+        </details>
+      </article>
+
+      <!-- Component library -->
+      <article id="components" class="section" aria-labelledby="componentsTitle">
+        <h3 id="componentsTitle">Component library (overview)</h3>
+        <p>
+          Components are grouped into primitives, layout, surfaces, data display, navigation, and feedback. Each component must use tokens, include tests, and have clear docs.
+        </p>
+
+        <details class="collapsible">
+          <summary>Component contract</summary>
+          <div>
+            <ul>
+              <li><strong>API:</strong> Props, events, and accessibility hooks.</li>
+              <li><strong>Styling:</strong> Use tokens only; no hardcoded values.</li>
+              <li><strong>Tests:</strong> Unit, accessibility, and visual regression tests.</li>
+              <li><strong>Docs:</strong> Usage, anatomy, do/don't, examples, and accessibility notes.</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <!-- Accessibility -->
+      <article id="accessibility" class="section" aria-labelledby="accessibilityTitle">
+        <h3 id="accessibilityTitle">Accessibility (A11y)</h3>
+        <p>
+          Target WCAG 2.1 AA baseline. Keyboard navigation, semantic HTML, ARIA where necessary, automated and manual testing.
+        </p>
+
+        <details class="collapsible">
+          <summary>Testing & guidelines</summary>
+          <div>
+            <strong>Automated:</strong> axe, jest-axe in CI.<br />
+            <strong>Manual:</strong> keyboard walkthroughs, screen reader checks (NVDA/VoiceOver).<br />
+            <strong>Guidelines:</strong> focus management, skip links, text alternatives, color contrast.
+          </div>
+        </details>
+      </article>
+
+      <!-- Visual language -->
+      <article id="visual" class="section" aria-labelledby="visualTitle">
+        <h3 id="visualTitle">Visual language</h3>
+        <p>
+          Typography scale, semantic color palette, iconography rules, and motion tokens. Use tokens for theming and light/dark support.
+        </p>
+      </article>
+
+      <!-- Interaction patterns -->
+      <article id="interaction" class="section" aria-labelledby="interactionTitle">
+        <h3 id="interactionTitle">Interaction patterns</h3>
+        <p>
+          Forms, navigation, modals, and data tables have explicit patterns: validation, focus management, responsive behavior, and keyboard support.
+        </p>
+      </article>
+
+      <!-- Code standards -->
+      <article id="code" class="section" aria-labelledby="codeTitle">
+        <h3 id="codeTitle">Code standards & architecture</h3>
+        <p>
+          Recommended stack: React + TypeScript, Vite build, tokens via CSS variables. Strict TypeScript, ESLint, Prettier, and CI enforcement.
+        </p>
+      </article>
+
+      <!-- CI/CD -->
+      <article id="cicd" class="section" aria-labelledby="cicdTitle">
+        <h3 id="cicdTitle">CI/CD & releases</h3>
+        <p>
+          Pipeline: Lint → Type-check → Tests → Build → Publish. Include build metadata (BUILD_INFO) in artifacts for traceability.
+        </p>
+
+        <details class="collapsible">
+          <summary>Build metadata & preview</summary>
+          <div>
+            The CI writes <code>dist/BUILD_INFO</code> with COMMIT, BRANCH, RUN_ID, and BUILT_AT. Preview builds can enable a BuildInfo consumer to display this metadata.
+          </div>
+        </details>
+      </article>
+
+      <!-- Governance -->
+      <article id="governance" class="section" aria-labelledby="governanceTitle">
+        <h3 id="governanceTitle">Governance & contribution</h3>
+        <p>
+          RFC-driven changes, component owners, triage SLAs, and a decision log for major design choices.
+        </p>
+      </article>
+
+      <!-- Onboarding -->
+      <article id="onboarding" class="section" aria-labelledby="onboardingTitle">
+        <h3 id="onboardingTitle">Onboarding & documentation</h3>
+        <p>
+          Docs site with live component explorer, token reference, and onboarding checklist for new engineers and designers.
+        </p>
+      </article>
+
+      <!-- Example component: Button -->
+      <article class="section" aria-labelledby="buttonTitle">
+        <h3 id="buttonTitle">Example: Button component</h3>
+        <p>
+          Purpose: Primary action control used for form submission and primary CTAs. See API and accessibility notes below.
+        </p>
+
+        <details class="collapsible">
+          <summary>API & usage</summary>
+          <div>
+            <pre style="white-space:pre-wrap;color:var(--muted);font-size:13px;">
+Props:
+  - variant: 'primary' | 'secondary' | 'ghost'
+  - size: 'sm' | 'md' | 'lg'
+  - disabled: boolean
+  - loading: boolean
+Usage:
+  &lt;button class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+          </pre>
+          </div>
+        </details>
+      </article>
+
+      <!-- Footer with BuildInfo consumer -->
+      <footer>
+        <div>
+          <span class="kbd">Design System</span>
+          <span style="margin-left:8px;color:var(--muted);font-size:13px;">— Production guidance & patterns</span>
+        </div>
+
+        <!-- Build info area: populated by JS when enabled -->
+        <div id="buildInfo" class="build-info" aria-live="polite" role="status" title="Build metadata">
+          <!-- Default placeholder; replaced by JS if BUILD_INFO is available -->
+          Build info: <span id="buildInfoText" style="color:var(--muted)">not enabled</span>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    /**
+     * BuildInfo consumer (vanilla JS)
+     * - Fetches /BUILD_INFO from the site root when enabled.
+     * - This is intentionally opt-in: enable by adding ?showBuildInfo=true to the page URL.
+     * - Security note: BUILD_INFO must not contain secrets. Only public metadata (commit, branch, built_at).
+     *
+     * Usage:
+     *  - Preview builds: CI should set REACT_APP_SHOW_BUILD_INFO=true at build time OR
+     *    you can enable locally by visiting: /path/to/page.html?showBuildInfo=true
+     *
+     * Implementation details:
+     *  - Uses fetch with cache: 'no-store' to always get the latest file.
+     *  - Parses simple KEY=VALUE lines into an object.
+     *  - Displays a short, human-friendly summary in the footer.
+     */
+
+    (function () {
+      'use strict';
+
+      // Utility: parse query string
+      function queryFlag(name) {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          return params.get(name) === 'true';
+        } catch (e) {
+          return false;
+        }
+      }
+
+      // Copy page link button
+      document.getElementById('copyLink').addEventListener('click', function () {
+        const url = window.location.href;
+        navigator.clipboard?.writeText(url).then(() => {
+          this.textContent = 'Link copied';
+          setTimeout(() => (this.textContent = 'Copy page link'), 1500);
+        }).catch(() => {
+          this.textContent = 'Copy failed';
+          setTimeout(() => (this.textContent = 'Copy page link'), 1500);
+        });
+      });
+
+      // Toggle compact view (simple class toggle)
+      const toggleBtn = document.getElementById('toggleTheme');
+      toggleBtn.addEventListener('click', function () {
+        document.body.classList.toggle('compact');
+        this.textContent = document.body.classList.contains('compact') ? 'Compact view' : 'Toggle compact view';
+      });
+
+      // BuildInfo logic
+      const buildInfoContainer = document.getElementById('buildInfoText');
+
+      // Determine whether to fetch BUILD_INFO:
+      // 1) If the query param ?showBuildInfo=true is present, enable.
+      // 2) Otherwise, do not fetch (opt-in only).
+      const shouldShow = queryFlag('showBuildInfo');
+
+      if (!shouldShow) {
+        // Keep the default placeholder; do not fetch BUILD_INFO.
+        buildInfoContainer.textContent = 'not enabled';
+        return;
+      }
+
+      // Defensive fetch: attempt to retrieve /BUILD_INFO and parse it.
+      fetch('/BUILD_INFO', { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error('BUILD_INFO not found');
+          return res.text();
+        })
+        .then((text) => {
+          // Parse KEY=VALUE lines into an object
+          const obj = {};
+          text.split(/\r?\n/).forEach((line) => {
+            if (!line.trim()) return;
+            const idx = line.indexOf('=');
+            if (idx === -1) return;
+            const key = line.slice(0, idx).trim();
+            const val = line.slice(idx + 1).trim();
+            obj[key] = val;
+          });
+
+          // Display a concise summary
+          const commit = obj.COMMIT ? obj.COMMIT.slice(0, 8) : 'n/a';
+          const branch = obj.BRANCH || 'n/a';
+          const built = obj.BUILT_AT || obj.BUILT || 'n/a';
+
+          buildInfoContainer.textContent = `commit ${commit} • ${branch} • ${built}`;
+        })
+        .catch((err) => {
+          // Graceful fallback: show an unobtrusive message
+          buildInfoContainer.textContent = 'unavailable';
+          console.warn('BuildInfo fetch failed:', err);
+        });
+
+      // Accessibility: enable keyboard navigation for summary elements
+      document.querySelectorAll('.collapsible summary').forEach((s) => {
+        s.setAttribute('tabindex', '0');
+        s.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            s.parentElement.open = !s.parentElement.open;
+          }
+        });
+      });
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('nav a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Small enhancement: show a "Back to top" when scrolled
+      const backToTop = document.createElement('button');
+      backToTop.textContent = '↑ Top';
+      backToTop.setAttribute('aria-label', 'Back to top');
+      Object.assign(backToTop.style, {
+        position: 'fixed',
+        right: '18px',
+        bottom: '18px',
+        padding: '8px 10px',
+        borderRadius: '8px',
+        border: 'none',
+        background: 'linear-gradient(90deg,var(--accent),var(--accent-2))',
+        color: 'white',
+        cursor: 'pointer',
+        boxShadow: '0 6px 18px rgba(2,6,23,0.5)',
+        display: 'none',
+        zIndex: 9999
+      });
+      document.body.appendChild(backToTop);
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      window.addEventListener('scroll', () => {
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+
+    })();
+  </script>
+</body>
+</html>
+```

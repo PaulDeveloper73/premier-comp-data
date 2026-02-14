@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Enhanced Table</title>
+<style>
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 1rem;
+    color: #333;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 1rem;
+  }
+  .header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .form-control, #search_input_all {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  thead {
+    background: #eef2f7;
+  }
+  th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+  }
+  th:hover {
+    background: #e0e6ed;
+  }
+  td {
+    padding: 0.75rem;
+    border-top: 1px solid #eee;
+    vertical-align: top;
+    font-size: 0.85rem;
+  }
+  tr:nth-child(even) {
+    background: #fafbfc;
+  }
+  tr:hover {
+    background: #f0f4f9;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+    font-style: italic;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .pagination button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background: #4f46e5;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .pagination button.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header_wrap {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead {
+      display: none;
+    }
+    tr {
+      margin-bottom: 1rem;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    td {
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+    }
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #555;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header_wrap">
+    <div class="num_rows">
+      <select id="maxRows" class="form-control">
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="5000">Show ALL Rows</option>
+      </select>
+    </div>
+    <div class="tb_search">
+      <input type="text" id="search_input_all" placeholder="Search..." class="form-control">
+    </div>
+  </div>
+
+  <table id="table-id">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Grantee</th>
+        <th>Year</th>
+        <th>Geography</th>
+        <th>Details</th>
+        <th>Category</th>
+        <th>UGX</th>
+        <th>USD</th>
+        <th>Voucher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example row -->
+      <tr>
+        <td data-label="No.">1598</td>
+        <td data-label="Grantee">Kampala Archidiocese Youth Apostolate</td>
+        <td data-label="Year">2025</td>
+        <td data-label="Geography">Africa / Kampala</td>
+        <td data-label="Details">Payment made towards Sponsorship support...</td>
+        <td data-label="Category">Community</td>
+        <td data-label="UGX">5,000,000</td>
+        <td data-label="USD"></td>
+        <td data-label="Voucher"><a href="#"><button>View Voucher</button></a></td>
+      </tr>
+      <!-- ... other rows ... -->
+    </tbody>
+  </table>
+  <div id="emptyState" class="empty-state" style="display:none;">No results found</div>
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<script>
+  const table = document.getElementById('table-id');
+  const tbody = table.querySelector('tbody');
+  const searchInput = document.getElementById('search_input_all');
+  const maxRowsSelect = document.getElementById('maxRows');
+  const emptyState = document.getElementById('emptyState');
+  const pagination = document.getElementById('pagination');
+
+  let currentPage = 1;
+  let rowsPerPage = parseInt(maxRowsSelect.value);
+
+  function debounce(fn, delay=300) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn(...args), delay);
+    };
+  }
+
+  function filterTable() {
+    const query = searchInput.value.toLowerCase();
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    let visibleCount = 0;
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      if (text.includes(query)) {
+        row.style.display = '';
+        visibleCount++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    paginate();
+  }
+
+  searchInput.addEventListener('input', debounce(filterTable));
+
+  table.querySelectorAll('th').forEach((th, idx) => {
+    th.addEventListener('click', () => {
+      const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+      const asc = th.classList.toggle('asc');
+      rows.sort((a,b) => {
+        const aText = a.cells[idx].innerText.trim();
+        const bText = b.cells[idx].innerText.trim();
+        return asc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    });
+  });
+
+  function paginate() {
+    const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none');
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+    currentPage = Math.min(currentPage, totalPages) || 1;
+
+    rows.forEach((row, i) => {
+      row.style.display = (i >= (currentPage-1)*rowsPerPage && i < currentPage*rowsPerPage) ? '' : 'none';
+    });
+
+    pagination.innerHTML = '';
+    if (totalPages > 1) {
+      for (let i=1; i<=totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if (i === currentPage) btn.style.background = '#06b6d4';
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          paginate();
+        });
+        pagination.appendChild(btn);
+      }
+    }
+  }
+
+  maxRowsSelect.addEventListener('change', () => {
+    rowsPerPage = parseInt(maxRowsSelect.value);
+    currentPage = 1;
+    paginate();
+  });
+
+  paginate();
+</script>
+</body>
+</html>

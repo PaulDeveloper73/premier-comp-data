@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /temp_exports/
+
+Sitemap: https://ledger.rupareliafoundation.org/sitemap.xml
