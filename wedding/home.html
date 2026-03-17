@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Destination Weddings Uganda — Prototype</title>
+<meta name="description" content="Prototype homepage: hero slider, planner wizard, featured venues, packages, favorites, and WhatsApp chat." />
+<style>
+  :root{
+    --bg:#faf7f4;
+    --accent:#0b7a6b;
+    --accent-2:#b8864b;
+    --muted:#6b6b6b;
+    --card:#ffffff;
+    --glass: rgba(255,255,255,0.7);
+    --max-width:1200px;
+    --radius:12px;
+    --shadow: 0 6px 20px rgba(12,12,12,0.08);
+    --gold: #c79a4b;
+    --teal: #0b7a6b;
+    --cta:#ff6b6b;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#fff 0%, #fbf9f7 100%);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+
+  /* Container */
+  .wrap{max-width:var(--max-width);margin:0 auto;padding:24px;}
+
+  /* Header */
+  header.site-header{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter: blur(6px);
+    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
+    border-bottom:1px solid rgba(15,15,15,0.04);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding:12px 24px;
+    max-width:var(--max-width);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--teal)}
+  .brand .logo{
+    width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--teal));
+    display:inline-grid;place-items:center;color:#fff;font-weight:800;font-size:18px;
+    box-shadow:var(--shadow);
+  }
+  nav.primary{display:flex;gap:12px;align-items:center}
+  nav.primary a{color:#333;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:14px}
+  nav.primary a:hover{background:rgba(11,122,107,0.06);color:var(--teal)}
+  .cta{
+    background:linear-gradient(90deg,var(--teal),#0f9a86);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;
+    box-shadow:0 6px 18px rgba(11,122,107,0.18);
+  }
+  .cta.secondary{background:transparent;border:1px solid rgba(11,122,107,0.12);color:var(--teal);font-weight:700}
+
+  /* Hero slider */
+  .hero{
+    margin-top:18px;border-radius:16px;overflow:hidden;position:relative;box-shadow:var(--shadow);
+    background:linear-gradient(180deg, rgba(11,122,107,0.06), rgba(183,150,110,0.02));
+  }
+  .hero .slides{display:flex;transition:transform 0.7s ease;height:420px}
+  .slide{
+    min-width:100%;display:grid;grid-template-columns:1fr 420px;gap:24px;padding:48px;
+    align-items:center;background-size:cover;background-position:center;
+  }
+  .slide .content{max-width:640px}
+  .eyebrow{display:inline-block;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:999px;font-weight:700;color:var(--muted);font-size:13px;margin-bottom:12px}
+  h1{font-size:36px;margin:0 0 12px;line-height:1.05;font-family: Georgia, "Times New Roman", serif;color:#111}
+  p.lead{margin:0 0 18px;color:var(--muted);font-size:16px}
+  .hero-ctas{display:flex;gap:12px}
+  .hero-visual{background:linear-gradient(135deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
+  .hero-visual .meta{font-size:13px;color:var(--muted)}
+  .slider-controls{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:8px}
+  .dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,0.12);cursor:pointer}
+  .dot.active{background:var(--teal)}
+
+  /* Planner wizard */
+  .planner{
+    margin-top:-48px;background:linear-gradient(180deg,#fff, rgba(255,255,255,0.95));padding:18px;border-radius:12px;
+    box-shadow:0 12px 30px rgba(12,12,12,0.06);display:flex;gap:16px;align-items:center;
+  }
+  .planner form{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .field{display:flex;flex-direction:column}
+  label{font-size:12px;color:var(--muted);margin-bottom:6px}
+  input[type="date"], input[type="number"], select{padding:10px;border-radius:8px;border:1px solid rgba(12,12,12,0.06);min-width:160px}
+  .planner .btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--cta),#ff8b8b);color:#fff;border:none;font-weight:700;cursor:pointer}
+  .suggestions{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+
+  /* Cards grid */
+  .section{margin-top:36px}
+  .section h2{font-size:20px;margin:0 0 12px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+  .card .img{height:180px;border-radius:10px;background-size:cover;background-position:center;margin-bottom:10px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .meta-row{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+  .badge{display:inline-block;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg, rgba(183,150,110,0.12), rgba(11,122,107,0.06));font-weight:700;color:var(--muted);font-size:12px}
+  .fav{position:absolute;right:12px;top:12px;background:rgba(255,255,255,0.9);padding:8px;border-radius:999px;cursor:pointer}
+  .fav.active{background:linear-gradient(90deg,var(--cta),#ff8b6b);color:#fff;box-shadow:0 6px 18px rgba(255,107,107,0.12)}
+
+  /* Filters */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .chip{padding:8px 12px;border-radius:999px;background:rgba(11,122,107,0.06);cursor:pointer;font-weight:600;color:var(--teal)}
+  .chip.active{background:linear-gradient(90deg,var(--teal),#0f9a86);color:#fff}
+
+  /* Packages */
+  .packages{display:flex;gap:12px}
+  .tier{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:var(--shadow);border:1px solid rgba(12,12,12,0.04)}
+  .tier h4{margin:0 0 8px}
+  .price{font-size:22px;color:var(--teal);font-weight:800;margin:6px 0}
+  .features{color:var(--muted);font-size:14px;margin:8px 0}
+  .tier .btn{margin-top:8px;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--gold),#caa25a);color:#fff;font-weight:700;cursor:pointer}
+
+  /* Footer */
+  footer.site-footer{margin-top:48px;background:#fff;padding:28px;border-top:1px solid rgba(12,12,12,0.04)}
+  .footer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .footer-grid h5{margin:0 0 8px;font-size:14px}
+  .footer-grid a{display:block;color:var(--muted);text-decoration:none;margin:6px 0;font-size:14px}
+
+  /* WhatsApp floating */
+  .whatsapp{
+    position:fixed;right:18px;bottom:18px;z-index:80;
+    background:linear-gradient(180deg,#25D366,#128C7E);color:#fff;padding:14px;border-radius:999px;box-shadow:0 12px 30px rgba(18,140,126,0.18);
+    display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:700;
+  }
+  .whatsapp small{font-size:12px;opacity:0.95}
+
+  /* Modal */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:120}
+  .modal{background:#fff;border-radius:12px;padding:18px;max-width:920px;width:94%;box-shadow:0 20px 60px rgba(12,12,12,0.3)}
+  .modal .close{position:absolute;right:18px;top:18px;background:rgba(0,0,0,0.06);padding:8px;border-radius:8px;cursor:pointer}
+
+  /* Responsive */
+  @media (max-width:1000px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .slide{grid-template-columns:1fr}
+    .hero .slides{height:520px}
+    .packages{flex-direction:column}
+  }
+  @media (max-width:640px){
+    nav.primary{display:none}
+    .wrap{padding:12px}
+    .grid{grid-template-columns:1fr}
+    .hero .slides{height:520px}
+    .planner{flex-direction:column;align-items:stretch}
+    .hero{margin-top:8px}
+  }
+
+  /* small helpers */
+  .muted{color:var(--muted)}
+  .small{font-size:13px}
+  .center{display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="nav" role="navigation" aria-label="Main navigation">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true">DWU</div>
+      <div>
+        <div style="font-size:14px">Destination Weddings</div>
+        <div style="font-size:12px;color:var(--muted)">Uganda & Beyond</div>
+      </div>
+    </div>
+
+    <nav class="primary" aria-label="Primary">
+      <a href="#" data-nav>Home</a>
+      <a href="#" data-nav>Venues</a>
+      <a href="#" data-nav>Wedding Packages</a>
+      <a href="#" data-nav>Real Weddings</a>
+      <a href="#" data-nav>Plan Your Wedding</a>
+      <a href="#" data-nav>Vendors</a>
+      <a href="#" data-nav>Destination Weddings</a>
+      <a href="#" data-nav>Gallery</a>
+      <a href="#" data-nav>Blog</a>
+      <a href="#" data-nav>About</a>
+      <a href="#" data-nav>Contact</a>
+      <a href="#" class="cta" id="bookConsult">Book Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="slides" id="slides">
+        <div class="slide" style="background-image:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22720%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23efe9e3%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22%236b6b6b%22>Hero Image 1</text></svg>');">
+          <div class="content" role="region" aria-label="Hero content">
+            <span class="eyebrow">Luxury Destination Weddings</span>
+            <h1>Your Dream Wedding in Uganda — Effortless, Luxurious, Unforgettable</h1>
+            <p class="lead">We craft destination weddings with local expertise, global standards, and personal care. From legal guidance to honeymoon planning — we handle everything.</p>
+            <div class="hero-ctas">
+              <button class="cta" id="heroBook">Book Consultation</button>
+              <button class="cta secondary" id="openPlanner">Quick Planner</button>
+            </div>
+            <div style="margin-top:12px" class="muted small">Trusted by <strong>120+</strong> couples • Featured in travel & lifestyle press</div>
+          </div>
+          <aside class="hero-visual" aria-hidden="true">
+            <div style="width:320px;height:200px;border-radius:10px;background-image:linear-gradient(135deg,#f7efe6,#fff);display:flex;align-items:center;justify-content:center">
+              <div style="text-align:center">
+                <div style="font-weight:800;font-size:18px;color:var(--teal)">360° Virtual Tours</div>
+                <div class="meta" style="margin-top:6px">Explore venues with immersive tours</div>
+              </div>
+            </div>
+            <div style="font-size:13px;color:var(--muted);margin-top:8px">Start with our planner to get matched instantly</div>
+          </aside>
+        </div>
+
+        <div class="slide" style="background-image:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22720%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23efeef9%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22%236b6b6b%22>Hero Image 2</text></svg>');">
+          <div class="content">
+            <span class="eyebrow">Tailored Packages</span>
+            <h1>Transparent Pricing, No Surprises — Packages for Every Couple</h1>
+            <p class="lead">Choose Silver, Gold, or Platinum — or let us craft a custom package that fits your vision and budget.</p>
+            <div class="hero-ctas">
+              <button class="cta" id="heroQuote">Get Instant Quote</button>
+              <button class="cta secondary" id="viewPackages">View Packages</button>
+            </div>
+            <div style="margin-top:12px" class="muted small">Multi-currency pricing • Local legal support • 24/7 destination assistance</div>
+          </div>
+          <aside class="hero-visual" aria-hidden="true">
+            <div style="width:320px;height:200px;border-radius:10px;background-image:linear-gradient(135deg,#f7f7ff,#fff);display:flex;align-items:center;justify-content:center">
+              <div style="text-align:center">
+                <div style="font-weight:800;font-size:18px;color:var(--gold)">Luxury Venues</div>
+                <div class="meta" style="margin-top:6px">Lakeside, Safari Lodges, Private Estates</div>
+              </div>
+            </div>
+            <div style="font-size:13px;color:var(--muted);margin-top:8px">Book a site visit or virtual tour</div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="slider-controls" role="tablist" aria-label="Hero slides">
+        <div class="dot active" data-index="0" tabindex="0" aria-label="Slide 1"></div>
+        <div class="dot" data-index="1" tabindex="0" aria-label="Slide 2"></div>
+      </div>
+    </section>
+
+    <!-- Planner wizard (floating card) -->
+    <div class="planner" role="region" aria-label="Quick wedding planner" id="plannerCard">
+      <form id="plannerForm" aria-label="Planner form">
+        <div class="field">
+          <label for="date">Wedding Date</label>
+          <input id="date" name="date" type="date" required />
+        </div>
+        <div class="field">
+          <label for="guests">Guest Count</label>
+          <input id="guests" name="guests" type="number" min="1" value="80" />
+        </div>
+        <div class="field">
+          <label for="budget">Budget (USD)</label>
+          <select id="budget" name="budget" aria-label="Budget range">
+            <option value="3000">&lt; $5,000</option>
+            <option value="8000">$5,000 - $15,000</option>
+            <option value="20000">$15,000 - $40,000</option>
+            <option value="50000">&gt; $40,000</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="region">Preferred Region</label>
+          <select id="region" name="region">
+            <option value="kampala">Kampala & Central</option>
+            <option value="murchison">Murchison Falls</option>
+            <option value="bwindi">Bwindi & Southwest</option>
+            <option value="lakevictoria">Lake Victoria</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:end">
+          <button type="submit" class="btn plannerBtn">Find Matches</button>
+        </div>
+      </form>
+
+      <div style="flex:1">
+        <div class="small muted">Instant suggestions</div>
+        <div class="suggestions" id="plannerSuggestions" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- Featured Venues -->
+    <section class="section" aria-labelledby="venuesTitle">
+      <h2 id="venuesTitle">Featured Venues</h2>
+      <div class="filters" id="venueFilters" role="toolbar" aria-label="Venue filters">
+        <div class="chip active" data-filter="all">All</div>
+        <div class="chip" data-filter="outdoor">Outdoor</div>
+        <div class="chip" data-filter="indoor">Indoor</div>
+        <div class="chip" data-filter="360">360° Tour</div>
+        <div class="chip" data-filter="luxury">Luxury</div>
+      </div>
+
+      <div class="grid" id="venuesGrid" role="list">
+        <!-- Venue cards inserted by JS -->
+      </div>
+    </section>
+
+    <!-- Packages preview -->
+    <section class="section" aria-labelledby="packagesTitle">
+      <h2 id="packagesTitle">Wedding Packages</h2>
+      <div class="packages" role="list">
+        <div class="tier" aria-label="Silver package">
+          <h4>Silver</h4>
+          <div class="price">$3,500</div>
+          <div class="features">Venue coordination; basic decor; 4-hour coverage; 50 guests</div>
+          <div class="features">Add-ons: photographer, cake, transport</div>
+          <button class="btn" data-package="Silver">Select Silver</button>
+        </div>
+        <div class="tier" aria-label="Gold package">
+          <h4>Gold</h4>
+          <div class="price">$12,000</div>
+          <div class="features">Full planning; premium decor; 8-hour coverage; 120 guests</div>
+          <div class="features">Add-ons: live band, fireworks, honeymoon suite</div>
+          <button class="btn" data-package="Gold">Select Gold</button>
+        </div>
+        <div class="tier" aria-label="Platinum package">
+          <h4>Platinum</h4>
+          <div class="price">$35,000</div>
+          <div class="features">Luxury planning; bespoke design; destination logistics; VIP services</div>
+          <div class="features">Add-ons: private safari, helicopter transfer</div>
+          <button class="btn" data-package="Platinum">Select Platinum</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Weddings carousel (simple) -->
+    <section class="section" aria-labelledby="realTitle">
+      <h2 id="realTitle">Real Weddings</h2>
+      <div style="display:flex;gap:12px;overflow:auto;padding-bottom:8px">
+        <div class="card" style="min-width:320px">
+          <div class="img" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23efe9e3%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%236b6b6b%22>Lake Wedding</text></svg>')"></div>
+          <h3>Sarah & James — Lake Victoria</h3>
+          <div class="meta-row"><span class="muted">Budget: $18,000</span><span class="badge">Real Wedding</span></div>
+        </div>
+
+        <div class="card" style="min-width:320px">
+          <div class="img" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef7f2%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%236b6b6b%22>Safari Lodge</text></svg>')"></div>
+          <h3>Amira & Paul — Murchison</h3>
+          <div class="meta-row"><span class="muted">Budget: $28,000</span><span class="badge">Real Wedding</span></div>
+        </div>
+
+        <div class="card" style="min-width:320px">
+          <div class="img" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f7f0f6%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%236b6b6b%22>Estate Wedding</text></svg>')"></div>
+          <h3>Grace & Michael — Kampala</h3>
+          <div class="meta-row"><span class="muted">Budget: $9,500</span><span class="badge">Real Wedding</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section" style="margin-top:28px;padding:24px;border-radius:12px;background:linear-gradient(90deg,#fff8f0,#fff);box-shadow:var(--shadow)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <h2 style="margin:0">Start Planning Your Dream Wedding</h2>
+          <p class="muted" style="margin:6px 0 0">Book a free consultation and receive a custom quote within 48 hours.</p>
+        </div>
+        <div style="display:flex;gap:12px">
+          <button class="cta" id="finalBook">Book Consultation</button>
+          <button class="cta secondary" id="finalQuote">Get Instant Quote</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="wrap">
+        <div class="footer-grid" role="navigation" aria-label="Footer">
+          <div>
+            <h5>Quick Links</h5>
+            <a href="#">Home</a><a href="#">Venues</a><a href="#">Wedding Packages</a><a href="#">Real Weddings</a><a href="#">Plan Your Wedding</a><a href="#">Vendors</a><a href="#">Gallery</a><a href="#">Blog</a>
+          </div>
+          <div>
+            <h5>Services</h5>
+            <a href="#">Full Wedding Planning</a><a href="#">Destination Weddings</a><a href="#">Luxury Weddings</a><a href="#">Wedding Coordination</a><a href="#">Honeymoon Planning</a><a href="#">Custom Packages</a>
+          </div>
+          <div>
+            <h5>Resources</h5>
+            <a href="#">Blog</a><a href="#">Wedding Checklist PDF</a><a href="#">Budget Calculator</a><a href="#">Destination Wedding Guide</a><a href="#">FAQs</a>
+          </div>
+          <div>
+            <h5>Company</h5>
+            <a href="#">About Us</a><a href="#">Our Team</a><a href="#">Testimonials</a><a href="#">Awards & Partnerships</a>
+          </div>
+          <div>
+            <h5>Contact & Social</h5>
+            <a href="#">Contact</a><a href="#" id="footerBook">Book Consultation</a><a href="#" id="whatsFooter">WhatsApp Chat</a>
+            <div style="margin-top:8px">
+              <form id="newsletterForm">
+                <label for="email" class="small muted">Newsletter</label>
+                <input id="email" type="email" placeholder="Email address" style="padding:8px;border-radius:8px;border:1px solid rgba(12,12,12,0.06);width:100%;margin-top:6px" />
+                <button type="submit" class="btn" style="margin-top:8px;background:linear-gradient(90deg,var(--teal),#0f9a86);color:#fff;border:none">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;border-top:1px solid rgba(12,12,12,0.04);padding-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+          <div class="muted small">© <strong>Destination Weddings Uganda</strong> — Crafted with care</div>
+          <div class="muted small">Privacy • Terms</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<!-- Floating WhatsApp -->
+<button class="whatsapp" id="whatsappBtn" aria-label="Chat on WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 3.5L3.5 20.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div>
+    <div style="font-weight:800">WhatsApp</div>
+    <small>Chat with our planner</small>
+  </div>
+</button>
+
+<!-- Modal backdrop -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <button class="close" id="modalClose" aria-label="Close">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ====== Simple hero slider ====== */
+(function(){
+  const slides = document.getElementById('slides');
+  const dots = document.querySelectorAll('.dot');
+  let idx = 0;
+  function show(i){
+    idx = i;
+    slides.style.transform = 'translateX(' + (-i*100) + '%)';
+    dots.forEach(d=>d.classList.toggle('active', +d.dataset.index === i));
+  }
+  dots.forEach(d=>d.addEventListener('click', ()=>show(+d.dataset.index)));
+  // autoplay
+  setInterval(()=> show((idx+1) % dots.length), 7000);
+})();
+
+/* ====== Planner wizard logic ====== */
+(function(){
+  const form = document.getElementById('plannerForm');
+  const suggestions = document.getElementById('plannerSuggestions');
+
+  const sampleVenues = [
+    {id:1,name:'Lakeside Estate',region:'lakevictoria',type:'outdoor',price:8000,capacity:150,has360:true},
+    {id:2,name:'Safari Lodge',region:'murchison',type:'outdoor',price:22000,capacity:200,has360:true},
+    {id:3,name:'City Ballroom',region:'kampala',type:'indoor',price:5000,capacity:120,has360:false},
+    {id:4,name:'Private Villa',region:'bwindi',type:'indoor',price:15000,capacity:80,has360:false},
+    {id:5,name:'Island Retreat',region:'lakevictoria',type:'outdoor',price:30000,capacity:60,has360:true}
+  ];
+
+  function renderSuggestionCards(matches){
+    suggestions.innerHTML = '';
+    matches.slice(0,3).forEach(v=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.minWidth = '220px';
+      card.innerHTML = `
+        <div class="img" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f7f3ef%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2216%22 fill=%22%236b6b6b%22>${encodeURIComponent(v.name)}</text></svg>')"></div>
+        <h3>${v.name}</h3>
+        <div class="meta-row"><span class="muted">${v.capacity} guests</span><span class="badge">${v.has360? '360° Tour':''}</span></div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button class="btn" data-id="${v.id}" style="background:linear-gradient(90deg,var(--teal),#0f9a86);color:#fff;border:none">Request Quote</button>
+          <button class="btn secondary favBtn" data-id="${v.id}" style="background:transparent;border:1px solid rgba(12,12,12,0.06);color:var(--teal)">Save</button>
+        </div>
+      `;
+      suggestions.appendChild(card);
+    });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const date = form.date.value;
+    const guests = parseInt(form.guests.value || 0,10);
+    const budget = parseInt(form.budget.value || 0,10);
+    const region = form.region.value;
+
+    // simple matching logic
+    const matches = sampleVenues.filter(v => v.region === region && v.capacity >= Math.max(guests,50) && v.price <= Math.max(budget*3, v.price));
+    // fallback: if none, show top 3 by capacity
+    const result = matches.length ? matches : sampleVenues.sort((a,b)=>Math.abs(a.capacity-guests)-Math.abs(b.capacity-guests));
+    renderSuggestionCards(result);
+
+    // show package suggestion
+    const packageName = budget < 5000 ? 'Silver' : budget < 15000 ? 'Gold' : 'Platinum';
+    const packageCard = document.createElement('div');
+    packageCard.className = 'card';
+    packageCard.style.minWidth = '220px';
+    packageCard.innerHTML = `<h3>Suggested Package: ${packageName}</h3><div class="muted small">Based on your budget and guest count</div><div style="margin-top:8px"><button class="btn" data-package="${packageName}">Choose ${packageName}</button></div>`;
+    suggestions.appendChild(packageCard);
+  });
+
+  // delegate save buttons
+  document.addEventListener('click', function(e){
+    if(e.target.matches('.favBtn')){
+      const id = e.target.dataset.id;
+      toggleFavorite(id);
+      e.target.textContent = isFavorite(id) ? 'Saved' : 'Save';
+    }
+    if(e.target.matches('.btn[data-id]')){
+      const id = e.target.dataset.id;
+      openVenueModal(id);
+    }
+    if(e.target.matches('.btn[data-package]')){
+      const pkg = e.target.dataset.package;
+      openModal(`<h2>Package Selected: ${pkg}</h2><p class="muted">A planner will contact you to finalize details.</p><div style="margin-top:12px"><button class="cta" id="modalBook">Book Consultation</button></div>`);
+    }
+  });
+
+})();
+
+/* ====== Venues grid and filters ====== */
+(function(){
+  const venues = [
+    {id:1,name:'Lakeside Estate',region:'lakevictoria',type:'outdoor',price:8000,capacity:150,has360:true,amenities:['Pool','Accommodation']},
+    {id:2,name:'Safari Lodge',region:'murchison',type:'outdoor',price:22000,capacity:200,has360:true,amenities:['Safari','Private Dining']},
+    {id:3,name:'City Ballroom',region:'kampala',type:'indoor',price:5000,capacity:120,has360:false,amenities:['Catering','Parking']},
+    {id:4,name:'Private Villa',region:'bwindi',type:'indoor',price:15000,capacity:80,has360:false,amenities:['Exclusive Use','Chef']},
+    {id:5,name:'Island Retreat',region:'lakevictoria',type:'outdoor',price:30000,capacity:60,has360:true,amenities:['Helipad','Spa']}
+  ];
+  const grid = document.getElementById('venuesGrid');
+  const filters = document.getElementById('venueFilters');
+
+  function render(list){
+    grid.innerHTML = '';
+    list.forEach(v=>{
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.setAttribute('role','listitem');
+      el.innerHTML = `
+        <button class="fav" aria-label="Save venue" data-id="${v.id}">♡</button>
+        <div class="img" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f7f3ef%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2216%22 fill=%22%236b6b6b%22>${encodeURIComponent(v.name)}</text></svg>')"></div>
+        <h3>${v.name}</h3>
+        <div class="meta-row"><span class="muted">${v.capacity} guests</span><span class="muted">$${v.price.toLocaleString()}</span></div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button class="btn" data-id="${v.id}">View</button>
+          <button class="btn secondary" data-visit="${v.id}" style="background:transparent;border:1px solid rgba(12,12,12,0.06);color:var(--teal)">Request Visit</button>
+          ${v.has360? '<span class="badge">360° Tour</span>':''}
+        </div>
+      `;
+      grid.appendChild(el);
+      // mark favorite if saved
+      const favBtn = el.querySelector('.fav');
+      if(isFavorite(String(v.id))) favBtn.classList.add('active'), favBtn.textContent='♥';
+    });
+  }
+
+  function applyFilter(filter){
+    if(filter === 'all') render(venues);
+    else if(filter === '360') render(venues.filter(v=>v.has360));
+    else render(venues.filter(v=>v.type === filter));
+  }
+
+  filters.addEventListener('click', function(e){
+    if(e.target.classList.contains('chip')){
+      filters.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      e.target.classList.add('active');
+      applyFilter(e.target.dataset.filter);
+    }
+  });
+
+  // delegate clicks
+  document.addEventListener('click', function(e){
+    if(e.target.matches('.card .btn[data-id]')){
+      openVenueModal(e.target.dataset.id);
+    }
+    if(e.target.matches('.card .fav')){
+      const id = e.target.dataset.id;
+      toggleFavorite(id);
+      e.target.classList.toggle('active');
+      e.target.textContent = isFavorite(id) ? '♥' : '♡';
+    }
+    if(e.target.matches('button[data-visit]')){
+      openModal('<h3>Request a Site Visit</h3><p class="muted">A planner will contact you to schedule a visit.</p><div style="margin-top:12px"><button class="cta" id="modalBook">Book Consultation</button></div>');
+    }
+  });
+
+  render(venues);
+})();
+
+/* ====== Favorites (localStorage) ====== */
+function getFavorites(){
+  try{
+    return JSON.parse(localStorage.getItem('dw_favs')||'[]');
+  }catch(e){return []}
+}
+function isFavorite(id){
+  return getFavorites().includes(String(id));
+}
+function toggleFavorite(id){
+  const favs = getFavorites();
+  const idx = favs.indexOf(String(id));
+  if(idx === -1) favs.push(String(id)); else favs.splice(idx,1);
+  localStorage.setItem('dw_favs', JSON.stringify(favs));
+}
+
+/* ====== Modal helpers ====== */
+const backdrop = document.getElementById('modalBackdrop');
+const modalContent = document.getElementById('modalContent');
+const modalClose = document.getElementById('modalClose');
+function openModal(html){
+  modalContent.innerHTML = html;
+  backdrop.style.display = 'flex';
+  backdrop.setAttribute('aria-hidden','false');
+  // attach booking button inside modal
+  const bookBtn = document.getElementById('modalBook');
+  if(bookBtn) bookBtn.addEventListener('click', ()=>{ alert('Booking request sent — prototype'); closeModal(); });
+}
+function closeModal(){ backdrop.style.display='none'; backdrop.setAttribute('aria-hidden','true'); modalContent.innerHTML=''; }
+modalClose.addEventListener('click', closeModal);
+backdrop.addEventListener('click', function(e){ if(e.target === backdrop) closeModal(); });
+
+function openVenueModal(id){
+  // sample detail content
+  const html = `
+    <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <div style="height:220px;border-radius:10px;background:#f7f3ef;display:flex;align-items:center;justify-content:center">Venue Image</div>
+        <div style="margin-top:10px" class="muted small">Amenities: Pool; Accommodation; Catering</div>
+      </div>
+      <div style="flex:1.2;min-width:260px">
+        <h2>Venue Details</h2>
+        <p class="muted">Beautiful venue with lakeside views, private gardens, and full-service catering. Capacity up to 150 guests.</p>
+        <div style="margin-top:8px"><strong>Price:</strong> $8,000</div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="cta" id="bookNow">Book Consultation</button>
+          <button class="btn secondary" id="tour360">Start 360° Tour</button>
+        </div>
+      </div>
+    </div>
+  `;
+  openModal(html);
+  // attach actions
+  setTimeout(()=>{
+    const b = document.getElementById('bookNow');
+    if(b) b.addEventListener('click', ()=>{ alert('Consultation booked — prototype'); closeModal(); });
+    const t = document.getElementById('tour360');
+    if(t) t.addEventListener('click', ()=>{ openModal('<h3>360° Virtual Tour</h3><p class="muted">Interactive tour would load here (prototype).</p>'); });
+  },50);
+}
+
+/* ====== WhatsApp floating ====== */
+document.getElementById('whatsappBtn').addEventListener('click', function(){
+  // prefilled message template
+  const msg = encodeURIComponent("Hello, I'd like a consultation for a destination wedding. Date: [date], Guests: [count], Budget: [USD]");
+  // open wa.me link in new tab (replace number with real business number)
+  window.open('https://wa.me/256700000000?text=' + msg, '_blank');
+});
+document.getElementById('whatsFooter').addEventListener('click', function(e){ e.preventDefault(); document.getElementById('whatsappBtn').click(); });
+
+/* ====== CTA buttons (demo) ====== */
+document.querySelectorAll('#heroBook,#finalBook,#bookConsult,#footerBook').forEach(btn=>{
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    openModal('<h2>Book Consultation</h2><p class="muted">Please provide your details and our planner will reach out within 48 hours.</p><form id="bookForm" style="margin-top:12px"><label class="small muted">Name</label><input required style="padding:8px;border-radius:8px;border:1px solid rgba(12,12,12,0.06);width:100%"><label class="small muted" style="margin-top:8px">Email or WhatsApp</label><input required style="padding:8px;border-radius:8px;border:1px solid rgba(12,12,12,0.06);width:100%"><div style="margin-top:12px"><button class="cta" type="submit">Request Consultation</button></div></form>');
+    setTimeout(()=> {
+      const bf = document.getElementById('bookForm');
+      if(bf) bf.addEventListener('submit', function(ev){ ev.preventDefault(); alert('Consultation requested — prototype'); closeModal(); });
+    },50);
+  });
+});
+
+/* ====== Newsletter form (demo) ====== */
+document.getElementById('newsletterForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  if(!email) return alert('Enter email');
+  alert('Thanks — subscription saved (prototype).');
+  document.getElementById('email').value = '';
+});
+
+/* ====== Accessibility: keyboard for dots ====== */
+document.querySelectorAll('.dot').forEach(d=>{
+  d.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' ') d.click();
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wedding Packages — Destination Weddings Uganda</title>
+  <meta name="description" content="Transparent wedding packages with instant quote calculator, add-ons, and multi-currency pricing." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+</head>
+<body class="antialiased bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-400 to-emerald-600 flex items-center justify-center text-white font-extrabold">DWU</div>
+        <div class="hidden sm:block">
+          <div class="text-sm font-semibold">Destination Weddings</div>
+          <div class="text-xs text-slate-500">Uganda & Beyond</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-2 text-sm font-medium">
+        <a href="index.html" class="px-3 py-2 rounded hover:bg-slate-100">Home</a>
+        <a href="venues.html" class="px-3 py-2 rounded hover:bg-slate-100">Venues</a>
+        <a href="#" class="px-3 py-2 rounded bg-slate-100">Wedding Packages</a>
+        <a href="real.html" class="px-3 py-2 rounded hover:bg-slate-100">Real Weddings</a>
+      </nav>
+      <a id="bookConsult" href="#" class="px-4 py-2 rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-semibold shadow">Book Consultation</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="text-2xl font-semibold">Wedding Packages</h1>
+    <p class="text-sm text-slate-600 mt-1">Transparent pricing, instant quotes, and add-ons tailored to your dream wedding.</p>
+
+    <!-- Currency selector -->
+    <div class="mt-4 flex items-center gap-2">
+      <label class="text-sm text-slate-500">Currency:</label>
+      <select id="currencySelect" class="rounded border px-3 py-2">
+        <option value="USD">USD</option>
+        <option value="UGX">UGX</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+
+    <!-- Packages grid -->
+    <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-lg font-semibold">Silver</h3>
+        <div class="price text-2xl font-extrabold text-emerald-700 mt-2" data-base="3500">$3,500</div>
+        <p class="mt-3 text-slate-600">Venue coordination; basic decor; 4-hour coverage; 50 guests.</p>
+        <div class="mt-4 flex gap-3">
+          <button class="selectPkg px-4 py-2 rounded-md bg-amber-500 text-white font-semibold" data-pkg="Silver">Select Silver</button>
+          <button class="px-4 py-2 rounded-md border">Download PDF</button>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-lg font-semibold">Gold</h3>
+        <div class="price text-2xl font-extrabold text-emerald-700 mt-2" data-base="12000">$12,000</div>
+        <p class="mt-3 text-slate-600">Full planning; premium decor; 8-hour coverage; 120 guests.</p>
+        <div class="mt-4 flex gap-3">
+          <button class="selectPkg px-4 py-2 rounded-md bg-amber-500 text-white font-semibold" data-pkg="Gold">Select Gold</button>
+          <button class="px-4 py-2 rounded-md border">Download PDF</button>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-lg font-semibold">Platinum</h3>
+        <div class="price text-2xl font-extrabold text-emerald-700 mt-2" data-base="35000">$35,000</div>
+        <p class="mt-3 text-slate-600">Luxury planning; bespoke design; destination logistics; VIP services.</p>
+        <div class="mt-4 flex gap-3">
+          <button class="selectPkg px-4 py-2 rounded-md bg-amber-500 text-white font-semibold" data-pkg="Platinum">Select Platinum</button>
+          <button class="px-4 py-2 rounded-md border">Download PDF</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="mt-10">
+      <button id="toggleCompare" class="px-4 py-2 rounded border">Toggle Comparison Table</button>
+      <div id="compareTable" class="hidden mt-4 overflow-x-auto">
+        <table class="min-w-full border text-sm">
+          <thead class="bg-slate-100">
+            <tr>
+              <th class="px-3 py-2 border">Feature</th>
+              <th class="px-3 py-2 border">Silver</th>
+              <th class="px-3 py-2 border">Gold</th>
+              <th class="px-3 py-2 border">Platinum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="border px-3 py-2">Guests</td><td class="border px-3 py-2">50</td><td class="border px-3 py-2">120</td><td class="border px-3 py-2">200+</td></tr>
+            <tr><td class="border px-3 py-2">Coverage</td><td class="border px-3 py-2">4 hrs</td><td class="border px-3 py-2">8 hrs</td><td class="border px-3 py-2">Full day</td></tr>
+            <tr><td class="border px-3 py-2">Decor</td><td class="border px-3 py-2">Basic</td><td class="border px-3 py-2">Premium</td><td class="border px-3 py-2">Bespoke Luxury</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Instant Quote Calculator -->
+    <section class="mt-10 bg-white rounded-xl shadow p-6">
+      <h2 class="text-lg font-semibold">Instant Quote Calculator</h2>
+      <form id="quoteForm" class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+        <div>
+          <label class="text-sm text-slate-500">Guest Count</label>
+          <input id="quoteGuests" type="number" value="100" class="mt-1 w-full rounded border px-3 py-2" />
+        </div>
+        <div>
+          <label class="text-sm text-slate-500">Package</label>
+          <select id="quotePkg" class="mt-1 w-full rounded border px-3 py-2">
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+          </select>
+        </div>
+        <div>
+          <button class="px-4 py-2 rounded bg-emerald-600 text-white w-full">Calculate</button>
+        </div>
+      </form>
+      <div id="quoteResult" class="mt-4 text-lg font-bold text-emerald-700"></div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden items-center justify

@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Destination Weddings Uganda — Home</title>
+  <meta name="description" content="Destination Weddings Uganda — luxury destination weddings, venues, packages, and planning tools." />
+  <!-- Tailwind CDN (v4-compatible utility classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jQuery v4 (user requested stack) -->
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <style>
+    .glass { background: rgba(255,255,255,0.7); backdrop-filter: blur(6px); }
+    .hero-slide { min-height: 420px; }
+    .dot { width:10px; height:10px; border-radius:9999px; background:rgba(0,0,0,0.12); cursor:pointer; }
+    .dot.active { background:linear-gradient(90deg,#0b7a6b,#c79a4b); }
+    .img-placeholder { background-size:cover; background-position:center; }
+  </style>
+</head>
+<body class="antialiased text-slate-900 bg-gradient-to-b from-white to-slate-50">
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 shadow-sm glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-400 to-emerald-600 flex items-center justify-center text-white font-extrabold">DWU</div>
+          <div class="hidden sm:block">
+            <div class="text-sm font-semibold">Destination Weddings</div>
+            <div class="text-xs text-slate-500">Uganda & Beyond</div>
+          </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-2 text-sm font-medium">
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Home</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="venues.html">Venues</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Wedding Packages</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Real Weddings</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Plan Your Wedding</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Vendors</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Gallery</a>
+          <a class="px-3 py-2 rounded hover:bg-slate-100" href="#">Blog</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button id="favoritesBtn" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-md border text-sm">♥ Favorites</button>
+          <a id="bookConsult" href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-semibold shadow">Book Consultation</a>
+          <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t bg-white">
+      <div class="px-4 py-3 space-y-1">
+        <a class="block px-3 py-2 rounded" href="#">Home</a>
+        <a class="block px-3 py-2 rounded" href="venues.html">Venues</a>
+        <a class="block px-3 py-2 rounded" href="#">Wedding Packages</a>
+        <a class="block px-3 py-2 rounded" href="#">Real Weddings</a>
+        <a class="block px-3 py-2 rounded" href="#">Plan Your Wedding</a>
+        <a class="block px-3 py-2 rounded" href="#">Vendors</a>
+        <a class="block px-3 py-2 rounded" href="#">Gallery</a>
+        <a class="block px-3 py-2 rounded" href="#">Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero -->
+    <section class="relative rounded-2xl overflow-hidden shadow-lg">
+      <div id="heroSlides" class="flex transition-transform duration-700 ease-in-out">
+        <div class="hero-slide w-full flex flex-col md:flex-row items-center gap-6 p-8 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22720%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23efe9e3%22/></svg>')] bg-cover bg-center">
+          <div class="md:w-2/3">
+            <span class="inline-block bg-white/80 text-xs px-3 py-1 rounded-full font-semibold">Luxury Destination Weddings</span>
+            <h1 class="mt-4 text-3xl md:text-4xl font-serif font-bold leading-tight">Your Dream Wedding in Uganda — Effortless, Luxurious, Unforgettable</h1>
+            <p class="mt-3 text-slate-600 max-w-xl">We craft destination weddings with local expertise and global standards — legal guidance, travel logistics, and bespoke design included.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <button id="heroBook" class="px-5 py-3 rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-semibold shadow">Book Consultation</button>
+              <button id="openPlanner" class="px-5 py-3 rounded-md border border-emerald-600 text-emerald-600 font-semibold">Quick Planner</button>
+            </div>
+            <div class="mt-4 flex items-center gap-4 text-sm text-slate-500">
+              <div class="flex items-center gap-2"><span>Trusted by <strong>120+</strong> couples</span></div>
+              <div class="hidden sm:flex items-center gap-2">• Featured in travel & lifestyle press</div>
+            </div>
+          </div>
+
+          <aside class="md:w-1/3 bg-white/80 rounded-xl p-4 shadow-inner">
+            <div class="text-sm font-semibold text-emerald-700">360° Virtual Tours</div>
+            <div class="mt-3 text-slate-600 text-sm">Explore venues with immersive tours and request a private walkthrough.</div>
+            <div class="mt-4">
+              <div class="h-40 rounded-lg bg-gray-100"></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-slide w-full flex flex-col md:flex-row items-center gap-6 p-8 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22720%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef7f9%22/></svg>')] bg-cover bg-center">
+          <div class="md:w-2/3">
+            <span class="inline-block bg-white/80 text-xs px-3 py-1 rounded-full font-semibold">Transparent Pricing</span>
+            <h2 class="mt-4 text-3xl md:text-4xl font-serif font-bold leading-tight">Transparent Pricing, No Surprises — Packages for Every Couple</h2>
+            <p class="mt-3 text-slate-600 max-w-xl">Choose Silver, Gold, or Platinum — or let us craft a custom package that fits your vision and budget.</p>
+            <div class="mt-6 flex gap-3">
+              <button id="heroQuote" class="px-5 py-3 rounded-md bg-amber-500 text-white font-semibold">Get Instant Quote</button>
+              <button id="viewPackages" class="px-5 py-3 rounded-md border border-amber-500 text-amber-600 font-semibold">View Packages</button>
+            </div>
+          </div>
+
+          <aside class="md:w-1/3 bg-white/80 rounded-xl p-4 shadow-inner">
+            <div class="text-sm font-semibold text-amber-700">Luxury Venues</div>
+            <div class="mt-3 text-slate-600 text-sm">Lakeside estates, safari lodges, private islands — curated for privacy and beauty.</div>
+            <div class="mt-4">
+              <div class="h-40 rounded-lg bg-gray-100"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- slider dots -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div class="dot active" data-index="0" aria-label="Slide 1" role="button" tabindex="0"></div>
+        <div class="dot" data-index="1" aria-label="Slide 2" role="button" tabindex="0"></div>
+      </div>
+    </section>
+
+    <!-- Quick Planner -->
+    <section class="mt-6">
+      <div class="bg-white rounded-xl shadow p-4 md:p-6 -mt-10 relative z-10">
+        <form id="plannerForm" class="grid grid-cols-1 md:grid-cols-5 gap-3 items-end">
+          <div>
+            <label class="text-xs text-slate-500">Wedding Date</label>
+            <input id="date" type="date" class="mt-1 w-full rounded-md border px-3 py-2" />
+          </div>
+          <div>
+            <label class="text-xs text-slate-500">Guest Count</label>
+            <input id="guests" type="number" min="1" value="80" class="mt-1 w-full rounded-md border px-3 py-2" />
+          </div>
+          <div>
+            <label class="text-xs text-slate-500">Budget (USD)</label>
+            <select id="budget" class="mt-1 w-full rounded-md border px-3 py-2">
+              <option value="3000">&lt; $5,000</option>
+              <option value="8000">$5,000 - $15,000</option>
+              <option value="20000">$15,000 - $40,000</option>
+              <option value="50000">&gt; $40,000</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-slate-500">Preferred Region</label>
+            <select id="region" class="mt-1 w-full rounded-md border px-3 py-2">
+              <option value="kampala">Kampala & Central</option>
+              <option value="murchison">Murchison Falls</option>
+              <option value="bwindi">Bwindi & Southwest</option>
+              <option value="lakevictoria">Lake Victoria</option>
+            </select>
+          </div>
+          <div class="md:col-span-1">
+            <button id="plannerSubmit" class="w-full rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 text-white py-2 font-semibold">Find Matches</button>
+          </div>
+        </form>
+
+        <div id="plannerSuggestions" class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- Featured Venues -->
+    <section class="mt-8">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold">Featured Venues</h2>
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-2 rounded-full border text-sm filterBtn" data-filter="all">All</button>
+          <button class="px-3 py-2 rounded-full border text-sm filterBtn" data-filter="outdoor">Outdoor</button>
+          <button class="px-3 py-2 rounded-full border text-sm filterBtn" data-filter="indoor">Indoor</button>
+          <button class="px-3 py-2 rounded-full border text-sm filterBtn" data-filter="360">360°</button>
+        </div>
+      </div>
+
+      <div id="venuesGrid" class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Packages preview -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Wedding Packages</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-white rounded-xl shadow p-6">
+          <h3 class="text-lg font-semibold">Silver</h3>
+          <div class="text-2xl font-extrabold text-emerald-700 mt-2">$3,500</div>
+          <p class="mt-3 text-slate-600">Venue coordination; basic decor; 4-hour coverage; 50 guests.</p>
+          <div class="mt-4 flex gap-3">
+            <button class="px-4 py-2 rounded-md bg-amber-500 text-white font-semibold">Select Silver</button>
+            <button class="px-4 py-2 rounded-md border">Download PDF</button>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow p-6">
+          <h3 class="text-lg font-semibold">Gold</h3>
+          <div class="text-2xl font-extrabold text-emerald-700 mt-2">$12,000</div>
+          <p class="mt-3 text-slate-600">Full planning; premium decor; 8-hour coverage; 120 guests.</p>
+          <div class="mt-4 flex gap-3">
+            <button class="px-4 py-2 rounded-md bg-amber-500 text-white font-semibold">Select Gold</button>
+            <button class="px-4 py-2 rounded-md border">Download PDF</button>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow p-6">
+          <h3 class="text-lg font-semibold">Platinum</h3>
+          <div class="text-2xl font-extrabold text-emerald-700 mt-2">$35,000</div>
+          <p class="mt-3 text-slate-600">Luxury planning; bespoke design; destination logistics; VIP services.</p>
+          <div class="mt-4 flex gap-3">
+            <button class="px-4 py-2 rounded-md bg-amber-500 text-white font-semibold">Select Platinum</button>
+            <button class="px-4 py-2 rounded-md border">Download PDF</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Real Weddings carousel -->
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold">Real Weddings</h2>
+      <div class="mt-4 flex gap-4 overflow-x-auto pb-4">
+        <article class="min-w-[280px] bg-white rounded-xl shadow p-4">
+          <div class="h-40 rounded-lg img-placeholder bg-gray-100"></div>
+          <h3 class="mt-3 font-semibold">Sarah & James — Lake Victoria</h3>
+          <p class="text-sm text-slate-500 mt-1">Budget: $18,000 • Lakeside ceremony</p>
+        </article>
+
+        <article class="min-w-[280px] bg-white rounded-xl shadow p-4">
+          <div class="h-40 rounded-lg img-placeholder bg-gray-100"></div>
+          <h3 class="mt-3 font-semibold">Amira & Paul — Murchison</h3>
+          <p class="text-sm text-slate-500 mt-1">Budget: $28,000 • Safari lodge celebration</p>
+        </article>
+
+        <article class="min-w-[280px] bg-white rounded-xl shadow p-4">
+          <div class="h-40 rounded-lg img-placeholder bg-gray-100"></div>
+          <h3 class="mt-3 font-semibold">Grace & Michael — Kampala</h3>
+          <p class="text-sm text-slate-500 mt-1">Budget: $9,500 • City ballroom</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="mt-10 bg-white rounded-xl shadow p-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="flex flex-col gap-2">
+        <div class="text-2xl font-extrabold text-emerald-600">Experience</div>
+        <p class="text-sm text-slate-600">Over a decade planning destination weddings across East Africa.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <div class="text-2xl font-extrabold text-amber-600">Awards & Partners</div>
+        <p class="text-sm text-slate-600">Trusted partners: hotels, airlines, legal advisors.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <div class="text-2xl font-extrabold text-slate-700">Local Expertise</div>
+        <p class="text-sm text-slate-600">Legal & travel guidance for international couples.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <div class="text-2xl font-extrabold text-slate-700">24/7 Support</div>
+        <p class="text-sm text-slate-600">On-the-ground coordination and emergency support.</p>
+      </div>
+    </section>
+
+    <!-- Vendor highlights & Blog preview -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold">Vendor Highlights</h3>
+        <ul class="mt-3 space-y-3 text-sm text-slate-600">
+          <li>Top photographers • Caterers • Florists</li>
+          <li>Curated vendor packages with reviews</li>
+          <li>Invite vendors to quote directly</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold">Latest Guides</h3>
+        <article class="mt-3">
+          <a href="#" class="text-slate-800 font-semibold">How to plan a lakeside wedding in Uganda</a>
+          <p class="text-sm text-slate-500 mt-1">Checklist, timeline, and vendor recommendations.</p>
+        </article>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="font-semibold">Luxury Gallery</h3>
+        <div class="mt-3 grid grid-cols-2 gap-2">
+          <div class="h-20 rounded bg-gray-100"></div>
+          <div class="h-20 rounded bg-gray-100"></div>
+          <div class="h-20 rounded bg-gray-100"></div>
+          <div class="h-20 rounded bg-gray-100"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter & Final CTA -->
+    <section class="mt-10 bg-gradient-to-r from-amber-50 to-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <h3 class="text-xl font-semibold">Start Planning Your Dream Wedding</h3>
+        <p class="text-sm text-slate-600">Book a free consultation and receive a custom quote within 48 hours.</p>
+      </div>
+      <div class="flex gap-3 items-center">
+        <form id="newsletterForm" class="flex gap-2">
+          <input id="newsletterEmail" type="email" placeholder="Email address" class="rounded-md border px-3 py-2" />
+          <button class="rounded-md bg-emerald-600 text-white px-4 py-2 font-semibold">Subscribe</button>
+        </form>
+        <button id="finalBook" class="rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 text-white px-4 py-2 font-semibold">Book Consultation</button>
+      </div>
+    </section>
+
+    <footer class="mt-10 text-sm text-slate-500">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© <strong>Destination Weddings Uganda</strong> — Crafted with care</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:underline">Privacy</a>
+          <a href="#" class="hover:underline">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <button id="whatsappBtn" class="fixed right-6 bottom-6 z-50 flex items-center gap-3 bg-gradient-to-br from-green-500 to-teal-700 text-white px-4 py-3 rounded-full shadow-lg">
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M20 4.5L4.5 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="text-sm font-semibold">WhatsApp</span>
+  </button>
+
+  <!-- Modal backdrop -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-60">
+    <div class="bg-white rounded-xl max-w-2xl w-full p-6 relative">
+      <button id="modalClose" class="absolute right-4 top-4 text-slate-500">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    /* jQuery v4 implementation for interactions */
+    $(function () {
+      /* Hero slider */
+      const $slides = $('#heroSlides');
+      const $dots = $('.dot');
+      let idx = 0;
+      function showSlide(i) {
+        idx = i;
+        $slides.css('transform', 'translateX(' + (-i * 100) + '%)');
+        $dots.removeClass('active').filter('[data-index="' + i + '"]').addClass('active');
+      }
+      $dots.on('click', function () { showSlide(+$(this).data('index')); });
+      setInterval(function () { showSlide((idx + 1) % $dots.length); }, 7000);
+
+      /* Mobile nav toggle */
+      $('#mobileMenuBtn').on('click', function () { $('#mobileNav').toggleClass('hidden'); });
+
+      /* Sample data */
+      const venues = [
+        {id:1,name:'Lakeside Estate',region:'lakevictoria',type:'outdoor',price:8000,capacity:150,has360:true},
+        {id:2,name:'Safari Lodge',region:'murchison',type:'outdoor',price:22000,capacity:200,has360:true},
+        {id:3,name:'City Ballroom',region:'kampala',type:'indoor',price:5000,capacity:120,has360:false},
+        {id:4,name:'Private Villa',region:'bwindi',type:'indoor',price:15000,capacity:80,has360:false},
+        {id:5,name:'Island Retreat',region:'lakevictoria',type:'outdoor',price:30000,capacity:60,has360:true}
+      ];
+
+      /* Favorites (localStorage) helpers */
+      function getFavs(){ try{ return JSON.parse(localStorage.getItem('dw_favs')||'[]'); }catch(e){ return []; } }
+      function isFavorite(id){ return getFavs().includes(String(id)); }
+      function toggleFavorite(id){
+        const favs = getFavs();
+        const s = String(id);
+        const idx = favs.indexOf(s);
+        if(idx === -1) favs.push(s); else favs.splice(idx,1);
+        localStorage.setItem('dw_favs', JSON.stringify(favs));
+      }
+      window.toggleFavorite = toggleFavorite;
+      window.isFavorite = isFavorite;
+
+      /* Render venues grid */
+      function renderVenues(list) {
+        const $grid = $('#venuesGrid').empty();
+        list.forEach(v => {
+          const $card = $(`
+            <article class="bg-white rounded-xl shadow p-4">
+              <div class="h-40 rounded bg-gray-100 mb-3"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="font-semibold">${v.name}</div>
+                  <div class="text-sm text-slate-500">${v.capacity} guests • ${v.region}</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-emerald-700 font-extrabold">$${v.price.toLocaleString()}</div>
+                  <div class="mt-2 flex flex-col gap-2">
+                    <button class="px-3 py-2 rounded bg-amber-500 text-white viewVenue" data-id="${v.id}">View</button>
+                    <button class="px-3 py-2 rounded border saveFav" data-id="${v.id}">${isFavorite(v.id) ? 'Saved' : 'Save'}</button>
+                  </div>
+                </div>
+              </div>
+              ${v.has360 ? '<div class="mt-3 inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">360° Tour</div>' : ''}
+            </article>
+          `);
+          $grid.append($card);
+        });
+      }
+      renderVenues(venues);
+
+      /* Planner: match logic and suggestions */
+      $('#plannerForm').on('submit', function (e) {
+        e.preventDefault();
+        const guests = parseInt($('#guests').val() || 80, 10);
+        const budget = parseInt($('#budget').val() || 8000, 10);
+        const region = $('#region').val();
+        let matches = venues.filter(v => v.region === region && v.capacity >= Math.max(guests,50));
+        if(!matches.length) matches = venues.slice().sort((a,b) => Math.abs(a.capacity - guests) - Math.abs(b.capacity - guests));
+        const $s = $('#plannerSuggestions').empty();
+        matches.slice(0,3).forEach(v => {
+          const $card = $(`
+            <div class="bg-white rounded-xl shadow p-4">
+              <div class="h-28 rounded bg-gray-100 mb-3"></div>
+              <div class="font-semibold">${v.name}</div>
+              <div class="text-sm text-slate-500">${v.capacity} guests • $${v.price.toLocaleString()}</div>
+              <div class="mt-3 flex gap-2">
+                <button class="px-3 py-2 rounded bg-emerald-600 text-white text-sm requestQuote" data-id="${v.id}">Request Quote</button>
+                <button class="px-3 py-2 rounded border text-sm saveFav" data-id="${v.id}">${isFavorite(v.id) ? 'Saved' : 'Save'}</button>
+              </div>
+            </div>
+          `);
+          $s.append($card);
+        });
+      });
+
+      /* Delegated click handlers */
+      $(document).on('click', '.saveFav', function () {
+        const id = $(this).data('id');
+        toggleFavorite(id);
+        $(this).text(isFavorite(id) ? 'Saved' : 'Save');
+      });
+
+      $(document).on('click', '.requestQuote', function () {
+        openModal(`<h3 class="text-lg font-semibold">Request Quote</h3><p class="mt-2 text-sm text-slate-600">A planner will contact you within 48 hours.</p><div class="mt-4"><button id="modalBook" class="px-4 py-2 rounded bg-emerald-600 text-white">Book Consultation</button></div>`);
+      });
+
+      $(document).on('click', '.viewVenue', function () {
+        const id = $(this).data('id');
+        const v = venues.find(x => x.id == id);
+        openModal(`<h3 class="text-lg font-semibold">${v.name}</h3><p class="mt-2 text-sm text-slate-600">${v.capacity} guests • $${v.price.toLocaleString()}</p><p class="mt-3 text-sm">Beautiful venue with private gardens and full-service catering. Amenities and 360° tour available.</p><div class="mt-4 flex gap-2"><button id="bookNow" class="px-4 py-2 rounded bg-emerald-600 text-white">Book Consultation</button><button id="tour360" class="px-4 py-2 rounded border">Start 360° Tour</button></div>`);
+      });
+
+      /* Filter buttons */
+      $('.filterBtn').on('click', function () {
+        const f = $(this).data('filter');
+        if(f === 'all') renderVenues(venues);
+        else if(f === '360') renderVenues(venues.filter(v => v.has360));
+        else renderVenues(venues.filter(v => v.type === f || v.region === f));
+      });
+
+      /* Modal helpers */
+      function openModal(html) {
+        $('#modalContent').html(html);
+        $('#modalBackdrop').removeClass('hidden');
+        setTimeout(function () {
+          $('#modalBook').on('click', function () { alert('Consultation requested — prototype'); closeModal(); });
+          $('#bookNow').on('click', function () { alert('Consultation booked — prototype'); closeModal(); });
+          $('#tour360').on('click', function () { alert('360° tour loading — prototype'); });
+        }, 50);
+      }
+      function closeModal() { $('#modalBackdrop').addClass('hidden'); $('#modalContent').empty(); }
+      $('#modalClose').on('click', closeModal);
+      $('#modalBackdrop').on('click', function (e) { if(e.target === this) closeModal(); });
+      $(document).on('keydown', function (e) { if(e.key === 'Escape') closeModal(); });
+
+      /* WhatsApp */
+      $('#whatsappBtn').on('click', function () {
+        const msg = encodeURIComponent("Hello, I'd like a consultation for a destination wedding. Date: [date], Guests: [count], Budget: [USD]");
+        window.open('https://wa.me/256700000000?text=' + msg, '_blank');
+      });
+
+      /* Newsletter */
+      $('#newsletterForm').on('submit', function (e) {
+        e.preventDefault();
+        const email = $('#newsletterEmail').val();
+        if(!email) return alert('Enter email');
+        alert('Thanks — subscription saved (prototype).');
+        $('#newsletterEmail').val('');
+      });
+
+      /* Favorites quick open */
+      $('#favoritesBtn').on('click', function () {
+        const favs = getFavs();
+        openModal(`<h3 class="text-lg font-semibold">Saved Favorites</h3><p class="mt-2 text-sm text-slate-600">${favs.length ? favs.join(', ') : 'No favorites yet.'}</p>`);
+      });
+
+      /* Book Consultation CTA */
+      $('#bookConsult, #heroBook, #finalBook').on('click', function (e) {
+        e.preventDefault();
+        openModal(`<h3 class="text-lg font-semibold">Book Consultation</h3><p class="mt-2 text-sm text-slate-600">Please provide your details and our planner will reach out within 48 hours.</p><form id="bookForm" class="mt-4 space-y-3"><input required placeholder="Name" class="w-full rounded border px-3 py-2"/><input required placeholder="Email or WhatsApp" class="w-full rounded border px-3 py-2"/><div><button class="px-4 py-2 rounded bg-emerald-600 text-white">Request Consultation</button></div></form>`);
+        setTimeout(function () {
+          $('#bookForm').on('submit', function (ev) { ev.preventDefault(); alert('Consultation requested — prototype'); closeModal(); });
+        }, 50);
+      });
+    });
+  </script>
+</body>
+</html>

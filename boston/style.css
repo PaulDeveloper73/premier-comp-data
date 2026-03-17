@@ -1,0 +1,132 @@
+:root {
+    /* =========================
+       CORE BRAND COLORS
+    ========================= */
+    --primaryColor: #000C64;
+    --primaryFgColor: #ffffff;
+
+    --secondaryColor: #d88e18;
+    --secondaryFgColor: #000C64;
+
+    --titleColor: #000C64;
+    --bodyColor: #616C74;
+
+    --whiteColor: #ffffff;
+
+    /* =========================
+       UI COLORS
+    ========================= */
+    --borderColor: #E5E5E5;
+    --shadeColor: #F6F4EE;
+
+    /* =========================
+       TYPOGRAPHY
+    ========================= */
+    --bodyFont: "Inter", sans-serif;
+    --titleFont: "Bitter", serif;
+
+    /* =========================
+       LAYOUT
+    ========================= */
+    --rs-container-width: 1300px;
+    --rs-container-gutter: 20px;
+
+    /* =========================
+       ANIMATION
+    ========================= */
+    --transition: all 0.3s ease;
+
+    /* =========================
+       COMPONENT TOKENS
+    ========================= */
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #000C64;
+
+    --page-title-display: block;
+    --direction-multiplier: 1;
+
+    /* =========================
+       DATA TABLE
+    ========================= */
+    --dt-row-hover-alpha: 0.035;
+    --dt-row-stripe-alpha: 0.023;
+    --dt-row-selected: 13, 110, 253;
+    --dt-row-selected-text: 255, 255, 255;
+
+    /* =========================
+       WORDPRESS COLORS (NORMALIZED)
+    ========================= */
+    --wp--preset--color--black: #000000;
+    --wp--preset--color--white: #ffffff;
+    --wp--preset--color--vivid-red: #850103;
+    --wp--preset--color--luminous-vivid-orange: #d88e18;
+    --wp--preset--color--luminous-vivid-amber: #d88e18;
+    --wp--preset--color--vivid-cyan-blue: #000C64;
+
+    /* =========================
+       WORDPRESS GRADIENTS (NORMALIZED)
+    ========================= */
+    --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, #000C64 0%, #9b51e0 100%);
+    --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, #d88e18 0%, #d88e18 100%);
+    --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, #d88e18 0%, #850103 100%);
+    --wp--preset--gradient--midnight: linear-gradient(135deg, #000C64 0%, #000C64 100%);
+
+    /* =========================
+       ELEMENTOR COLORS (NORMALIZED)
+    ========================= */
+    --e-a-color-primary: #000C64;
+    --e-a-color-primary-bold: #000C64;
+    --e-a-color-secondary: #515962;
+    --e-a-color-success: #0a875a;
+    --e-a-color-danger: #850103;
+    --e-a-color-info: #000C64;
+    --e-a-color-warning: #d88e18;
+    --e-a-color-accent: #850103;
+
+    /* =========================
+       ELEMENTOR BACKGROUNDS
+    ========================= */
+    --e-a-bg-primary: #f5f7ff;
+    --e-a-bg-secondary: #515962;
+    --e-a-bg-success: #f2fdf5;
+    --e-a-bg-info: #eef2ff;
+    --e-a-bg-danger: #fff1f1;
+    --e-a-bg-warning: #fff8eb;
+
+    /* =========================
+       BUTTONS (NORMALIZED)
+    ========================= */
+    --e-a-btn-bg: #515962;
+
+    --e-a-btn-bg-primary: #000C64;
+    --e-a-btn-bg-primary-hover: #000C64;
+    --e-a-btn-bg-primary-active: #000C64;
+
+    --e-a-btn-bg-accent: #850103;
+    --e-a-btn-bg-accent-hover: #850103;
+    --e-a-btn-bg-accent-active: #850103;
+
+    --e-a-btn-bg-info: #000C64;
+    --e-a-btn-bg-info-hover: #000C64;
+    --e-a-btn-bg-info-active: #000C64;
+
+    --e-a-btn-bg-warning: #d88e18;
+    --e-a-btn-bg-warning-hover: #d88e18;
+    --e-a-btn-bg-warning-active: #d88e18;
+
+    --e-a-btn-bg-danger: #850103;
+    --e-a-btn-bg-danger-hover: #850103;
+    --e-a-btn-bg-danger-active: #850103;
+
+    /* =========================
+       SHADOWS
+    ========================= */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.2);
+    --primary-100: #e6e8f5;
+    --primary-500: #000C64;
+    --primary-700: #00094a;
+    --danger-500: #850103;
+    --warning-500: #d88e18;
+}
