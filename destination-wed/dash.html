@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celebration Venues Capacity Chart</title>
+
+<style>
+:root {
+    --warning-500: #e2a49c;
+    --warning-600: #d78075;
+    --warning-700: #cb5c4d;
+    --text-dark: #333;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-light);
+    margin: 0;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--warning-700);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Header */
+thead {
+    background: var(--warning-700);
+    color: white;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Section Titles */
+.section-row td {
+    background: var(--warning-600);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Body rows */
+tbody tr {
+    transition: 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+    background: #fdf2f1;
+}
+
+tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+tbody tr:hover {
+    background: var(--warning-500);
+    color: white;
+}
+
+/* Cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+/* Footer */
+.footer {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Celebration Venues Capacity Chart</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Venue</th>
+                <th>Total (m²)</th>
+                <th>Dimensions (m)</th>
+                <th>Banquet Setup</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!-- Outdoor -->
+            <tr class="section-row">
+                <td colspan="4">OUTDOOR VENUES</td>
+            </tr>
+
+            <tr>
+                <td>Lakeside</td>
+                <td>11,253</td>
+                <td>121 × 93</td>
+                <td>3,000</td>
+            </tr>
+            <tr>
+                <td>Lower Peachhub</td>
+                <td>11,000</td>
+                <td>110 × 100</td>
+                <td>1,500</td>
+            </tr>
+            <tr>
+                <td>Flagmast</td>
+                <td>4,240</td>
+                <td>80 × 53</td>
+                <td>1,000</td>
+            </tr>
+            <tr>
+                <td>Peachub Garden</td>
+                <td>2,268</td>
+                <td>50.4 × 45</td>
+                <td>1,000</td>
+            </tr>
+            <tr>
+                <td>Mango Garden</td>
+                <td>2,200</td>
+                <td>55 × 40</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>Munyonyo Commonwealth Poolside</td>
+                <td>2,160</td>
+                <td>78 × 27</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>Speke Ballroom Garden</td>
+                <td>1,935</td>
+                <td>49 × 39.5</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>Speke Resort Poolside</td>
+                <td>1,368</td>
+                <td>78 × 17.5</td>
+                <td>450</td>
+            </tr>
+            <tr>
+                <td>Marina Restaurant</td>
+                <td>340</td>
+                <td>20 × 17</td>
+                <td>120</td>
+            </tr>
+
+            <!-- Indoor -->
+            <tr class="section-row">
+                <td colspan="4">INDOOR VENUES</td>
+            </tr>
+
+            <tr>
+                <td>Speke Ballroom</td>
+                <td>1,140</td>
+                <td>63 × 17.6</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>Victoria Ballroom</td>
+                <td>957</td>
+                <td>27.8 × 34.4</td>
+                <td>750</td>
+            </tr>
+            <tr>
+                <td>Commonwealth Banquet Hall</td>
+                <td>332</td>
+                <td>22.9 × 14.5</td>
+                <td>200</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Showing 1 to 12 of 12 entries
+    </div>
+
+</div>
+
+</body>
+</html>
