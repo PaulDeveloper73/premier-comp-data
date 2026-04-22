@@ -9,41 +9,36 @@
 :root {
     --warning-500: #e2a49c;
     --warning-600: #d78075;
-    --warning-700: #cb5c4d;
+    --warning-700: #eee;
     --text-dark: #333;
     --bg-light: #f9f9f9;
     --white: #ffffff;
 }
 
-body {
+.kps123-container {
     font-family: Arial, sans-serif;
     background: var(--bg-light);
-    margin: 0;
-    padding: 30px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    background: var(--white);
     padding: 20px;
     border-radius: 10px;
+    max-width: 1100px;
+    margin: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.header {
+.kps123-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
 }
 
-h2 {
-    color: var(--warning-700);
+.kps123-title {
+    color: var(--text-dark);
+    margin: 0;
 }
 
-/* Search box */
-.search-box input {
+/* Search */
+.kps123-search input {
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -51,59 +46,59 @@ h2 {
     width: 220px;
 }
 
-.search-box input:focus {
+.kps123-search input:focus {
     border-color: var(--warning-600);
 }
 
 /* Table */
-table {
+.kps123-table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 8px;
     overflow: hidden;
 }
 
-thead {
+.kps123-table thead {
     background: var(--warning-700);
-    color: white;
+    color: var(--text-dark)
 }
 
-thead th {
+.kps123-table th {
     padding: 12px;
     text-align: left;
 }
 
-.section-row td {
+.kps123-section-row td {
     background: var(--warning-600);
     color: white;
     font-weight: bold;
     padding: 10px;
 }
 
-tbody tr:nth-child(even) {
+.kps123-table tbody tr:nth-child(even) {
     background: #fdf2f1;
 }
 
-tbody tr:nth-child(odd) {
+.kps123-table tbody tr:nth-child(odd) {
     background: #fff;
 }
 
-tbody tr:hover {
+.kps123-table tbody tr:hover {
     background: var(--warning-500);
     color: white;
 }
 
-td {
+.kps123-table td {
     padding: 10px;
     border-bottom: 1px solid #eee;
     color: var(--text-dark);
 }
 
-.hidden {
+.kps123-hidden {
     display: none;
 }
 
-.footer {
+.kps123-footer {
     margin-top: 10px;
     font-size: 14px;
     color: #777;
@@ -113,16 +108,16 @@ td {
 
 <body>
 
-<div class="container">
+<div class="kps123-container">
 
-    <div class="header">
-        <h2>Celebration Venues Capacity Chart</h2>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search venue...">
+    <div class="kps123-header">
+        <h2 class="kps123-title">Celebration Venues Capacity Chart</h2>
+        <div class="kps123-search">
+            <input type="text" id="kps123SearchInput" placeholder="Search venue...">
         </div>
     </div>
 
-    <table id="venueTable">
+    <table class="kps123-table" id="kps123Table">
         <thead>
             <tr>
                 <th>Venue</th>
@@ -134,7 +129,7 @@ td {
 
         <tbody>
 
-            <tr class="section-row"><td colspan="4">OUTDOOR VENUES</td></tr>
+            <tr class="kps123-section-row"><td colspan="4">OUTDOOR VENUES</td></tr>
 
             <tr><td>Lakeside</td><td>11,253</td><td>121 × 93</td><td>3,000</td></tr>
             <tr><td>Lower Peachhub</td><td>11,000</td><td>110 × 100</td><td>1,500</td></tr>
@@ -146,7 +141,7 @@ td {
             <tr><td>Speke Resort Poolside</td><td>1,368</td><td>78 × 17.5</td><td>450</td></tr>
             <tr><td>Marina Restaurant</td><td>340</td><td>20 × 17</td><td>120</td></tr>
 
-            <tr class="section-row"><td colspan="4">INDOOR VENUES</td></tr>
+            <tr class="kps123-section-row"><td colspan="4">INDOOR VENUES</td></tr>
 
             <tr><td>Speke Ballroom</td><td>1,140</td><td>63 × 17.6</td><td>800</td></tr>
             <tr><td>Victoria Ballroom</td><td>957</td><td>27.8 × 34.4</td><td>750</td></tr>
@@ -155,39 +150,38 @@ td {
         </tbody>
     </table>
 
-    <div class="footer" id="tableInfo">
+    <div class="kps123-footer" id="kps123Info">
         Showing all venues
     </div>
 
 </div>
 
 <script>
-const searchInput = document.getElementById("searchInput");
-const table = document.getElementById("venueTable");
-const rows = table.getElementsByTagName("tr");
-const info = document.getElementById("tableInfo");
+const kps123Input = document.getElementById("kps123SearchInput");
+const kps123Table = document.getElementById("kps123Table");
+const kps123Rows = kps123Table.getElementsByTagName("tr");
+const kps123Info = document.getElementById("kps123Info");
 
-searchInput.addEventListener("keyup", function () {
+kps123Input.addEventListener("keyup", function () {
     const filter = this.value.toLowerCase();
     let visibleCount = 0;
 
-    for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
+    for (let i = 1; i < kps123Rows.length; i++) {
+        const row = kps123Rows[i];
 
-        // Skip section headers
-        if (row.classList.contains("section-row")) continue;
+        if (row.classList.contains("kps123-section-row")) continue;
 
         const text = row.textContent.toLowerCase();
 
         if (text.includes(filter)) {
-            row.classList.remove("hidden");
+            row.classList.remove("kps123-hidden");
             visibleCount++;
         } else {
-            row.classList.add("hidden");
+            row.classList.add("kps123-hidden");
         }
     }
 
-    info.textContent = visibleCount + " venue(s) found";
+    kps123Info.textContent = visibleCount + " venue(s) found";
 });
 </script>
 
