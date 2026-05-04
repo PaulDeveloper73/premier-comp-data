@@ -31,6 +31,9 @@ Options -Indexes
     Deny from all
 </FilesMatch>
 
+# Set default homepage
+DirectoryIndex index.php index.html
+
 # Enable HTTPS redirect (uncomment when SSL is active)
 # <IfModule mod_rewrite.c>
 #     RewriteEngine On

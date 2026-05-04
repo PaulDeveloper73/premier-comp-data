@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - NS Compassionate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#1b365d',
+                        brandTeal: '#1d8a99',
+                        brandGold: '#c5a059',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-md w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex flex-col items-start">
+                        <span class="text-3xl font-serif text-brandNavy font-bold">NS Compassionate</span>
+                        <span class="text-sm font-semibold tracking-widest text-brandGold uppercase mt-1">Home Care Agency & Staffing LLC</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-brandTeal transition duration-300">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-brandTeal transition duration-300">About Us</a>
+                    <a href="services.html" class="text-brandTeal font-semibold border-b-2 border-brandTeal">Services</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-brandTeal transition duration-300">Contact</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-brandNavy hover:text-brandTeal focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">About Us</a>
+                <a href="services.html" class="block px-3 py-2 text-brandTeal font-bold">Services</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-brandNavy py-12 border-b-4 border-brandGold">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold text-white">Our Services [cite: 32]</h1>
+        </div>
+    </div>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2">
+                <h2 class="text-2xl font-bold text-brandNavy mb-6 border-b pb-2">What We Offer</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Personal Care Assistance [cite: 33]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Bathing and Grooming Assistance [cite: 34]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Medication Reminders [cite: 35]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Meal Preparation [cite: 36]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Light Housekeeping [cite: 37]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Companionship Services [cite: 38]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Transportation Assistance [cite: 39]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Mobility Assistance [cite: 40]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Respite Care for Families [cite: 41]
+                    </li>
+                    <li class="flex items-center text-lg text-gray-700 bg-gray-50 p-4 rounded shadow-sm border-l-4 border-brandTeal">
+                        <svg class="w-6 h-6 text-brandTeal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Staffing Support for Healthcare Facilities [cite: 42]
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-100 p-8 rounded-lg shadow-inner h-fit">
+                <h3 class="text-2xl font-bold text-brandNavy mb-6">Who We Serve [cite: 43]</h3>
+                <ul class="space-y-6">
+                    <li class="bg-white p-4 rounded border-b-4 border-brandGold shadow-sm text-gray-700">
+                        Seniors needing daily assistance [cite: 44]
+                    </li>
+                    <li class="bg-white p-4 rounded border-b-4 border-brandGold shadow-sm text-gray-700">
+                        Individuals with disabilities [cite: 45]
+                    </li>
+                    <li class="bg-white p-4 rounded border-b-4 border-brandGold shadow-sm text-gray-700">
+                        Patients recovering from illness or surgery [cite: 46]
+                    </li>
+                    <li class="bg-white p-4 rounded border-b-4 border-brandGold shadow-sm text-gray-700">
+                        Families needing temporary or long-term care support [cite: 47]
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-300 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2026 NS Compassionate Home Care Agency & Staffing LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

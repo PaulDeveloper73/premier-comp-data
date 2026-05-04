@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Compassionate Home Care Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandNavy: '#1b365d',
+                        brandTeal: '#1d8a99',
+                        brandGold: '#c5a059',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-md w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex flex-col items-start">
+                        <span class="text-3xl font-serif text-brandNavy font-bold">NS Compassionate</span>
+                        <span class="text-sm font-semibold tracking-widest text-brandGold uppercase mt-1">Home Care Agency & Staffing LLC</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-brandTeal font-semibold border-b-2 border-brandTeal">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-brandTeal transition duration-300">About Us</a>
+                    <a href="services.html" class="text-gray-600 hover:text-brandTeal transition duration-300">Services</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-brandTeal transition duration-300">Contact</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-brandNavy hover:text-brandTeal focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-brandTeal font-bold">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">About Us</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">Services</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-brandTeal">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-brandNavy text-white py-24 flex-grow flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white tracking-wide">Welcome to NS Compassionate</h1>
+            <p class="text-2xl italic text-brandTeal mb-8 font-serif">"Caring for You Like Family"</p>
+            <a href="services.html" class="bg-brandGold hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg text-lg">Explore Our Services</a>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-brandNavy mb-6 border-b-4 border-brandGold inline-block pb-2">Company Overview [cite: 2]</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                NS Compassionate Home Care Agency & Staffing LLC is a dedicated home care and staffing agency committed to providing compassionate, reliable, and professional care services to individuals who need assistance in the comfort of their own homes. [cite: 3]
+            </p>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Our agency focuses on improving the quality of life for seniors, individuals with disabilities, and those recovering from illness or injury. [cite: 4] We strive to provide care that promotes independence, dignity, and safety while supporting families with dependable and well-trained caregivers. [cite: 5]
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-300 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2026 NS Compassionate Home Care Agency & Staffing LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

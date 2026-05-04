@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartQrode | Coming Soon</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Subtle grid background pattern */
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <!-- Main Container -->
+    <div class="max-w-5xl w-full bg-white rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-gray-100">
+        
+        <!-- Left Side: Copy and Lead Capture -->
+        <div class="flex-1 p-8 md:p-14 flex flex-col justify-center items-start text-left">
+            
+            <!-- Prominent Coming Soon Badge -->
+            <div class="bg-blue-100 text-blue-800 font-bold px-5 py-2 rounded-full text-sm tracking-widest uppercase mb-8 inline-flex items-center gap-3 border border-blue-200 shadow-sm">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
+                </span>
+                Launching Soon!
+            </div>
+
+            <div class="text-xl font-extrabold text-blue-600 mb-2 tracking-tight">SmartQrode</div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                The next generation of QR management.
+            </h1>
+            
+            <p class="text-lg text-slate-600 mb-8 max-w-md leading-relaxed">
+                We are currently building something amazing. Enter your email to secure early access—you will be redirected to our WhatsApp to connect with our team directly!
+            </p>
+            
+            <!-- Subscription Form -->
+            <form id="subscribeForm" class="w-full max-w-md flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    id="emailInput"
+                    placeholder="Enter your email address" 
+                    required
+                    class="flex-1 px-5 py-4 text-base border-2 border-slate-200 rounded-xl outline-none focus:border-blue-600 transition-colors shadow-sm"
+                >
+                <button 
+                    type="submit"
+                    class="px-8 py-4 text-base font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 active:scale-95 transition-all shadow-md whitespace-nowrap"
+                >
+                    Get Access
+                </button>
+            </form>
+            <p class="text-sm text-slate-500 mt-4 font-medium">Form submits directly to our WhatsApp support line.</p>
+        </div>
+
+        <!-- Right Side: Visuals & QR Code -->
+        <div class="flex-1 bg-gradient-to-br from-blue-600 to-slate-900 flex items-center justify-center p-10 relative">
+            
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 text-center shadow-2xl animate-float">
+                <!-- Live QR Code generating the WhatsApp Link -->
+                <div class="bg-white p-3 rounded-xl inline-block mb-5 shadow-inner">
+                    <img 
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://wa.me/256774185964&color=0f172a" 
+                        alt="Scan to message on WhatsApp"
+                        class="w-48 h-48 rounded-lg"
+                    >
+                </div>
+                <h3 class="text-white font-bold tracking-widest uppercase text-sm mb-1">
+                    Scan to Chat
+                </h3>
+                <p class="text-blue-200 text-sm font-medium tracking-wide">
+                    +256 774 185 964
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- WhatsApp Redirect Script -->
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission (page reload)
+            event.preventDefault();
+            
+            // Get the email from the input
+            const email = document.getElementById('emailInput').value;
+            const whatsappNumber = "256774185964";
+            
+            // Construct the message. 
+            // The user will be able to edit this in WhatsApp before hitting "Send".
+            const message = `Hello! I am interested in SmartQrode. My email address is: ${email}. Please keep me updated when you go live!`;
+            
+            // Encode the message so it works safely in a URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Redirect the user's browser to the WhatsApp URL
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
