@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATCAN Investments Ltd - Coming Soon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        atcan: {
+                            green: '#0b4d26',     // Deep brand green
+                            lightGreen: '#f0fdf4', // Background highlight
+                            orange: '#f97316',    // Brand orange
+                            orangeHover: '#ea580c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .glass-panel {
+            background: rgba(11, 77, 38, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-900 selection:bg-atcan-orange selection:text-white">
+
+    <div class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-no-repeat"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-atcan-green/95 via-atcan-green/90 to-black/80"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <header class="w-full px-6 py-6 sm:px-12 lg:px-24 flex justify-between items-center fade-in-up">
+            <div class="flex items-center gap-2">
+                <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white">
+                    <img src="Atcan-Investments-Ltd.jpg" alt="ATCAN Logo" class="w-6 h-6 text-atcan-green absolute opacity-80">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-white font-bold text-xl tracking-wide uppercase">ATCAN</span>
+                    <span class="text-atcan-orange text-[0.6rem] uppercase font-bold tracking-wider">Investments Ltd</span>
+                </div>
+            </div>
+
+            <a href="mailto:info@atcaninvestmentsltd.com/" class="text-white text-sm font-semibold hover:text-atcan-orange transition-colors flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span class="hidden sm:inline">Contact Us</span>
+            </a>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center justify-center px-6 text-center lg:px-24">
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-atcan-orange/20 text-atcan-orange border border-atcan-orange/30 text-sm font-bold tracking-widest uppercase mb-8 fade-in-up delay-100">
+                    <span class="w-2 h-2 rounded-full bg-atcan-orange animate-pulse"></span>
+                    Coming Soon
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6 fade-in-up delay-100">
+                    Connecting Uganda's <br class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-atcan-orange">Agricultural Excellence</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light fade-in-up delay-200">
+                    We are currently upgrading our digital platform. Soon, you'll be able to explore our premium agricultural products and reliable export supply chain networks online.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 fade-in-up delay-200">
+                    <div class="glass-panel rounded-xl p-4 sm:p-6 w-24 sm:w-32 flex flex-col items-center justify-center">
+                        <span id="days" class="text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Days</span>
+                    </div>
+                    <div class="glass-panel rounded-xl p-4 sm:p-6 w-24 sm:w-32 flex flex-col items-center justify-center">
+                        <span id="hours" class="text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Hours</span>
+                    </div>
+                    <div class="glass-panel rounded-xl p-4 sm:p-6 w-24 sm:w-32 flex flex-col items-center justify-center">
+                        <span id="minutes" class="text-3xl sm:text-5xl font-bold text-white mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Minutes</span>
+                    </div>
+                    <div class="glass-panel rounded-xl p-4 sm:p-6 w-24 sm:w-32 flex flex-col items-center justify-center">
+                        <span id="seconds" class="text-3xl sm:text-5xl font-bold text-atcan-orange mb-1">00</span>
+                        <span class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="max-w-md mx-auto w-full fade-in-up delay-300">
+                    <form id="notifyForm" class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="email" 
+                            id="emailInput"
+                            placeholder="Enter your email address" 
+                            required
+                            class="w-full px-5 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-atcan-orange focus:border-transparent transition-all backdrop-blur-sm"
+                        >
+                        <button 
+                            type="submit" 
+                            class="whitespace-nowrap px-8 py-4 rounded-lg bg-atcan-orange hover:bg-atcan-orangeHover text-white font-bold transition-colors shadow-lg hover:shadow-atcan-orange/30 active:transform active:scale-95 flex justify-center items-center gap-2"
+                        >
+                            <span>Get Notified</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </form>
+                    <p id="formMessage" class="mt-4 text-sm text-yellow-400 hidden flex items-center justify-center gap-2">
+                        <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        Redirecting to WhatsApp...
+                    </p>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="w-full border-t border-white/10 glass-panel mt-12">
+            <div class="max-w-7xl mx-auto px-6 py-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-white/10">
+                    <div class="fade-in-up delay-100">
+                        <h4 class="text-2xl sm:text-3xl font-bold text-white mb-1">2,000+</h4>
+                        <p class="text-sm text-atcan-orange font-medium uppercase tracking-wider">Farmers Supported</p>
+                    </div>
+                    <div class="fade-in-up delay-200">
+                        <h4 class="text-2xl sm:text-3xl font-bold text-white mb-1">5+</h4>
+                        <p class="text-sm text-atcan-orange font-medium uppercase tracking-wider">Operational Regions</p>
+                    </div>
+                    <div class="fade-in-up delay-300">
+                        <h4 class="text-2xl sm:text-3xl font-bold text-white mb-1">100%</h4>
+                        <p class="text-sm text-atcan-orange font-medium uppercase tracking-wider">Quality Focused</p>
+                    </div>
+                    <div class="fade-in-up delay-300">
+                        <h4 class="text-2xl sm:text-3xl font-bold text-white mb-1">Global</h4>
+                        <p class="text-sm text-atcan-orange font-medium uppercase tracking-wider">Buyer Networks</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8 text-xs text-gray-400">
+                    &copy; 2026 ATCAN Investments Ltd. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // --- 1. Countdown Timer Logic ---
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 7);
+        const countDownDate = launchDate.getTime();
+
+        const updateTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(updateTimer);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+
+        // --- 2. Lead Generation & WhatsApp Redirect Logic ---
+        const form = document.getElementById('notifyForm');
+        const message = document.getElementById('formMessage');
+        const emailInput = document.getElementById('emailInput');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const email = emailInput.value;
+            
+            if(email) {
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                
+                // Show loading spinner in button
+                btn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                `;
+                btn.disabled = true;
+                
+                // Show redirecting message
+                message.classList.remove('hidden');
+
+                // Prepare WhatsApp URL and pre-filled text
+                const waNumber = '256708576617';
+                const waMessage = encodeURIComponent(`Hello ATCAN Investments! I want to be notified when you launch. My email is: ${email}`);
+                const waUrl = `https://wa.me/${waNumber}?text=${waMessage}`;
+
+                // Redirect after a brief delay
+                setTimeout(() => {
+                    window.location.href = waUrl;
+                    
+                    // Reset form state in case user navigates back
+                    setTimeout(() => {
+                        form.reset();
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        message.classList.add('hidden');
+                    }, 1000);
+                }, 1200);
+            }
+        });
+    </script>
+</body>
+</html>

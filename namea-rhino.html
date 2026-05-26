@@ -1,0 +1,30 @@
+<!-- ==================== TRIGGER BUTTONS WITH SVG INDICATOR ==================== -->
+  <!-- The relative wrapper keeps the absolute-positioned arrow anchored to the buttons -->
+  <div class="relative flex space-x-4 mt-24">
+    
+    <!-- Animated SVG Indicator -->
+    <div class="absolute -top-20 -left-6 md:-left-16 flex flex-col items-end animate-bounce pointer-events-none">
+      <!-- Call to action text -->
+      <span class="text-emerald-600 font-bold text-sm md:text-base -rotate-6 mb-1 tracking-wide bg-emerald-100 px-2 py-1 rounded-md shadow-sm">
+        Take Action!
+      </span>
+      
+      <!-- Custom hand-drawn curved arrow -->
+      <svg class="w-12 h-12 md:w-16 md:h-16 text-emerald-600 drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <!-- The curve of the arrow -->
+        <path d="M20 15 C 45 15 70 40 75 80" stroke-width="6" stroke-linecap="round" fill="none" />
+        <!-- The arrowhead pointing down to the button -->
+        <path d="M55 75 L 75 80 L 80 60" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Button 01 -->
+    <button data-modal-target="modal1" class="px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition-all hover:scale-105 active:scale-95">
+      Button 01 (Name A Rhino)
+    </button>
+
+    <!-- Button 02 -->
+    <button data-modal-target="modal2" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all hover:scale-105 active:scale-95">
+      Button 02 (Adopt A Rhino)
+    </button>
+  </div>

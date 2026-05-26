@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Popups</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center font-sans space-y-4">
+
+  <!-- ==================== TRIGGER BUTTONS ==================== -->
+  <div class="flex space-x-4">
+    <!-- Button 01 targets popup #modal1 -->
+    <button data-modal-target="modal1" class="px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition-colors">
+      Button 01 (Name A Rhino)
+    </button>
+
+    <!-- Button 02 targets popup #modal2 -->
+    <button data-modal-target="modal2" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+      Button 02 (Adopt A Rhino)
+    </button>
+  </div>
+
+  <!-- ==================== POPUP 1: NAME A RHINO ==================== -->
+  <div id="modal1" class="modal-overlay fixed inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-box bg-white rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col md:flex-row overflow-hidden relative transform scale-95 transition-transform duration-300">
+      
+      <!-- Close Button -->
+      <button data-close-button class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-white md:bg-black/20 md:text-white text-gray-600 md:hover:bg-black/40 hover:bg-gray-200 rounded-full transition-colors focus:outline-none" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Form Side -->
+      <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+        <div class="mb-8">
+          <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Name A Rhino</h2>
+          <p class="text-gray-500">Submit your best name and help protect these magnificent creatures.</p>
+        </div>
+        <form action="#" class="space-y-5">
+          <div>
+            <input type="text" placeholder="Your Full Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" required>
+          </div>
+          <div>
+            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" required>
+          </div>
+          <div>
+            <input type="text" placeholder="Proposed Rhino Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" required>
+          </div>
+          <button type="button" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg shadow transition-all transform hover:-translate-y-0.5 mt-2">
+            Submit Name
+          </button>
+        </form>
+      </div>
+
+      <!-- Image Side -->
+      <div class="hidden md:block md:w-1/2 relative bg-gray-200">
+        <img src="https://images.unsplash.com/photo-1549608276-5786777e6587?q=80&w=1000&auto=format&fit=crop" alt="Rhino" class="absolute inset-0 w-full h-full object-cover"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== POPUP 2: ADOPT A RHINO ==================== -->
+  <div id="modal2" class="modal-overlay fixed inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-box bg-white rounded-2xl shadow-2xl w-full max-w-4xl flex flex-col md:flex-row overflow-hidden relative transform scale-95 transition-transform duration-300">
+      
+      <!-- Close Button -->
+      <button data-close-button class="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-white md:bg-black/20 md:text-white text-gray-600 md:hover:bg-black/40 hover:bg-gray-200 rounded-full transition-colors focus:outline-none" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Form Side -->
+      <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+        <div class="mb-8">
+          <h2 class="text-3xl font-extrabold text-blue-900 mb-2">Adopt A Rhino</h2>
+          <p class="text-gray-500">Become a monthly sponsor and fund anti-poaching units directly.</p>
+        </div>
+        <form action="#" class="space-y-5">
+          <div>
+            <input type="text" placeholder="Sponsor Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" required>
+          </div>
+          <div>
+            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" required>
+              <option value="" disabled selected>Select Adoption Tier</option>
+              <option value="basic">Bronze - $20/month</option>
+              <option value="pro">Silver - $50/month</option>
+              <option value="hero">Gold - $100/month</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" placeholder="Card Number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" required>
+          </div>
+          <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow transition-all transform hover:-translate-y-0.5 mt-2">
+            Start Adoption
+          </button>
+        </form>
+      </div>
+
+      <!-- Image Side -->
+      <div class="hidden md:block md:w-1/2 relative bg-gray-200">
+        <img src="https://images.unsplash.com/photo-1534346123984-c5a0bf1f6fc9?q=80&w=1000&auto=format&fit=crop" alt="Baby Rhino" class="absolute inset-0 w-full h-full object-cover"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VANILLA JS ==================== -->
+  <script>
+    // Grab all elements we need to interact with
+    const openButtons = document.querySelectorAll('[data-modal-target]');
+    const closeButtons = document.querySelectorAll('[data-close-button]');
+    const overlays = document.querySelectorAll('.modal-overlay');
+
+    // 1. Open Modals based on the data-modal-target attribute
+    openButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal-target');
+        const overlay = document.getElementById(modalId);
+        openModal(overlay);
+      });
+    });
+
+    // 2. Close Modals based on the close button clicked
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Find the closest parent element with the 'modal-overlay' class
+        const overlay = button.closest('.modal-overlay');
+        closeModal(overlay);
+      });
+    });
+
+    // 3. Close when clicking the dark background overlay
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay);
+      });
+    });
+
+    // 4. Close when pressing the 'Escape' key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        // Find whichever modal is currently open (not opacity-0)
+        const openOverlay = document.querySelector('.modal-overlay:not(.opacity-0)');
+        if (openOverlay) closeModal(openOverlay);
+      }
+    });
+
+    // --- Helper Functions ---
+    function openModal(overlay) {
+      if (!overlay) return;
+      const modalBox = overlay.querySelector('.modal-box');
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      modalBox.classList.remove('scale-95');
+      modalBox.classList.add('scale-100');
+    }
+
+    function closeModal(overlay) {
+      if (!overlay) return;
+      const modalBox = overlay.querySelector('.modal-box');
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      modalBox.classList.remove('scale-100');
+      modalBox.classList.add('scale-95');
+    }
+  </script>
+</body>
+</html>
