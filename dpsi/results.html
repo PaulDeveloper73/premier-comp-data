@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPSI Board Examination Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        schoolGreen: '#166534', /* Deep green matching DPSI */
+                        schoolOrange: '#f97316', /* Bright orange for accents */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200">
+        
+        <div class="bg-white p-6 md:p-8 border-b border-gray-200">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-full h-auto  flex items-center justify-center text-schoolGreen font-bold flex-col shadow-sm">
+                       
+                        <img src="https://dpsuganda.com/wp-content/uploads/2023/04/Delhi-Public-School-International-Kampala-Uganda.png" alt="DPS Logo" class="w-64 h-auto object-contain">
+                    </div>
+                    <div>
+                        <!-- <h1 class="text-2xl font-bold text-schoolGreen tracking-wide uppercase">Delhi Public School</h1>
+                        <h2 class="text-lg font-semibold text-gray-600 uppercase tracking-widest">International</h2>
+                        <p class="text-sm text-gray-500 italic">Kampala - Uganda</p> -->
+                    </div>
+                </div>
+
+                <div class="text-right text-sm font-bold text-gray-600 flex flex-col gap-1">
+                    <p class="text-schoolGreen font-bold">AFFILIATED TO CENTRAL BOARD OF SECONDARY EDUCATION - NEW DELHI</p>
+                    <p class="text-schoolGreen"><span class="text-schoolGreen">AFFILIATION NO:</span> 7630001 <span class="mx-2 text-gray-300">|</span> <span class="text-schoolGreen">AFFILIATION PERIOD</span> 2017 - 2022</p>
+                    <p class="text-schoolGreen"><span class="text-schoolGreen">AFFILIATION TYPE:</span> SENIOR SECONDARY SCHOOL <span class="mx-2 text-schoolGreen">|</span> <span class="text-schoolGreen">SCHOOL CODE:</span> 90014</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full h-48 md:h-64 bg-schoolGreen relative overflow-hidden">
+            <img src="https://dpsuganda.com/wp-content/uploads/2026/05/dpsi-school.jpg" alt="School Building" class="w-full h-full object-cover opacity-80 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-schoolGreen/90 to-transparent flex items-end">
+                <h2 class="text-white text-2xl md:text-3xl font-bold p-6 md:p-8 uppercase tracking-wider drop-shadow-md">
+                    Last Eight Years' Results of the Board Examinations
+                </h2>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-12">
+
+            <div>
+                <h3 class="text-2xl font-semibold text-schoolGreen mb-4 border-l-4 border-schoolOrange pl-3">Class: X Results</h3>
+                <div class="overflow-x-auto shadow-sm ring-1 ring-black ring-opacity-5 rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <thead class="bg-schoolGreen text-white">
+                            <tr>
+                                <th scope="col" class="py-4 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">Academic Year</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">No. of registered students</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">No. of students passed</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">Pass percentage</th>
+                                <th scope="col" class="py-4 pl-3 pr-4 text-left text-sm font-semibold sm:pr-6">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2018</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">44</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">44</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2019</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">59</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">58</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolOrange">98.31%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">58 Passed & 1 Student - Absent</td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2020</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">58</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">58</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2021</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">47</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">47</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2022 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">52</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">52</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2023 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">60</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">59</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolOrange">98.33%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">59 Passed & 1 Student - Absent</td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2024 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">65</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">65</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors border-b-4 border-schoolGreen">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2025 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">68</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">68</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-schoolGreen mb-4 border-l-4 border-schoolOrange pl-3">Class: XII Results</h3>
+                <div class="overflow-x-auto shadow-sm ring-1 ring-black ring-opacity-5 rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <thead class="bg-schoolGreen text-white">
+                            <tr>
+                                <th scope="col" class="py-4 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">Academic Year</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">No. of registered students</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">No. of students passed</th>
+                                <th scope="col" class="px-3 py-4 text-center text-sm font-semibold">Pass percentage</th>
+                                <th scope="col" class="py-4 pl-3 pr-4 text-left text-sm font-semibold sm:pr-6">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2018</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">24</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">24</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2019</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">33</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">32</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolOrange">96.97%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed<br><span class="text-xs text-gray-500">(1 student's result revised)</span></td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2020</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">33</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">33</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-gray-900 sm:pl-6">2021</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">52</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">52</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2022 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">55</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">55</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2023 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">58</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">58</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="hover:bg-green-50 transition-colors">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2024 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">62</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">62</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                            <tr class="bg-gray-50 hover:bg-green-50 transition-colors border-b-4 border-schoolGreen">
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-bold text-schoolOrange sm:pl-6 flex items-center gap-2">2025 <span class="px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-800">New</span></td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">65</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center text-gray-700">65</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center font-semibold text-schoolGreen">100%</td>
+                                <td class="py-4 pl-3 pr-4 text-sm text-gray-700 sm:pr-6">All Students Passed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
