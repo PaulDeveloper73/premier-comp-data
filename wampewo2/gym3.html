@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Health Gym - Speke Apartments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gymGold: '#dfa921',
+                        gymDark: '#121212',
+                        gymCard: '#1a1a1a',
+                        gymGray: '#f8f8f8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        condensed: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #fcfcfc;}
+        h1, h2, h3, h4, .font-condensed { font-family: 'Oswald', sans-serif; }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .promo-bg { background-size: cover; background-position: center; position: relative; }
+        .promo-bg::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%);
+            border-radius: 0.5rem;
+        }
+
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <nav class="absolute w-full z-50 bg-black/50 backdrop-blur-sm border-b border-white/10 px-6 py-4 flex justify-between items-center transition-all duration-300 hover:bg-black/80">
+        <div class="flex items-center gap-4">
+            <img src="https://placehold.co/200x60/transparent/FFF?text=SPEKE+APARTMENTS" alt="Logo" class="h-10">
+        </div>
+        <ul class="hidden lg:flex space-x-6 text-xs font-semibold uppercase tracking-widest text-white">
+            <li><a href="#" class="hover:text-gymGold transition">Home</a></li>
+            <li><a href="#" class="hover:text-gymGold transition">Amenities</a></li>
+            <li><a href="#" class="hover:text-gymGold transition">Dining</a></li>
+            <li><a href="#" class="hover:text-gymGold transition">Spa & Salon</a></li>
+            <li><a href="#" class="text-gymGold border-b-2 border-gymGold pb-1">Gym Club</a></li>
+            <li><a href="#" class="hover:text-gymGold transition">Contact & Location</a></li>
+        </ul>
+        <div class="flex items-center gap-4">
+            <button class="bg-gymGold/90 text-white px-6 py-2.5 rounded font-bold uppercase text-xs hover:bg-gymGold transition flex items-center gap-2 tracking-wider">
+                <i class="far fa-calendar-alt"></i> Book a Class
+            </button>
+            <a href="#" class="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl hover:bg-green-600 transition shadow-lg">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-section text-white pt-40 pb-28 px-6 lg:px-12 relative border-b-8 border-gymDark">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
+            
+            <div class="lg:w-3/5 z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-1 uppercase tracking-tight text-white drop-shadow-lg">The Health Gym</h1>
+                <h2 class="text-4xl md:text-5xl font-bold text-gymGold mb-6 uppercase tracking-tight drop-shadow-lg">Train. Relax. Recharge.</h2>
+                <p class="text-lg md:text-xl mb-8 font-light text-gray-200">
+                    State-of-the-art gym | Expert Trainers | <br>
+                    Heated Pool | Steam & Sauna | <br>
+                    Fitness Classes for Everyone
+                </p>
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <button class="bg-gymGold text-white px-8 py-3.5 rounded font-bold uppercase text-sm hover:bg-yellow-600 transition tracking-wider shadow-lg shadow-gymGold/30">
+                        Book Your Class
+                    </button>
+                    <button class="bg-transparent border-2 border-white text-white px-8 py-3.5 rounded font-bold uppercase text-sm hover:bg-white hover:text-black transition tracking-wider">
+                        Membership Plans
+                    </button>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6 text-xs font-semibold uppercase tracking-wider text-gray-300 border-t border-white/20 pt-6">
+                    <div class="flex items-center gap-2"><i class="fas fa-swimmer text-gymGold text-xl"></i> Heated Pool</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-hot-tub text-gymGold text-xl"></i> Steam & Sauna</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-user-tie text-gymGold text-xl"></i> Certified Trainers</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-dumbbell text-gymGold text-xl"></i> Latest Equipment</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-users text-gymGold text-xl"></i> Group Classes</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-parking text-gymGold text-xl"></i> Free Parking</div>
+                    <div class="flex items-center gap-2"><i class="far fa-clock text-gymGold text-xl"></i> Open Daily 6AM-10PM</div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/5 w-full z-10">
+                <div class="bg-black/60 backdrop-blur-md border border-gray-700/50 p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-gymGold uppercase mb-1">Quick Enquiry</h3>
+                    <p class="text-xs text-gray-400 mb-6">We'll get back to you</p>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Full Name" class="w-full bg-gray-900/50 border border-gray-600 text-white text-sm rounded px-4 py-3 focus:outline-none focus:border-gymGold transition">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Phone Number" class="w-full bg-gray-900/50 border border-gray-600 text-white text-sm rounded px-4 py-3 focus:outline-none focus:border-gymGold transition">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Address" class="w-full bg-gray-900/50 border border-gray-600 text-white text-sm rounded px-4 py-3 focus:outline-none focus:border-gymGold transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">I'm interested in</label>
+                            <select class="w-full bg-gray-900/50 border border-gray-600 text-white text-sm rounded px-4 py-3 focus:outline-none focus:border-gymGold appearance-none transition">
+                                <option>Select Option</option>
+                                <option>Gym Membership</option>
+                                <option>Personal Training</option>
+                                <option>Group Classes</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-gymGold text-white font-bold uppercase py-3.5 rounded mt-2 hover:bg-yellow-600 transition tracking-wider text-sm shadow-lg shadow-gymGold/20">
+                            Send Enquiry
+                        </button>
+                    </form>
+                    <div class="mt-6 text-center text-xs text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-green-500 text-lg"></i> Or chat with us on WhatsApp
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto -mt-8 relative z-20 px-4">
+        <div class="bg-white rounded-lg shadow-xl py-4 px-6 flex flex-wrap justify-between items-center divide-x divide-gray-200 text-sm">
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="far fa-calendar-alt text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">Book Class</div>
+                    <div class="text-xs text-gray-500">Reserve your spot</div>
+                </div>
+            </div>
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="fas fa-phone-alt text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">Call Us</div>
+                    <div class="text-xs text-gray-500">+256 702 711 066</div>
+                </div>
+            </div>
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="fab fa-whatsapp text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">WhatsApp</div>
+                    <div class="text-xs text-gray-500">Chat with us</div>
+                </div>
+            </div>
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="far fa-id-card text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">Membership</div>
+                    <div class="text-xs text-gray-500">View Plans</div>
+                </div>
+            </div>
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="fas fa-map-marker-alt text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">Directions</div>
+                    <div class="text-xs text-gray-500">Find Us</div>
+                </div>
+            </div>
+            <div class="px-4 flex items-center gap-3 flex-1">
+                <i class="far fa-clock text-gymGold text-2xl"></i>
+                <div>
+                    <div class="font-bold">Hours</div>
+                    <div class="text-xs text-gray-500">6AM - 10PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold uppercase mb-2">Find Your Class</h2>
+        <p class="text-gymGold font-medium mb-12 italic text-lg">Move. Sweat. Transform.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10 text-left">
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden relative group">
+                <div class="absolute top-2 left-2 bg-gymGold text-white text-[0.65rem] font-bold px-2 py-1 uppercase rounded z-10">Popular</div>
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">SPINNING</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">High intensity cycling to burn calories</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">YOGA</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Improve flexibility, strength & peace</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden relative group">
+                <div class="absolute top-2 left-2 bg-gymGold text-white text-[0.65rem] font-bold px-2 py-1 uppercase rounded z-10">Popular</div>
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">DANCE (SUKUMA)</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Fun, energetic and culture inspired</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">AEROBICS</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Classic cardio to keep you fit</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden relative group">
+                <div class="absolute top-2 left-2 bg-gymGold text-white text-[0.65rem] font-bold px-2 py-1 uppercase rounded z-10">Popular</div>
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">BERRY DANCE</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Dance your way to fitness & fun</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1599058917212-597145e10fbb?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">HIIT</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">High intensity interval training</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">STRENGTH</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Build muscle, get stronger</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden relative group">
+                <div class="absolute top-2 left-2 bg-gymGold text-white text-[0.65rem] font-bold px-2 py-1 uppercase rounded z-10">Popular</div>
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">CROSS TRAINING</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Functional workouts for all levels</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">CARDIO</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Boost endurance & heart health</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden group">
+                <div class="overflow-hidden h-36"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=250&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                <div class="p-5 flex flex-col items-center text-center">
+                    <h3 class="font-bold text-sm uppercase mb-1">WEIGHT TRAINING</h3>
+                    <p class="text-xs text-gray-500 mb-4 h-8">Build strength, tone & confidence</p>
+                    <button class="w-full border border-gymGold text-gymGold font-semibold text-xs uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Class</button>
+                </div>
+            </div>
+        </div>
+        
+        <button class="border border-gray-300 text-gray-700 bg-white px-8 py-3 rounded font-bold uppercase hover:border-gymGold hover:text-gymGold transition inline-block text-sm shadow-sm">
+            View Full Timetable
+        </button>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mb-20 flex flex-col lg:flex-row gap-8">
+        
+        <div class="lg:w-1/3">
+            <h2 class="text-3xl font-bold uppercase mb-1">Why Choose Us</h2>
+            <p class="text-gymGold font-medium mb-8 text-sm">Premium facilities. Exceptional experience.</p>
+            
+            <div class="grid grid-cols-2 gap-y-8 gap-x-4">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-calendar-check text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">100+</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Monthly Classes</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-dumbbell text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Modern</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Equipment</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-swimmer text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Heated</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Swimming Pool</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-hot-tub text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Steam</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Room</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-heartbeat text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Cardio</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Zone</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-weight-hanging text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Strength</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Zone</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-parking text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Free</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Parking</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-tshirt text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Luxury</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Changing Rooms</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-user-tie text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Certified</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Trainers</div>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-shield-alt text-gymGold text-2xl mt-1 w-8"></i>
+                    <div>
+                        <div class="font-bold text-sm">Secure &</div>
+                        <div class="text-[0.65rem] text-gray-500 uppercase tracking-wide">Safe Environment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:w-2/3 grid grid-cols-3 grid-rows-2 gap-2 h-96">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&fit=crop" class="w-full h-full object-cover rounded-tl-lg">
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=500&fit=crop" class="w-full h-full object-cover col-span-2">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&fit=crop" class="w-full h-full object-cover col-span-2 rounded-bl-lg">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&fit=crop" class="w-full h-full object-cover rounded-br-lg">
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mb-20 relative">
+        <h2 class="text-2xl font-bold uppercase mb-6">Explore Our Facilities</h2>
+        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-4">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop" class="w-64 h-40 object-cover rounded shadow-sm flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=300&h=200&fit=crop" class="w-64 h-40 object-cover rounded shadow-sm flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=300&h=200&fit=crop" class="w-64 h-40 object-cover rounded shadow-sm flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&h=200&fit=crop" class="w-64 h-40 object-cover rounded shadow-sm flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&h=200&fit=crop" class="w-64 h-40 object-cover rounded shadow-sm flex-shrink-0">
+        </div>
+        <button class="absolute right-6 top-1/2 -translate-y-1/2 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:text-gymGold transition z-10 border border-gray-100">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <section class="bg-white py-16 border-t border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12">
+            
+            <div class="lg:w-1/4">
+                <h2 class="text-3xl font-bold uppercase mb-2 leading-tight">Weekly<br>Class Schedule</h2>
+                <p class="text-gray-500 text-sm mb-8">Plan your week. Stay <span class="text-gymGold font-semibold">consistent.</span></p>
+                
+                <div class="flex flex-col gap-3">
+                    <button class="flex items-center justify-between border border-gray-200 bg-gray-50 px-4 py-2.5 rounded hover:bg-gray-100 transition text-sm">
+                        <span class="font-semibold text-gray-700 flex items-center gap-2"><i class="far fa-file-pdf text-gymGold"></i> Download PDF</span>
+                    </button>
+                    <button class="flex items-center justify-between border border-gray-200 bg-gray-50 px-4 py-2.5 rounded hover:bg-gray-100 transition text-sm">
+                        <span class="font-semibold text-gray-700 flex items-center gap-2"><i class="fas fa-filter text-gymGold"></i> Filter by Trainer</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:w-3/4">
+                <div class="flex overflow-x-auto no-scrollbar border-b border-gray-200 text-xs font-bold uppercase text-gray-500 mb-6 gap-8 pb-2">
+                    <div class="text-gymGold border-b-2 border-gymGold pb-2 cursor-pointer whitespace-nowrap">MON</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">TUE</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">WED</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">THU</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">FRI</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">SAT</div>
+                    <div class="hover:text-gymGold cursor-pointer whitespace-nowrap">SUN</div>
+                </div>
+
+                <div class="w-full">
+                    <div class="grid grid-cols-5 text-xs text-gray-400 font-semibold uppercase tracking-wider pb-4 border-b border-gray-100">
+                        <div>TIME</div>
+                        <div>CLASS</div>
+                        <div>TRAINER</div>
+                        <div>LOCATION</div>
+                        <div class="text-right">BOOK</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-5 items-center py-4 border-b border-gray-50 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">06:30 AM</div>
+                        <div class="font-bold text-gray-700">Spinning</div>
+                        <div class="text-gray-500">Allan</div>
+                        <div class="text-gray-500 text-xs">Spinning Room</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                    <div class="grid grid-cols-5 items-center py-4 border-b border-gray-50 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">08:30 AM</div>
+                        <div class="font-bold text-gray-700">Yoga</div>
+                        <div class="text-gray-500">Barbara</div>
+                        <div class="text-gray-500 text-xs">Studio A</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                    <div class="grid grid-cols-5 items-center py-4 border-b border-gray-50 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">10:00 AM</div>
+                        <div class="font-bold text-gray-700">Aerobics</div>
+                        <div class="text-gray-500">Vivian</div>
+                        <div class="text-gray-500 text-xs">Studio B</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                    <div class="grid grid-cols-5 items-center py-4 border-b border-gray-50 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">01:00 PM</div>
+                        <div class="font-bold text-gray-700">HIIT</div>
+                        <div class="text-gray-500">Jannet</div>
+                        <div class="text-gray-500 text-xs">Functional Area</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                    <div class="grid grid-cols-5 items-center py-4 border-b border-gray-50 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">05:30 PM</div>
+                        <div class="font-bold text-gray-700">Cross Training</div>
+                        <div class="text-gray-500">Felix</div>
+                        <div class="text-gray-500 text-xs">Strength Zone</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                    <div class="grid grid-cols-5 items-center py-4 text-sm hover:bg-gray-50 transition">
+                        <div class="font-semibold">07:00 PM</div>
+                        <div class="font-bold text-gray-700">Dance (Sukuma)</div>
+                        <div class="text-gray-500">Carol</div>
+                        <div class="text-gray-500 text-xs">Studio A</div>
+                        <div class="text-right"><button class="bg-gymGold text-white text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-yellow-600 transition">Book</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold uppercase mb-8">This Month's Offers</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">New Member Special</h4>
+                    <div class="text-3xl font-condensed font-bold leading-none mb-1">20% OFF</div>
+                    <div class="text-sm font-condensed text-fuchsia-400 mb-2 uppercase">First Month</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">Valid till 30th June 2024</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">Join Now</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Student Discount</h4>
+                    <div class="text-3xl font-condensed font-bold leading-none mb-1">10% OFF</div>
+                    <div class="text-sm font-condensed text-purple-400 mb-2 uppercase">Monthly Plan</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">With Valid ID</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">Claim Offer</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Bring a Friend</h4>
+                    <div class="text-2xl font-condensed font-bold text-fuchsia-400 leading-none mb-1 uppercase">Get 1 Week</div>
+                    <div class="text-2xl font-condensed font-bold leading-none mb-2 uppercase">Free</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">For you & your friend</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">Refer Now</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Couples Membership</h4>
+                    <div class="text-3xl font-condensed font-bold leading-none mb-1">15% OFF</div>
+                    <div class="text-sm font-condensed text-purple-400 mb-2 uppercase">For Couples</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">Train Together</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">Join Now</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Pool Package</h4>
+                    <div class="text-2xl font-condensed font-bold text-cyan-400 leading-none mb-1 uppercase">Unlimited</div>
+                    <div class="text-xl font-condensed font-bold leading-none mb-2 uppercase">Pool Access</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">With any membership</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">View Package</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Steam & Sauna Package</h4>
+                    <div class="text-2xl font-condensed font-bold leading-none mb-1 uppercase">Relax &</div>
+                    <div class="text-xl font-condensed font-bold leading-none mb-2 uppercase">Recover</div>
+                    <div class="text-[0.65rem] uppercase text-gray-300 mb-3">Special Pricing</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition">View Package</button>
+                </div>
+            </div>
+
+            <div class="promo-bg p-5 h-48 rounded-lg text-white flex flex-col justify-end overflow-hidden group md:col-span-2 lg:col-span-2" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&fit=crop');">
+                <div class="relative z-10 transform group-hover:-translate-y-2 transition duration-300 w-1/2">
+                    <h4 class="text-gymGold font-bold text-xs uppercase mb-1">Early Bird Offer</h4>
+                    <div class="text-4xl font-condensed font-bold leading-none mb-1">25% OFF</div>
+                    <div class="text-lg font-condensed text-fuchsia-400 mb-2 uppercase">6AM - 9AM Classes</div>
+                    <button class="border border-gymGold text-gymGold text-[0.65rem] font-bold uppercase px-3 py-1 rounded hover:bg-gymGold hover:text-white transition mt-2">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-white py-20 border-t border-gray-100 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold uppercase">Meet Our Certified Trainers</h2>
+                <button class="border border-gray-300 text-gray-600 text-xs font-bold uppercase px-4 py-2 rounded hover:border-gymGold hover:text-gymGold transition">View All Trainers</button>
+            </div>
+            
+            <div class="relative">
+                <button class="absolute -left-5 top-1/2 -translate-y-1/2 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:text-gymGold transition z-10 border border-gray-100 hidden md:flex"><i class="fas fa-chevron-left"></i></button>
+                <button class="absolute -right-5 top-1/2 -translate-y-1/2 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:text-gymGold transition z-10 border border-gray-100 hidden md:flex"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <div class="border border-gray-100 rounded-lg overflow-hidden bg-white text-center shadow-sm hover:shadow-md transition">
+                        <div class="h-56 overflow-hidden bg-gray-100"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&h=400&fit=crop" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-500"></div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-sm uppercase mb-1">ANITA K.</h4>
+                            <p class="text-[0.65rem] text-gray-500 mb-3">Strength & Conditioning<br>5+ Years Experience</p>
+                            <div class="flex justify-center gap-3 text-gray-400 mb-4 text-xs">
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <button class="w-full border border-gymGold text-gymGold text-xs font-bold uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Session</button>
+                        </div>
+                    </div>
+                    <div class="border border-gray-100 rounded-lg overflow-hidden bg-white text-center shadow-sm hover:shadow-md transition">
+                        <div class="h-56 overflow-hidden bg-gray-100"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&h=400&fit=crop" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-500"></div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-sm uppercase mb-1">JOHN M.</h4>
+                            <p class="text-[0.65rem] text-gray-500 mb-3">Weight Training<br>7+ Years Experience</p>
+                            <div class="flex justify-center gap-3 text-gray-400 mb-4 text-xs">
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <button class="w-full border border-gymGold text-gymGold text-xs font-bold uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Session</button>
+                        </div>
+                    </div>
+                    <div class="border border-gray-100 rounded-lg overflow-hidden bg-white text-center shadow-sm hover:shadow-md transition">
+                        <div class="h-56 overflow-hidden bg-gray-100"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&h=400&fit=crop" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-500"></div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-sm uppercase mb-1">SARAH N.</h4>
+                            <p class="text-[0.65rem] text-gray-500 mb-3">Yoga & Pilates<br>4+ Years Experience</p>
+                            <div class="flex justify-center gap-3 text-gray-400 mb-4 text-xs">
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <button class="w-full border border-gymGold text-gymGold text-xs font-bold uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Session</button>
+                        </div>
+                    </div>
+                    <div class="border border-gray-100 rounded-lg overflow-hidden bg-white text-center shadow-sm hover:shadow-md transition">
+                        <div class="h-56 overflow-hidden bg-gray-100"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=400&fit=crop" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-500"></div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-sm uppercase mb-1">PETER O.</h4>
+                            <p class="text-[0.65rem] text-gray-500 mb-3">HIIT & Cross Training<br>6+ Years Experience</p>
+                            <div class="flex justify-center gap-3 text-gray-400 mb-4 text-xs">
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <button class="w-full border border-gymGold text-gymGold text-xs font-bold uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Session</button>
+                        </div>
+                    </div>
+                    <div class="border border-gray-100 rounded-lg overflow-hidden bg-white text-center shadow-sm hover:shadow-md transition">
+                        <div class="h-56 overflow-hidden bg-gray-100"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&h=400&fit=crop" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-500"></div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-sm uppercase mb-1">DORIS A.</h4>
+                            <p class="text-[0.65rem] text-gray-500 mb-3">Aerobics & Dance<br>5+ Years Experience</p>
+                            <div class="flex justify-center gap-3 text-gray-400 mb-4 text-xs">
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="hover:text-gymGold"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <button class="w-full border border-gymGold text-gymGold text-xs font-bold uppercase py-2 rounded hover:bg-gymGold hover:text-white transition">Book Session</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10 text-left">
+            <div>
+                <h2 class="text-3xl font-bold uppercase mb-2">Membership Plans</h2>
+                <p class="text-gray-500 text-sm">Choose the plan that fits your lifestyle.</p>
+            </div>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <button class="text-sm font-semibold text-gray-600 hover:text-gymGold flex items-center gap-2"><i class="far fa-clone"></i> Compare Plans</button>
+                <button class="text-sm font-semibold text-gray-600 hover:text-gymGold flex items-center gap-2"><i class="fas fa-share-alt"></i> Share Pricing</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 items-end mb-8">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-bold text-sm uppercase mb-4 text-gray-700">Daily Pass</h3>
+                <div class="text-2xl font-condensed font-bold mb-1">UGX 25,000</div>
+                <p class="text-[0.65rem] text-gray-400 uppercase mb-6">Per Day</p>
+                <ul class="text-xs text-left space-y-3 mb-8 text-gray-600">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Gym Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-times-circle text-gray-300"></i> Pool Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-times-circle text-gray-300"></i> Steam & Sauna</li>
+                </ul>
+                <button class="w-full border border-gray-300 text-gray-600 font-bold uppercase text-xs py-2.5 rounded hover:border-gymGold hover:text-gymGold transition">Select Plan</button>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-bold text-sm uppercase mb-4 text-gray-700">Weekly Pass</h3>
+                <div class="text-2xl font-condensed font-bold mb-1">UGX 120,000</div>
+                <p class="text-[0.65rem] text-gray-400 uppercase mb-6">Per Week</p>
+                <ul class="text-xs text-left space-y-3 mb-8 text-gray-600">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Gym Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Pool Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Steam & Sauna</li>
+                </ul>
+                <button class="w-full border border-gray-300 text-gray-600 font-bold uppercase text-xs py-2.5 rounded hover:border-gymGold hover:text-gymGold transition">Select Plan</button>
+            </div>
+
+            <div class="bg-white border-2 border-gymGold rounded-lg p-8 shadow-xl relative transform lg:-translate-y-4">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gymGold text-white text-[0.65rem] font-bold uppercase px-4 py-1 rounded-full shadow-md tracking-wider">Best Value</div>
+                <h3 class="font-bold text-sm uppercase mb-4 text-gray-800">Monthly Plan</h3>
+                <div class="text-3xl font-condensed font-bold mb-1">UGX 350,000</div>
+                <p class="text-[0.65rem] text-gray-400 uppercase mb-6">Per Month</p>
+                <ul class="text-xs text-left space-y-3 mb-8 text-gray-700 font-medium">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gymGold"></i> Gym Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gymGold"></i> Pool Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gymGold"></i> Steam & Sauna</li>
+                </ul>
+                <button class="w-full bg-gymGold text-white font-bold uppercase text-xs py-3 rounded hover:bg-yellow-600 transition shadow-md">Select Plan</button>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-bold text-sm uppercase mb-4 text-gray-700">Quarterly</h3>
+                <div class="text-2xl font-condensed font-bold mb-1">UGX 900,000</div>
+                <p class="text-[0.65rem] text-gray-400 uppercase mb-6">3 Months</p>
+                <ul class="text-xs text-left space-y-3 mb-8 text-gray-600">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Gym Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Pool Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Steam & Sauna</li>
+                </ul>
+                <button class="w-full border border-gray-300 text-gray-600 font-bold uppercase text-xs py-2.5 rounded hover:border-gymGold hover:text-gymGold transition">Select Plan</button>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-bold text-sm uppercase mb-4 text-gray-700">Annual Plan</h3>
+                <div class="text-2xl font-condensed font-bold mb-1">UGX 3,000,000</div>
+                <p class="text-[0.65rem] text-gray-400 uppercase mb-6">Per Year</p>
+                <ul class="text-xs text-left space-y-3 mb-8 text-gray-600">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Gym Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Pool Access</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-gray-300"></i> Steam & Sauna</li>
+                </ul>
+                <button class="w-full border border-gray-300 text-gray-600 font-bold uppercase text-xs py-2.5 rounded hover:border-gymGold hover:text-gymGold transition">Select Plan</button>
+            </div>
+        </div>
+        
+        <p class="text-xs text-gray-500 font-semibold tracking-wider">FAMILY | CORPORATE | STUDENT PLANS AVAILABLE</p>
+        <p class="text-[0.65rem] text-gray-400 mt-1">Ask our team for customized packages.</p>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 border-t border-gray-200 flex flex-col lg:flex-row gap-12">
+        
+        <div class="lg:w-1/4">
+            <h3 class="font-bold uppercase text-sm mb-6 text-center lg:text-left">Our Facilities</h3>
+            <div class="grid grid-cols-3 gap-4 text-center text-gray-600">
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-dumbbell text-xl"></i><span class="text-[0.6rem] uppercase">Gym</span></div>
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-swimmer text-xl"></i><span class="text-[0.6rem] uppercase">Heated Pool</span></div>
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-hot-tub text-xl"></i><span class="text-[0.6rem] uppercase">Steam Room</span></div>
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-shower text-xl"></i><span class="text-[0.6rem] uppercase">Showers</span></div>
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-tshirt text-xl"></i><span class="text-[0.6rem] uppercase">Changing Rooms</span></div>
+                <div class="flex flex-col items-center gap-2"><i class="fas fa-parking text-xl"></i><span class="text-[0.6rem] uppercase">Parking</span></div>
+                <div class="flex flex-col items-center gap-2 col-start-2"><i class="fas fa-wifi text-xl"></i><span class="text-[0.6rem] uppercase">WiFi</span></div>
+            </div>
+        </div>
+
+        <div class="lg:w-2/4">
+            <h3 class="font-bold uppercase text-sm mb-6 text-center">What Our Members Say</h3>
+            <div class="flex gap-4 overflow-x-auto no-scrollbar pb-4">
+                <div class="bg-white border border-gray-100 rounded-lg p-5 min-w-[220px] text-center shadow-sm flex flex-col items-center">
+                    <img src="https://placehold.co/40x40/ccc/fff?text=J" class="w-10 h-10 rounded-full mb-2">
+                    <h5 class="font-bold text-xs">Jane A.</h5>
+                    <div class="text-yellow-400 text-[0.6rem] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-[0.65rem] text-gray-500 italic mb-3 flex-1">"The best gym experience in Kampala! The facilities are top-notch and trainers are amazing."</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-4 h-4">
+                </div>
+                <div class="bg-white border border-gray-100 rounded-lg p-5 min-w-[220px] text-center shadow-sm flex flex-col items-center">
+                    <img src="https://placehold.co/40x40/ccc/fff?text=D" class="w-10 h-10 rounded-full mb-2">
+                    <h5 class="font-bold text-xs">David K.</h5>
+                    <div class="text-yellow-400 text-[0.6rem] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="text-[0.65rem] text-gray-500 italic mb-3 flex-1">"Love the heated pool and steam room. Perfect place to train and relax."</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-4 h-4">
+                </div>
+                <div class="bg-white border border-gray-100 rounded-lg p-5 min-w-[220px] text-center shadow-sm flex flex-col items-center">
+                    <img src="https://placehold.co/40x40/ccc/fff?text=S" class="w-10 h-10 rounded-full mb-2">
+                    <h5 class="font-bold text-xs">Sarah W.</h5>
+                    <div class="text-yellow-400 text-[0.6rem] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-[0.65rem] text-gray-500 italic mb-3 flex-1">"Highly professional trainers and great variety of classes. Highly recommend!"</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-4 h-4">
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:w-1/4">
+            <h3 class="font-bold uppercase text-sm mb-6 text-center lg:text-left">Frequently Asked Questions</h3>
+            <div class="space-y-2 text-xs">
+                <div class="flex justify-between items-center border border-gray-200 bg-white p-3 rounded text-gray-600 cursor-pointer hover:bg-gray-50">
+                    <span>What are the gym opening hours?</span> <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="flex justify-between items-center border border-gray-200 bg-white p-3 rounded text-gray-600 cursor-pointer hover:bg-gray-50">
+                    <span>Do you offer personal training?</span> <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="flex justify-between items-center border border-gray-200 bg-white p-3 rounded text-gray-600 cursor-pointer hover:bg-gray-50">
+                    <span>Can I book classes online?</span> <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="flex justify-between items-center border border-gray-200 bg-white p-3 rounded text-gray-600 cursor-pointer hover:bg-gray-50">
+                    <span>What does the membership include?</span> <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="flex justify-between items-center border border-gray-200 bg-white p-3 rounded text-gray-600 cursor-pointer hover:bg-gray-50">
+                    <span>Is parking available?</span> <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="text-gymGold text-[0.65rem] font-bold uppercase hover:underline">View All FAQs</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mb-10">
+        <div class="bg-gymDark rounded-xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center text-white shadow-2xl bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000')] bg-cover bg-center bg-blend-overlay" style="background-color: rgba(0,0,0,0.85);">
+            <div class="text-center md:text-left mb-6 md:mb-0 z-10">
+                <h2 class="text-3xl font-bold uppercase mb-2">Ready to start your fitness journey?</h2>
+                <p class="text-gray-300 text-sm">Join The Health Gym today and transform your lifestyle.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 z-10">
+                <button class="bg-gymGold text-white px-8 py-3.5 rounded font-bold uppercase hover:bg-yellow-600 transition text-sm tracking-wider">
+                    Book Your Class Now
+                </button>
+                <button class="bg-transparent border border-gray-500 text-white px-8 py-3.5 rounded font-bold uppercase hover:bg-white hover:text-black transition flex items-center justify-center gap-2 text-sm tracking-wider">
+                    <i class="fab fa-whatsapp text-green-500"></i> Chat on WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gymDark text-gray-400 py-12 px-6 text-sm border-t-4 border-gymGold">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 pb-8 border-b border-gray-800">
+            
+            <div class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
+                <img src="https://placehold.co/180x70/1a1a1a/FFF?text=SPEKE+GROUP" alt="Speke Group Logo" class="mb-4 rounded">
+                <p class="text-[0.65rem] text-gray-500 italic">Speke Apartments Wampewo is part<br>of Speke Group of Hotels</p>
+            </div>
+
+            <div class="w-full md:w-1/3 space-y-4 text-xs">
+                <div class="flex items-start gap-3">
+                    <div class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center flex-shrink-0 text-gymGold"><i class="fas fa-map-marker-alt"></i></div>
+                    <p class="pt-1">Plot 19-21, Wampewo Avenue, Kololo, Kampala</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center flex-shrink-0 text-gymGold"><i class="fas fa-phone-alt"></i></div>
+                    <p>+256 702 711 066 | +256 772 711 066 | +256 752 711 066</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center flex-shrink-0 text-gymGold"><i class="far fa-envelope"></i></div>
+                    <p>clubsales@spekeapartments.com</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center flex-shrink-0 text-gymGold"><i class="far fa-clock"></i></div>
+                    <p>6:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/3">
+                <img src="https://placehold.co/400x120/1a1a1a/555?text=Map+Location" class="w-full h-28 object-cover rounded border border-gray-700">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 flex flex-col md:flex-row justify-between items-center text-[0.65rem]">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+                <p>&copy; 2026 Speke Apartments Wampewo. All Rights Reserved.</p>
+                <a href="#" class="hover:text-gymGold transition">Privacy Policy</a>
+                <a href="#" class="hover:text-gymGold transition">Terms & Conditions</a>
+            </div>
+            <div class="flex gap-4 text-gray-500 text-sm">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                <div class="border border-gray-600 rounded px-2 hover:border-white transition cursor-pointer ml-2"><i class="fas fa-chevron-up text-[0.5rem] block py-1"></i></div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-xl hover:bg-green-600 hover:-translate-y-1 transition duration-300 z-50 border-2 border-white">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

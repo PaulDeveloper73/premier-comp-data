@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speke Apartments Fitness Schedule</title>
+    <style>
+        /* Base Styles & Reset */
+        *, *::before, *::after { 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Main Poster Container */
+        .poster-container {
+            max-width: 950px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-top: 8px solid #c6862c;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #c6862c;
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .header h2 {
+            color: #555555;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: 1.5px;
+        }
+        .header hr {
+            border: 0;
+            border-top: 2px solid #c6862c;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        /* Layout Grid for Columns */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Day Block Styles */
+        .day-block {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #c6862c;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+        .day-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+        .day-title {
+            color: #c6862c;
+            font-size: 18px;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        /* Table Styles */
+        .class-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .class-table th {
+            text-align: left;
+            font-size: 11px;
+            color: #777777;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .class-table td {
+            font-size: 13px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .class-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Column Specifics */
+        .col-time { width: 33%; font-weight: bold; color: #111111; }
+        .col-class { width: 37%; color: #444444; font-weight: 500; }
+        .col-trainer { width: 15%; color: #666666; }
+        .col-room { width: 15%; text-align: right; color: #c6862c; font-weight: bold; }
+
+        /* Rates Section */
+        .rates-container {
+            margin-top: 20px;
+            border: 2px dashed #c6862c;
+            padding: 25px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .rate-box {
+            text-align: center;
+            width: 50%;
+        }
+        .rate-box:first-child {
+            border-right: 1px solid #e0e0e0;
+        }
+        .rate-title {
+            color: #c6862c;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .rate-price {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0;
+            color: #111111;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            .poster-container {
+                padding: 20px;
+            }
+            .rates-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .rate-box {
+                width: 100%;
+            }
+            .rate-box:first-child {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Speke Apartments Fitness</h1>
+            <h2>CLASS SCHEDULE 2026 ONWARDS</h2>
+            <hr>
+        </div>
+
+        <!-- Schedule Grid -->
+        <div class="schedule-grid">
+            
+            <!-- LEFT COLUMN -->
+            <div class="column-left">
+                
+                <!-- Monday -->
+                <div class="day-block">
+                    <h3 class="day-title">Monday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">CrossFit</td><td class="col-trainer">Allan</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">07:00 - 08:00 AM</td><td class="col-class">Spinning</td><td class="col-trainer">Barbra</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">12:30 - 01:30 PM</td><td class="col-class">Spinning</td><td class="col-trainer">Barbra</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:00 - 07:00 PM</td><td class="col-class">Taebo Aerobics</td><td class="col-trainer">Abu</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Sukuma Dance</td><td class="col-trainer">SMK</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Spinning</td><td class="col-trainer">Janat</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">07:00 - 08:00 PM</td><td class="col-class">Koona Dance</td><td class="col-trainer">Felix</td><td class="col-room">B</td></tr>
+                    </table>
+                </div>
+
+                <!-- Wednesday -->
+                <div class="day-block">
+                    <h3 class="day-title">Wednesday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">CrossFit</td><td class="col-trainer">Allan</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">07:00 - 08:00 AM</td><td class="col-class">Spinning</td><td class="col-trainer">Newton</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">11:00 - 12:00 PM</td><td class="col-class">Her Fit Club</td><td class="col-trainer">Vanessa</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">06:00 - 07:00 PM</td><td class="col-class">Bootcamp</td><td class="col-trainer">Abu</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Sukuma Dance</td><td class="col-trainer">SMK</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Spinning</td><td class="col-trainer">Janat</td><td class="col-room">C</td></tr>
+                    </table>
+                </div>
+
+                <!-- Friday -->
+                <div class="day-block">
+                    <h3 class="day-title">Friday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">CrossFit</td><td class="col-trainer">Allan</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">07:00 - 08:00 AM</td><td class="col-class">Spinning</td><td class="col-trainer">Newton</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:00 - 07:00 PM</td><td class="col-class">Bootcamp</td><td class="col-trainer">Abu</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Spinning</td><td class="col-trainer">Newton</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Wakanda Dance</td><td class="col-trainer">Mafik</td><td class="col-room">C</td></tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="column-right">
+                
+                <!-- Tuesday -->
+                <div class="day-block">
+                    <h3 class="day-title">Tuesday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">Spinning</td><td class="col-trainer">Newton</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 08:30 AM</td><td class="col-class">Yoga</td><td class="col-trainer">Latif</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">07:30 - 08:30 AM</td><td class="col-class">Boxing</td><td class="col-trainer">Paul</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">06:00 - 07:00 PM</td><td class="col-class">Boxing</td><td class="col-trainer">Paul</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Tuff Girl Fit</td><td class="col-trainer">Janat</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Zumba Dance</td><td class="col-trainer">Carol</td><td class="col-room">B</td></tr>
+                    </table>
+                </div>
+
+                <!-- Thursday -->
+                <div class="day-block">
+                    <h3 class="day-title">Thursday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">Yoga</td><td class="col-trainer">Latif</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 AM</td><td class="col-class">Her Fit Club</td><td class="col-trainer">Vanessa</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">07:00 - 08:00 AM</td><td class="col-class">Boxing</td><td class="col-trainer">Paul</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">12:30 - 01:30 PM</td><td class="col-class">Spinning</td><td class="col-trainer">Newton</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:00 - 07:00 PM</td><td class="col-class">Boxing</td><td class="col-trainer">Paul</td><td class="col-room">C</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Tuff Girl Fit</td><td class="col-trainer">Janat</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Yoga</td><td class="col-trainer">Latif</td><td class="col-room">Spa</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Zumba Dance</td><td class="col-trainer">Carol</td><td class="col-room">B</td></tr>
+                    </table>
+                </div>
+
+                <!-- Saturday -->
+                <div class="day-block">
+                    <h3 class="day-title">Saturday</h3>
+                    <table class="class-table">
+                        <tr><th class="col-time">TIME</th><th class="col-class">CLASS</th><th class="col-trainer">TRAINER</th><th class="col-room">ROOM</th></tr>
+                        <tr><td class="col-time">09:00 - 10:00 AM</td><td class="col-class">Sculpt</td><td class="col-trainer">Patricia</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">10:00 - 11:00 AM</td><td class="col-class">Pre-Ballet</td><td class="col-trainer">Jill</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">10:00 - 11:00 AM</td><td class="col-class">Yoga</td><td class="col-trainer">Latif</td><td class="col-room">Spa</td></tr>
+                        <tr><td class="col-time">11:00 - 12:00 PM</td><td class="col-class">Ballet Adults</td><td class="col-trainer">Jill</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">02:00 - 03:00 PM</td><td class="col-class">Kids Zumba</td><td class="col-trainer">Mariam</td><td class="col-room">A</td></tr>
+                        <tr><td class="col-time">04:00 - 05:00 PM</td><td class="col-class">Koona Dance</td><td class="col-trainer">Felix</td><td class="col-room">B</td></tr>
+                        <tr><td class="col-time">06:30 - 07:30 PM</td><td class="col-class">Wakanda Dance</td><td class="col-trainer">Mafik</td><td class="col-room">B</td></tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rates Section -->
+        <div class="rates-container">
+            <div class="rate-box">
+                <h4 class="rate-title">Spinning Classes</h4>
+                <p class="rate-price">30,000/=</p>
+            </div>
+            <div class="rate-box">
+                <h4 class="rate-title">Other Classes</h4>
+                <p class="rate-price">25,000/=</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Speke Apartments Fitness Center &bull; Professional Class Schedule &bull; Kampala, Uganda
+        </div>
+
+    </div>
+
+</body>
+</html>

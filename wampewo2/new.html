@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speke Apartments Wampewo Gym & Club</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --gold: #D4AF37;
+            --dark-brown: #3E2723;
+            --dark-grey: #1A1A1A;
+            --light-grey: #F4F4F4;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-grey);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-content p span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .cta-btn {
+            background-color: var(--gold);
+            color: var(--dark-grey);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--white);
+            color: var(--gold);
+        }
+
+        /* SECTION PADDING */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-grey);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: #666;
+        }
+
+        /* CLASSY CLASSES GRID */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .class-card {
+            position: relative;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .class-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .class-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .class-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px 20px;
+            background: linear-gradient(transparent, rgba(26, 26, 26, 0.9));
+            color: var(--white);
+        }
+
+        .class-overlay h3 {
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        /* PRICING SECTION */
+        .pricing-section {
+            background-color: var(--light-grey);
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .pricing-card.premium {
+            transform: scale(1.05);
+            border: 2px solid var(--gold);
+        }
+
+        .best-value {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--dark-grey);
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Elevate Your Fitness.<br>Indulge Your Senses.</h1>
+            <p>Experience Kampala's premier health destination. Featuring state-of-the-art gym equipment, exclusive fitness classes, a luxurious <span>Heated Swimming Pool</span>, and rejuvenating <span>Steam & Sauna</span> facilities.</p>
+            <a href="#join" class="cta-btn">Book Your Free Trial</a>
+        </div>
+    </header>
+
+    <!-- CLASSY CLASSES SECTION -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Find Your Rhythm</h2>
+            <p class="section-subtitle">From high-intensity cardio to mindful movement, we have a class for your goals.</p>
+            
+            <div class="classes-grid">
+                <!-- Class 1 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Spinning Class">
+                    <div class="class-overlay">
+                        <h3>Spinning</h3>
+                        <p>High-Energy Cardio Rides</p>
+                    </div>
+                </div>
+                <!-- Class 2 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=600&auto=format&fit=crop" alt="Yoga Class">
+                    <div class="class-overlay">
+                        <h3>Yoga</h3>
+                        <p>Strength & Mindfulness</p>
+                    </div>
+                </div>
+                <!-- Class 3 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=600&auto=format&fit=crop" alt="Sukuma Dance">
+                    <div class="class-overlay">
+                        <h3>Sukuma Dance</h3>
+                        <p>Move, Sweat & Burn</p>
+                    </div>
+                </div>
+                <!-- Class 4 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Aerobics and Barre">
+                    <div class="class-overlay">
+                        <h3>Aerobics & Berry</h3>
+                        <p>Tone & Sculpt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP RATES SECTION -->
+    <section class="section pricing-section">
+        <div class="container">
+            <h2 class="section-title">Invest in Your Health</h2>
+            <p class="section-subtitle">Choose the perfect plan to achieve your fitness goals.</p>
+            
+            <div class="pricing-grid">
+                <!-- Daily -->
+                <div class="pricing-card">
+                    <h3>Daily Pass</h3>
+                    <div class="price">50k UGX</div>
+                    <p>Full Gym Access</p>
+                    <p>Pool, Steam & Sauna</p>
+                    <br>
+                    <a href="#join" class="cta-btn" style="padding: 10px 20px; font-size: 0.9rem;">Join Now</a>
+                </div>
+                
+                <!-- Monthly (Highlighted) -->
+                <div class="pricing-card premium">
+                    <div class="best-value">Best Value</div>
+                    <h3>Monthly</h3>
+                    <div class="price">300k UGX</div>
+                    <p>Unlimited Gym Access</p>
+                    <p>All Fitness Classes</p>
+                    <p>Pool, Steam & Sauna</p>
+                    <br>
+                    <a href="#join" class="cta-btn" style="padding: 10px 20px; font-size: 0.9rem;">Join Now</a>
+                </div>
+
+                <!-- Annual -->
+                <div class="pricing-card">
+                    <h3>Annual</h3>
+                    <div class="price">3M UGX</div>
+                    <p>Unlimited Gym Access</p>
+                    <p>All Fitness Classes</p>
+                    <p>Pool, Steam & Sauna</p>
+                    <br>
+                    <a href="#join" class="cta-btn" style="padding: 10px 20px; font-size: 0.9rem;">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Speke Apartments</h3>
+                    <p>Premium health, wellness, and fitness club offering state-of-the-art facilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>📍 Plot 19, Wampewo Avenue, Kampala</p>
+                    <p>📞 +256 702 271100</p>
+                    <p>✉️ gym@spekeapartments.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 6:00 AM - 10:00 PM</p>
+                    <p>Weekends: 7:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

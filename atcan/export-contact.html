@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATCAN | Export & Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    colors: { brand: { orange: '#e87c31', green: '#234a31', dark: '#16281b', brown: '#7d5941', light: '#f9f9f9' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <header class="fixed w-full top-0 z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="text-brand-orange font-black text-3xl italic">A</div>
+                <div class="leading-none"><span class="text-brand-green font-bold text-lg">ATCAN</span><br><span class="text-[9px] uppercase tracking-widest text-brand-green">Investments Ltd</span></div>
+            </div>
+            <nav class="hidden lg:flex space-x-8 text-sm font-semibold">
+                <a href="#" class="text-gray-600 hover:text-brand-green">HOME</a>
+                <a href="#" class="text-gray-600 hover:text-brand-green">ABOUT US</a>
+                <a href="#" class="text-gray-600 hover:text-brand-green">PRODUCTS</a>
+                <a href="#" class="text-gray-600 hover:text-brand-green">SERVICES</a>
+                <a href="#" class="text-brand-orange border-b-2 border-brand-orange pb-1">EXPORT CAPABILITY</a>
+                <a href="#" class="text-brand-orange border-b-2 border-brand-orange pb-1">CONTACT</a>
+            </nav>
+            <button class="hidden lg:block bg-brand-orange text-white px-6 py-2 rounded text-sm font-bold hover:bg-orange-600 transition">Request Quote</button>
+        </div>
+    </header>
+
+    <main class="pt-28">
+        <section class="max-w-5xl mx-auto px-6 py-16 text-center">
+            <h2 class="font-serif text-4xl font-bold text-brand-dark mb-10">Export Capability Preview</h2>
+            <div class="relative bg-brand-light rounded-xl p-8 mb-10 border border-gray-100 flex items-center justify-center min-h-[400px]">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain m-8"></div>
+                
+                <div class="relative z-10 grid grid-cols-2 gap-16 w-full max-w-2xl">
+                    <div class="bg-white p-4 shadow-lg rounded-lg text-left border border-gray-100">
+                        <h4 class="font-bold text-brand-dark text-sm mb-1">Aggregation Systems</h4>
+                        <p class="text-xs text-gray-500">Logistics and localized collection</p>
+                    </div>
+                    <div class="bg-white p-4 shadow-lg rounded-lg text-left border border-gray-100 mt-16">
+                        <h4 class="font-bold text-brand-dark text-sm mb-1">Logistics Support</h4>
+                        <p class="text-xs text-gray-500">Buyer coordination & shipping</p>
+                    </div>
+                </div>
+            </div>
+            <button class="bg-brand-orange text-white px-8 py-3 rounded font-bold hover:bg-orange-600">Explore Export Capability</button>
+        </section>
+
+        <section class="max-w-4xl mx-auto px-6 py-10">
+            <h3 class="font-serif text-3xl font-bold text-brand-dark mb-8">FAQ Preview</h3>
+            <div class="space-y-4">
+                <button class="w-full flex justify-between items-center border-b border-gray-200 py-4 text-left font-bold text-brand-dark hover:text-brand-orange transition">
+                    Minimum Order Quantity? <span>+</span>
+                </button>
+                <button class="w-full flex justify-between items-center border-b border-gray-200 py-4 text-left font-bold text-brand-dark hover:text-brand-orange transition">
+                    Delivery Times? <span>+</span>
+                </button>
+                <button class="w-full flex justify-between items-center border-b border-gray-200 py-4 text-left font-bold text-brand-dark hover:text-brand-orange transition">
+                    Custom Packaging? <span>+</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="bg-brand-dark py-16 text-center mt-10">
+            <h2 class="font-serif text-3xl font-bold text-white mb-4">Looking For A Trusted<br>Agricultural Export Partner?</h2>
+            <p class="text-white/70 text-sm mb-8">ATCAN Investments Ltd connects over 100 farmers across Uganda to international buyers through agricultural solutions.</p>
+            <button class="bg-brand-orange text-white px-8 py-3 rounded font-bold hover:bg-orange-600">Request Export Pricing Today</button>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-dark mb-6">Contact</h3>
+                    <div class="w-full h-64 bg-gray-200 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map" class="w-full h-full object-cover opacity-80 grayscale">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-dark mb-6">Inquiry form</h3>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Email" class="w-full p-4 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-green">
+                        <textarea rows="4" placeholder="Enter your message" class="w-full p-4 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-green"></textarea>
+                        <button type="submit" class="w-full bg-brand-brown text-white py-4 rounded font-bold hover:bg-opacity-90 transition">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-brand-green">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="text-brand-orange font-black text-3xl italic">A</div>
+                    <div class="leading-none"><span class="text-white font-bold text-lg">ATCAN</span><br><span class="text-[9px] uppercase tracking-widest text-white/70">Investments Ltd</span></div>
+                </div>
+                <p class="text-xs text-white/50">The Trusted Source of Premium, and Quality Agricultural Export.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Overview</h4>
+                <ul class="space-y-2 text-sm text-white/70">
+                    <li><a href="#" class="hover:text-brand-orange">Home</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Newsletter</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Quick links</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Products</h4>
+                <ul class="space-y-2 text-sm text-white/70">
+                    <li><a href="#" class="hover:text-brand-orange">Products</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Documents</a></li>
+                    <li><a href="#" class="hover:text-brand-orange">Export Capability</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Contact</h4>
+                <p class="text-sm text-white/70 mb-2">+0 000 000000</p>
+                <p class="text-sm text-white/70">info@atcan.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-xs text-white/40 border-t border-white/10 pt-8">
+            <p>&copy; 2026 ATCAN Investments Ltd. All rights reserved.</p>
+            <div class="flex gap-4">
+                <span>FB</span><span>IG</span><span>IN</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const faqs = document.querySelectorAll('section.max-w-4xl button');
+        faqs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('text-brand-orange');
+                const span = btn.querySelector('span');
+                span.textContent = span.textContent === '+' ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>

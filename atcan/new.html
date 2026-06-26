@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATCAN | Premium Agricultural Exports</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        brand: {
+                            green: '#1a3020',    /* Dark Forest Green */
+                            orange: '#e17835',   /* Brand Orange */
+                            brown: '#7c583b',    /* Earthy Brown for buttons */
+                            light: '#faf9f8'     /* Off White */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* SPA View Transitions */
+        .page-view { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .page-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .nav-active { color: #e17835; border-bottom: 2px solid #e17835; }
+        
+        /* Custom Scrollbar for products */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased overflow-x-hidden">
+
+    <header class="fixed w-full top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-[1400px] mx-auto px-6 h-[80px] flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+                <div class="text-brand-orange font-black text-4xl italic leading-none">A</div>
+                <div class="flex flex-col">
+                    <span class="text-brand-green font-bold text-xl leading-none">ATCAN</span>
+                    <span class="text-brand-green font-semibold text-[8px] uppercase tracking-widest leading-none mt-1">Investments Ltd</span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex space-x-8 text-sm font-bold text-gray-700 tracking-wide">
+                <button onclick="switchView('home')" class="nav-link nav-active pb-1 hover:text-brand-orange" data-target="home">HOME</button>
+                <button onclick="switchView('about')" class="nav-link pb-1 hover:text-brand-orange" data-target="about">ABOUT US</button>
+                <button class="pb-1 hover:text-brand-orange">PRODUCTS</button>
+                <button class="pb-1 hover:text-brand-orange">SERVICES</button>
+                <button onclick="switchView('export')" class="nav-link pb-1 hover:text-brand-orange" data-target="export">EXPORT CAPABILITY</button>
+                <button onclick="switchView('export')" class="pb-1 hover:text-brand-orange">CONTACT</button>
+            </nav>
+
+            <button class="bg-brand-orange text-white px-6 py-2.5 rounded text-sm font-bold shadow-sm hover:bg-opacity-90">
+                Request Quote
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-[80px]">
+
+        <div id="home" class="page-view active">
+            
+            <section class="relative h-[85vh] min-h-[600px] flex items-center">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=80" alt="Uganda Farms" class="absolute inset-0 w-full h-full object-cover z-0">
+                <div class="absolute inset-0 bg-black/40 z-10"></div>
+                
+                <div class="relative z-20 max-w-[1400px] mx-auto px-6 w-full flex flex-col lg:flex-row justify-between items-center gap-12">
+                    <div class="lg:w-3/5 text-white">
+                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
+                            Exporting Uganda's<br>Premium Agricultural<br>Products to Global Markets
+                        </h1>
+                        <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+                            ATCAN Investments Ltd connects over 2,000 farmers across Uganda to international buyers through quality sourcing, processing, and export-ready agricultural solutions.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-brand-orange text-white px-8 py-3.5 rounded font-bold hover:bg-opacity-90 transition shadow-lg">Explore Products</button>
+                            <button class="border border-white text-white px-8 py-3.5 rounded font-bold hover:bg-white/10 transition">Request Export Quote</button>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/3 bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-xl text-white text-center flex flex-col gap-6 shadow-2xl">
+                        <div class="border-b border-white/20 pb-4">
+                            <h3 class="text-4xl font-bold">2000+</h3><p class="text-sm text-white/80 mt-1 uppercase tracking-wider">Farmers</p>
+                        </div>
+                        <div class="border-b border-white/20 pb-4">
+                            <h3 class="text-4xl font-bold">5+</h3><p class="text-sm text-white/80 mt-1 uppercase tracking-wider">Operational Regions</p>
+                        </div>
+                        <div class="border-b border-white/20 pb-4">
+                            <h3 class="text-4xl font-bold">2018</h3><p class="text-sm text-white/80 mt-1 uppercase tracking-wider">Founded</p>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-bold">Global</h3><p class="text-sm text-white/80 mt-1 uppercase tracking-wider">Buyer Partnerships</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 bg-white border-b border-gray-100">
+                <div class="max-w-[1400px] mx-auto px-6">
+                    <h3 class="text-center font-serif text-2xl font-bold text-brand-green mb-8">Trusted Agricultural Export Partner</h3>
+                    <div class="flex flex-wrap justify-center gap-12 lg:gap-24 text-brand-green">
+                        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full border border-brand-green flex items-center justify-center">🛡️</div><span class="font-bold text-sm">Quality<br>Systems</span></div>
+                        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full border border-brand-green flex items-center justify-center">📋</div><span class="font-bold text-sm">Export<br>Compliance</span></div>
+                        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full border border-brand-green flex items-center justify-center">🔍</div><span class="font-bold text-sm">Traceability</span></div>
+                        <div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full border border-brand-green flex items-center justify-center">🌱</div><span class="font-bold text-sm">Sustainable<br>Agriculture</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1592982537447-6f296a0b22a0?auto=format&fit=crop&w=1000&q=80" alt="Tractor" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-brand-orange text-xs font-bold tracking-widest uppercase mb-3">About Preview</p>
+                        <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-green mb-10 leading-tight">Building Agricultural Growth<br>Through Export Excellence</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h4 class="font-bold text-brand-green mb-2 flex items-center gap-2"><span>👨‍🌾</span> Farmer Empowerment</h4>
+                                <p class="text-sm text-gray-500">Premium quality sourcing and modern Uganda farming initiatives.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-green mb-2 flex items-center gap-2"><span>🏭</span> Export Processing</h4>
+                                <p class="text-sm text-gray-500">International standard export processing facilities.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-green mb-2 flex items-center gap-2"><span>🌍</span> International Market Access</h4>
+                                <p class="text-sm text-gray-500">Seamless market processing and global connectivity.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-green mb-2 flex items-center gap-2"><span>🤝</span> Sustainable Partnerships</h4>
+                                <p class="text-sm text-gray-500">Long-term relationships built on fair practices.</p>
+                            </div>
+                        </div>
+                        <button class="bg-brand-brown text-white px-8 py-3 rounded font-bold hover:bg-opacity-90">Learn More</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-brand-light">
+                <div class="max-w-[1400px] mx-auto px-6">
+                    <div class="flex justify-between items-end mb-10">
+                        <div>
+                            <h2 class="font-serif text-4xl font-bold text-brand-green">Why Choose ATCAN</h2>
+                            <p class="text-brand-green font-bold text-xl mt-4">Featured Products</p>
+                        </div>
+                        <div class="hidden md:flex gap-2">
+                            <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">&lt;</button>
+                            <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">&gt;</button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col relative">
+                            <div class="absolute -top-3 -right-3 w-8 h-8 bg-yellow-400 rounded-full border-2 border-white flex items-center justify-center text-xs">⭐</div>
+                            <img src="https://images.unsplash.com/photo-1596649285098-96350eb93856?auto=format&fit=crop&w=400&q=80" alt="Chili" class="h-40 object-cover rounded-lg mb-4">
+                            <h4 class="font-bold text-brand-green">Bird Eye Chili</h4>
+                            <p class="text-[11px] text-gray-500 mb-6 flex-grow">Certified quality chillies for export. Premium selection.</p>
+                            <button class="w-full bg-brand-brown text-white py-2.5 rounded text-sm font-bold">View Catalogue</button>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col relative">
+                            <div class="absolute -top-3 -right-3 w-8 h-8 bg-yellow-400 rounded-full border-2 border-white flex items-center justify-center text-xs">⭐</div>
+                            <img src="https://images.unsplash.com/photo-1629851720803-dbfaee7353f2?auto=format&fit=crop&w=400&q=80" alt="Vanilla" class="h-40 object-cover rounded-lg mb-4">
+                            <h4 class="font-bold text-brand-green">Vanilla Beans</h4>
+                            <p class="text-[11px] text-gray-500 mb-6 flex-grow">Cured vanilla beans, high vanillin content.</p>
+                            <button class="w-full bg-brand-brown text-white py-2.5 rounded text-sm font-bold">View Catalogue</button>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80" alt="Cardamom" class="h-40 object-cover rounded-lg mb-4">
+                            <h4 class="font-bold text-brand-green">Cardamom</h4>
+                            <p class="text-[11px] text-gray-500 mb-6 flex-grow">Aromatic export grade cardamom pods.</p>
+                            <button class="w-full bg-brand-brown text-white py-2.5 rounded text-sm font-bold">View Catalogue</button>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1588720164670-3665a1262dce?auto=format&fit=crop&w=400&q=80" alt="Sesame" class="h-40 object-cover rounded-lg mb-4">
+                            <h4 class="font-bold text-brand-green">Sesame</h4>
+                            <p class="text-[11px] text-gray-500 mb-6 flex-grow">Cleaned and sorted sesame seeds.</p>
+                            <button class="w-full bg-brand-brown text-white py-2.5 rounded text-sm font-bold">View Catalogue</button>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=400&q=80" alt="Soybeans" class="h-40 object-cover rounded-lg mb-4">
+                            <h4 class="font-bold text-brand-green">Soybeans</h4>
+                            <p class="text-[11px] text-gray-500 mb-6 flex-grow">High protein export-ready soybeans.</p>
+                            <button class="w-full bg-brand-brown text-white py-2.5 rounded text-sm font-bold">View Catalogue</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-brand-green py-16 text-white">
+                <div class="max-w-[1400px] mx-auto px-6 text-center">
+                    <h3 class="font-serif text-3xl font-bold mb-12">Global Supply Chain Visual</h3>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-semibold">
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">👨‍🌾</span> Farmer Network</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">📦</span> Collection</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">🔍</span> Inspection</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">⚙️</span> Processing</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">🏷️</span> Packaging</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">🚚</span> Logistics</div>
+                        <span class="hidden md:block text-brand-orange border border-brand-orange rounded-full p-1">➔</span>
+                        <div class="flex flex-col items-center gap-3"><span class="text-3xl text-brand-orange">🌍</span> International Delivery</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="about" class="page-view">
+            
+            <section class="max-w-[1000px] mx-auto px-6 py-16 text-center">
+                <h1 class="font-serif text-4xl lg:text-5xl font-bold text-brand-green mb-6 leading-tight">Exporting Uganda's Premium Agricultural Products to Global Markets</h1>
+                <p class="text-gray-600 mb-12 max-w-3xl mx-auto">ATCAN Investments Ltd connects over 3,000 farmers across Uganda to international buyers through quality sourcing, processing, and export-ready agricultural solutions.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto md:h-[450px]">
+                    <img src="https://images.unsplash.com/photo-1596649285098-96350eb93856?auto=format&fit=crop&w=800&q=80" alt="Drying" class="w-full h-full object-cover rounded-2xl md:col-span-2">
+                    <div class="grid grid-rows-2 gap-4 h-full">
+                        <img src="https://images.unsplash.com/photo-1629851720803-dbfaee7353f2?auto=format&fit=crop&w=400&q=80" alt="Vanilla" class="w-full h-full object-cover rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=400&q=80" alt="Farmer" class="w-full h-full object-cover rounded-2xl">
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-brand-light py-16">
+                <div class="max-w-[1000px] mx-auto px-6">
+                    <div class="text-center mb-16 relative">
+                        <div class="absolute inset-0 opacity-5 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-contain bg-no-repeat"></div>
+                        <h3 class="font-serif text-3xl font-bold text-brand-green mb-8 relative z-10">Quick Statistics</h3>
+                        <div class="flex justify-center gap-24 relative z-10">
+                            <div>
+                                <h4 class="text-4xl font-bold text-brand-green mb-1 flex items-center justify-center gap-2"><span class="text-brand-orange text-2xl">👥</span> 2000+</h4>
+                                <p class="text-xs font-bold text-gray-500 uppercase">Farmers Supported</p>
+                            </div>
+                            <div>
+                                <h4 class="text-4xl font-bold text-brand-green mb-1 flex items-center justify-center gap-2"><span class="text-brand-orange text-2xl">📍</span> 5+</h4>
+                                <p class="text-xs font-bold text-gray-500 uppercase">Regions Active</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                            <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded-xl mb-5">
+                            <h4 class="font-bold text-brand-green mb-2">Strong Farmer</h4>
+                            <p class="text-[13px] text-gray-500 mb-4 line-clamp-3">Strong Farmer network delivering high quality produce consistently through modern support structures.</p>
+                            <a href="#" class="text-brand-brown text-sm font-bold border-b border-brand-brown">Learn More</a>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded-xl mb-5">
+                            <h4 class="font-bold text-brand-green mb-2">Quality Focused</h4>
+                            <p class="text-[13px] text-gray-500 mb-4 line-clamp-3">Quality focused systems ensure international standards are met during every phase of production.</p>
+                            <a href="#" class="text-brand-brown text-sm font-bold border-b border-brand-brown">Learn More</a>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover rounded-xl mb-5">
+                            <h4 class="font-bold text-brand-green mb-2">Reliable Export</h4>
+                            <p class="text-[13px] text-gray-500 mb-4 line-clamp-3">Reliable export logistics guarantee your shipment arrives safely and on schedule globally.</p>
+                            <a href="#" class="text-brand-brown text-sm font-bold border-b border-brand-brown">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-12">
+                        <button class="bg-brand-brown text-white px-10 py-3 rounded font-bold hover:bg-opacity-90">Learn More</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 max-w-[1000px] mx-auto px-6 text-center">
+                <h3 class="font-serif text-2xl font-bold text-brand-green mb-4">Farmer Impact</h3>
+                <p class="text-gray-500 text-sm mb-10 max-w-2xl mx-auto">Growing farmers, strengthening communities, and dedication to intentions to deliver Global Value.</p>
+                
+                <div class="flex flex-wrap justify-center gap-12 border-b border-gray-200 pb-16">
+                    <div class="flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-brand-orange mb-2">👩‍🌾</div><span class="text-xs font-bold text-gray-700">Women<br>Empowerment</span></div>
+                    <div class="flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-brand-orange mb-2">🏅</div><span class="text-xs font-bold text-gray-700">Quality<br>Control</span></div>
+                    <div class="flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-brand-orange mb-2">🤝</div><span class="text-xs font-bold text-gray-700">Reliable Export<br>Partners</span></div>
+                    <div class="flex flex-col items-center"><div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-brand-orange mb-2">🌱</div><span class="text-xs font-bold text-gray-700">Sustainable<br>Partnerships</span></div>
+                </div>
+
+                <div class="relative rounded-3xl overflow-hidden mt-16 text-left">
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1500&q=80" class="w-full h-[500px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-green/90 to-transparent"></div>
+                    
+                    <div class="absolute inset-0 p-12 flex flex-col justify-center">
+                        <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-4">Growing Farmers.<br>Strengthening Communities.<br>Delivering Global Value.</h2>
+                        <p class="text-white/80 max-w-md mb-12 text-sm">ATCAN Investments Ltd connects over 2,000 farmers across Uganda through shared agricultural visions.</p>
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 right-0 p-6 flex gap-4 overflow-x-auto hide-scroll">
+                        <div class="bg-white/95 backdrop-blur rounded-xl p-5 min-w-[250px] shadow-lg">
+                            <h4 class="font-bold text-brand-green text-sm mb-2">Women Empowerment</h4>
+                            <p class="text-xs text-gray-500">Supporting female leadership in farming co-ops.</p>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur rounded-xl p-5 min-w-[250px] shadow-lg">
+                            <h4 class="font-bold text-brand-green text-sm mb-2">Farmer Training</h4>
+                            <p class="text-xs text-gray-500">Continuous education for sustainable yield.</p>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur rounded-xl p-5 min-w-[250px] shadow-lg">
+                            <h4 class="font-bold text-brand-green text-sm mb-2">Sustainable Agriculture</h4>
+                            <p class="text-xs text-gray-500">Eco-friendly practices for longevity.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="export" class="page-view">
+            
+            <section class="py-12 bg-white">
+                <div class="max-w-[1000px] mx-auto px-6">
+                    <h3 class="text-center font-serif text-2xl font-bold text-brand-green mb-8">Trusted Agricultural Export Partner</h3>
+                    <div class="flex flex-wrap justify-center gap-12 text-brand-green">
+                        <div class="flex flex-col items-center gap-3"><div class="w-16 h-16 rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-2xl">🛡️</div><span class="font-bold text-sm">Quality<br>Systems</span></div>
+                        <div class="flex flex-col items-center gap-3"><div class="w-16 h-16 rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-2xl">📋</div><span class="font-bold text-sm">Export<br>Compliance</span></div>
+                        <div class="flex flex-col items-center gap-3"><div class="w-16 h-16 rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-2xl">🔍</div><span class="font-bold text-sm text-center">Traceability</span></div>
+                        <div class="flex flex-col items-center gap-3"><div class="w-16 h-16 rounded-full border border-gray-200 shadow-sm flex items-center justify-center text-2xl">🌱</div><span class="font-bold text-sm text-center">Sustainable<br>Agriculture</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="max-w-[1200px] mx-auto px-6 mb-16">
+                <div class="relative rounded-2xl overflow-hidden h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1500&q=80" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-green/80"></div>
+                    
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                        <p class="text-brand-orange text-sm font-bold uppercase tracking-widest mb-3">Farmer Impact</p>
+                        <h2 class="font-serif text-4xl font-bold text-white mb-12">Growing Farmers.<br>Strengthening Communities.<br>Delivering Global Value.</h2>
+                        
+                        <div class="flex gap-4 justify-center w-full max-w-4xl">
+                            <div class="bg-white rounded-lg p-4 text-left flex-1"><h4 class="font-bold text-brand-green text-sm">Women<br>Empowerment</h4></div>
+                            <div class="bg-white rounded-lg p-4 text-left flex-1"><h4 class="font-bold text-brand-green text-sm">Farmer<br>Training</h4></div>
+                            <div class="bg-white rounded-lg p-4 text-left flex-1"><h4 class="font-bold text-brand-green text-sm">Sustainable<br>Agriculture</h4></div>
+                            <div class="bg-white rounded-lg p-4 text-left flex-1"><h4 class="font-bold text-brand-green text-sm">Income<br>Growth</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-brand-light py-16 text-center">
+                <div class="max-w-[1000px] mx-auto px-6">
+                    <h2 class="font-serif text-3xl font-bold text-brand-green mb-10">Export Capability Preview</h2>
+                    <div class="relative h-[300px] md:h-[400px] mb-8">
+                        <div class="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-center bg-contain bg-no-repeat opacity-20"></div>
+                        <div class="absolute top-[40%] right-[30%] bg-white p-3 rounded shadow-lg border border-gray-100 text-left w-48 hidden md:block">
+                            <h4 class="font-bold text-xs">Aggregation Systems</h4>
+                            <p class="text-[10px] text-gray-500">Logistics and routing</p>
+                        </div>
+                        <div class="absolute top-[20%] right-[10%] bg-white p-3 rounded shadow-lg border border-gray-100 text-left w-40 hidden md:block">
+                            <h4 class="font-bold text-xs">Logistics Support</h4>
+                            <p class="text-[10px] text-gray-500">Buyer coordination</p>
+                        </div>
+                    </div>
+                    <button class="bg-brand-orange text-white px-8 py-3 rounded font-bold hover:bg-opacity-90">Explore Export Capability</button>
+                </div>
+            </section>
+
+            <section class="max-w-3xl mx-auto px-6 py-16">
+                <h3 class="font-serif text-2xl font-bold text-brand-green mb-6">FAQ Preview</h3>
+                <div class="border-t border-gray-200">
+                    <button class="w-full flex justify-between items-center py-5 border-b border-gray-200 font-bold text-brand-green text-left hover:text-brand-orange">Minimum Order Quantity? <span>v</span></button>
+                    <button class="w-full flex justify-between items-center py-5 border-b border-gray-200 font-bold text-brand-green text-left hover:text-brand-orange">Delivery Times? <span>v</span></button>
+                    <button class="w-full flex justify-between items-center py-5 border-b border-gray-200 font-bold text-brand-green text-left hover:text-brand-orange">Custom Packaging? <span>v</span></button>
+                </div>
+            </section>
+
+            <section class="bg-brand-green py-16 text-center">
+                <h2 class="font-serif text-3xl font-bold text-white mb-4">Looking For A Trusted<br>Agricultural Export Partner?</h2>
+                <p class="text-white/70 text-sm mb-8 max-w-lg mx-auto">ATCAN Investments Ltd connects over 100 farmers across Uganda to international buyers through agricultural solutions.</p>
+                <button class="bg-brand-orange text-white px-8 py-3 rounded font-bold hover:bg-opacity-90">Request Export Pricing Today</button>
+            </section>
+
+            <section class="max-w-[1200px] mx-auto px-6 py-20 grid md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-green mb-6">Contact</h3>
+                    <div class="w-full h-[300px] bg-gray-200 rounded-xl overflow-hidden border border-gray-200">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map" class="w-full h-full object-cover opacity-80">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-serif text-3xl font-bold text-brand-green mb-6">Inquiry form</h3>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Email" class="w-full p-4 border border-gray-200 rounded focus:outline-none focus:border-brand-orange">
+                        <textarea rows="5" placeholder="Enter your message" class="w-full p-4 border border-gray-200 rounded focus:outline-none focus:border-brand-orange"></textarea>
+                        <button type="button" class="w-full bg-brand-brown text-white py-4 rounded font-bold hover:bg-opacity-90 transition">Submit</button>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="bg-brand-green text-white pt-16 pb-8 border-t-8 border-brand-orange">
+                <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="text-brand-orange font-black text-3xl italic">A</div>
+                            <div class="leading-none"><span class="text-white font-bold text-lg">ATCAN</span><br><span class="text-[9px] uppercase tracking-widest text-white/70">Investments Ltd</span></div>
+                        </div>
+                        <p class="text-xs text-white/50">The Trusted Source of Premium, and Quality Agricultural Export.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Overview</h4>
+                        <ul class="space-y-2 text-sm text-white/70">
+                            <li><a href="#" class="hover:text-brand-orange">Home</a></li>
+                            <li><a href="#" class="hover:text-brand-orange">Newsletter</a></li>
+                            <li><a href="#" class="hover:text-brand-orange">Quick links</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Products</h4>
+                        <ul class="space-y-2 text-sm text-white/70">
+                            <li><a href="#" class="hover:text-brand-orange">Products</a></li>
+                            <li><a href="#" class="hover:text-brand-orange">Documents</a></li>
+                            <li><a href="#" class="hover:text-brand-orange">Export Capability</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Contact</h4>
+                        <p class="text-sm text-white/70 mb-2">+256 000 000000</p>
+                        <p class="text-sm text-white/70">info@atcan.com</p>
+                    </div>
+                </div>
+                <div class="max-w-[1200px] mx-auto px-6 flex justify-between items-center text-xs text-white/40 border-t border-white/10 pt-8">
+                    <p>&copy; 2026 ATCAN Investments Ltd. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+    </main>
+
+    <script>
+        function switchView(viewId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+            // Show targeted page
+            document.getElementById(viewId).classList.add('active');
+            
+            // Update Nav styling
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('nav-active'));
+            document.querySelectorAll(`.nav-link[data-target="${viewId}"]`).forEach(el => el.classList.add('nav-active'));
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
