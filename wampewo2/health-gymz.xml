@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Gym Landing Page Export</title>
+	<link>http://localhost</link>
+	<description>WPBakery XML Import</description>
+	<pubDate>Mon, 29 Jun 2026 12:00:00 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://localhost</wp:base_site_url>
+	<wp:base_blog_url>http://localhost</wp:base_blog_url>
+
+	<item>
+		<title>Gym Home Page</title>
+		<link>http://localhost/gym-home/</link>
+		<pubDate>Mon, 29 Jun 2026 12:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost/?page_id=1001</guid>
+		<description></description>
+		<content:encoded><![CDATA[
+[vc_row full_width="stretch_row" css=".vc_custom_1001{background-color: #111111 !important; background-image: url(https://via.placeholder.com/1920x800/111/444) !important; background-size: cover !important; padding-top: 120px !important; padding-bottom: 150px !important;}"]
+    [vc_column width="7/12"]
+        [vc_custom_heading text="THE HEALTH GYM" font_container="tag:h1|font_size:64px|text_align:left|color:%23ffffff|line_height:1.1" use_theme_fonts="yes" css=".vc_custom_1002{margin-bottom: 10px !important; font-weight: 800 !important;}"]
+        [vc_custom_heading text="TRAIN. RELAX. RECHARGE." font_container="tag:h2|font_size:42px|text_align:left|color:%23f3b924|line_height:1.2" use_theme_fonts="yes" css=".vc_custom_1003{margin-bottom: 25px !important; font-weight: 700 !important;}"]
+        [vc_column_text css=".vc_custom_1004{margin-bottom: 30px !important; color: #ffffff !important; font-size: 18px !important;}"]
+            <p><strong>Cross Fit</strong> | <strong>Body Building</strong> | <strong>Yoga</strong> | <strong>Fitness</strong></p>
+            <p><i class="fa fa-check" style="color:#f3b924;"></i> Modern Equipment &nbsp; <i class="fa fa-check" style="color:#f3b924;"></i> Certified Trainers &nbsp; <i class="fa fa-check" style="color:#f3b924;"></i> Flexible Schedule</p>
+        [/vc_column_text]
+        [vc_btn title="START YOUR JOURNEY" style="custom" custom_background="#f3b924" custom_text="#111111" shape="square" size="lg" align="left" link="url:%23|||"]
+    [/vc_column]
+    [vc_column width="5/12" css=".vc_custom_1005{background-color: rgba(17,17,17,0.85) !important; padding: 40px !important; border-top: 4px solid #f3b924 !important;}"]
+        [vc_custom_heading text="QUICK INQUIRY" font_container="tag:h3|font_size:24px|text_align:left|color:%23f3b924" use_theme_fonts="yes"]
+        [vc_column_text]
+            <form style="display:flex; flex-direction:column; gap:15px;">
+                <input type="text" placeholder="Full Name" style="width:100%; padding:12px; background:#222; border:1px solid #444; color:#fff;" required />
+                <input type="email" placeholder="Email Address" style="width:100%; padding:12px; background:#222; border:1px solid #444; color:#fff;" required />
+                <input type="text" placeholder="Phone Number" style="width:100%; padding:12px; background:#222; border:1px solid #444; color:#fff;" required />
+                <select style="width:100%; padding:12px; background:#222; border:1px solid #444; color:#fff;"><option>Select Service</option><option>Personal Training</option><option>Group Classes</option></select>
+                <button type="submit" style="width:100%; padding:15px; background:#f3b924; color:#111; font-weight:700; border:none; cursor:pointer; text-transform:uppercase;">Submit Request</button>
+            </form>
+        [/vc_column_text]
+    [/vc_column]
+[/vc_row]
+
+[vc_row full_width="stretch_row_content_no_spaces" css=".vc_custom_1006{margin-top: -60px !important; z-index: 10 !important; position: relative;}"]
+    [vc_column]
+        [vc_row_inner css=".vc_custom_1007{background-color: #ffffff !important; max-width: 1200px !important; margin: 0 auto !important; box-shadow: 0px 10px 30px rgba(0,0,0,0.1) !important; padding: 20px 0 !important;}"]
+            [vc_column_inner width="1/5"]
+                [vc_icon icon_fontawesome="fas fa-clock" color="custom" custom_color="#f3b924" size="sm" align="center" css=".vc_custom_margin{margin-bottom: 5px !important;}"]
+                [vc_column_text css=".vc_custom_text{text-align: center; margin-bottom: 0 !important;}"]<strong style="color:#111;">Open Hours</strong><br/><span style="color:#666; font-size:14px;">8:00 AM - 10:00 PM</span>[/vc_column_text]
+            [/vc_column_inner]
+            [vc_column_inner width="1/5"]
+                [vc_icon icon_fontawesome="fas fa-phone-alt" color="custom" custom_color="#f3b924" size="sm" align="center" css=".vc_custom_margin{margin-bottom: 5px !important;}"]
+                [vc_column_text css=".vc_custom_text{text-align: center; margin-bottom: 0 !important;}"]<strong style="color:#111;">Call Us</strong><br/><span style="color:#666; font-size:14px;">+1 234 567 890</span>[/vc_column_text]
+            [/vc_column_inner]
+            [vc_column_inner width="1/5"]
+                [vc_icon icon_fontawesome="fas fa-map-marker-alt" color="custom" custom_color="#f3b924" size="sm" align="center" css=".vc_custom_margin{margin-bottom: 5px !important;}"]
+                [vc_column_text css=".vc_custom_text{text-align: center; margin-bottom: 0 !important;}"]<strong style="color:#111;">Location</strong><br/><span style="color:#666; font-size:14px;">Downtown Gym, NY</span>[/vc_column_text]
+            [/vc_column_inner]
+            [vc_column_inner width="1/5"]
+                [vc_icon icon_fontawesome="fas fa-calendar-check" color="custom" custom_color="#f3b924" size="sm" align="center" css=".vc_custom_margin{margin-bottom: 5px !important;}"]
+                [vc_column_text css=".vc_custom_text{text-align: center; margin-bottom: 0 !important;}"]<strong style="color:#111;">Book Class</strong><br/><span style="color:#666; font-size:14px;">Online Booking</span>[/vc_column_text]
+            [/vc_column_inner]
+            [vc_column_inner width="1/5"]
+                [vc_icon icon_fontawesome="fas fa-user-circle" color="custom" custom_color="#f3b924" size="sm" align="center" css=".vc_custom_margin{margin-bottom: 5px !important;}"]
+                [vc_column_text css=".vc_custom_text{text-align: center; margin-bottom: 0 !important;}"]<strong style="color:#111;">Member Area</strong><br/><span style="color:#666; font-size:14px;">Login to Portal</span>[/vc_column_text]
+            [/vc_column_inner]
+        [/vc_row_inner]
+    [/vc_column]
+[/vc_row]
+
+[vc_row css=".vc_custom_1008{padding-top: 80px !important; padding-bottom: 40px !important;}"]
+    [vc_column]
+        [vc_custom_heading text="FIND YOUR CLASS" font_container="tag:h2|font_size:36px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_separator color="custom" border_width="3" el_width="10" accent_color="#f3b924"]
+    [/vc_column]
+[/vc_row]
+
+[vc_row gap="20"]
+    [vc_column width="1/4" css=".vc_custom_grid{background:#fff; box-shadow:0px 5px 15px rgba(0,0,0,0.05); padding:0 !important;}"]
+        [vc_single_image image="https://via.placeholder.com/400x250" img_size="full" alignment="center" css=".vc_custom_img{margin-bottom:0 !important;}"]
+        [vc_column_text css=".vc_custom_grid_text{padding: 20px; text-align: center;}"]
+            <h4 style="margin:0 0 10px 0; color:#111; text-transform:uppercase;">Yoga</h4>
+            <p style="color:#666; font-size:14px;">Perfect for balance and core strength.</p>
+            <a href="#" style="color:#f3b924; font-weight:bold; text-decoration:none;">READ MORE</a>
+        [/vc_column_text]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_grid{background:#fff; box-shadow:0px 5px 15px rgba(0,0,0,0.05); padding:0 !important;}"]
+        [vc_single_image image="https://via.placeholder.com/400x250" img_size="full" alignment="center" css=".vc_custom_img{margin-bottom:0 !important;}"]
+        [vc_column_text css=".vc_custom_grid_text{padding: 20px; text-align: center;}"]
+            <h4 style="margin:0 0 10px 0; color:#111; text-transform:uppercase;">Weight Lifting</h4>
+            <p style="color:#666; font-size:14px;">Build muscle mass and strength.</p>
+            <a href="#" style="color:#f3b924; font-weight:bold; text-decoration:none;">READ MORE</a>
+        [/vc_column_text]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_grid{background:#fff; box-shadow:0px 5px 15px rgba(0,0,0,0.05); padding:0 !important;}"]
+        [vc_single_image image="https://via.placeholder.com/400x250" img_size="full" alignment="center" css=".vc_custom_img{margin-bottom:0 !important;}"]
+        [vc_column_text css=".vc_custom_grid_text{padding: 20px; text-align: center;}"]
+            <h4 style="margin:0 0 10px 0; color:#111; text-transform:uppercase;">Cardio</h4>
+            <p style="color:#666; font-size:14px;">Intense cardiovascular endurance.</p>
+            <a href="#" style="color:#f3b924; font-weight:bold; text-decoration:none;">READ MORE</a>
+        [/vc_column_text]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_grid{background:#fff; box-shadow:0px 5px 15px rgba(0,0,0,0.05); padding:0 !important;}"]
+        [vc_single_image image="https://via.placeholder.com/400x250" img_size="full" alignment="center" css=".vc_custom_img{margin-bottom:0 !important;}"]
+        [vc_column_text css=".vc_custom_grid_text{padding: 20px; text-align: center;}"]
+            <h4 style="margin:0 0 10px 0; color:#111; text-transform:uppercase;">CrossFit</h4>
+            <p style="color:#666; font-size:14px;">High-intensity interval training.</p>
+            <a href="#" style="color:#f3b924; font-weight:bold; text-decoration:none;">READ MORE</a>
+        [/vc_column_text]
+    [/vc_column]
+[/vc_row]
+
+[vc_row css=".vc_custom_1010{padding-top: 80px !important; padding-bottom: 80px !important; background-color: #f9f9f9 !important;}"]
+    [vc_column width="1/2"]
+        [vc_custom_heading text="WHY CHOOSE US" font_container="tag:h2|font_size:36px|text_align:left|color:%23111111" use_theme_fonts="yes"]
+        [vc_separator color="custom" border_width="3" el_width="20" accent_color="#f3b924" align="align_left"]
+        [vc_row_inner css=".vc_custom_1011{margin-top: 30px !important;}"]
+            [vc_column_inner width="1/2"]
+                [vc_icon icon_fontawesome="fas fa-dumbbell" color="custom" custom_color="#f3b924" size="lg" css=".vc_custom_icon_why{margin-bottom:10px !important;}"]
+                [vc_custom_heading text="Modern Equipment" font_container="tag:h4|font_size:18px|text_align:left|color:%23111111" use_theme_fonts="yes"]
+                [vc_column_text css=".vc_custom_text_why{color:#666;}"]Latest state-of-the-art gym gear.[/vc_column_text]
+            [/vc_column_inner]
+            [vc_column_inner width="1/2"]
+                [vc_icon icon_fontawesome="fas fa-heartbeat" color="custom" custom_color="#f3b924" size="lg" css=".vc_custom_icon_why{margin-bottom:10px !important;}"]
+                [vc_custom_heading text="Healthy Environment" font_container="tag:h4|font_size:18px|text_align:left|color:%23111111" use_theme_fonts="yes"]
+                [vc_column_text css=".vc_custom_text_why{color:#666;}"]Clean and sanitized spaces daily.[/vc_column_text]
+            [/vc_column_inner]
+        [/vc_row_inner]
+    [/vc_column]
+    [vc_column width="1/2"]
+        [vc_single_image image="https://via.placeholder.com/600x400" img_size="full" alignment="center" style="vc_box_shadow"]
+    [/vc_column]
+[/vc_row]
+
+[vc_row css=".vc_custom_1012{padding-top: 80px !important; padding-bottom: 40px !important;}"]
+    [vc_column]
+        [vc_custom_heading text="WEEKLY CLASS SCHEDULE" font_container="tag:h2|font_size:36px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_separator color="custom" border_width="3" el_width="10" accent_color="#f3b924"]
+        [vc_tta_tabs style="modern" shape="square" color="black" active_section="1" pagination_style="outline-round" pagination_color="black" css=".vc_custom_tabs{margin-top:40px !important;}"]
+            [vc_tta_section title="MONDAY" tab_id="1612345678-1-1"]
+                [vc_column_text]
+                    <table style="width:100%; border-collapse:collapse; text-align:left;">
+                        <tr style="background:#111; color:#fff;">
+                            <th style="padding:15px;">Class</th><th style="padding:15px;">Trainer</th><th style="padding:15px;">Time</th><th style="padding:15px;">Action</th>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:15px; font-weight:bold;">Power Yoga</td><td style="padding:15px;">Sarah J.</td><td style="padding:15px;">08:00 AM - 09:00 AM</td><td style="padding:15px;"><a href="#" style="background:#f3b924; color:#111; padding:5px 15px; text-decoration:none; font-weight:bold;">JOIN NOW</a></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee; background:#f9f9f9;">
+                            <td style="padding:15px; font-weight:bold;">CrossFit</td><td style="padding:15px;">Mike T.</td><td style="padding:15px;">10:00 AM - 11:30 AM</td><td style="padding:15px;"><a href="#" style="background:#f3b924; color:#111; padding:5px 15px; text-decoration:none; font-weight:bold;">JOIN NOW</a></td>
+                        </tr>
+                    </table>
+                [/vc_column_text]
+            [/vc_tta_section]
+            [vc_tta_section title="TUESDAY" tab_id="1612345678-2-2"]
+                [vc_column_text]Schedule loads here.[/vc_column_text]
+            [/vc_tta_section]
+        [/vc_tta_tabs]
+    [/vc_column]
+[/vc_row]
+
+[vc_row css=".vc_custom_1013{padding-top: 80px !important; padding-bottom: 80px !important; background-color: #f9f9f9 !important;}"]
+    [vc_column]
+        [vc_custom_heading text="MEMBERSHIP PLANS" font_container="tag:h2|font_size:36px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_separator color="custom" border_width="3" el_width="10" accent_color="#f3b924"]
+    [/vc_column]
+[/vc_row]
+[vc_row gap="20" css=".vc_custom_1014{margin-top: -40px !important; padding-bottom: 80px !important; background-color: #f9f9f9 !important;}"]
+    [vc_column width="1/4" css=".vc_custom_pricing{background:#fff; border:1px solid #eee; text-align:center; padding:40px 20px !important;}"]
+        [vc_custom_heading text="BASIC" font_container="tag:h4|text_align:center|color:%23666666" use_theme_fonts="yes"]
+        [vc_custom_heading text="$29.99" font_container="tag:h2|font_size:40px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_column_text css=".vc_custom_pricing_text{margin-top:20px !important; margin-bottom:30px !important; line-height: 2.5;}"]
+            1 Month Access<br/>Basic Equipment<br/>No Personal Trainer
+        [/vc_column_text]
+        [vc_btn title="SELECT PLAN" style="outline" color="black" align="center"]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_pricing{background:#fff; border:1px solid #eee; text-align:center; padding:40px 20px !important;}"]
+        [vc_custom_heading text="STANDARD" font_container="tag:h4|text_align:center|color:%23666666" use_theme_fonts="yes"]
+        [vc_custom_heading text="$49.99" font_container="tag:h2|font_size:40px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_column_text css=".vc_custom_pricing_text{margin-top:20px !important; margin-bottom:30px !important; line-height: 2.5;}"]
+            3 Months Access<br/>All Equipment<br/>Group Classes Included
+        [/vc_column_text]
+        [vc_btn title="SELECT PLAN" style="outline" color="black" align="center"]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_pricing{background:#fff; border:2px solid #f3b924; text-align:center; padding:40px 20px !important; box-shadow:0px 10px 20px rgba(0,0,0,0.1); transform: scale(1.05); z-index: 2;}"]
+        [vc_custom_heading text="PREMIUM" font_container="tag:h4|text_align:center|color:%23f3b924" use_theme_fonts="yes"]
+        [vc_custom_heading text="$89.99" font_container="tag:h2|font_size:40px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_column_text css=".vc_custom_pricing_text{margin-top:20px !important; margin-bottom:30px !important; line-height: 2.5;}"]
+            12 Months Access<br/>All Equipment<br/>Personal Trainer Included<br/>Diet Plan
+        [/vc_column_text]
+        [vc_btn title="SELECT PLAN" style="custom" custom_background="#f3b924" custom_text="#111111" align="center"]
+    [/vc_column]
+    [vc_column width="1/4" css=".vc_custom_pricing{background:#fff; border:1px solid #eee; text-align:center; padding:40px 20px !important;}"]
+        [vc_custom_heading text="PLATINUM" font_container="tag:h4|text_align:center|color:%23666666" use_theme_fonts="yes"]
+        [vc_custom_heading text="$129.99" font_container="tag:h2|font_size:40px|text_align:center|color:%23111111" use_theme_fonts="yes"]
+        [vc_column_text css=".vc_custom_pricing_text{margin-top:20px !important; margin-bottom:30px !important; line-height: 2.5;}"]
+            Lifetime Access<br/>VIP Facilities<br/>Dedicated Support
+        [/vc_column_text]
+        [vc_btn title="SELECT PLAN" style="outline" color="black" align="center"]
+    [/vc_column]
+[/vc_row]
+
+[vc_row full_width="stretch_row" css=".vc_custom_1015{background-color: #111111 !important; padding-top: 60px !important; padding-bottom: 60px !important;}"]
+    [vc_column width="2/3"]
+        [vc_custom_heading text="READY TO START YOUR FITNESS JOURNEY?" font_container="tag:h2|font_size:32px|text_align:left|color:%23ffffff" use_theme_fonts="yes"]
+    [/vc_column]
+    [vc_column width="1/3"]
+        [vc_btn title="JOIN US TODAY" style="custom" custom_background="#f3b924" custom_text="#111111" size="lg" align="right" link="url:%23|||"]
+    [/vc_column]
+[/vc_row]
+			]]></content:encoded>
+		<wp:post_id>1001</wp:post_id>
+		<wp:post_date><![CDATA[2026-06-29 12:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-06-29 12:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[gym-home]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.

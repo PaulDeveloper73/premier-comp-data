@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Tissue Massage | Calabash Spa</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spa: {
+                            dark: '#1c1a18',
+                            darker: '#131110',
+                            gold: '#c29b62',
+                            goldHover: '#a88350',
+                            cream: '#f9f7f3',
+                            gray: '#ebe8e2',
+                            text: '#4a4643',
+                            lightText: '#8a8580'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+        
+        body { font-family: 'Montserrat', sans-serif; color: #4a4643; background-color: #f9f7f3; }
+        h1, h2, h3, h4, h5, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(19, 17, 16, 0.9) 0%, rgba(19, 17, 16, 0.4) 100%), url('https://images.unsplash.com/photo-1600334129128-68505d11263a?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta-bg {
+            background-image: linear-gradient(rgba(19, 17, 16, 0.85), rgba(19, 17, 16, 0.85)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Custom Scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #131110; }
+        ::-webkit-scrollbar-thumb { background: #c29b62; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a88350; }
+
+        /* FAQ Accordion Transition */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+        .faq-item.active .faq-content { max-height: 200px; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-transparent text-white border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex flex-col items-center cursor-pointer">
+                <i class="fas fa-lotus text-spa-gold text-2xl mb-1"></i>
+                <div class="font-serif tracking-[0.2em] uppercase text-xl leading-none">Calabash</div>
+                <div class="text-[0.5rem] tracking-[0.4em] uppercase text-spa-gold mt-1">— SPA —</div>
+            </div>
+            
+            <!-- Links -->
+            <ul class="hidden lg:flex space-x-8 text-[0.7rem] tracking-[0.15em] uppercase font-medium">
+                <li><a href="#" class="hover:text-spa-gold transition duration-300">Home</a></li>
+                <li><a href="#" class="text-white hover:text-spa-gold transition duration-300 flex items-center gap-1">Treatments <i class="fas fa-chevron-down text-[0.5rem]"></i></a></li>
+                <li><a href="#" class="hover:text-spa-gold transition duration-300">Packages</a></li>
+                <li><a href="#" class="hover:text-spa-gold transition duration-300">About Us</a></li>
+                <li><a href="#" class="hover:text-spa-gold transition duration-300">Location</a></li>
+                <li><a href="#" class="hover:text-spa-gold transition duration-300">Contact</a></li>
+            </ul>
+            
+            <!-- CTA -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="tel:+256200903986" class="text-xs font-medium hover:text-spa-gold transition flex items-center gap-2">
+                    <i class="fas fa-phone-alt text-spa-gold"></i> +256 200 903 986
+                </a>
+                <button class="bg-spa-gold text-white px-8 py-3 text-[0.7rem] font-bold uppercase tracking-widest hover:bg-spa-goldHover transition duration-300 rounded-sm">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg relative h-screen min-h-[600px] flex items-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full mt-20 relative z-10 reveal">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-8 h-[1px] bg-spa-gold"></div>
+                <span class="text-spa-gold text-[0.7rem] uppercase tracking-[0.2em] font-medium">Signature Therapy</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-2 leading-tight">
+                Deep Tissue <br>
+                <span class="text-spa-gold italic pr-4">Massage</span>
+            </h1>
+            <p class="text-gray-300 text-sm md:text-base font-light mb-10 max-w-lg leading-relaxed">
+                Release chronic tension, restore mobility, and experience deep, therapeutic relief.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="bg-spa-gold text-white px-8 py-4 rounded-sm uppercase tracking-[0.15em] text-[0.75rem] font-semibold hover:bg-spa-goldHover transition duration-300 flex items-center justify-center gap-3">
+                    Book This Treatment <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+                <button class="border border-white/50 text-white px-8 py-4 rounded-sm uppercase tracking-[0.15em] text-[0.75rem] font-semibold hover:bg-white hover:text-spa-dark transition duration-300">
+                    View Pricing
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Bar -->
+    <section class="bg-spa-darker text-white py-10 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div class="flex items-center gap-4 p-4 reveal">
+                <div class="w-12 h-12 rounded-full border border-spa-gold flex items-center justify-center flex-shrink-0 text-spa-gold text-xl"><i class="fas fa-spa"></i></div>
+                <div>
+                    <h4 class="font-serif text-sm mb-1">Relieves Chronic Pain</h4>
+                    <p class="text-[0.65rem] text-gray-400 font-light leading-relaxed">Targets deep muscle tension and knots.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 reveal delay-100">
+                <div class="w-12 h-12 rounded-full border border-spa-gold flex items-center justify-center flex-shrink-0 text-spa-gold text-xl"><i class="fas fa-child"></i></div>
+                <div>
+                    <h4 class="font-serif text-sm mb-1">Improves Mobility</h4>
+                    <p class="text-[0.65rem] text-gray-400 font-light leading-relaxed">Enhances flexibility and range of motion.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 reveal delay-200">
+                <div class="w-12 h-12 rounded-full border border-spa-gold flex items-center justify-center flex-shrink-0 text-spa-gold text-xl"><i class="fas fa-leaf"></i></div>
+                <div>
+                    <h4 class="font-serif text-sm mb-1">Reduces Stress</h4>
+                    <p class="text-[0.65rem] text-gray-400 font-light leading-relaxed">Promotes relaxation and mental well-being.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 reveal delay-200">
+                <div class="w-12 h-12 rounded-full border border-spa-gold flex items-center justify-center flex-shrink-0 text-spa-gold text-xl"><i class="fas fa-heartbeat"></i></div>
+                <div>
+                    <h4 class="font-serif text-sm mb-1">Boosts Circulation</h4>
+                    <p class="text-[0.65rem] text-gray-400 font-light leading-relaxed">Improves blood flow and speeds up recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-spa-cream">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="lg:w-1/2 reveal">
+                <div class="text-spa-gold text-[0.65rem] uppercase tracking-[0.2em] font-semibold mb-4">A Journey To Deep Restoration</div>
+                <h2 class="text-4xl md:text-5xl font-serif text-spa-dark leading-tight mb-6">
+                    Healing That <br>Works Beneath <br>The Surface
+                </h2>
+                <p class="text-sm text-spa-text font-light mb-6 leading-relaxed">
+                    Designed for those who seek intensive relief, our Deep Tissue Massage uses slow, deliberate strokes and firm pressure to reach the inner layers of your muscles and connective tissues.
+                </p>
+                <p class="text-sm text-spa-text font-light mb-10 leading-relaxed">
+                    Perfect for alleviating chronic aches, sports-related tightness, and stress accumulated from the demands of daily life.
+                </p>
+                
+                <div class="grid grid-cols-4 gap-4 text-center border-t border-spa-gray pt-8">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-user-tie text-spa-gold text-xl mb-2"></i>
+                        <span class="text-[0.6rem] uppercase tracking-wider text-spa-text font-medium">Premium<br>Therapists</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-tint text-spa-gold text-xl mb-2"></i>
+                        <span class="text-[0.6rem] uppercase tracking-wider text-spa-text font-medium">Organic<br>Oils</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-wind text-spa-gold text-xl mb-2"></i>
+                        <span class="text-[0.6rem] uppercase tracking-wider text-spa-text font-medium">Serene<br>Ambience</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-hands text-spa-gold text-xl mb-2"></i>
+                        <span class="text-[0.6rem] uppercase tracking-wider text-spa-text font-medium">Personalized<br>Care</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 relative reveal delay-100">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop" alt="Massage Oils" class="w-full rounded-sm shadow-xl">
+                
+                <!-- Floating Card -->
+                <div class="absolute -bottom-8 -right-8 bg-spa-darker text-white p-8 rounded-sm shadow-2xl w-56 text-center border-t-2 border-spa-gold hidden md:block hover:-translate-y-2 transition duration-500">
+                    <div class="flex justify-center gap-2 mb-3 text-spa-gold text-2xl">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="font-serif text-xl mb-2">90 Minutes</div>
+                    <div class="text-[0.65rem] text-gray-400 font-light uppercase tracking-widest">Recommended<br>Duration</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The Process Section -->
+    <section class="py-24 bg-spa-dark text-white overflow-hidden relative">
+        <!-- Decorative bg curve -->
+        <div class="absolute top-0 right-0 w-1/2 h-full border-t border-r border-spa-gold/10 rounded-tr-full opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 relative z-10">
+            
+            <div class="lg:w-1/2 reveal">
+                <div class="text-spa-gold text-[0.65rem] uppercase tracking-[0.2em] font-semibold mb-3">The Experience</div>
+                <h2 class="text-4xl font-serif mb-12">The Treatment Process</h2>
+                
+                <div class="relative pl-10 space-y-12">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-5 top-2 bottom-2 w-[1px] bg-white/20"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative group">
+                        <div class="absolute -left-10 top-0 w-10 h-10 rounded-full bg-spa-gold text-spa-dark flex items-center justify-center font-serif text-lg font-bold shadow-[0_0_15px_rgba(194,155,98,0.5)] group-hover:scale-110 transition duration-300">01</div>
+                        <h4 class="font-serif text-xl mb-2">Consultation</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">We begin with a short consultation to understand your concerns and areas of tension.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative group">
+                        <div class="absolute -left-10 top-0 w-10 h-10 rounded-full bg-spa-darker border border-spa-gold text-spa-gold flex items-center justify-center font-serif text-lg font-bold group-hover:bg-spa-gold group-hover:text-spa-dark transition duration-300">02</div>
+                        <h4 class="font-serif text-xl mb-2">Preparation</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">You'll be guided into a calm, soothing environment as our therapist prepares you for the session.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative group">
+                        <div class="absolute -left-10 top-0 w-10 h-10 rounded-full bg-spa-darker border border-spa-gold text-spa-gold flex items-center justify-center font-serif text-lg font-bold group-hover:bg-spa-gold group-hover:text-spa-dark transition duration-300">03</div>
+                        <h4 class="font-serif text-xl mb-2">Deep Tissue Work</h4>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Using firm pressure and focused techniques, we target deep muscle layers to release tension and restore balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 flex items-center reveal delay-100">
+                <div class="relative w-full rounded-t-full overflow-hidden border-b-2 border-spa-gold">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=800&auto=format&fit=crop" alt="Massage Process" class="w-full h-[500px] object-cover hover:scale-105 transition duration-700">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-spa-cream text-center border-b border-spa-gray">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="reveal">
+                <div class="text-spa-gold text-[0.65rem] uppercase tracking-[0.2em] font-semibold mb-3">Treatment Options</div>
+                <h2 class="text-4xl font-serif text-spa-dark mb-4">Choose Your Experience</h2>
+                <div class="w-16 h-[1px] bg-spa-gold mx-auto mb-16 relative">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-spa-gold"></div>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-center items-center gap-8 max-w-5xl mx-auto mb-10">
+                
+                <!-- Card 1 -->
+                <div class="bg-white border border-spa-gray rounded-sm p-10 w-full lg:w-1/3 hover:shadow-xl transition duration-500 reveal">
+                    <h3 class="font-serif text-2xl text-spa-dark mb-1">Targeted Relief</h3>
+                    <div class="text-[0.65rem] text-spa-lightText uppercase tracking-[0.2em] font-semibold mb-6">60 Minutes</div>
+                    <div class="text-3xl font-serif text-spa-gold mb-4">UGX 150,000</div>
+                    <p class="text-xs text-spa-text font-light mb-8 px-4 leading-relaxed">Focuses on specific problem areas such as the lower back, neck and shoulders.</p>
+                    <button class="w-full bg-spa-gold text-white py-3 rounded-sm text-[0.7rem] uppercase tracking-widest font-semibold hover:bg-spa-goldHover transition duration-300">Book Now</button>
+                </div>
+
+                <!-- Card 2 (Most Popular) -->
+                <div class="bg-spa-darker text-white rounded-sm p-10 w-full lg:w-1/3 shadow-2xl relative lg:-translate-y-4 hover:-translate-y-6 transition duration-500 border-t-2 border-spa-gold reveal delay-100">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-spa-gold text-white text-[0.6rem] uppercase tracking-[0.2em] font-bold px-4 py-1 rounded-sm shadow-md whitespace-nowrap">Most Popular</div>
+                    <h3 class="font-serif text-2xl mb-1">Full Body Restoration</h3>
+                    <div class="text-[0.65rem] text-gray-400 uppercase tracking-[0.2em] font-semibold mb-6">90 Minutes</div>
+                    <div class="text-3xl font-serif text-spa-gold mb-4">UGX 220,000</div>
+                    <p class="text-xs text-gray-300 font-light mb-8 px-4 leading-relaxed">A comprehensive full-body session restoring all major muscle groups for total relief and renewal.</p>
+                    <button class="w-full bg-spa-gold text-white py-3 rounded-sm text-[0.7rem] uppercase tracking-widest font-semibold hover:bg-white hover:text-spa-dark transition duration-300">Book Now</button>
+                </div>
+
+                <!-- List Info -->
+                <div class="w-full lg:w-1/3 text-left pl-0 lg:pl-8 space-y-6 reveal delay-200">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white border border-spa-gray flex items-center justify-center text-spa-gold"><i class="fas fa-user-friends"></i></div>
+                        <span class="text-sm font-medium">Expert Therapists</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white border border-spa-gray flex items-center justify-center text-spa-gold"><i class="fas fa-pump-soap"></i></div>
+                        <span class="text-sm font-medium">Premium Products</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white border border-spa-gray flex items-center justify-center text-spa-gold"><i class="fas fa-shield-alt"></i></div>
+                        <span class="text-sm font-medium">Clean & Safe Environment</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white border border-spa-gray flex items-center justify-center text-spa-gold"><i class="fas fa-hands-helping"></i></div>
+                        <span class="text-sm font-medium">Personalized Care</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-[0.7rem] text-spa-lightText flex items-center justify-center gap-2 reveal delay-200">
+                <i class="fas fa-plus-circle text-spa-gray"></i> Add aromatherapy or hot stones to enhance your experience.
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Quality -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="lg:w-1/2 reveal">
+                <div class="text-spa-gold text-[0.65rem] uppercase tracking-[0.2em] font-semibold mb-4">Location & Quality</div>
+                <h2 class="text-4xl font-serif text-spa-dark leading-tight mb-6">The Best Spa Experience<br>in Kampala</h2>
+                <p class="text-sm text-spa-text font-light mb-8 leading-relaxed">
+                    Located conveniently near Speke Resort and the tranquil shores of Munyonyo, Calabash Spa & Wellness Centre is Kampala's premier luxury wellness destination.
+                </p>
+                <ul class="space-y-4 mb-10 text-sm font-light">
+                    <li class="flex items-start gap-3"><i class="fas fa-check text-spa-gold mt-1"></i> Internationally Certified Massage Therapists</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check text-spa-gold mt-1"></i> Luxury Private Treatment Suites</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check text-spa-gold mt-1"></i> Steam, Sauna & Relaxation Lounge</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check text-spa-gold mt-1"></i> Complimentary Towels & Refreshments</li>
+                </ul>
+                <div class="flex flex-wrap items-center gap-4">
+                    <button class="bg-spa-gold text-white px-6 py-3 rounded-sm text-[0.7rem] uppercase tracking-widest font-semibold hover:bg-spa-goldHover transition duration-300 flex items-center gap-3">
+                        View Our Location <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <span class="text-xs text-spa-lightText font-medium flex items-center gap-2"><i class="fas fa-map-marker-alt text-spa-gold"></i> Munyonyo, Kampala, Uganda</span>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 relative rounded-sm overflow-hidden group reveal delay-100 cursor-pointer shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop" alt="Spa Interior" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 bg-spa-darker/40 group-hover:bg-spa-darker/50 transition duration-300 flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 rounded-full bg-spa-gold/90 text-white flex items-center justify-center text-xl mb-3 shadow-lg group-hover:scale-110 transition duration-300 pl-1">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <span class="text-white text-[0.7rem] uppercase tracking-[0.2em] font-semibold">Take a Virtual Tour</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 bg-spa-cream text-center border-t border-b border-spa-gray">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <i class="fas fa-quote-left text-3xl text-spa-gray mb-6"></i>
+            <div class="flex items-center justify-between">
+                <button class="text-spa-gray hover:text-spa-gold transition text-xl"><i class="fas fa-arrow-left"></i></button>
+                <h3 class="text-xl md:text-2xl font-serif text-spa-dark italic font-light px-8 leading-relaxed max-w-3xl">
+                    "After a long week of meetings in Kampala, the 90-minute deep tissue massage at Calabash Spa was exactly what I needed. The therapists found knots I didn't know I had. Truly a 5-star luxury experience."
+                </h3>
+                <button class="text-spa-gray hover:text-spa-gold transition text-xl"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="mt-8">
+                <div class="text-[0.75rem] font-bold uppercase tracking-widest text-spa-dark">Sarah M.</div>
+                <div class="text-[0.65rem] text-spa-lightText uppercase tracking-widest mb-2">Business Executive</div>
+                <div class="text-spa-gold text-xs flex justify-center gap-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6 md:px-12 reveal">
+            <h2 class="text-3xl font-serif text-spa-dark text-center mb-4">Frequently Asked Questions</h2>
+            <div class="w-16 h-[1px] bg-spa-gold mx-auto mb-12 relative">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 border border-spa-gold bg-white"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">Does deep tissue massage hurt?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            While deep tissue applies firmer pressure to reach deeper muscle layers, it should not be painful. Your therapist will communicate with you to ensure the pressure is comfortable and effective.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">What should I do after the treatment?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            Drink plenty of water to flush out released toxins and rest. Avoid strenuous activity for 24 hours.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">Who should avoid deep tissue massage?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            Those with recent injuries, blood clotting issues, or severe osteoporosis should consult a doctor first.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">Is it different from a Swedish massage?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            Yes, Swedish is lighter and focuses on relaxation, while deep tissue targets deeper muscle layers for chronic pain.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">How often should I get a deep tissue massage?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            For chronic issues, every 2-4 weeks is recommended. For general maintenance, once a month is ideal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item border border-spa-gray rounded-sm">
+                    <button class="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none bg-white hover:bg-spa-cream transition">
+                        <span class="text-sm font-medium text-spa-text">Can deep tissue massage help with sports injuries?</span>
+                        <i class="fas fa-chevron-down text-spa-lightText text-xs faq-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content bg-spa-cream">
+                        <p class="px-6 pb-6 text-xs text-spa-lightText font-light leading-relaxed">
+                            Yes, it breaks down scar tissue and improves blood flow to accelerate the healing process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA Area -->
+    <section class="cta-bg py-16 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row justify-between items-center gap-8 text-white reveal">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl font-serif mb-2">Ready to Relieve the Tension?</h2>
+                <p class="text-sm font-light text-gray-300 mb-6">Book your Deep Tissue Massage today and feel the difference.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button class="bg-spa-gold text-white px-8 py-3 rounded-sm text-[0.7rem] uppercase tracking-widest font-semibold hover:bg-spa-goldHover transition duration-300">
+                        Book Appointment
+                    </button>
+                    <a href="https://wa.me/256200903986" class="border border-white/50 text-white px-8 py-3 rounded-sm text-[0.7rem] uppercase tracking-widest font-semibold hover:bg-white hover:text-spa-dark transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-sm"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex flex-col sm:flex-row justify-center md:justify-end gap-8 text-sm">
+                <div class="flex items-center gap-3">
+                    <i class="far fa-clock text-spa-gold text-2xl"></i>
+                    <div>
+                        <div class="font-medium">Open Daily</div>
+                        <div class="text-xs text-gray-400 font-light">8:00 AM - 10:00 PM</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-phone-alt text-spa-gold text-2xl"></i>
+                    <div>
+                        <div class="font-medium">Call Us</div>
+                        <div class="text-xs text-gray-400 font-light">+256 200 903 986</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="far fa-envelope text-spa-gold text-2xl"></i>
+                    <div>
+                        <div class="font-medium">Email Us</div>
+                        <div class="text-xs text-gray-400 font-light">info@calabashspa.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Main -->
+    <footer class="bg-spa-dark text-white pt-16 pb-6 px-6 md:px-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 border-b border-white/10 pb-12">
+            
+            <div class="lg:col-span-2">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-lotus text-spa-gold text-3xl mr-3"></i>
+                    <div>
+                        <div class="font-serif tracking-[0.2em] uppercase text-xl leading-none">Calabash</div>
+                        <div class="text-[0.5rem] tracking-[0.4em] uppercase text-spa-gold mt-1">— SPA —</div>
+                    </div>
+                </div>
+                <p class="text-[0.75rem] text-gray-400 font-light leading-relaxed mb-6 max-w-sm">
+                    Kampala's premier luxury wellness retreat, dedicated to restoring balance to your mind, body and spirit.
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-spa-gold hover:bg-spa-gold transition"><i class="fab fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-spa-gold hover:bg-spa-gold transition"><i class="fab fa-instagram text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-spa-gold hover:bg-spa-gold transition"><i class="fab fa-whatsapp text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-spa-gold hover:bg-spa-gold transition"><i class="fab fa-twitter text-xs"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-[0.7rem] uppercase tracking-widest font-semibold mb-6">Treatments</h4>
+                <ul class="space-y-3 text-[0.75rem] text-gray-400 font-light">
+                    <li><a href="#" class="hover:text-spa-gold transition">Deep Tissue Massage</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Hot Stone Massage</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Couples Spa Packages</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Luxury Facials</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">All Treatments</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[0.7rem] uppercase tracking-widest font-semibold mb-6">Packages</h4>
+                <ul class="space-y-3 text-[0.75rem] text-gray-400 font-light">
+                    <li><a href="#" class="hover:text-spa-gold transition">Spa Day Packages</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Wellness Retreats</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Hammam Experiences</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Prenatal Massage</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">All Packages</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-[0.7rem] uppercase tracking-widest font-semibold mb-6">Information</h4>
+                <ul class="space-y-3 text-[0.75rem] text-gray-400 font-light">
+                    <li><a href="#" class="hover:text-spa-gold transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Our Therapists</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Spa Etiquette</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Testimonials</a></li>
+                    <li><a href="#" class="hover:text-spa-gold transition">Careers</a></li>
+                </ul>
+            </div>
+            
+            <div class="hidden lg:block">
+                <h4 class="text-[0.7rem] uppercase tracking-widest font-semibold mb-6">Visit Us</h4>
+                <ul class="space-y-3 text-[0.75rem] text-gray-400 font-light">
+                    <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-spa-gold mt-1"></i> Near Speke Resort,<br>Munyonyo, Kampala,<br>Uganda</li>
+                    <li><a href="#" class="text-spa-gold hover:text-white transition flex items-center gap-2"><i class="fas fa-location-arrow text-[0.6rem]"></i> View on Google Maps</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[0.65rem] text-gray-500 font-light">
+            <p>&copy; 2026 Calabash Spa. All Rights Reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-spa-gold transition">Privacy Policy</a>
+                <span class="text-gray-700">|</span>
+                <a href="#" class="hover:text-spa-gold transition">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/256200903986" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-xl hover:-translate-y-1 hover:shadow-2xl transition duration-300 z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-spa-darker', 'shadow-md');
+                navbar.classList.remove('bg-transparent', 'border-b', 'border-white/10');
+            } else {
+                navbar.classList.remove('bg-spa-darker', 'shadow-md');
+                navbar.classList.add('bg-transparent', 'border-b', 'border-white/10');
+            }
+        });
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const button = item.querySelector('button');
+            button.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other open items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Open the clicked one if it wasn't already open
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Reveal Animation Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
