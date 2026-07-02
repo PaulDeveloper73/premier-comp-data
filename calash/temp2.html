@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calabash Spa - Deep Tissue Massage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CSS VARIABLES & RESET --- */
+        :root {
+            --gold: #cfa052;
+            --gold-hover: #b58840;
+            --dark-bg: #111111;
+            --dark-surface: #1a1a1a;
+            --light-bg: #fcfaf7;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --text-dark: #333333;
+            --text-dark-muted: #666666;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { width: 100%; display: block; object-fit: cover; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- 2. TYPOGRAPHY & UTILITIES --- */
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; }
+        
+        .section-subtitle {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--text-light);
+        }
+        .btn-gold:hover { background-color: var(--gold-hover); }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-light);
+            color: var(--text-light);
+        }
+        .btn-outline:hover { background-color: rgba(255,255,255,0.1); }
+
+        .btn-outline-dark {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .text-center { text-align: center; }
+        .py-section { padding: 6rem 0; }
+
+        /* --- 3. NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        header.scrolled {
+            background-color: var(--dark-bg);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+        .nav-links { display: flex; gap: 2rem; color: var(--text-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; color: var(--text-light); }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.8)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding-top: 80px;
+        }
+        .hero h1 { font-size: 4.5rem; margin-bottom: 1rem; line-height: 1.1; }
+        .hero h1 span { color: var(--gold); font-style: italic; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; color: #ddd; }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; }
+
+        /* --- 5. BENEFITS STRIP --- */
+        .benefits-strip {
+            background-color: var(--dark-surface);
+            padding: 3rem 0;
+            border-bottom: 1px solid #333;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .benefit-item { display: flex; gap: 1rem; align-items: flex-start; color: var(--text-light); }
+        .benefit-icon { color: var(--gold); font-size: 1.5rem; flex-shrink: 0; }
+        .benefit-text h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .benefit-text p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* --- 6. SPLIT SECTIONS (Journey, Process) --- */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .split-content h2 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .split-content p { margin-bottom: 1.5rem; color: var(--text-dark-muted); }
+        
+        .image-wrapper { position: relative; }
+        .image-wrapper img { border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        /* Floating Badge */
+        .floating-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background-color: var(--dark-surface);
+            color: var(--gold);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 200px;
+        }
+        .floating-badge h4 { font-size: 2rem; margin-bottom: 0.25rem; font-family: var(--font-body); font-weight: 600; }
+        .floating-badge p { font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; }
+
+        /* Features List */
+        .feature-icons { display: flex; gap: 2rem; margin-top: 2rem; }
+        .feature-icons div { text-align: center; font-size: 0.75rem; color: var(--text-dark-muted); }
+        .feature-icons span { display: block; color: var(--gold); font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+        /* Process Section (Dark) */
+        .process-section { background-color: var(--dark-bg); color: var(--text-light); }
+        .process-section .split-content p { color: var(--text-muted); }
+        .timeline { margin-top: 2rem; }
+        .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .timeline-num { 
+            width: 40px; height: 40px; 
+            border: 1px solid var(--gold); color: var(--gold); 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 50%; font-weight: 600; flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        .timeline-text h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--text-light); }
+
+        /* --- 7. PRICING SECTION --- */
+        .pricing-section { background-color: var(--light-bg); }
+        .pricing-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+        .price-card {
+            background: #fff;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+            position: relative;
+        }
+        .price-card.dark {
+            background: var(--dark-surface);
+            color: var(--text-light);
+            border: none;
+            transform: scale(1.05); /* Highlight effect */
+        }
+        .price-card h3 { font-family: var(--font-body); font-size: 1.2rem; font-weight: 600; }
+        .price-duration { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; margin: 0.5rem 0 1.5rem; }
+        .price-amount { font-family: var(--font-heading); font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+        .price-card p { font-size: 0.85rem; margin-bottom: 2rem; color: var(--text-dark-muted); }
+        .price-card.dark p { color: var(--text-muted); }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        .pricing-features ul { display: flex; flex-direction: column; gap: 1.5rem; }
+        .pricing-features li { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; font-weight: 500; }
+        .pricing-features li::before { content: '✓'; color: var(--gold); font-size: 1.2rem; }
+
+        /* --- 8. TESTIMONIAL & FAQ --- */
+        .testimonial { background-color: #f4efeb; text-align: center; font-family: var(--font-heading); }
+        .testimonial p { font-size: 1.5rem; font-style: italic; max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.4; color: var(--dark-bg); }
+        .testimonial-author { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; max-width: 900px; margin: 3rem auto 0; }
+        .faq-item { border: 1px solid #eaeaea; background: #fff; border-radius: 4px; overflow: hidden; }
+        .faq-question { padding: 1.2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: 500; }
+        .faq-answer { padding: 0 1.2rem; max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-dark-muted); font-size: 0.85rem; }
+        .faq-item.active .faq-answer { padding-bottom: 1.2rem; max-height: 200px; }
+        .faq-item.active .faq-question { color: var(--gold); }
+
+        /* --- 9. FOOTERS --- */
+        .footer-cta { background-color: var(--dark-surface); color: var(--text-light); }
+        .cta-content { display: flex; justify-content: space-between; align-items: center; }
+        .cta-text h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .cta-text p { color: var(--text-muted); }
+        .cta-info { display: flex; gap: 3rem; }
+        .cta-info-item { display: flex; gap: 1rem; align-items: center; }
+        .cta-info-item i { color: var(--gold); font-size: 1.5rem; }
+        .cta-info-item h5 { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; }
+        .cta-info-item p { font-size: 0.8rem; color: var(--text-muted); }
+
+        .main-footer { background-color: var(--dark-bg); color: var(--text-muted); padding: 4rem 0 2rem; font-size: 0.85rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-family: var(--font-body); color: var(--text-light); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; display: flex; justify-content: space-between; }
+
+        /* Responsive basics */
+        @media (max-width: 992px) {
+            .split-section { grid-template-columns: 1fr; gap: 2rem; }
+            .pricing-layout { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+            .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .cta-content { flex-direction: column; text-align: center; gap: 2rem; }
+            .cta-info { flex-direction: column; gap: 1rem; }
+            .nav-links { display: none; } /* Mobile menu needed in prod */
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <div class="logo">CALABASH <span style="font-size: 0.8rem; font-family: 'Inter'; font-weight: 300; letter-spacing: 2px;">SPA</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Treatments</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <span style="font-size: 0.85rem;">📞 +256 200 903 986</span>
+                <a href="#" class="btn btn-gold">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="section-subtitle">Signature Therapy</span>
+            <h1>Deep Tissue<br><span>Massage</span></h1>
+            <p>Release chronic tension, restore mobility, and experience deep, therapeutic relief.</p>
+            <div class="hero-btns">
+                <a href="#" class="btn btn-gold">Book This Treatment</a>
+                <a href="#" class="btn btn-outline">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-strip">
+        <div class="container benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">⊗</div>
+                <div class="benefit-text">
+                    <h4>Relieves Chronic Pain</h4>
+                    <p>Targets deep muscle tension and knots.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚯</div>
+                <div class="benefit-text">
+                    <h4>Improves Mobility</h4>
+                    <p>Enhances flexibility and range of motion.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">♨</div>
+                <div class="benefit-text">
+                    <h4>Reduces Stress</h4>
+                    <p>Promotes relaxation and mental well-being.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">♡</div>
+                <div class="benefit-text">
+                    <h4>Boosts Circulation</h4>
+                    <p>Improves blood flow and speeds up recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section">
+        <div class="container split-section">
+            <div class="split-content">
+                <span class="section-subtitle">A Journey to Deep Restoration</span>
+                <h2>Healing That<br>Works Beneath<br>The Surface</h2>
+                <p>Designed for those who seek intensive relief, our Deep Tissue Massage uses slow, deliberate strokes and firm pressure to reach the inner layers of your muscles and connective tissues.</p>
+                <p>Perfect for alleviating chronic aches, sports-related tightness, and stress accumulated from the demands of daily life.</p>
+                
+                <div class="feature-icons">
+                    <div><span>✧</span> Premium Therapists</div>
+                    <div><span>♨</span> Organic Oils</div>
+                    <div><span>⚲</span> Serene Ambience</div>
+                    <div><span>♡</span> Personalized Care</div>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop" alt="Spa Oils and Towels">
+                <div class="floating-badge">
+                    <h4>90</h4>
+                    <p>MINUTES</p>
+                    <p style="color: var(--text-muted); font-size: 0.65rem; margin-top: 4px;">Recommended Duration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section process-section">
+        <div class="container split-section">
+            <div class="split-content">
+                <span class="section-subtitle">The Experience</span>
+                <h2>The Treatment Process</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-num">01</div>
+                        <div class="timeline-text">
+                            <h4>Consultation</h4>
+                            <p>We begin with a short consultation to understand your concerns and areas of tension.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-num">02</div>
+                        <div class="timeline-text">
+                            <h4>Preparation</h4>
+                            <p>You'll be guided into a calm, soothing environment as our therapist prepares you for the session.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-num">03</div>
+                        <div class="timeline-text">
+                            <h4>Deep Tissue Work</h4>
+                            <p>Using firm pressure and focused techniques, we target deep muscle layers to release tension and restore balance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=800&auto=format&fit=crop" alt="Massage Therapy">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section pricing-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">Treatment Options</span>
+                <h2>Choose Your Experience</h2>
+            </div>
+            
+            <div class="pricing-layout">
+                <div class="price-card">
+                    <h3>Targeted Relief</h3>
+                    <div class="price-duration">60 Minutes</div>
+                    <div class="price-amount">UGX 150,000</div>
+                    <p>Focuses on specific problem areas such as the lower back, neck and shoulders.</p>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">Book Now</a>
+                </div>
+                
+                <div class="price-card dark">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Full Body Restoration</h3>
+                    <div class="price-duration">90 Minutes</div>
+                    <div class="price-amount">UGX 220,000</div>
+                    <p>A comprehensive full-body session restoring all major muscle groups for total relief and renewal.</p>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">Book Now</a>
+                </div>
+                
+                <div class="pricing-features">
+                    <ul>
+                        <li>Expert Therapists</li>
+                        <li>Premium Products</li>
+                        <li>Clean & Safe Environment</li>
+                        <li>Personalized Care</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section">
+        <div class="container split-section">
+            <div class="split-content">
+                <span class="section-subtitle">Location & Quality</span>
+                <h2>The Best Spa Experience in Kampala</h2>
+                <p>Located conveniently near Speke Resort and the tranquil shores of Munyonyo, Calabash Spa & Wellness Centre is Kampala's premier luxury wellness destination.</p>
+                <div class="pricing-features" style="margin-bottom: 2rem;">
+                    <ul style="gap: 0.8rem;">
+                        <li>Internationally Certified Massage Therapists</li>
+                        <li>Luxury Private Treatment Suites</li>
+                        <li>Steam, Sauna & Relaxation Lounge</li>
+                        <li>Complimentary Towels & Refreshments</li>
+                    </ul>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="#" class="btn btn-gold">View Our Location</a>
+                    <span style="font-size: 0.8rem; color: var(--text-dark-muted);">📍 Munyonyo, Kampala, Uganda</span>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop" alt="Spa Interior">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+                    <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; cursor: pointer;">▶</div>
+                    <div style="font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Take a Virtual Tour</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section testimonial">
+        <div class="container">
+            <span style="color: var(--gold); font-size: 3rem; line-height: 0; display: block; margin-bottom: 2rem;">“</span>
+            <p>After a long week of meetings in Kampala, the 90-minute deep tissue massage at Calabash Spa was exactly what I needed. The therapists found knots I didn't know I had. Truly a 5-star luxury experience.</p>
+            <div class="testimonial-author">Sarah M.<br><span style="color: var(--text-muted); font-size: 0.7rem;">Business Executive</span></div>
+            <div style="color: var(--gold); margin-top: 0.5rem;">★★★★★</div>
+        </div>
+    </section>
+
+    <section class="py-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Does deep tissue massage hurt? <span>+</span></div>
+                    <div class="faq-answer">While pressure is firm, it shouldn't be painful. Communicate with your therapist to ensure the pressure is comfortable for you.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What should I do after the treatment? <span>+</span></div>
+                    <div class="faq-answer">Drink plenty of water to flush toxins, avoid strenuous activity, and rest to allow your muscles to recover.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Who should avoid deep tissue massage? <span>+</span></div>
+                    <div class="faq-answer">Those with blood clots, recent surgery, osteoporosis, or pregnant women should consult a doctor first.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is it different from a Swedish massage? <span>+</span></div>
+                    <div class="faq-answer">Yes, Swedish is for general relaxation using lighter strokes, while Deep Tissue targets inner muscle layers and knots.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-section footer-cta">
+        <div class="container cta-content">
+            <div class="cta-text">
+                <h2>Ready to Relieve the Tension?</h2>
+                <p>Book your Deep Tissue Massage today and feel the difference.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <a href="#" class="btn btn-gold">Book Appointment</a>
+                    <a href="#" class="btn btn-outline-dark">Whatsapp Us</a>
+                </div>
+            </div>
+            <div class="cta-info">
+                <div class="cta-info-item">
+                    <i>🕒</i>
+                    <div>
+                        <h5>Open Daily</h5>
+                        <p>8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+                <div class="cta-info-item">
+                    <i>📞</i>
+                    <div>
+                        <h5>Call Us</h5>
+                        <p>+256 200 903 986</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col" style="padding-right: 2rem;">
+                    <div class="logo" style="margin-bottom: 1rem;">CALABASH <span style="font-size: 0.8rem; font-family: 'Inter'; font-weight: 300;">SPA</span></div>
+                    <p style="margin-bottom: 1.5rem;">Kampala's premier luxury wellness retreat, dedicated to restoring balance to your mind, body and spirit.</p>
+                    <div style="display: flex; gap: 1rem; color: var(--text-light);">
+                        <span>Fb</span> <span>Ig</span> <span>Tw</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="#">Deep Tissue Massage</a></li>
+                        <li><a href="#">Hot Stone Massage</a></li>
+                        <li><a href="#">Couples Spa Packages</a></li>
+                        <li><a href="#">Luxury Facials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Packages</h4>
+                    <ul>
+                        <li><a href="#">Spa Day Packages</a></li>
+                        <li><a href="#">Wellness Retreats</a></li>
+                        <li><a href="#">Hammam Experiences</a></li>
+                        <li><a href="#">Prenatal Massage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Therapists</a></li>
+                        <li><a href="#">Spa Etiquette</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Visit Us</h4>
+                    <ul>
+                        <li>📍 Near Speke Resort,<br>Munyonyo, Kampala, Uganda</li>
+                        <li style="color: var(--gold);"><a href="#">View on Google Maps</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Calabash Spa. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Sticky Navbar Effect
+            const header = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 2. FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others (optional, remove if you want multiple open)
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('span').textContent = '+';
+                        }
+                    });
+                    
+                    // Toggle current
+                    item.classList.toggle('active');
+                    const icon = item.querySelector('span');
+                    icon.textContent = item.classList.contains('active') ? '−' : '+';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
