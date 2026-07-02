@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Speke Apartments Fitness Schedule</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 1100px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 25px;
+    border-bottom: 3px solid #d89b35;
+}
+
+.header h1 {
+    margin: 0;
+    color: #d89b35;
+    font-weight: 900;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f8fafc;
+    border-bottom: 1px solid #eee;
+}
+
+.tab {
+    padding: 8px 14px;
+    border: 1px solid #d89b35;
+    background: #fff;
+    color: #d89b35;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.tab:hover {
+    background: #d89b35;
+    color: #fff;
+}
+
+.tab.active {
+    background: #d89b35;
+    color: #fff;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 14px;
+    font-size: 14px;
+}
+
+th {
+    background: #f8fafc;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #64748b;
+    text-align: left;
+}
+
+.day-header td {
+    background: #f4f7f6;
+    font-weight: 900;
+    color: #d89b35;
+    text-transform: uppercase;
+}
+
+/* BUTTON */
+.btn-join {
+    background: #d89b35;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    /* Only hide the table head, NOT the whole table */
+    thead {
+        display: none;
+    }
+
+    table, tbody, tr, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    tr.data-row {
+        margin: 10px 15px;
+        width: calc(100% - 30px);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 5px 0;
+    }
+
+    td {
+        text-align: right;
+        position: relative;
+        padding: 12px 15px 12px 50%;
+        border-bottom: 1px solid #f9f9f9;
+    }
+    
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #64748b;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Keep the day header centered and remove pseudo-elements */
+    .day-header td {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .day-header td::before {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="table-container">
+
+<div class="header">
+    <h1>Speke Apartments Fitness Schedule</h1>
+</div>
+
+<div class="tabs">
+    <button class="tab active" data-day="Monday">Monday</button>
+    <button class="tab" data-day="Tuesday">Tuesday</button>
+    <button class="tab" data-day="Wednesday">Wednesday</button>
+    <button class="tab" data-day="Thursday">Thursday</button>
+    <button class="tab" data-day="Friday">Friday</button>
+    <button class="tab" data-day="Saturday">Saturday</button>
+</div>
+
+<table>
+<thead>
+<tr>
+    <th>Time</th>
+    <th>Class</th>
+    <th>Trainer</th>
+    <th>Room</th>
+    <th>Price</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr class="day-header"><td colspan="6">Monday</td></tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">06:30 - 07:30 AM</td><td data-label="Class">CrossFit</td><td data-label="Trainer">Allan</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">07:00 - 08:00 AM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Barbra</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">12:30 - 01:30 PM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Barbra</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">06:00 - 07:00 PM</td><td data-label="Class">Taebo Aerobics</td><td data-label="Trainer">Abu</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Sukuma Dance</td><td data-label="Trainer">SMK</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Janat</td><td data-label="Room">C</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Monday">
+    <td data-label="Time">07:00 - 08:00 PM</td><td data-label="Class">Koona Dance</td><td data-label="Trainer">Felix</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+<tr class="day-header"><td colspan="6">Tuesday</td></tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">06:30 - 07:30 AM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Newton</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">06:30 - 08:30 AM</td><td data-label="Class">Yoga</td><td data-label="Trainer">Latif</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">07:30 - 08:30 AM</td><td data-label="Class">Boxing</td><td data-label="Trainer">Paul</td><td data-label="Room">C</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">06:00 - 07:00 PM</td><td data-label="Class">Boxing</td><td data-label="Trainer">Paul</td><td data-label="Room">C</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Tuff Girl Fit</td><td data-label="Trainer">Janat</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Tuesday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Zumba Dance</td><td data-label="Trainer">Carol</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+<tr class="day-header"><td colspan="6">Wednesday</td></tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">06:30 - 07:30 AM</td><td data-label="Class">CrossFit</td><td data-label="Trainer">Allan</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">07:00 - 08:00 AM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Newton</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">11:00 - 12:00 PM</td><td data-label="Class">Her Fit Club</td><td data-label="Trainer">Vanessa</td><td data-label="Room">C</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">06:00 - 07:00 PM</td><td data-label="Class">Bootcamp</td><td data-label="Trainer">Abu</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Sukuma Dance</td><td data-label="Trainer">SMK</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Wednesday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Janat</td><td data-label="Room">C</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+<tr class="day-header"><td colspan="6">Thursday</td></tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">06:30 - 07:30 AM</td><td data-label="Class">Yoga</td><td data-label="Trainer">Latif</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">07:00 - 08:00 AM</td><td data-label="Class">Boxing</td><td data-label="Trainer">Paul</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">12:30 - 01:30 PM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Newton</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">06:00 - 07:00 PM</td><td data-label="Class">Boxing</td><td data-label="Trainer">Paul</td><td data-label="Room">C</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Tuff Girl Fit</td><td data-label="Trainer">Janat</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Thursday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Zumba Dance</td><td data-label="Trainer">Carol</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+<tr class="day-header"><td colspan="6">Friday</td></tr>
+<tr class="data-row" data-day="Friday">
+    <td data-label="Time">06:30 - 07:30 AM</td><td data-label="Class">CrossFit</td><td data-label="Trainer">Allan</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Friday">
+    <td data-label="Time">07:00 - 08:00 AM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Newton</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Friday">
+    <td data-label="Time">06:00 - 07:00 PM</td><td data-label="Class">Bootcamp</td><td data-label="Trainer">Abu</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Friday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Spinning</td><td data-label="Trainer">Newton</td><td data-label="Room">A</td><td data-label="Price">30,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Friday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Wakanda Dance</td><td data-label="Trainer">Mafik</td><td data-label="Room">C</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+<tr class="day-header"><td colspan="6">Saturday</td></tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">09:00 - 10:00 AM</td><td data-label="Class">Sculpt</td><td data-label="Trainer">Patricia</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">10:00 - 11:00 AM</td><td data-label="Class">Pre-Ballet</td><td data-label="Trainer">Jill</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">10:00 - 11:00 AM</td><td data-label="Class">Yoga</td><td data-label="Trainer">Latif</td><td data-label="Room">Spa</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">11:00 - 12:00 PM</td><td data-label="Class">Ballet Adults</td><td data-label="Trainer">Jill</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">02:00 - 03:00 PM</td><td data-label="Class">Kids Zumba</td><td data-label="Trainer">Mariam</td><td data-label="Room">A</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">04:00 - 05:00 PM</td><td data-label="Class">Koona Dance</td><td data-label="Trainer">Felix</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+<tr class="data-row" data-day="Saturday">
+    <td data-label="Time">06:30 - 07:30 PM</td><td data-label="Class">Wakanda Dance</td><td data-label="Trainer">Mafik</td><td data-label="Room">B</td><td data-label="Price">25,000/=</td><td data-label="Action"><a class="btn-join">Book</a></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const rows = document.querySelectorAll(".data-row");
+const headers = document.querySelectorAll(".day-header");
+
+function showDay(day) {
+    // hide all first
+    rows.forEach(r => r.style.display = "none");
+    headers.forEach(h => h.style.display = "none");
+
+    // show matching rows (removing inline style falls back to CSS)
+    document.querySelectorAll(`[data-day="${day}"]`).forEach(r => {
+        r.style.display = ""; 
+    });
+
+    // show correct header
+    headers.forEach(h => {
+        if (h.textContent.trim() === day) {
+            h.style.display = "";
+        }
+    });
+}
+
+// default
+showDay("Monday");
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        showDay(tab.dataset.day);
+    });
+});
+</script>
+
+</body>
+</html>

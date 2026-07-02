@@ -1,0 +1,186 @@
+     
+              .table-container {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .table-header {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d89b35;
+        }
+
+        .table-header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #d89b35; /* Orange-gold from flyer */
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .table-header p {
+            margin: 5px 0 0 0;
+            color: #7c889a;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .schedule-table th, 
+        .schedule-table td {
+            padding: 14px 20px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .schedule-table th {
+            background-color: #f8fafc;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .schedule-table tbody tr {
+            border-bottom: 1px solid #edf2f7;
+            transition: background-color 0.2s ease;
+        }
+
+        .schedule-table tbody tr:not(.day-header):hover {
+            background-color: #fdfbf7;
+        }
+
+        .day-header {
+            background-color: #f4f7f6;
+        }
+
+        .day-header td {
+            font-weight: 900;
+            color: #d89b35;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 20px 20px 10px 20px !important;
+            border-bottom: 2px solid #e2e8f0 !important;
+        }
+
+        .class-time {
+            font-weight: 700;
+        }
+
+        .room-badge {
+            background-color: #fff4e5;
+            color: #d89b35;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .price-tag {
+            font-weight: 700;
+            color: #4a5568;
+        }
+
+        /* Action Button */
+        .btn-join {
+            background-color: #d89b35;
+            color: #ffffff;
+            padding: 8px 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-join:hover {
+            background-color: #c0892f;
+        }
+
+        .btn-join:active {
+            transform: scale(0.97);
+        }
+
+        /* Mobile Responsive Layout */
+        @media (max-width: 768px) {
+            .table-header h1 {
+                font-size: 22px;
+            }
+
+            .schedule-table thead {
+                display: none; 
+            }
+
+            .schedule-table, 
+            .schedule-table tbody, 
+            .schedule-table tr, 
+            .schedule-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .schedule-table tr:not(.day-header) {
+                margin: 0 15px 15px 15px;
+                width: calc(100% - 30px);
+                border: 1px solid #edf2f7;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            }
+
+            .schedule-table td:not(.day-header td) {
+                text-align: right;
+                padding: 12px 15px 12px 50%;
+                position: relative;
+                border-bottom: 1px solid #edf2f7;
+            }
+
+            .schedule-table td:not(.day-header td):last-child {
+                border-bottom: none;
+                background-color: #fafbfc;
+                border-radius: 0 0 8px 8px;
+            }
+
+            .schedule-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 15px;
+                width: 45%;
+                text-align: left;
+                font-weight: 700;
+                font-size: 12px;
+                color: #64748b;
+                text-transform: uppercase;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .schedule-table .day-header td {
+                text-align: center;
+                padding: 25px 15px 15px 15px !important;
+                border: none !important;
+                background: none;
+            }
+
+            .schedule-table .day-header td::before {
+                display: none;
+            }
+        }
