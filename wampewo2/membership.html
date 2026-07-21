@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* --- Gym Rates Component Styles --- */
+        .gym-rates-wrapper {
+            max-width: 650px;
+            margin: 0 auto;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Tab Navigation */
+        .gym-tabs {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .gym-tab-btn {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .gym-tab-btn:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .gym-tab-btn.active {
+            background: #ffffff;
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+            margin-bottom: -2px;
+        }
+
+        /* Tab Content area */
+        .gym-tab-content {
+            display: none;
+            padding: 24px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Note Box */
+        .gym-note {
+            font-size: 13px;
+            color: #475569;
+            background: #eff6ff;
+            padding: 10px 14px;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Tables */
+        .gym-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .gym-table th {
+            background: #f8fafc;
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 700;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .gym-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+        }
+
+        .gym-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .gym-table tbody tr:hover td {
+            background: #f8fafc;
+        }
+
+        .gym-table td:not(:first-child),
+        .gym-table th:not(:first-child) {
+            text-align: right;
+            /* Aligns prices to the right for better readability */
+        }
+
+        /* Section Dividers inside table */
+        .gym-table .sub-title td {
+            padding-top: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gym-rates-wrapper">
+        <!-- Tabs -->
+        <div class="gym-tabs">
+            <button class="gym-tab-btn active" onclick="openGymTab(event, 'health_membership')" id="defaultGymOpen">
+                Health Gym Membership
+            </button>
+            <button class="gym-tab-btn" onclick="openGymTab(event, 'temp_membership')">
+                Temporary & Extras
+            </button>
+        </div>
+
+        <!-- Tab 1: Health Gym Membership -->
+        <div id="health_membership" class="gym-tab-content" style="display: block;">
+
+            <div class="gym-note">
+                <strong>* Note:</strong> All figures are in US Dollars (US $) and include 18% VAT.
+            </div>
+
+            <table class="gym-table">
+                <thead>
+                    <tr>
+                        <th>Type Of Membership</th>
+                        <th>Gold</th>
+                        <th>Platinum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Family Annual Subscription</td>
+                        <td>$2,250</td>
+                        <td>$2,800</td>
+                    </tr>
+                    <tr>
+                        <td>Family (Half) Annual Subscription</td>
+                        <td>$1,800</td>
+                        <td>$2,000</td>
+                    </tr>
+                    <tr class="sub-title">
+                        <td>Monthly Rates Family</td>
+                        <td>$350</td>
+                        <td>$450</td>
+                    </tr>
+
+                    <tr>
+                        <td>Single Annual Subscription</td>
+                        <td>$1,600</td>
+                        <td>$2,100</td>
+                    </tr>
+                    <tr>
+                        <td>Single (Half) Annual Subscription</td>
+                        <td>$1,200</td>
+                        <td>$1,600</td>
+                    </tr>
+                    <tr class="sub-title">
+                        <td>Monthly Rates Single</td>
+                        <td>$300</td>
+                        <td>$350</td>
+                    </tr>
+
+                    <tr>
+                        <td>Extra Child Annual Subscription</td>
+                        <td>$400</td>
+                        <td>$500</td>
+                    </tr>
+                    <tr>
+                        <td>Extra Child (Half) Annual Subscription</td>
+                        <td>$300</td>
+                        <td>$400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 2: Temporary Memberships -->
+        <div id="temp_membership" class="gym-tab-content">
+            <table class="gym-table">
+                <thead>
+                    <tr>
+                        <th>Service / Benefit</th>
+                        <th>Rate (UGX)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daypass & Benefits</td>
+                        <td>Ush 40,000</td>
+                    </tr>
+                    <tr>
+                        <td>Swimming Pool (Adults)</td>
+                        <td>Ush 30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Children (Below 14 years of age)</td>
+                        <td>Ush 25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Towels and Toiletries</td>
+                        <td>Ush 10,000</td>
+                    </tr>
+                    <tr>
+                        <td>Deposit on Towels</td>
+                        <td>Ush 20,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openGymTab(evt, tabName) {
+            // Hide all tab contents
+            let tabcontents = document.querySelectorAll(".gym-tab-content");
+            tabcontents.forEach(function (content) {
+                content.style.display = "none";
+            });
+
+            // Remove 'active' class from all buttons
+            let tablinks = document.querySelectorAll(".gym-tab-btn");
+            tablinks.forEach(function (btn) {
+                btn.classList.remove("active");
+            });
+
+            // Show the selected tab and add 'active' class to the clicked button
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+
+</html>
