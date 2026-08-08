@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Subpoena (Sapina) Prayer — Heavenly Court Judicial Protocol</title>
+    <style>
+        :root {
+            --primary-color: #0b132b;
+            --secondary-color: #1c2541;
+            --court-gold: #b45309;
+            --court-gold-bg: #fffbeb;
+            --court-gold-border: #f59e0b;
+
+            --court-navy: #1e3a8a;
+            --court-navy-bg: #eff6ff;
+            --court-navy-border: #3b82f6;
+
+            --blood-red: #991b1b;
+            --blood-red-bg: #fef2f2;
+            --blood-red-border: #ef4444;
+
+            --purple-royal: #581c87;
+            --purple-royal-bg: #faf5ff;
+            --purple-royal-border: #a855f7;
+
+            --text-color: #1f2937;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.75;
+            color: var(--text-color);
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px double var(--court-gold-border);
+            padding-bottom: 28px;
+            margin-bottom: 36px;
+        }
+
+        .court-badge {
+            display: inline-block;
+            background-color: #1e1b4b;
+            color: #fbbf24;
+            padding: 8px 22px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            border: 1px solid #d97706;
+        }
+
+        h1 {
+            color: #451a03;
+            font-size: 2.2rem;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-weight: 700;
+            color: #b45309;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .section-court h2 {
+            color: var(--court-gold);
+        }
+
+        .section-nullification h2 {
+            color: var(--court-navy);
+        }
+
+        .section-restitution h2 {
+            color: var(--blood-red);
+        }
+
+        .section-bloodline h2 {
+            color: var(--purple-royal);
+        }
+
+        blockquote {
+            margin: 20px 0;
+            padding: 18px 24px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .quote-gold {
+            border-left: 5px solid var(--court-gold-border);
+            background-color: var(--court-gold-bg);
+            color: #78350f;
+        }
+
+        .quote-navy {
+            border-left: 5px solid var(--court-navy-border);
+            background-color: var(--court-navy-bg);
+            color: #1e3a8a;
+        }
+
+        .quote-red {
+            border-left: 5px solid var(--blood-red-border);
+            background-color: var(--blood-red-bg);
+            color: var(--blood-red);
+        }
+
+        .quote-purple {
+            border-left: 5px solid var(--purple-royal-border);
+            background-color: var(--purple-royal-bg);
+            color: var(--purple-royal);
+        }
+
+        ul,
+        ol {
+            margin-top: 10px;
+            margin-bottom: 24px;
+            padding-left: 26px;
+        }
+
+        li {
+            margin-bottom: 14px;
+        }
+
+        .scripture-anchor-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .scripture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .scripture-item {
+            background: #ffffff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border-left: 4px solid #0284c7;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .protocol-card {
+            padding: 22px 26px;
+            margin-bottom: 28px;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+
+        .card-gold {
+            background-color: var(--court-gold-bg);
+            border-color: #fde68a;
+            border-left: 5px solid var(--court-gold-border);
+        }
+
+        .card-navy {
+            background-color: var(--court-navy-bg);
+            border-color: #bfdbfe;
+            border-left: 5px solid var(--court-navy-border);
+        }
+
+        .card-red {
+            background-color: var(--blood-red-bg);
+            border-color: #fecaca;
+            border-left: 5px solid var(--blood-red-border);
+        }
+
+        .card-purple {
+            background-color: var(--purple-royal-bg);
+            border-color: #e9d5ff;
+            border-left: 5px solid var(--purple-royal-border);
+        }
+
+        .protocol-title {
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .title-gold {
+            color: #92400e;
+        }
+
+        .title-navy {
+            color: #1e40af;
+        }
+
+        .title-red {
+            color: #991b1b;
+        }
+
+        .title-purple {
+            color: #6b21a8;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        .legal-notice {
+            background-color: #fff7ed;
+            border: 2px dashed #f97316;
+            padding: 18px 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.98rem;
+            color: #9a3412;
+        }
+
+        .verdict-seal {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #7f1d1d;
+            margin-top: 50px;
+            padding: 32px;
+            background-color: #fef2f2;
+            border-radius: 12px;
+            border: 3px double #dc2626;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <article id="divine-subpoena-court-protocol">
+            <header>
+                <div class="court-badge">
+                    🏛️ SUPREME HEAVENLY COURT JURISDICTION • FINAL JUDGMENT ENFORCEMENT
+                </div>
+                <span class="subtitle">The Divine Subpoena (Sapina) Legal Petition Protocol</span>
+                <h1>PETITION FOR DIVINE SUBPOENA &amp; ABSOLUTE JUDICIAL RESTITUTION</h1>
+                <p><strong>Presenting Direct Legal Suits in the Court of Heaven with Instant Spiritual &amp; Physical
+                        Manifestation</strong></p>
+                <div class="court-badge" style="background-color: #065f46; color: #a7f3d0; border-color: #10b981;">
+                    ⏰ EXECUTION WINDOW: 3:00 AM – 5:30 AM WATCH (HIGH COURT SESSION)
+                </div>
+            </header>
+
+            <!-- LEGAL NOTICE & STANDING -->
+            <div class="legal-notice">
+                <strong>⚖️ LEGAL POSITION &amp; HEAVENLY JURISDICTIONAL STANDING:</strong><br>
+                This petition is presented from the exalted spiritual positioning of <strong>Ephesians 2:6</strong>
+                (seated together in heavenly places in Christ) and <strong>Colossians 3:3</strong> (life hidden with
+                Christ in God). The petitioner enters before the Throne of Almighty God not as a beggar, but as a legal
+                son, a citizen of the Kingdom of God, fully redeemed and sealed by the Blood of Jesus Christ and the
+                Holy Spirit.
+
+                <br><br>
+                <strong>📋 MANDATORY PREPARATION &amp; SPIRITUAL DIRECTIVES:</strong>
+                <ul>
+                    <li><strong>Read &amp; Declare God's Word:</strong> Anchor your spirit in statutory Kingdom promises
+                        before praying.</li>
+                    <li><strong>Apply the Blood &amp; Favor of Jesus Christ:</strong> Establish the legal precedent of
+                        Calvary over all petitions.</li>
+                    <li><strong>Inquire of the Lord:</strong> Ask God to reveal the root source of all financial,
+                        health, and marital afflictions or blockages.</li>
+                </ul>
+                This High Court’s verdict is supreme, final, unappealable, and effective instantly across all spiritual
+                and physical realms—no higher power exists above this Court.
+            </div>
+
+            <!-- SCRIPTURE ANCHORS -->
+            <div class="scripture-anchor-box">
+                <div class="protocol-title title-gold" style="font-size: 1.1rem;">📖 Statutory Scripture Anchors &amp;
+                    Legal Precedents</div>
+                <div class="scripture-grid">
+                    <div class="scripture-item">Psalm 23 — Divine Provision &amp; Guidance</div>
+                    <div class="scripture-item">Psalm 91 — Fortress Protection &amp; Refuge</div>
+                    <div class="scripture-item">Psalm 27 — Fearless Triumph Over Enemies</div>
+                    <div class="scripture-item">Isaiah 54:17 — Weapon Nullification &amp; Heritage</div>
+                    <div class="scripture-item">Isaiah 45:3 — Hidden Treasures &amp; Riches</div>
+                    <div class="scripture-item">Isaiah 61 — Double Recompense &amp; Joy</div>
+                    <div class="scripture-item">Exodus 2 — Divine Deliverance &amp; Covenant Memory</div>
+                    <div class="scripture-item">Numbers 6 — Priestly Blessing &amp; Protection</div>
+                    <div class="scripture-item">Hebrews 12:24 — The Blood That Speaks Better Things</div>
+                </div>
+            </div>
+
+            <!-- PHASE 1: CONVENING THE COURT & SUBPOENA ENFORCEMENT -->
+            <section class="section-court">
+                <h2>Phase 1 — Convening the Heavenly Court &amp; Issuing the Divine Subpoena (Sapina)</h2>
+
+                <blockquote class="quote-gold">
+                    "I beheld till the thrones were cast down, and the Ancient of days did sit... the judgment was set,
+                    and the books were opened." — <strong>Daniel 7:9–10</strong><br><br>
+                    "And to Jesus the mediator of the new covenant, and to the blood of sprinkling, that speaketh better
+                    things than that of Abel." — <strong>Hebrews 12:24</strong>
+                </blockquote>
+
+                <div class="protocol-card card-gold">
+                    <div class="protocol-title title-gold">⚖️ Session Opening &amp; Angelic Dragnet Commands</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Convening the High Court:</span>
+                            Heavenly Father, I come before You as a son and not as a beggar, in the mighty and matchless
+                            Name of Jesus Christ of Nazareth, Your only begotten Son, my Lord and my Savior. I boldly
+                            enter Your Throne of Grace with full confidence, relying not on the basis of my own
+                            righteousness, but entirely upon the foundational, unshakeable merit of the Blood of Jesus
+                            Christ. This is the solid legal foundation of my redemption and salvation, and I stand
+                            firmly upon it right now. I call upon the High Court of Heaven to convene in session! I ask
+                            that the Righteous Judge—the Ancient of Days—take His seat upon the Throne of God, and that
+                            my Lord Jesus Christ, my Advocate and Counselor, stand to represent me in these proceedings.
+                        </li>
+                        <li>
+                            <span class="highlight">Issuing the Divine Subpoena (Sapina):</span>
+                            My Father, in the mighty Name of Jesus Christ of Nazareth, issue an authoritative Divine
+                            Subpoena (Sapina) to every evil spirit, demonic force, agent of darkness, witch, wizard,
+                            occult practitioner, monitoring spirit, ancestral deity, and Satan himself with all his
+                            network of agents, assigned against my finances, my health, my marriage, my family, my
+                            destiny, my entire bloodline, my wife, my children, my business, my company, and all that
+                            pertains to me!
+                        </li>
+                        <li>
+                            <span class="highlight">Military Angelic Dragnet Execution:</span>
+                            I command you evil spirits, agents of darkness, witches, monitoring spirits, and the devil
+                            himself with all your operatives to appear before the Throne of God now! I command angelic
+                            military enforcement agents, operating under direct divine command, to execute this Divine
+                            Subpoena instantly and simultaneously. Drag these forces—whether acting knowingly or
+                            unknowingly, wherever they are located, seated, hiding, or operating—and force them to
+                            appear immediately before the Supreme Court of Heaven!
+                        </li>
+                        <li>
+                            <span class="highlight">Demanding Full Judicial Accounting:</span>
+                            I command Satan and all his agents to give an immediate full account before the Judge of all
+                            the earth for every financial transaction blocked, every client or customer diverted, every
+                            project or contract sabotaged, every supply line corrupted, and every stolen opportunity
+                            harvested from my life! I command all dark agents to appear now before the Judge of all the
+                            earth and repay sevenfold for everything stolen, diverted, and corrupted on purpose!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHASE 2: CHALLENGING & NULLIFYING ILLEGAL CONTRACTS -->
+            <section class="section-nullification">
+                <h2>Phase 2 — Challenging Illegal Contracts, Altars &amp; Dark Accusations</h2>
+
+                <blockquote class="quote-navy">
+                    "Blotting out the handwriting of ordinances that was against us, which was contrary to us, and took
+                    it out of the way, nailing it to His cross; and having spoiled principalities and powers, He made a
+                    shew of them openly, triumphing over them in it." — <strong>Colossians 2:14–15</strong>
+                </blockquote>
+
+                <div class="protocol-card card-navy">
+                    <div class="protocol-title title-navy">📜 Legal Nullification &amp; Contract Demolition Commands
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Challenging Dark Filings &amp; Illegal Documents:</span>
+                            Father, I come to address every document, covenant, agreement, altar, dedication, demonic
+                            code, spell, hex, spoken word, oath, and spiritual contract ever filed against me, my
+                            family, my finances, my health, my progress, my emotions, my thoughts, and my destiny in
+                            dark spiritual courts by the kingdom of darkness. I challenge every legal basis of any
+                            contract or judgment ever approved against my life!
+                        </li>
+                        <li>
+                            <span class="highlight">Nullifying Rights Gained Through Fraud &amp; Deception:</span>
+                            I declare that any legal or illegal right the enemy has claimed over my life, my health, my
+                            wife, my children, or my finances—obtained through deception, fraud, manipulation, my past
+                            ignorance, my youth, my foolishness, my pain, my unforgiveness, the weaknesses of my flesh,
+                            or my greed—is hereby declared <span class="highlight">NULL AND VOID</span> by the Blood of
+                            Jesus Christ of Nazareth! The dark courts hold zero legal jurisdiction over my life, for I
+                            am purchased by the precious Blood of Jesus Christ.
+                        </li>
+                        <li>
+                            <span class="highlight">Pleading Supreme Counter-Evidence:</span>
+                            Father, I present the Blood of Jesus Christ of Nazareth as supreme overriding
+                            counter-evidence against every accusation, decree, legal decision, or case filed against me!
+                            In accordance with Hebrews 12:24, the Blood speaks better things: it declares that I, my
+                            wife, my children, and my entire bloodline are forgiven, redeemed, delivered, cleansed,
+                            restored, protected, and set free. The Blood declares that no weapon formed against us shall
+                            prosper, and every tongue rising against us in judgment is condemned, render null and void
+                            permanently with no legal access to us!
+                        </li>
+                        <li>
+                            <span class="highlight">Order for Burning Files &amp; Reversing Curses:</span>
+                            Righteous Judge, issue an absolute verdict of complete nullification over every evil
+                            document, covenant, agreement, altar, dedication, spell, hex, spoken word, vow, oath, and
+                            spiritual contract filed against me from the beginning of my bloodline to this very moment.
+                            <ol>
+                                <li>I ask You, Mighty Warrior, to tear up every evil page!</li>
+                                <li>I ask You, Jehovah Jailer, to burn every satanic file and record!</li>
+                                <li>I ask You, King of Kings, to cancel every dark decree!</li>
+                                <li>I ask You, Yahweh Elohim, to dissolve every evil covenant and demolish every satanic
+                                    altar!</li>
+                                <li>Reverse every curse sent against me back to its source, multiplied sevenfold, and
+                                    replace every curse with the 7-fold Blessing of Abraham upon my life, family, and
+                                    business in Jesus' mighty Name!</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHASE 3: SEVENFOLD RESTITUTION & EVICTION ORDERS -->
+            <section class="section-restitution">
+                <h2>Phase 3 — Order for 7-Fold Restitution, Eviction &amp; Compensation</h2>
+
+                <blockquote class="quote-red">
+                    "If the thief be found, he shall restore sevenfold; he shall give all the substance of his house." —
+                    <strong>Proverbs 6:31</strong><br><br>
+                    "And I will restore to you the years that the locust hath eaten... my great army which I sent among
+                    you." — <strong>Joel 2:25</strong>
+                </blockquote>
+
+                <div class="protocol-card card-red">
+                    <div class="protocol-title title-red">💰 Judicial Recompense &amp; Specific Restitution Demands
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Demanding 7-Fold Recompense for Stolen Assets:</span>
+                            I demand final sevenfold restitution from every spirit and dark agent that participated in
+                            the theft, redirection, corruption, or blockage of my blessings! I present before this Court
+                            every shilling, dollar, pound, hardware material, contract, and spiritual blessing diverted
+                            from my hands or hijacked in the spiritual realm before physical manifestation. I command
+                            full restoration now!
+                        </li>
+                        <li>
+                            <span class="highlight">Demanding Payment for Incurred Sicknesses &amp; Tragedies:</span>
+                            I command full restitution for every sickness brought upon my body, my health, and my
+                            family's well-being! I demand divine judicial recompense for the premature death of my
+                            mother Joy in October 2025! I demand spiritual recompense and compensation for the tragedy
+                            and loss of life resulting from the fatal accident in March 2025! Satan, pay back sevenfold
+                            for every life taken, every tear shed, every loss suffered, and every bill incurred!
+                        </li>
+                        <li>
+                            <span class="highlight">Executing Heavenly Eviction Notices:</span>
+                            My God, my Warrior, I request that Your warring angels be dispatched immediately and
+                            simultaneously to the East, West, North, and South to enforce this divine verdict in every
+                            jurisdiction! Serve an immediate Heavenly Court Order of Eviction against every demonic
+                            spirit and entity occupying my life, my wife, my children, my home, my marriage, my health,
+                            my mind, my soul, my business, my company, my ministry, or my destiny! Cast them out
+                            immediately to the place designated by Jesus Christ, never to return!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHASE 4: ANCESTRAL SEVERANCE & MASTER BLOOD SEAL -->
+            <section class="section-bloodline">
+                <h2>Phase 4 — Severing Ancestral Iniquity, Establishing New Records &amp; Blood Cover</h2>
+
+                <blockquote class="quote-purple">
+                    "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all
+                    things are become new." — <strong>2 Corinthians 5:17</strong>
+                </blockquote>
+
+                <div class="protocol-card card-purple">
+                    <div class="protocol-title title-purple">🛡️ Generational Cleansing &amp; Master Blood Seal</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Confessing &amp; Severing Ancestral Iniquities:</span>
+                            Father, I address every generational iniquity used as a legal basis for attacks against my
+                            life, home, marriage, health, wife, children, finances, businesses, companies, and entire
+                            bloodline. I acknowledge and repent of the sins, transgressions, and iniquities of my
+                            forefathers and ancestors on both my paternal and maternal sides, as well as on my wife's
+                            paternal and maternal sides (including all in-laws and relatives). By the Blood of Jesus
+                            Christ of Nazareth, I revoke every legal right, claim, and access granted to ancestral
+                            altars, covenants, or dedications tracing back to the earliest generations!
+                        </li>
+                        <li>
+                            <span class="highlight">Closing Demonic Portals &amp; Gateways:</span>
+                            I sever every spiritual cord connecting me or my family to ancestral sins and iniquities! I
+                            cut every evil root with the Blood of Jesus Christ, close every demonic door and entry
+                            point, and permanently seal every gateway, access point, and demonic portal with the Blood
+                            of the Lamb! From this day forward, the enemy has zero legal access to my life, my wife, my
+                            children, my health, my wife's health, my finances, my businesses, my companies, or my
+                            entire bloodline.
+                        </li>
+                        <li>
+                            <span class="highlight">Establishing a New Heavenly Record:</span>
+                            Righteous Judge, establish a brand-new legal record in the Court of Heaven concerning me, my
+                            wife, my children, my finances, my health, and my entire bloodline! Let this new record
+                            read: <span class="highlight">REDEEMED • PROTECTED • BLESSED • VICTORIOUS • HEALED</span>.
+                            Let this be the ONLY file active in the Heavenly Court concerning me and my entire
+                            bloodline!
+                        </li>
+                        <li>
+                            <span class="highlight">Total Blood Coverage Decree:</span>
+                            I cover and seal with the Blood of Jesus: my marriage, my body and health, my children's
+                            careers, school progress systems, and destinies, my mind, thoughts, and future, my entire
+                            family (father, brothers, sisters, extended family, and in-laws), my finances end-to-end, my
+                            multiple streams of income, my spiritual calling and that of my wife and family, my name,
+                            and my DNA! I decree that no attack, scheme, plan, weapon, strategy, or mechanism of the
+                            enemy shall ever access our lives again.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- VERDICT SEAL -->
+            <div class="verdict-seal">
+                ⚖️ VERDICT ISSUED &amp; SEALED IN THE COURT OF HEAVEN ⚖️<br><br>
+                SEALED BY THE BLOOD OF JESUS CHRIST OF NAZARETH<br>
+                SEALED BY THE NAME AND WORD OF JESUS CHRIST<br>
+                SEALED BY THE UNMATCHED AUTHORITY OF THE HOLY SPIRIT<br><br>
+                I RECEIVE THE JUDICIAL VERDICT NOW BY FAITH! AMEN!<br>
+                I RECEIVE IMMEDIATE ENFORCEMENT NOW BY FAITH! AMEN!<br>
+                I RECEIVE FULL 7-FOLD RESTORATION NOW BY FAITH! AMEN!<br><br>
+                <em>I will not waver in any way. In the mighty Name of Jesus Christ of Nazareth, I pray. Amen.</em>
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>
