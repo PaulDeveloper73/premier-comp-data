@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS v3.4 Complete Engineering & Architecture Guide</title>
+
+    <!-- Tailwind CSS v3.4 Official CDN Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Print Optimization CSS -->
+    <style>
+        @media print {
+
+            .no-print,
+            header,
+            aside,
+            .action-buttons,
+            .copy-btn,
+            #mobile-menu-btn,
+            .tab-buttons {
+                display: none !important;
+            }
+
+            body {
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+                font-size: 10.5pt;
+                line-height: 1.5;
+            }
+
+            main {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .doc-section {
+                page-break-inside: avoid;
+                border-bottom: 1px solid #cbd5e1;
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .print-header {
+                display: block !important;
+            }
+
+            .tab-panel {
+                display: block !important;
+                margin-bottom: 1.5rem;
+            }
+
+            pre {
+                background-color: #f8fafc !important;
+                color: #0f172a !important;
+                border: 1px solid #cbd5e1 !important;
+                white-space: pre-wrap !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-200 antialiased font-sans min-h-screen flex flex-col">
+
+    <!-- PRINT HEADER (ONLY VISIBLE WHEN PRINTED/SAVED AS PDF) -->
+    <div class="hidden print-header p-6 mb-6 border-b-2 border-slate-900">
+        <h1 class="text-3xl font-extrabold text-slate-900">Tailwind CSS v3.4 Master Engineering Documentation</h1>
+        <p class="text-sm text-slate-600 mt-1">Complete Production Setup, CLI, PostCSS, Standalone Executable,
+            Frameworks & Core Architectural Concepts</p>
+    </div>
+
+    <!-- TOP NAVIGATION HEADER (NO PRINT) -->
+    <header class="no-print sticky top-0 z-50 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo & Version -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-tr from-brand-500 to-cyan-400 p-2 rounded-xl text-slate-950 font-black">
+                        <i class="fa-solid fa-wind text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold text-white tracking-wide">Tailwind<span
+                                class="text-brand-400">CSS</span></span>
+                        <span
+                            class="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">v3.4
+                            Production Edition</span>
+                    </div>
+                </div>
+
+                <!-- Search & Actions -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative hidden sm:block">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-sm"></i>
+                        <input type="text" id="docSearch" onkeyup="filterSections()"
+                            placeholder="Search docs (CLI, PostCSS, @apply)..."
+                            class="bg-slate-900 border border-slate-800 text-sm rounded-lg pl-9 pr-4 py-1.5 focus:outline-none focus:border-brand-500 text-slate-200 placeholder-slate-500 w-48 focus:w-64 transition-all">
+                    </div>
+
+                    <button onclick="window.print()"
+                        class="flex items-center space-x-2 bg-gradient-to-r from-brand-500 to-cyan-500 hover:from-brand-600 hover:to-cyan-600 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-brand-500/20 cursor-pointer">
+                        <i class="fa-solid fa-file-pdf text-base"></i>
+                        <span>Download PDF</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" onclick="toggleSidebar()"
+                        class="lg:hidden text-slate-400 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex w-full">
+
+        <!-- SIDEBAR TABLE OF CONTENTS (NO PRINT) -->
+        <aside id="sidebar"
+            class="no-print hidden lg:block w-64 shrink-0 border-r border-slate-800/80 pr-6 py-8 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+            <div class="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-400 px-3">Table of Contents</div>
+            <nav class="space-y-1" id="toc-nav">
+                <a href="#architecture-overview"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-brand-400 bg-brand-500/10 border-l-2 border-brand-400">
+                    <i class="fa-solid fa-microchip w-6"></i> How Tailwind Works
+                </a>
+                <a href="#installation-methods"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-download w-6"></i> Installation Strategies
+                </a>
+                <a href="#core-concepts"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-cubes w-6"></i> Core Concepts
+                </a>
+                <a href="#interactive-playground"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-code w-6"></i> Interactive Sandbox
+                </a>
+                <a href="#senior-engineer-insights"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-user-gear w-6"></i> Engineering Best Practices
+                </a>
+                <a href="#faqs"
+                    class="toc-link flex items-center px-3 py-2 text-sm font-medium rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-circle-question w-6"></i> FAQ & Troubleshooting
+                </a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 lg:pl-10 py-8 max-w-4xl min-w-0">
+
+            <!-- SECTION 1: ARCHITECTURE OVERVIEW -->
+            <section id="architecture-overview" class="doc-section mb-12">
+                <div class="flex items-center space-x-2 text-brand-400 text-sm font-semibold mb-2">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Engine Fundamentals</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Get started with Tailwind CSS v3.4
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
+                    Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other
+                    templates for class names, generating the corresponding styles, and then writing them to a static
+                    CSS file. It is fast, flexible, and reliable—with <strong>zero runtime overhead</strong>.
+                </p>
+
+                <!-- Architectural Highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="text-brand-400 font-bold mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt"></i> Just-In-Time (JIT)
+                        </div>
+                        <p class="text-xs text-slate-400">Styles are generated on demand as you type class names,
+                            enabling arbitrary values like <code class="text-brand-400">top-[117px]</code>.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="text-cyan-400 font-bold mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-file-contract"></i> Zero Runtime
+                        </div>
+                        <p class="text-xs text-slate-400">Outputs plain static CSS. No JavaScript bundle footprint or
+                            style evaluation overhead in the user's browser.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="text-emerald-400 font-bold mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-scissors"></i> Automatic Purging
+                        </div>
+                        <p class="text-xs text-slate-400">Only the CSS classes you explicitly use in your code make it
+                            into the final build, yielding tiny CSS bundles (often &lt; 10KB).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: INSTALLATION METHODS (TABBED INTERFACE) -->
+            <section id="installation-methods" class="doc-section mb-12">
+                <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-download text-brand-400"></i>
+                    Installation Strategies
+                </h2>
+                <p class="text-slate-400 text-sm mb-6">
+                    Choose the deployment pipeline matching your backend stack or local development workflow:
+                </p>
+
+                <!-- Installation Method Navigation Tabs -->
+                <div class="tab-buttons flex flex-wrap border-b border-slate-800 gap-2 mb-6 no-print">
+                    <button onclick="switchTab('cli-tab')" id="btn-cli-tab"
+                        class="tab-btn active text-sm font-semibold px-4 py-2 rounded-t-lg border-b-2 border-brand-400 text-brand-400 bg-slate-900 transition">Tailwind
+                        CLI</button>
+                    <button onclick="switchTab('postcss-tab')" id="btn-postcss-tab"
+                        class="tab-btn text-sm font-semibold px-4 py-2 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">Using
+                        PostCSS</button>
+                    <button onclick="switchTab('standalone-tab')" id="btn-standalone-tab"
+                        class="tab-btn text-sm font-semibold px-4 py-2 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">Standalone
+                        Executable</button>
+                    <button onclick="switchTab('frameworks-tab')" id="btn-frameworks-tab"
+                        class="tab-btn text-sm font-semibold px-4 py-2 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">Framework
+                        Guides</button>
+                    <button onclick="switchTab('playcdn-tab')" id="btn-playcdn-tab"
+                        class="tab-btn text-sm font-semibold px-4 py-2 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900 transition">Play
+                        CDN</button>
+                </div>
+
+                <!-- TAB 1: TAILWIND CLI -->
+                <div id="cli-tab" class="tab-panel space-y-6">
+                    <p class="text-slate-300 text-sm">
+                        The simplest and fastest way to build with Tailwind CSS from scratch is using the official CLI
+                        tool.
+                    </p>
+
+                    <!-- Step 1 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-white text-sm">
+                            <span
+                                class="bg-brand-500 text-slate-950 size-6 rounded-full flex items-center justify-center text-xs font-black">1</span>
+                            <span>Install Tailwind CSS via npm</span>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-8">Install <code class="text-brand-400">tailwindcss</code>
+                            as a development dependency and generate your <code
+                                class="text-brand-400">tailwind.config.js</code> file.</p>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden ml-8">
+                            <div
+                                class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                                <span>Terminal</span>
+                                <button onclick="copyCode('cli-step1', this)"
+                                    class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                        class="fa-regular fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cli-step1">npm install -D tailwindcss
+npx tailwindcss init</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-white text-sm">
+                            <span
+                                class="bg-brand-500 text-slate-950 size-6 rounded-full flex items-center justify-center text-xs font-black">2</span>
+                            <span>Configure your template paths</span>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-8">Add the file paths to all template files in your <code
+                                class="text-brand-400">tailwind.config.js</code> so the scanner can pick up utility
+                            classes.</p>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden ml-8">
+                            <div
+                                class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                                <span>tailwind.config.js</span>
+                                <button onclick="copyCode('cli-step2', this)"
+                                    class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                        class="fa-regular fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cli-step2">/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-white text-sm">
+                            <span
+                                class="bg-brand-500 text-slate-950 size-6 rounded-full flex items-center justify-center text-xs font-black">3</span>
+                            <span>Add the Tailwind directives to your main CSS file</span>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-8">Inject Tailwind's <code
+                                class="text-brand-400">base</code>, <code class="text-brand-400">components</code>, and
+                            <code class="text-brand-400">utilities</code> layers into your entry CSS file.
+                        </p>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden ml-8">
+                            <div
+                                class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                                <span>src/input.css</span>
+                                <button onclick="copyCode('cli-step3', this)"
+                                    class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                        class="fa-regular fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cli-step3">@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-white text-sm">
+                            <span
+                                class="bg-brand-500 text-slate-950 size-6 rounded-full flex items-center justify-center text-xs font-black">4</span>
+                            <span>Start the Tailwind CLI build process</span>
+                        </div>
+                        <p class="text-xs text-slate-400 pl-8">Run the watcher command to continuously scan source files
+                            and generate your optimized CSS file.</p>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden ml-8">
+                            <div
+                                class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                                <span>Terminal</span>
+                                <button onclick="copyCode('cli-step4', this)"
+                                    class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                        class="fa-regular fa-copy"></i> Copy</button>
+                            </div>
+                            <pre
+                                class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cli-step4">npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-white text-sm">
+                            <span
+                                class="bg-brand-500 text-slate-950 size-6 rounded-full flex items-center justify-center text-xs font-black">5</span>
+                            <span>Link the compiled CSS in your HTML</span>
+                        </div>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden ml-8">
+                            <div
+                                class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                                <span>src/index.html</span>
+                                <button onclick="copyCode('cli-step5', this)"
+                                    class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                        class="fa-regular fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cli-step5">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link href="/dist/output.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 class="text-3xl font-bold underline"&gt;
+    Hello world!
+  &lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: POSTCSS -->
+                <div id="postcss-tab" class="tab-panel hidden space-y-6">
+                    <p class="text-slate-300 text-sm">
+                        Integrating Tailwind CSS as a PostCSS plugin is the standard setup for bundlers like Webpack,
+                        Vite, Rollup, or Parcel.
+                    </p>
+                    <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div
+                            class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                            <span>1. Install via npm</span>
+                            <button onclick="copyCode('postcss-cmd', this)"
+                                class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                    class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="postcss-cmd">npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init</code></pre>
+                    </div>
+
+                    <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div
+                            class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                            <span>2. Add PostCSS Config (postcss.config.js)</span>
+                            <button onclick="copyCode('postcss-cfg', this)"
+                                class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                    class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="postcss-cfg">module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- TAB 3: STANDALONE EXECUTABLE -->
+                <div id="standalone-tab" class="tab-panel hidden space-y-4">
+                    <p class="text-slate-300 text-sm">
+                        Working with Go, Ruby on Rails, Phoenix, or Elixir without Node.js installed? Tailwind provides
+                        a self-contained, binary release for macOS, Windows, and Linux.
+                    </p>
+                    <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl space-y-3">
+                        <div class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Binary Setup
+                            Instructions</div>
+                        <p class="text-xs text-slate-300">1. Download the standalone executable for your OS directly
+                            from the official Tailwind Releases repository on GitHub.</p>
+                        <p class="text-xs text-slate-300">2. Make the binary executable using <code
+                                class="text-brand-400 bg-slate-950 px-1 py-0.5 rounded">chmod +x tailwindcss</code>.</p>
+                        <p class="text-xs text-slate-300">3. Run commands directly: <code
+                                class="text-brand-400 bg-slate-950 px-1 py-0.5 rounded">./tailwindcss -i input.css -o output.css --watch</code>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TAB 4: FRAMEWORK GUIDES -->
+                <div id="frameworks-tab" class="tab-panel hidden space-y-4">
+                    <p class="text-slate-300 text-sm">
+                        Tailwind CSS integrates seamlessly into modern frontend frameworks. Follow tailored
+                        framework-specific build pipelines:
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-brands fa-react text-cyan-400 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Next.js</div>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-solid fa-bolt text-yellow-400 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Vite</div>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-brands fa-laravel text-red-500 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Laravel</div>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-brands fa-vuejs text-emerald-400 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Nuxt</div>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-solid fa-compact-disc text-indigo-400 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Remix</div>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center hover:border-brand-500 transition">
+                            <i class="fa-brands fa-angular text-red-600 text-2xl mb-1"></i>
+                            <div class="text-xs font-bold text-white">Angular</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: PLAY CDN -->
+                <div id="playcdn-tab" class="tab-panel hidden space-y-4">
+                    <div class="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
+                        <div class="text-amber-400 font-bold text-xs uppercase mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Prototyping Only Notice
+                        </div>
+                        <p class="text-xs text-amber-200/80 leading-relaxed">
+                            The Play CDN requires client-side JavaScript to parse utility classes on-the-fly. Never use
+                            CDN scripts in high-traffic production apps—always compile static CSS!
+                        </p>
+                    </div>
+
+                    <div class="relative bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div
+                            class="flex justify-between items-center px-4 py-1.5 bg-slate-950 text-xs font-mono text-slate-400 border-b border-slate-800">
+                            <span>HTML script setup</span>
+                            <button onclick="copyCode('cdn-script', this)"
+                                class="copy-btn text-xs hover:text-white flex items-center gap-1 cursor-pointer"><i
+                                    class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="p-3 text-xs font-mono text-slate-300 overflow-x-auto"><code id="cdn-script">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script&gt;
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { clifford: '#da373d' }
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: CORE CONCEPTS (MATCHING "WHAT TO READ NEXT" GRID FROM OFFICIAL DOCS) -->
+            <section id="core-concepts" class="doc-section mb-12">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-cubes text-cyan-400"></i>
+                        Core Architectural Concepts
+                    </h2>
+                    <p class="text-slate-400 text-sm">
+                        Master the core building blocks that make Tailwind vastly superior to traditional CSS
+                        architectures:
+                    </p>
+                </div>
+
+                <!-- 2x3 Grid Matching Official Docs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Utility-First Fundamentals</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Style elements using predefined design primitives directly in HTML. Avoid naming nightmare
+                            classes like <code class="text-brand-400">.card-inner-wrapper-v2</code>.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            &lt;div class="p-6 bg-white rounded-xl shadow-md flex items-center space-x-4"&gt;
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Responsive Design</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Mobile-first breakpoint system using responsive prefixes like <code
+                                class="text-indigo-400">sm:</code>, <code class="text-indigo-400">md:</code>, <code
+                                class="text-indigo-400">lg:</code>, and <code class="text-indigo-400">xl:</code>
+                            directly in your markup.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            &lt;div class="w-full md:w-1/2 lg:w-1/3"&gt;
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-mouse-pointer"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Hover, Focus & Other States</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Conditionally apply classes on interactive states like <code
+                                class="text-emerald-400">hover:</code>, <code class="text-emerald-400">focus:</code>,
+                            <code class="text-emerald-400">active:</code>, and <code
+                                class="text-emerald-400">group-hover:</code>.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            &lt;button class="bg-sky-500 hover:bg-sky-700 focus:ring-2"&gt;
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Dark Mode</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Style your document for dark themes seamlessly using the <code
+                                class="text-amber-400">dark:</code> modifier based on OS preference or CSS class
+                            toggling.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            &lt;div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white"&gt;
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Reusing Styles</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Avoid code duplication by leveraging component abstractions in JavaScript or extracting
+                            repeated classes with <code class="text-pink-400">@apply</code>.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            .btn-primary { @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md; }
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div
+                        class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-brand-500/40 transition">
+                        <div
+                            class="size-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3 text-lg font-bold">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-base mb-1">Customizing the Framework</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                            Extend or override the default design system token set including scale, breakpoints, color
+                            palettes, spacing, and keyframe animations.
+                        </p>
+                        <div class="bg-slate-950 p-2.5 rounded font-mono text-[11px] text-slate-300">
+                            theme: { extend: { colors: { brand: '#0ea5e9' } } }
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 4: INTERACTIVE PLAYGROUND -->
+            <section id="interactive-playground" class="doc-section mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-code text-brand-400"></i>
+                    Interactive Component Sandbox
+                </h2>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden mb-6">
+                    <div
+                        class="flex items-center justify-between px-5 py-3 bg-slate-950 border-b border-slate-800 no-print">
+                        <div class="flex items-center space-x-2">
+                            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs uppercase tracking-wider text-slate-300 font-bold">Interactive
+                                Component Preview</span>
+                        </div>
+                        <button onclick="copyCode('playground-code', this)"
+                            class="copy-btn text-xs bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 font-medium cursor-pointer">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copy Component Code</span>
+                        </button>
+                    </div>
+
+                    <!-- Component Visual Output -->
+                    <div class="p-6 bg-slate-900/50">
+                        <div
+                            class="max-w-md mx-auto bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-2xl hover:border-brand-500/50 transition duration-300">
+                            <div class="h-32 bg-gradient-to-r from-brand-600 to-cyan-500 p-4 flex items-end">
+                                <span
+                                    class="bg-slate-950/80 text-brand-400 text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">v3.4
+                                    Feature Card</span>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-lg font-bold text-white mb-2">Production Ready Layout</h3>
+                                <p class="text-slate-400 text-sm mb-4">Composed entirely using utility classes. Zero
+                                    custom CSS stylesheets required.</p>
+                                <button
+                                    class="w-full bg-brand-500 hover:bg-brand-600 text-slate-950 font-bold py-2 rounded-lg transition">
+                                    Copy Code Below
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Source View -->
+                    <div class="border-t border-slate-800 bg-slate-950">
+                        <div class="px-5 py-2 text-xs font-mono text-slate-400 border-b border-slate-800/80">
+                            <span>HTML Source Snippet</span>
+                        </div>
+                        <pre class="p-4 text-xs font-mono text-slate-300 overflow-x-auto"><code id="playground-code">&lt;div class="max-w-md mx-auto bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-2xl hover:border-sky-500/50 transition duration-300"&gt;
+  &lt;div class="h-32 bg-gradient-to-r from-sky-600 to-cyan-500 p-4 flex items-end"&gt;
+    &lt;span class="bg-slate-950/80 text-sky-400 text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm"&gt;v3.4 Feature Card&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="p-5"&gt;
+    &lt;h3 class="text-lg font-bold text-white mb-2"&gt;Production Ready Layout&lt;/h3&gt;
+    &lt;p class="text-slate-400 text-sm mb-4"&gt;Composed entirely using utility classes. Zero custom CSS stylesheets required.&lt;/p&gt;
+    &lt;button class="w-full bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold py-2 rounded-lg transition"&gt;
+      Copy Code Below
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: SENIOR ENGINEER ARCHITECTURAL ADVICE -->
+            <section id="senior-engineer-insights" class="doc-section mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-user-gear text-emerald-400"></i>
+                    Senior Software Engineer Notes (40 Years Experience Perspective)
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl">
+                        <h3 class="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                            1. Utility-First vs. Traditional Semantic CSS
+                        </h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Over 40 years in software engineering, the greatest CSS pain point was <em>append-only
+                                stylesheets</em>—where developers were afraid to remove legacy CSS classes for fear of
+                            breaking unrelated pages. Tailwind solves this by binding styling directly to markup
+                            lifecycle, making dead-code elimination automatic.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl">
+                        <h3 class="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-gears text-brand-400"></i>
+                            2. When to Use Component Abstractions vs @apply
+                        </h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Resist the urge to extract every utility class into custom <code
+                                class="text-brand-400">@apply</code> CSS rules. When working with React, Vue, or
+                            Next.js, component abstractions (e.g., <code class="text-brand-400">&lt;Button /&gt;</code>)
+                            are far more maintainable than creating custom CSS class names. Save <code
+                                class="text-brand-400">@apply</code> strictly for third-party widget overrides.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: FAQS -->
+            <section id="faqs" class="doc-section mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question text-brand-400"></i>
+                    Frequently Asked Questions
+                </h2>
+
+                <div class="space-y-3">
+                    <div class="border border-slate-800 rounded-xl bg-slate-900/50 overflow-hidden">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full p-4 text-left font-semibold text-white flex justify-between items-center hover:bg-slate-900 transition">
+                            <span>How does Tailwind process file paths in tailwind.config.js?</span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-xs text-slate-400 border-t border-slate-800/50">
+                            Tailwind uses raw string scanning via regular expressions. It matches string patterns in any
+                            specified file format (JS, TS, HTML, PHP, JSX) without parsing language ASTs, making the
+                            build process lightning fast.
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-800 rounded-xl bg-slate-900/50 overflow-hidden">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full p-4 text-left font-semibold text-white flex justify-between items-center hover:bg-slate-900 transition">
+                            <span>Why shouldn't I use dynamic string concatenation in Tailwind?</span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 pt-0 text-xs text-slate-400 border-t border-slate-800/50">
+                            Because Tailwind scans raw strings before runtime, constructing classes dynamically like
+                            <code class="text-brand-400">`text-${color}-500`</code> prevents the scanner from detecting
+                            class names. Always use complete class names (e.g., <code
+                                class="text-brand-400">color === 'red' ? 'text-red-500' : 'text-blue-500'</code>).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER (NO PRINT) -->
+    <footer class="no-print border-t border-slate-800/80 bg-slate-950 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs">
+            Tailwind CSS v3.4 Master Reference & Architectural Blueprint • Built for Web Browsing & PDF Print Export
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT LOGIC -->
+    <script>
+        // Copy Code Functionality
+        function copyCode(elementId, btn) {
+            const codeText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span class="text-emerald-400">Copied!</span>`;
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                }, 2000);
+            });
+        }
+
+        // Switch Installation Tabs
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-brand-400', 'text-brand-400', 'bg-slate-900');
+                btn.classList.add('border-transparent', 'text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.add('active', 'border-brand-400', 'text-brand-400', 'bg-slate-900');
+            activeBtn.classList.remove('border-transparent', 'text-slate-400');
+        }
+
+        // Toggle FAQ Accordions
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Toggle Mobile Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('fixed');
+            sidebar.classList.toggle('inset-0');
+            sidebar.classList.toggle('bg-slate-950');
+            sidebar.classList.toggle('z-50');
+            sidebar.classList.toggle('p-6');
+        }
+
+        // Dynamic Document Search
+        function filterSections() {
+            const query = document.getElementById('docSearch').value.toLowerCase();
+            const sections = document.querySelectorAll('.doc-section');
+
+            sections.forEach(sec => {
+                const text = sec.innerText.toLowerCase();
+                sec.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        // Dynamic Active TOC Scrolling Highlight
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.doc-section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.toc-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-brand-400', 'bg-brand-500/10', 'border-l-2', 'border-brand-400');
+                link.classList.add('text-slate-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-brand-400', 'bg-brand-500/10', 'border-l-2', 'border-brand-400');
+                    link.classList.remove('text-slate-400');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21-Day Generational Breakthrough Protocol — Kisakye Paul & Teddy Nettugu</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-gold: #b45309;
+            --accent-red: #991b1b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #cbd5e1;
+
+            --phase1-border: #475569;
+            --phase1-bg: #f1f5f9;
+            --phase1-text: #0f172a;
+
+            --phase2-border: #991b1b;
+            --phase2-bg: #fef2f2;
+            --phase2-text: #7f1d1d;
+
+            --phase3-border: #047857;
+            --phase3-bg: #ecfdf5;
+            --phase3-text: #065f46;
+
+            --gold-border: #b45309;
+            --gold-bg: #fffbeb;
+            --gold-text: #78350f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #f1f5f9;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 8px 12px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-weight: 800;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 850px;
+            margin: 0 auto 16px auto;
+        }
+
+        .identity-badge {
+            display: inline-block;
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-header {
+            margin-top: 48px;
+            margin-bottom: 28px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .phase-1-header {
+            background-color: var(--phase1-bg);
+            color: var(--phase1-text);
+            border-left: 8px solid var(--phase1-border);
+        }
+
+        .phase-2-header {
+            background-color: var(--phase2-bg);
+            color: var(--phase2-text);
+            border-left: 8px solid var(--phase2-border);
+        }
+
+        .phase-3-header {
+            background-color: var(--phase3-bg);
+            color: var(--phase3-text);
+            border-left: 8px solid var(--phase3-border);
+        }
+
+        .day-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .day-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .day-number {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .scripture-box {
+            background-color: #f8fafc;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .focus-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .prayer-body {
+            font-size: 1.02rem;
+            line-height: 1.85;
+            color: #1e293b;
+            text-align: justify;
+            background-color: #fafafa;
+            padding: 20px 24px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .prayer-body strong {
+            color: #0f172a;
+        }
+
+        .amen-seal {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #7f1d1d;
+            margin-top: 40px;
+            padding: 28px;
+            background-color: #fef2f2;
+            border-radius: 12px;
+            border: 2px solid #dc2626;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .day-card {
+                padding: 18px;
+            }
+
+            .prayer-body {
+                padding: 14px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <span class="subtitle">Judicial Heavenly Court Covenant Manual</span>
+            <h1>21-Day Generational Breakthrough Protocol</h1>
+            <p><strong>Complete End-to-End Command &amp; Prayer Blueprint for Personal Consecration, Marital Bliss,
+                    Financial Dominion, Health, Software Engineering Mastery, and Bloodline Alignment Forever</strong>
+            </p>
+            <div class="identity-badge">
+                PRIESTHOOD OF THE HOME • KISAKYE PAUL • TEDDY NETTUGU • CHILDREN • ALL GENERATIONS FOREVER
+            </div>
+        </header>
+
+        <!-- PHASE 1: DAYS 1 TO 7 -->
+        <div class="phase-header phase-1-header">
+            <h2>Phase 1: Legal Cleansing, Bloodline Repentance &amp; Foundation Clearing (Days 1–7)</h2>
+        </div>
+
+        <!-- DAY 1 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 1: Priestly Consecration &amp; Personal Cleansing</span>
+                <span class="day-number">Day 01</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Psalm 51:1–13 • 1 John 1:9 • Leviticus 6:12–13 • Colossians 1:13–14
+            </div>
+            <div class="focus-text">
+                Focus: Deep personal repentance, purging spiritual lukewarmness, and establishing the Holy Fire upon the
+                personal and household altar.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Heavenly Father, Supreme Judge of the Universe, I step into Your Heavenly Courts today through the
+                precious and sinless Blood of Jesus Christ. As the ordained priest and head of my household, I bow my
+                spirit, soul, and body before Your Throne of Grace. I make a deep, unreserved repentance for every sin,
+                transgression, iniquity, and ungodly thought I have committed in my life. Forgive me for moments of
+                doubt, anxiety, prayerlessness, spiritual complacency, impatience, or relying on human intellect over
+                Divine wisdom. Wash my brain, my heart, my vocal cords, my subconscious mind, and my body in the Blood
+                of the Lamb today!<br><br>
+                By the authority of Jesus Christ, I re-ignite the Holy Ghost Fire upon the altar of my personal life and
+                my home. I decree that lukewarmness, spiritual fatigue, and double-mindedness die in my life today! I
+                cover my beloved wife, <strong>Teddy Nettugu</strong>, and our precious children with the Blood of
+                Jesus. Let no unconfessed sin stand as a legal loophole or satanic accusation against our prayers
+                throughout this 21-day protocol. I declare that our spiritual atmosphere is cleansed, our spiritual
+                senses are awakened, and our prayers ascend as a sweet-smelling incense before Your Throne, in the
+                mighty Name of Jesus Christ! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 2 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 2: Court of Heaven Ancestral &amp; Bloodline Cleansing</span>
+                <span class="day-number">Day 02</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Leviticus 26:40–42 • Colossians 2:14 • Galatians 3:13–14 • Hebrews
+                9:14
+            </div>
+            <div class="focus-text">
+                Focus: Standing in the gap to repent for ancestral sins, covenants, and idolatry across both paternal
+                and maternal bloodlines.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Righteous Father, I stand in the Judicial Court of Heaven as a representative priest for my lineage—the
+                bloodline of <strong>Kisakye Paul</strong>—and for my wife's lineage—the bloodline of <strong>Teddy
+                    Nettugu</strong>. On behalf of our fathers, mothers, grandfathers, grandmothers, and past
+                generations back to the fourth generation, I repent for every ancestral sin of idolatry, witchcraft,
+                bloodshed, sexual immorality, demonic dedication, ungodly oaths, and secret society covenants!<br><br>
+                I plead the eternal, voice-speaking Blood of Jesus Christ over our DNA, our chromosomes, our family
+                trees, and our ancestral roots! By the power of the Cross, I enforce Colossians 2:14: I blot out every
+                handwriting of ordinances and ancestral evil records that stood against our families! I sever myself, my
+                wife Teddy Nettugu, our children, and all generations after us from every generational curse, ancestral
+                token, or inherited spiritual claim! The Blood of Jesus legally acquits us today, and I declare our
+                entire lineage completely redeemed from the curse of the law, in Jesus' mighty Name!
+                <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 3 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 3: Overthrowing Demonic Altars &amp; Evil Covenants</span>
+                <span class="day-number">Day 03</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Judges 6:25–28 • Isaiah 10:27 • Jeremiah 1:10 • Micah 5:12–13
+            </div>
+            <div class="focus-text">
+                Focus: Authoritative demolition of witch altars, territorial idols, family shrines, and invisible
+                covenants hindering progress.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                In the supreme Name of Jesus Christ, I exercise apostolic and prophetic authority to root out, pull
+                down, and destroy every evil altar operating against the Kisakye family and Teddy Nettugu's family!
+                Every altar of idolatry, witch covenants, water spirits, occultic sacrifices, or family shrines
+                monitoring our destiny, career, finances, or health—I COMMAND CONSUMING FIRE FROM HEAVEN TO DESTROY YOU
+                NOW!<br><br>
+                I silence every demonic priest, priestess, or satanic agent crying out against our success, health,
+                marriage, or progeny from any altar! By the Blood of Jesus, I break every invisible string, evil tether,
+                or soul-tie linking us to territorial spirits or ancestral deities. I raise the Eternal Altar of the
+                Blood of Jesus Christ over our household! Where evil altars once spoke limitation, the Altar of the
+                Living God now speaks favor, open doors, wealth, and continuous glory for us and all future generations,
+                in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 4 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 4: Breaking Curses of Financial Dryness &amp; Generational Poverty</span>
+                <span class="day-number">Day 04</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Deuteronomy 8:18 • Galatians 3:13 • 2 Corinthians 8:9 • Malachi
+                3:10–11
+            </div>
+            <div class="focus-text">
+                Focus: Breaking inherited economic stagnation, debt, empty bank accounts, and financial devourers across
+                all generations.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Lord God of Abraham, Isaac, and Jacob, You became poor that through Your poverty we might become rich!
+                Today, I enforce Christ's financial redemption over my life, my wife <strong>Teddy Nettugu</strong>, our
+                children, and all descendants after us forever. I break, shatter, and permanently destroy every
+                inherited curse of poverty, financial lack, economic dryness, debt, and laboring without
+                results!<br><br>
+                I rebuke the devourer over my bank accounts, Mobile Money balances, client invoices, business accounts,
+                and financial pipelines! I command every spirit of financial stagnation, near-success syndrome, and
+                wallet leakage to burn to ashes by Holy Ghost Fire! I activate Deuteronomy 8:18 over my spirit: God has
+                given me the supernatural power to get wealth! I decree that our bank accounts are filled with Kingdom
+                capital, our tech business revenues multiply exponentially, and poverty is legally outlawed from our
+                bloodline forever, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 5 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 5: Neutralizing Inherited Disease &amp; Bloodline Sickness</span>
+                <span class="day-number">Day 05</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Exodus 23:25 • Isaiah 53:4–5 • Psalm 103:2–5 • 1 Peter 2:24
+            </div>
+            <div class="focus-text">
+                Focus: Purging genetic disorders, inherited sicknesses, chronic ailments, and premature death from the
+                family bloodstream.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Almighty Healer, Your Word declares that by the stripes of Jesus Christ we ARE healed! Today, I plunge
+                the bloodstream of <strong>Kisakye Paul</strong>, my wife <strong>Teddy Nettugu</strong>, our children,
+                and all generations after us into the sinless, disease-conquering Blood of Jesus! I command every
+                inherited gene of sickness, diabetes, hypertension, blood disorders, organ weakness, cancer, heart
+                disease, or premature death to DIE FROM THE ROOTS NOW!<br><br>
+                I speak life, strength, perfect immunity, and divine health into our vital organs, nervous systems,
+                brain cells, heart valves, digestive tracts, and cellular structures! The law of the Spirit of life in
+                Christ Jesus has set us free from the law of sin and death! I decree that sickness cannot survive in our
+                bodies, our home, or our bloodline. We shall live long, vibrant, energetic lives to fulfill all our
+                assigned years on earth, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 6 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 6: Silencing Satanic Accusers &amp; Disarming Legal Suits</span>
+                <span class="day-number">Day 06</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Zechariah 3:1–5 • Revelation 12:10–11 • Isaiah 54:17 • Romans
+                8:33–34
+            </div>
+            <div class="focus-text">
+                Focus: Stripping off demonic accusations, false accusations, spiritual filth, and legal holds in
+                heavenly places.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                O Lord, Satan stands as an accuser, but Jesus stands as our Eternal Advocate! I enter the Court of
+                Heaven and address every satanic prosecutor accusing my name, Kisakye Paul, my wife Teddy Nettugu, our
+                children, or our bloodline! <span class="highlight">THE LORD REBUKE YOU, SATAN! THE LORD WHO HAS CHOSEN
+                    US REBUKE YOU!</span><br><br>
+                By the Blood of Jesus, I strip off every filthy garment of guilt, shame, condemnation, or inherited
+                spiritual target! I put on the fresh white robe of Christ's righteousness and the priestly crown of
+                authority. I declare that every demonic lawsuit filed against our marriage, our career, our client
+                contracts, or our children's future is STRICKEN OFF THE HEAVENLY DOCKET! No weapon formed against us
+                shall prosper, and every tongue that rises against us in judgment, we condemn today, in Jesus' mighty
+                Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 7 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 7: Court of Heaven Verdict of Acquittal &amp; Phase 1 Blood Seal</span>
+                <span class="day-number">Day 07</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Hebrews 12:22–24 • Romans 8:1 • Isaiah 43:26 • Revelation 12:11
+            </div>
+            <div class="focus-text">
+                Focus: Receiving the official Court of Heaven decree of justification, freedom, and sealing Phase 1 in
+                Holy Communion.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Most High God, Supreme Judge of Heaven and Earth, I stand before You on Day 7 to receive Your official
+                judicial verdict! Because of the Blood of Jesus Christ shed on Calvary, I claim the full verdict of
+                ACQUITTAL, JUSTIFICATION, AND TOTAL FREEDOM for myself, my wife <strong>Teddy Nettugu</strong>, our
+                children, and all descendants across our bloodline forever!<br><br>
+                I declare Phase 1 complete! Our ancestral roots are cleansed, evil altars are destroyed, poverty curses
+                are broken, genetic diseases are terminated, and satanic accusers are silenced forever! I seal this
+                foundational victory with the Holy Spirit and the Blood of the Eternal Covenant! There is now NO
+                CONDEMNATION for us. We step into Phase 2 as legally cleared, spiritually empowered, and untouchable
+                kings and priests of God, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- PHASE 2: DAYS 8 TO 14 -->
+        <div class="phase-header phase-2-header">
+            <h2>Phase 2: Ezekiel 37 Life Infusion &amp; Multi-Dimensional Breakthrough (Days 8–14)</h2>
+        </div>
+
+        <!-- DAY 8 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 8: Ezekiel 37 Command over Finances &amp; Bank Accounts</span>
+                <span class="day-number">Day 08</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Ezekiel 37:4–5 • Deuteronomy 28:11–12 • Haggai 2:8 • Psalm 112:3
+            </div>
+            <div class="focus-text">
+                Focus: Prophesying divine breath into dry financial accounts, mobile money, enterprise cashflow, and
+                investments.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                In the Name of Jesus Christ, I stand upon Ezekiel 37:4–5 and speak directly to my financial destiny! Dry
+                bank accounts, empty wallets, slow Mobile Money channels, unpaid invoices, and stagnated
+                investments—<strong>HEAR THE WORD OF THE LORD! THUS SAITH THE LORD GOD: BEHOLD, I CAUSE BREATH TO ENTER
+                    INTO YOU, AND YOU SHALL LIVE!</strong><br><br>
+                I command bone to bone connection in my finances! I command muscle, flesh, and financial vitality to
+                cover every revenue stream in my household! I command high-paying global tech clients, multi-currency
+                retainers, unexpected financial wire transfers, and profitable corporate investments to flow into my
+                accounts without resistance! Scarcity is dead! Overflow, liquidity, and kingdom abundance enter my house
+                today, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 9 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 9: Divine Wisdom, Engineering Architecture &amp; Tech Mastery</span>
+                <span class="day-number">Day 09</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> James 1:5 • Daniel 2:20–22 • Isaiah 11:2 • Exodus 31:3–5
+            </div>
+            <div class="focus-text">
+                Focus: Activating superior software engineering acumen, GEO/AEO optimization strategies, systems
+                architecture, and market dominance.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Father God, You are the Author of all knowledge, wisdom, and understanding! Today, I claim the promise
+                of James 1:5 and Daniel 2:22 over my intellect as a Software Engineer and systems builder. I activate
+                the Seven-Fold Spirit of God upon my mind—the Spirit of Wisdom, Understanding, Counsel, Might,
+                Knowledge, and the Fear of the Lord!<br><br>
+                Grant me supernatural problem-solving speed, flawless code execution, cutting-edge software
+                architecture, and master-level insight in React, TypeScript, Next.js, systems deployment, and
+                Generative/Answer Engine Optimization (GEO/AEO)! I command my brain to operate with divine clarity and
+                innovation. I decree that my technical projects, software products, and consulting frameworks command
+                global authority, high commercial value, and unshakeable market preference, in Jesus' mighty Name!
+                <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 10 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 10: Divine Health, Vitality &amp; Anointed Longevity</span>
+                <span class="day-number">Day 10</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Isaiah 58:8 • Psalm 91:15–16 • 3 John 1:2 • Romans 8:11
+            </div>
+            <div class="focus-text">
+                Focus: Infusing Holy Spirit vitality into every organ, tissue, joint, and blood cell of all family
+                members.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Breath of the Almighty God, blow from the four winds and breathe upon our bodies today! I speak divine
+                breath into the lungs, hearts, brains, blood, spines, eyes, and digestive systems of:
+                <br>• Myself (<strong>Kisakye Paul</strong>)
+                <br>• My beloved wife (<strong>Teddy Nettugu</strong>)
+                <br>• Our precious children
+                <br>• All our future bloodline!<br><br>
+                I decree that the Spirit of Him who raised Jesus from the dead dwells in us and quickens our mortal
+                bodies! Fatigue, weakness, chronic pain, organ decay, and premature aging ARE DESTROYED! We operate in
+                divine energy, mental alertness, physical strength, and unshakeable immunity every day. With long life
+                will God satisfy us and show us His salvation, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 11 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 11: Marital Covenant Oneness &amp; Bliss with Teddy Nettugu</span>
+                <span class="day-number">Day 11</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Ephesians 5:25–33 • Ecclesiastes 4:12 • Genesis 2:24 • Colossians
+                3:14
+            </div>
+            <div class="focus-text">
+                Focus: Deepening marital affection, spiritual unity, communication, joy, and impenetrable shield around
+                the marriage.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Lord God, You ordained holy matrimony in the Garden of Eden! Today, I breathe divine life into my
+                marriage with my beloved wife, <strong>Teddy Nettugu</strong>! I command every dry bone of
+                communication, emotional distance, fatigue, or friction TO LIVE AND BE FILLED WITH DIVINE LOVE
+                NOW!<br><br>
+                I cover our marriage with the Blood of Jesus and bind it with the unshakeable three-fold cord of the
+                Holy Ghost. I decree that our union is filled with overflowing joy, mutual honor, deep romantic
+                affection, spiritual intimacy, and financial synergy. Satanic interference, third-party intrusion, and
+                misunderstandings are forever barred from our home. Teddy Nettugu and Kisakye Paul shall walk as one
+                invincible team, fulfilling God's highest purpose together, in Jesus' mighty Name!
+                <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 12 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 12: Divine Shield &amp; Champion Destiny for Children</span>
+                <span class="day-number">Day 12</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Isaiah 54:13 • Psalm 127:3–5 • Daniel 1:17–20 • Isaiah 8:18
+            </div>
+            <div class="focus-text">
+                Focus: Protecting children from evil societal agendas, bestowing academic genius, spiritual boldness,
+                and leadership.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Heavenly Father, Your Word decrees that all our children shall be taught of the Lord, and great shall be
+                their peace! Today, I prophesy over our children: <span class="highlight">YOU ARE ARROWS IN THE HANDS OF
+                    A MIGHTY WARRIOR! YOU ARE FOR SIGNS AND WONDERS ON EARTH!</span><br><br>
+                I place an impenetrable hedge of Holy Ghost Fire around their minds, spirits, and physical bodies. I
+                shield them from bad company, evil societal trends, moral corruption, demonic influences, and sickness.
+                I release the Daniel mantle of ten-fold intelligence, superior wisdom, academic excellence, and godly
+                character upon their lives! They shall stand out as leaders, innovators, world-changers, and bold
+                champions of Jesus Christ wherever they go, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 13 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 13: Accelerated Career, Software Contracts &amp; Global Favor</span>
+                <span class="day-number">Day 13</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Psalm 5:12 • Isaiah 45:1–3 • Proverbs 22:29 • Genesis 39:21
+            </div>
+            <div class="focus-text">
+                Focus: Opening global corporate doors, commanding high-value tech retainers, enterprise projects, and
+                strategic favor.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Lord Almighty, You surround the righteous with favor as with a shield! Today, I speak to the four
+                quarters of the earth: RELEASE GLOBAL FAVOUR AND ENTERPRISE OPPORTUNITIES UNTO KISAKYE PAUL! I command
+                every closed door in my software engineering career, consulting agency, and tech enterprise TO BURST
+                OPEN NOW!<br><br>
+                I command international software contracts, long-term technical retainers, corporate board advisory
+                roles, and high-margin engineering projects to find me effortlessly! I speak favor with decision-makers,
+                tech founders, corporate directors, and investors worldwide. My work shall stand before kings and not
+                obscure men. Divine acceleration, zero project delays, and financial prosperity encompass my hands
+                today, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 14 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 14: Restoring Stolen Years &amp; 7-Fold Acceleration</span>
+                <span class="day-number">Day 14</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Joel 2:25–27 • Proverbs 6:31 • Zechariah 9:12 • Isaiah 61:7
+            </div>
+            <div class="focus-text">
+                Focus: Enforcing the 7-fold recovery of stolen time, delayed promotions, diverted income, and wasted
+                efforts.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                In the Name of Jesus Christ, I enforce the Divine Law of Restoration! Whatever the locust, the
+                cankerworm, the caterpillar, or spiritual thieves have stolen from my life, my wife Teddy Nettugu’s
+                life, or our family—<strong>I COMMAND A 7-FOLD RECOVERY RIGHT NOW!</strong><br><br>
+                I recover delayed time! I recover diverted financial profits! I recover missed promotions, delayed
+                projects, and lost opportunities! What took others 10 years to accomplish, God's breath will cause my
+                household to achieve in 10 months! We receive double honor for every past shame! Quantum speed, divine
+                alignment, and explosive multiplication take over our lives. Phase 2 life infusion is completed and
+                sealed in victory today, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- PHASE 3: DAYS 15 TO 21 -->
+        <div class="phase-header phase-3-header">
+            <h2>Phase 3: Perpetual Covenants, Generational Wealth &amp; Future Lineage (Days 15–21)</h2>
+        </div>
+
+        <!-- DAY 15 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 15: Establishing the Abrahamic Covenant for Descendants</span>
+                <span class="day-number">Day 15</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Genesis 17:7 • Galatians 3:29 • Psalm 105:8–10 • Isaiah 59:21
+            </div>
+            <div class="focus-text">
+                Focus: Legally securing God’s eternal covenant for children, grandchildren, and all generations
+                following forever.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Eternal God, You are the covenant-keeping God who remembers Your promise to a thousand generations!
+                Today, on behalf of my seed, my grandchildren, my great-grandchildren, and all generations in my
+                bloodline after me forever, I enter into the perpetual Abrahamic Covenant through Jesus Christ!<br><br>
+                I decree that every child born into the Kisakye bloodline is automatically heir to the promises of
+                Abraham! Curses, spiritual blindness, poverty, and destruction are legally prohibited from ever touching
+                our bloodline! God shall be their God, their Protector, their Provider, and their Exalter from
+                generation to generation. This covenant is sealed in heaven today and stands unshaken forever, in Jesus'
+                mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 16 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 16: Anointing Future Generations with Wisdom &amp; Fire</span>
+                <span class="day-number">Day 16</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Isaiah 59:21 • Deuteronomy 34:9 • Psalm 112:1–3 • Acts 2:39
+            </div>
+            <div class="focus-text">
+                Focus: Guaranteeing that the Holy Spirit, divine wisdom, technical mastery, and spiritual power never
+                depart from the bloodline.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Father God, You promised in Isaiah 59:21 that Your Spirit which is upon me, and Your words which You
+                have put in my mouth, shall NOT depart out of my mouth, nor out of the mouth of my seed, nor out of the
+                mouth of my seed's seed, forever!<br><br>
+                I decree that every future generation of the Kisakye and Teddy Nettugu lineage shall be anointed with
+                superior wisdom, creative genius, leadership authority, and Holy Ghost fire! No generation after me
+                shall walk in spiritual ignorance, mental dullness, or compromise. They shall be giants of faith,
+                innovators in technology, leaders in business, and flaming revivalists of the Gospel across the globe,
+                in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 17 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 17: Perpetual Kingdom Wealth, Assets &amp; Land Ownership</span>
+                <span class="day-number">Day 17</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Proverbs 13:22 • Psalm 112:3 • Deuteronomy 28:12 • Genesis 26:12–14
+            </div>
+            <div class="focus-text">
+                Focus: Securing real estate, enterprise wealth, intellectual property, and perpetual asset inheritance
+                for future descendants.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                A good man leaves an inheritance to his children's children! Father, I declare that <strong>Kisakye
+                    Paul</strong> and <strong>Teddy Nettugu</strong> shall build, possess, and transfer
+                multi-generational wealth, real estate holdings, software IP, and financial assets to our
+                offspring!<br><br>
+                I decree that poverty and financial hand-to-mouth living ARE EXTERMINATED from our future lineage
+                forever! Our descendants shall be land owners, estate holders, software enterprise owners, and global
+                investors. They shall lend to many nations and borrow from none! Wealth, riches, righteousness, and
+                kingdom generosity shall abide in our house from generation to generation, in Jesus' mighty Name!
+                <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 18 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 18: Spiritual Priesthood &amp; Altar Fire for Unborn Generations</span>
+                <span class="day-number">Day 18</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Leviticus 6:13 • Psalm 102:18 • 1 Peter 2:9 • Joshua 24:15
+            </div>
+            <div class="focus-text">
+                Focus: Decreeing that no descendant shall fall into apostasy, occultism, or spiritual rebellion;
+                securing eternal priesthood.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                In the Name of Jesus Christ, I decree over the unborn generations of my bloodline: <span
+                    class="highlight">AS FOR ME AND MY HOUSEHOLD, INCLUDING ALL FUTURE GENERATIONS, WE WILL SERVE THE
+                    LORD!</span><br><br>
+                I lock out apostasy, cultism, atheism, witchcraft, and moral bankruptcy from our family tree forever!
+                Every descendant born of our blood shall know the Lord Jesus Christ personally from their youth. They
+                shall be holy priests, spirit-filled leaders, anointed worshippers, and righteous stewards. The prayer
+                altar in our lineage shall burn with Holy Fire continuously, and no satanic agenda shall ever turn our
+                descendants away from the Cross, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 19 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 19: Wall of Fire Shielding Future Bloodlines from Evil Agendas</span>
+                <span class="day-number">Day 19</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Zechariah 2:5 • Isaiah 49:25 • Psalm 91:9–16 • Isaiah 54:15
+            </div>
+            <div class="focus-text">
+                Focus: Erecting an eternal wall of Holy Ghost fire against evil societal trends, demonic deception, and
+                spiritual warfare.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                For I, saith the LORD, will be unto her a wall of fire round about, and will be the glory in the midst
+                of her! Today, I erect an eternal, impenetrable wall of Holy Ghost Fire around all descendants of
+                Kisakye Paul and Teddy Nettugu forever!<br><br>
+                Even if evil trends, demonic agendas, global panics, or moral corruption flood the world, my descendants
+                shall remain completely untouched and preserved! God shall contend with whoever contends with my
+                bloodline and save our children! No war, plague, famine, political turmoil, or spiritual attack shall
+                ever wipe out or diminish our family line. We are preserved under the shadow of the Almighty God
+                forever, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 20 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 20: Generational Gates of Authority &amp; Global Dominance</span>
+                <span class="day-number">Day 20</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Genesis 22:17–18 • Isaiah 61:9 • Deuteronomy 28:13 • Matthew 16:19
+            </div>
+            <div class="focus-text">
+                Focus: Decreeing that descendants shall possess gates of power in software engineering, commerce,
+                finance, governance, and ministry worldwide.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                In the Name of Jesus Christ, I prophesy that the seed of Kisakye Paul and Teddy Nettugu shall possess
+                the gates of their enemies! They shall sit at the tables of global influence, technical innovation,
+                governance, commerce, and ministry leadership!<br><br>
+                I decree that our bloodline shall never be oppressed, suppressed, or relegated to the background. They
+                shall be the HEAD AND NOT THE TAIL, ABOVE ONLY AND NEVER BENEATH! All nations shall see them and
+                acknowledge that they are the seed which the Lord has blessed! They shall wield the keys of the Kingdom,
+                binding darkness and releasing light across generations, in Jesus' mighty Name! <strong>AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- DAY 21 -->
+        <article class="day-card">
+            <div class="day-title">
+                <span>Day 21: Judicial Coronation, Final Thanksgiving &amp; Eternal Blood Seal</span>
+                <span class="day-number">Day 21</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Scripture Anchors:</strong> Psalm 100:1–5 • Revelation 5:12–13 • Psalm 20:1–4 • Colossians 2:15
+            </div>
+            <div class="focus-text">
+                Focus: Full judicial sealing in Holy Communion, uninhibited praise, and receiving Heaven’s certificate
+                of completion.
+            </div>
+            <div class="prayer-body">
+                <strong>PRAYER &amp; AUTHORITATIVE DECREE:</strong><br>
+                Father God, Almighty King of Kings, I stand on Day 21 in profound thanksgiving, praise, and holy awe! I
+                thank You for answering every prayer, executing every legal decree, breathing life into every dry bone,
+                breaking every generational curse, and establishing Your perpetual covenant over my life, my wife
+                <strong>Teddy Nettugu</strong>, our children, and all generations forever!<br><br>
+                I seal this 21-Day Breakthrough Protocol in the Blood of the Lamb and by the power of Holy Communion! I
+                decree that what God has written, no devil can erase! What God has blessed, no witchcraft can curse!
+                Every prayer prayed over these 21 days is converted into eternal spiritual laws operating in our favor.
+                We walk out of this protocol crowned with victory, wisdom, wealth, health, and generational dominion!
+                <strong>IT IS FINISHED! IT IS SEALED! IT IS DONE! IN THE MIGHTY AND MATCHLESS NAME OF JESUS CHRIST!
+                    AMEN! AMEN! AND AMEN!</strong>
+            </div>
+        </article>
+
+        <!-- CLOSING AMEN BANNER -->
+        <div class="amen-seal">
+            ⚡ 21-DAY GENERATIONAL BREAKTHROUGH PROTOCOL COMPLETED &amp; JUDICIALLY SEALED ⚡<br>
+            LEGAL CLEANSING EXECUTED • EZEKIEL 37 BREATH ENTERED • PERPETUAL COVENANT ESTABLISHED<br>
+            KISAKYE PAUL • TEDDY NETTUGU • CHILDREN • ALL GENERATIONS FOREVER<br><br>
+            SEALED IN THE COURT OF HEAVEN &amp; BY THE BLOOD OF JESUS CHRIST<br>
+            AMEN! AMEN! AND AMEN!
+        </div>
+
+    </div>
+
+</body>
+
+</html>

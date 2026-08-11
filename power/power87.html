@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Wisdom, Covenant Promises & Ezekiel 37 Seven-Fold Restoration Decree</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-gold: #b45309;
+            --accent-red: #991b1b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #cbd5e1;
+
+            --repentance-border: #475569;
+            --repentance-bg: #f1f5f9;
+            --repentance-text: #0f172a;
+
+            --wisdom-border: #b45309;
+            --wisdom-bg: #fffbeb;
+            --wisdom-text: #78350f;
+
+            --promise-border: #1d4ed8;
+            --promise-bg: #eff6ff;
+            --promise-text: #1e40af;
+
+            --ezekiel-border: #991b1b;
+            --ezekiel-bg: #fef2f2;
+            --ezekiel-text: #7f1d1d;
+
+            --will-border: #047857;
+            --will-bg: #ecfdf5;
+            --will-text: #065f46;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #f1f5f9;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 8px 12px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-weight: 800;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 850px;
+            margin: 0 auto 16px auto;
+        }
+
+        .identity-badge {
+            display: inline-block;
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-repentance h2 {
+            color: var(--repentance-text);
+            border-color: #cbd5e1;
+        }
+
+        .section-wisdom h2 {
+            color: var(--wisdom-text);
+            border-color: #fde68a;
+        }
+
+        .section-promise h2 {
+            color: var(--promise-text);
+            border-color: #bfdbfe;
+        }
+
+        .section-ezekiel h2 {
+            color: var(--ezekiel-text);
+            border-color: #fecaca;
+        }
+
+        .section-will h2 {
+            color: var(--will-text);
+            border-color: #a7f3d0;
+        }
+
+        .scripture-list {
+            font-size: 0.98rem;
+            color: #334155;
+            margin-bottom: 18px;
+            font-weight: 600;
+            background-color: #f8fafc;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #64748b;
+        }
+
+        blockquote {
+            margin: 22px 0;
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 1.02rem;
+            line-height: 1.7;
+        }
+
+        .quote-repentance {
+            border-left: 5px solid var(--repentance-border);
+            background-color: var(--repentance-bg);
+            color: var(--repentance-text);
+        }
+
+        .quote-wisdom {
+            border-left: 5px solid var(--wisdom-border);
+            background-color: var(--wisdom-bg);
+            color: var(--wisdom-text);
+        }
+
+        .quote-promise {
+            border-left: 5px solid var(--promise-border);
+            background-color: var(--promise-bg);
+            color: var(--promise-text);
+        }
+
+        .quote-ezekiel {
+            border-left: 5px solid var(--ezekiel-border);
+            background-color: var(--ezekiel-bg);
+            color: var(--ezekiel-text);
+        }
+
+        .quote-will {
+            border-left: 5px solid var(--will-border);
+            background-color: var(--will-bg);
+            color: var(--will-text);
+        }
+
+        .protocol-card {
+            padding: 28px;
+            margin-bottom: 24px;
+            border-radius: 10px;
+            border: 1px solid;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-repentance {
+            background-color: var(--repentance-bg);
+            border-color: #cbd5e1;
+            border-left: 6px solid var(--repentance-border);
+        }
+
+        .card-wisdom {
+            background-color: var(--wisdom-bg);
+            border-color: #fde68a;
+            border-left: 6px solid var(--wisdom-border);
+        }
+
+        .card-promise {
+            background-color: var(--promise-bg);
+            border-color: #bfdbfe;
+            border-left: 6px solid var(--promise-border);
+        }
+
+        .card-ezekiel {
+            background-color: var(--ezekiel-bg);
+            border-color: #fecaca;
+            border-left: 6px solid var(--ezekiel-border);
+        }
+
+        .card-will {
+            background-color: var(--will-bg);
+            border-color: #a7f3d0;
+            border-left: 6px solid var(--will-border);
+        }
+
+        .protocol-title {
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .title-repentance {
+            color: var(--repentance-text);
+        }
+
+        .title-wisdom {
+            color: var(--wisdom-text);
+        }
+
+        .title-promise {
+            color: var(--promise-text);
+        }
+
+        .title-ezekiel {
+            color: var(--ezekiel-text);
+        }
+
+        .title-will {
+            color: var(--will-text);
+        }
+
+        ul {
+            padding-left: 24px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 18px;
+            font-size: 1.02rem;
+            color: #1e293b;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .amen {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #7f1d1d;
+            margin-top: 50px;
+            padding: 32px;
+            background-color: #fef2f2;
+            border-radius: 12px;
+            border: 2px solid #dc2626;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .protocol-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <article id="wisdom-covenant-restoration-decree">
+            <header>
+                <span class="subtitle">Judicial Heavenly Court Covenant Manual</span>
+                <h1>Wisdom, Covenant Promises &amp; Ezekiel 37 Seven-Fold Restoration Decree</h1>
+                <p><strong>Surgical Repentance, Divine Wisdom Invocations, Scripture Promises, Ezekiel 37 Commands Over
+                        Finances, Health, Career, Marriage, Priesthood, Purpose &amp; Bloodline Alignment</strong></p>
+                <div class="identity-badge">
+                    PRIESTHOOD OF THE HOME • KISAKYE PAUL • TEDDY NETTUGU • CHILDREN • ENTIRE BLOODLINE
+                </div>
+            </header>
+
+            <!-- SECTION 1: DEEP REPENTANCE -->
+            <section class="section-repentance">
+                <h2>1. Surgical Courtroom Repentance &amp; Priestly Bloodline Cleansing</h2>
+                <div class="scripture-list">
+                    <strong>Legal Cleansing Anchors:</strong> Psalm 51:1–10 • 1 John 1:9 • Hebrews 9:14 • Colossians
+                    2:14 • Proverbs 28:13 • Leviticus 26:40–42 • Isaiah 1:18
+                </div>
+
+                <blockquote class="quote-repentance">
+                    "If we confess our sins, He is faithful and just to forgive us our sins, and to cleanse us from all
+                    unrighteousness." — <strong>1 John 1:9</strong><br><br>
+                    "Purge me with hyssop, and I shall be clean: wash me, and I shall be whiter than snow... Create in
+                    me a clean heart, O God; and renew a right spirit within me." — <strong>Psalm 51:7,
+                        10</strong><br><br>
+                    "Blotting out the handwriting of ordinances that was against us, which was contrary to us, and took
+                    it out of the way, nailing it to His cross." — <strong>Colossians 2:14</strong>
+                </blockquote>
+
+                <div class="protocol-card card-repentance">
+                    <div class="protocol-title title-repentance">⚖️ Judicial Confession, Priesthood Purification &amp;
+                        Legal Accusation Nullification</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Courtroom Pleading &amp; Personal Confession (1 John 1:9 | Psalm
+                                51:1–3):</span>
+                            Righteous Father, Most High God, I step into the Supreme Court of Heaven through the
+                            precious, sinless Blood of Jesus Christ. As the designated priest and spiritual head of my
+                            home, I bow in absolute humility. I make a deep, thorough repentance for every sin,
+                            transgression, and iniquity I have committed in thought, word, action, or omission. Forgive
+                            me for moments of doubt, anxiety, spiritual complacency, prayerlessness, impatience,
+                            reliance on human intellect over Divine direction, or fleshly strategies. Wash my heart, my
+                            mind, my spirit, and my vocal cords in the Blood of the Lamb today!
+                        </li>
+                        <li>
+                            <span class="highlight">Household &amp; Marital Cleansing (Leviticus 26:40–42 | Hebrews
+                                9:14):</span>
+                            I stand as priest over my household and bring deep repentance for my beloved wife, Teddy
+                            Nettugu, and for our children. Forgive us for any ancestral patterns of fear, friction,
+                            miscommunication, spiritual negligence, or ungodly spoken words. By the eternal Blood of
+                            Jesus, I cleanse the spiritual atmosphere of our home, our bedroom, our marriage, and our
+                            children’s minds. Let no satanic accuser find any unconfessed sin or legal foothold in our
+                            lives!
+                        </li>
+                        <li>
+                            <span class="highlight">Bloodline Iniquity Neutralization &amp; Ordinance Blotting
+                                (Colossians 2:14 | Isaiah 1:18):</span>
+                            I repent for and renounce every idol, evil altar, witch covenant, blood covenant, demonic
+                            dedication, poverty pattern, premature death, or generational sickness operating in my
+                            bloodline or my wife’s bloodline from past generations! By the Blood of Jesus, I blot out
+                            every evil handwriting of ordinances and satanic record that stood against the Kisakye
+                            family lineage! I declare us legally cleared, fully justified, purified, and sanctified by
+                            the eternal sacrifice of Jesus Christ!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 2: PETITION FOR WISDOM, KNOWLEDGE & UNDERSTANDING -->
+            <section class="section-wisdom">
+                <h2>2. Precision Invocation for Divine Wisdom, Knowledge &amp; Understanding</h2>
+                <div class="scripture-list">
+                    <strong>Wisdom &amp; Revelation Anchors:</strong> James 1:5 • Proverbs 2:6 • Proverbs 3:13–18 •
+                    Isaiah 11:2 • Colossians 1:9–10 • Daniel 2:20–22 • Ephesians 1:17–18
+                </div>
+
+                <blockquote class="quote-wisdom">
+                    "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth
+                    not; and it shall be given him." — <strong>James 1:5</strong><br><br>
+                    "For the LORD giveth wisdom: out of His mouth cometh knowledge and understanding." —
+                    <strong>Proverbs 2:6</strong><br><br>
+                    "And the Spirit of the LORD shall rest upon Him, the Spirit of wisdom and understanding, the Spirit
+                    of counsel and might, the Spirit of knowledge and of the fear of the LORD." — <strong>Isaiah
+                        11:2</strong><br><br>
+                    "He revealeth the deep and secret things: He knoweth what is in the darkness, and the light dwelleth
+                    with Him." — <strong>Daniel 2:22</strong>
+                </blockquote>
+
+                <div class="protocol-card card-wisdom">
+                    <div class="protocol-title title-wisdom">🧠 Surgical Infill of the Seven-Fold Spirit of Wisdom &amp;
+                        Technical Mastery</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Claiming the James 1:5 Promise for Liberal Wisdom (James 1:5 |
+                                Proverbs 2:6):</span>
+                            Father God, Your Word explicitly decrees in James 1:5 that if anyone lacks wisdom, he must
+                            ask You, who gives generously without fault! Lord, I ask You right now for superior,
+                            supernatural WISDOM, KNOWLEDGE, AND UNDERSTANDING! Fill my spirit, brain, and mind to
+                            overflowing! Give me wisdom that surpasses human intellect, wisdom that solves complex
+                            problems, and wisdom that commands respect in the marketplace!
+                        </li>
+                        <li>
+                            <span class="highlight">Professional Wisdom for Software Engineering &amp; Systems
+                                Architecture (Daniel 2:20–22 | Isaiah 11:2):</span>
+                            As a Software Engineer, system builder, and tech leader, I demand activation of the
+                            Seven-Fold Spirit of God upon my brain—the Spirit of Wisdom, Understanding, Counsel, Might,
+                            Knowledge, and the Fear of the Lord! Lord, release unto me deep technical insight,
+                            algorithmic speed, flawless system architecture, error-free code execution, cutting-edge
+                            software solutions, GEO/AEO optimization strategies, and breakthrough creative innovations!
+                            Grant me the wisdom of Daniel to reveal deep and secret technical and commercial solutions
+                            that unlock massive economic opportunities!
+                        </li>
+                        <li>
+                            <span class="highlight">Priestly Wisdom for Husbandhood &amp; Fatherhood (Proverbs 3:13–18 |
+                                Colossians 1:9–10):</span>
+                            Grant me divine, patient, and authoritative wisdom to lead, love, protect, and cherish my
+                            wife, Teddy Nettugu, as Christ loves the Church. Give me heavenly wisdom to parent,
+                            instruct, shield, and empower our children into high-achieving, God-fearing champions of
+                            destiny! Let wisdom guide every financial decision, property purchase, investment, and
+                            household strategy I make as the priest of my home!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 3: REMINDING GOD OF HIS COVENANT PROMISES -->
+            <section class="section-promise">
+                <h2>3. Reminding God of His Infallible Promises &amp; Direct Scripture Claims</h2>
+                <div class="scripture-list">
+                    <strong>Infallible Promise Anchors:</strong> Jeremiah 29:11 • Proverbs 3:5–6 • Isaiah 58:11 • Psalm
+                    32:8 • Deuteronomy 28:1–13 • Isaiah 42:16 • Joshua 21:45 • Numbers 23:19
+                </div>
+
+                <blockquote class="quote-promise">
+                    "For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of
+                    evil, to give you an expected end." — <strong>Jeremiah 29:11</strong><br><br>
+                    "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways
+                    acknowledge Him, and He shall direct thy paths." — <strong>Proverbs 3:5–6</strong><br><br>
+                    "And the LORD shall guide thee continually, and satisfy thy soul in drought, and make fat thy bones:
+                    and thou shalt be like a watered garden, and like a spring of water, whose waters fail not." —
+                    <strong>Isaiah 58:11</strong><br><br>
+                    "I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with Mine
+                    eye." — <strong>Psalm 32:8</strong><br><br>
+                    "The LORD shall open unto thee His good treasure, the heaven to give the rain unto thy land in his
+                    season, and to bless all the work of thine hand..." — <strong>Deuteronomy 28:12</strong>
+                </blockquote>
+
+                <div class="protocol-card card-promise">
+                    <div class="protocol-title title-promise">📜 Pleading the Covenant &amp; Enforcing Direct Scripture
+                        Promises</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Reminding God of His Unchanging Word (Numbers 23:19 | Joshua
+                                21:45):</span>
+                            Heavenly Father, You are not a man that You should lie, nor the son of man that You should
+                            repent! Has spoken, and shall He not do it? You said in Your Word that not one good promise
+                            failed of all that You spoke! I bring Your exact Word before Your Heavenly Altar and hold
+                            You to Your holy covenant!
+                        </li>
+                        <li>
+                            <span class="highlight">Direct Guidance &amp; Path Direction (Proverbs 3:5–6 | Psalm 32:8 |
+                                Isaiah 42:16):</span>
+                            Lord, You promised in Proverbs 3:5–6 that when I acknowledge You in all my ways, You SHALL
+                            direct my paths! You promised in Psalm 32:8 to instruct me and teach me in the way I should
+                            go, guiding me with Your eye! I claim this promise NOW! Guide my career, guide my
+                            engineering projects, guide my financial allocations, guide my family, and lead me into
+                            high-highway opportunities I never knew existed!
+                        </li>
+                        <li>
+                            <span class="highlight">Prosperity in Drought &amp; Open Heavenly Treasures (Isaiah 58:11 |
+                                Deuteronomy 28:12 | Jeremiah 29:11):</span>
+                            You promised in Isaiah 58:11 that You will guide me continually and satisfy my soul even in
+                            drought, making me like a watered garden whose waters never fail! You promised in
+                            Deuteronomy 28:12 to open unto me Your good treasure, to rain upon my land in season, and to
+                            BLESS ALL THE WORK OF MY HANDS! You decreed in Jeremiah 29:11 that Your thoughts toward me,
+                            Teddy Nettugu, our children, and our bloodline are thoughts of peace, financial dignity,
+                            health, and a victorious future! Let these promises manifest WITH SURGICAL PRECISION TODAY!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 4: EZEKIEL 37 HOLISTIC 7-MANIFOLD RESTORATION COMMANDS -->
+            <section class="section-ezekiel">
+                <h2>4. Ezekiel 37:4–5 Authoritative Commands — Surgical Seven-Fold Restoration</h2>
+                <div class="scripture-list">
+                    <strong>Ezekiel Restoration Anchors:</strong> Ezekiel 37:4–10 • Isaiah 43:19 • Deuteronomy 8:18 •
+                    Psalm 103:2–5 • 2 Corinthians 9:8 • Joel 2:25–26 • Malachi 3:10–11
+                </div>
+
+                <blockquote class="quote-ezekiel">
+                    "Again He said unto me, Prophesy upon these bones, and say unto them, O ye dry bones, hear the word
+                    of the LORD. Thus saith the Lord GOD unto these bones; Behold, I will cause breath to enter into
+                    you, and ye shall live: And I will lay sinews upon you, and will bring up flesh upon you, and cover
+                    you with skin, and put breath in you, and ye shall live; and ye shall know that I am the LORD." —
+                    <strong>Ezekiel 37:4–6</strong>
+                </blockquote>
+
+                <div class="protocol-card card-ezekiel">
+                    <div class="protocol-title title-ezekiel">🔥 Prophesying &amp; Commanding Surgical Life Into Every
+                        Dry Area</div>
+
+                    <p style="margin-bottom: 16px; font-weight: 700; color: #7f1d1d;">
+                        In the Name of Jesus Christ, as the priest of my home, I stand on Ezekiel 37:4–5 and PROPHESY
+                        AND COMMAND THE BREATH OF ALMIGHTY GOD TO ENTER EVERY DRY BONE IN MY LIFE, MY HOUSEHOLD, AND MY
+                        BLOODLINE NOW!
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span class="highlight">1. FINANCES, BANK ACCOUNTS &amp; MOBILE MONEY (Ezekiel 37:5 |
+                                Deuteronomy 8:18):</span>
+                            Dry bank accounts, empty wallets, dry Mobile Money balances, and stagnated revenue
+                            streams—HEAR THE WORD OF THE LORD! <span class="highlight">I COMMAND LIFE, SUPERNATURAL
+                                ABUNDANCE, AND OVERFLOWING FINANCIAL CAPITAL TO ENTER YOU NOW!</span> I command every
+                            empty account in my name, my wife’s name, or my business names to be filled with kingdom
+                            wealth! Scarcity, debt, poverty, and financial dry spells—GET OUT BY FIRE! I command global
+                            software contracts, high-paying retainers, unexpected financial wire transfers, profitable
+                            investments, and multi-stream wealth to flow into my accounts continuously!
+                        </li>
+                        <li>
+                            <span class="highlight">2. HEALTH &amp; ANATOMICAL RESTORATION (Ezekiel 37:6 | Isaiah 53:5 |
+                                Psalm 103:3):</span>
+                            I address the bloodstreams, organs, brain, heart, lungs, digestive tract, joints, nervous
+                            system, and cellular structures of:
+                            <br>• Myself (Kisakye Paul)
+                            <br>• My beloved wife (Teddy Nettugu)
+                            <br>• Our precious children
+                            <br>• My entire bloodline!
+                            <br><span class="highlight">HEAR THE WORD OF THE LORD! I COMMAND SICKNESS, DISEASE, FATIGUE,
+                                VIRUSES, BLOOD DISORDERS, CHRONIC PAIN, AND INFIRMITY TO DIE AND GET OUT OF OUR BODIES
+                                NOW!</span> I command divine life, perfect immunity, pure blood circulation, physical
+                            strength, vitality, and full restoration to enter every cell, tissue, and organ in full
+                            measure! We shall live long, healthy, vibrant lives in Jesus' Name!
+                        </li>
+                        <li>
+                            <span class="highlight">3. SOFTWARE ENGINEERING, PROJECTS, CONTRACTS, SUPPLIES &amp;
+                                PROMOTIONS (Ezekiel 37:9–10):</span>
+                            I speak directly to my software engineering career, tech client pipelines, pending software
+                            contracts, website projects, digital consultancy, delayed promotions, supplies, and business
+                            ventures! <span class="highlight">DRY PROJECTS AND DELAYED CONTRACTS, LIVE NOW!</span> I
+                            command strategic high-value client acquisitions, local and international software
+                            contracts, massive project approvals, prompt payments, unhindered material/financial
+                            supplies, and rapid career promotion! Scarcity of clients is terminated forever! I command
+                            favor with corporate boards, tech founders, and decision-makers worldwide!
+                        </li>
+                        <li>
+                            <span class="highlight">4. EMOTIONAL, MENTAL &amp; PSYCHOLOGICAL SOUNDNESS (2 Timothy 1:7 |
+                                Philippians 4:7):</span>
+                            I speak peace to my mind, my wife Teddy Nettugu’s mind, and our children’s minds! <span
+                                class="highlight">I COMMAND ALL ANXIETY, MENTAL FATIGUE, DEPRESSION, STRESS, FEAR,
+                                DEMENTIA, AND EMOTIONAL BURDENS TO DISAPPEAR NOW!</span> I command sound mind,
+                            supernatural clarity, joy, emotional stability, restful sleep, and divine peace that
+                            surpasses human understanding to flood our minds and home!
+                        </li>
+                        <li>
+                            <span class="highlight">5. PRIESTHOOD, SPIRITUAL FIRE &amp; ALTAR DOMINION (Leviticus 6:13 |
+                                Joshua 24:15):</span>
+                            I command fresh Holy Spirit Fire to fall upon the altar of my home! <span
+                                class="highlight">SPIRITUAL COMPLACENCY, COLDNESS, AND PRAYERLESSNESS—DIE NOW!</span> I
+                            re-ignite my mantle as the spiritual priest of my household! My wife Teddy Nettugu, our
+                            children, and I shall serve the Lord in holiness, power, prophetic clarity, and unshakeable
+                            spiritual dominion! Our home is a fortress of prayer, worship, and angelic presences!
+                        </li>
+                        <li>
+                            <span class="highlight">6. MARITAL BLISS, FAMILY HARMONY &amp; CHILD DEVELOPMENT (Ephesians
+                                5:25 | Isaiah 54:13):</span>
+                            I command divine unity, unbreakable love, deep affection, continuous joy, and holy oneness
+                            into my marriage with Teddy Nettugu! Satanic miscommunication or marital strain—BE DISSOLVED
+                            BY FIRE! I speak divine wisdom, intelligence, sound health, stellar academic excellence,
+                            moral purity, and bright destiny over our children! They shall be great on earth and taught
+                            of the Lord!
+                        </li>
+                        <li>
+                            <span class="highlight">7. SEVEN-FOLD RECOVERY OF LOST YEARS &amp; GENERATIONAL DESTINY
+                                (Joel 2:25–26):</span>
+                            I command the 7-manifold restoration of every year, opportunity, financial seed, promotion,
+                            time, and potential stolen from me, my wife, or my bloodline by the cankerworm, palmerworm,
+                            and devourer! <span class="highlight">I RECOVER ALL SEVEN-FOLD NOW!</span> What took others
+                            10 years to achieve, God's breath will cause us to achieve in 10 months! Speed, restoration,
+                            and total multiplication encompass our bloodline!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 5: SURRENDER TO GOD'S SUPREME WILL & PURPOSE -->
+            <section class="section-will">
+                <h2>5. Absolute Surrender to God's Supreme Will, Purpose &amp; Master Strategy</h2>
+                <div class="scripture-list">
+                    <strong>Sovereign Alignment Anchors:</strong> Matthew 6:10 • Proverbs 19:21 • Romans 12:2 • Isaiah
+                    55:8–9 • Psalm 33:11 • Luke 22:42
+                </div>
+
+                <blockquote class="quote-will">
+                    "Thy kingdom come. Thy will be done in earth, as it is in heaven." — <strong>Matthew
+                        6:10</strong><br><br>
+                    "There are many devices in a man's heart; nevertheless the counsel of the LORD, that shall stand." —
+                    <strong>Proverbs 19:21</strong><br><br>
+                    "For My thoughts are not your thoughts, neither are your ways My ways, saith the LORD." —
+                    <strong>Isaiah 55:8</strong>
+                </blockquote>
+
+                <div class="protocol-card card-will">
+                    <div class="protocol-title title-will">👑 Elevating Kingdom Agenda Above All Human Plans</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Subordinating Human Plans to Divine Sovereignty (Proverbs 19:21 |
+                                Matthew 6:10):</span>
+                            Lord God Almighty, above all my engineering blueprints, software designs, financial goals,
+                            personal strategies, and career milestones—<span class="highlight">YOUR PERFECT WILL AND
+                                ETERNAL PURPOSE BE DONE!</span> I lay down my human ego, my personal strategies, and my
+                            limited plans at the foot of the Cross!
+                        </li>
+                        <li>
+                            <span class="highlight">Aligning the Kisakye Family with Kingdom Destiny (Romans 12:2 |
+                                Isaiah 55:8–9):</span>
+                            Let Your master design for Kisakye Paul, Teddy Nettugu, our children, and our entire
+                            bloodline override every earthly proposal! Align my software business, my career path, our
+                            family location, our assets, and our ministry impact with Your divine timing and kingdom
+                            expansion agenda! Lead us in paths of righteousness for Your Name’s sake!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FINAL MASTER DECLARATION & JUDICIAL SEAL -->
+            <section>
+                <div class="protocol-card card-ezekiel"
+                    style="background-color: #0f172a; border-color: #b45309; color: #ffffff; border-left: 8px solid #b45309;">
+                    <div class="protocol-title" style="color: #f59e0b; font-size: 1.4rem; text-align: center;">⚡ FINAL
+                        SURGICAL DECREE &amp; HEAVENLY COURT JUDICIAL SEAL</div>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.8; color: #f8fafc; text-align: justify; margin-top: 14px;">
+                        I, <strong>KISAKYE PAUL</strong>, standing as the ordained priest, father, and spiritual head of
+                        my home, alongside my wife <strong>TEDDY NETTUGU</strong>, our children, and our entire
+                        bloodline, hereby enter this <strong>Wisdom, Covenant Promise &amp; Ezekiel 37 Seven-Fold
+                            Restoration Prayer</strong> into the Supreme Court of Almighty God!
+                    </p>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.8; color: #f8fafc; text-align: justify; margin-top: 14px;">
+                        By the supreme authority of Jesus Christ, I decree that every word spoken here is backed by the
+                        Blood of the Eternal Covenant, recorded by high-ranking court angels, and sealed by the Holy
+                        Spirit! Every empty account IS FILLED; every sickness IS HEALED; every dry contract IS REVIVED;
+                        every spirit of scarcity IS EXTERMINATED; divine wisdom IS ACTIVATED; and God's perfect will IS
+                        ESTABLISHED FOREVER! No devil, demon, witchcraft altar, or human adversary can alter, appeal,
+                        reverse, or delay this decree! IT IS FINISHED! IT IS DONE!
+                    </p>
+                </div>
+            </section>
+
+            <!-- FINAL AMEN SEAL -->
+            <div class="amen">
+                WISDOM, KNOWLEDGE &amp; UNDERSTANDING ACTIVATED • PROMISES CLAIMED • EZEKIEL 37 BREATH ENTERED<br>
+                BANK ACCOUNTS FILLED • HEALTH RESTORED IN BLOODSTREAM • SOFTWARE CONTRACTS &amp; SUPPLIES RELEASED •
+                PRIESTHOOD ESTABLISHED<br><br>
+                JUDICIALLY SEALED IN THE COURT OF HEAVEN &amp; BLOOD OF JESUS CHRIST<br>
+                AMEN! AMEN! AND AMEN!
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>

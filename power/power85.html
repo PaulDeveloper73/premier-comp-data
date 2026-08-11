@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensitive Biblical Hours & Bedtime Seal — Authoritative Command & Heavenly Court Protocol</title>
+    <style>
+        :root {
+            --primary-color: #0d1117;
+            --secondary-color: #1f2937;
+            --accent-color: #dc2626;
+            --bg-color: #0f172a;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #e2e8f0;
+
+            --night-border: #7c3aed;
+            --night-bg: #f5f3ff;
+            --night-text: #5b21b6;
+
+            --morning-border: #d97706;
+            --morning-bg: #fffbeb;
+            --morning-text: #92400e;
+
+            --midday-border: #2563eb;
+            --midday-bg: #eff6ff;
+            --midday-text: #1e40af;
+
+            --ninth-border: #b91c1c;
+            --ninth-bg: #fff1f1;
+            --ninth-text: #991b1b;
+
+            --evening-border: #4338ca;
+            --evening-bg: #eef2ff;
+            --evening-text: #3730a3;
+
+            --bedtime-border: #4c1d95;
+            --bedtime-bg: #faf5ff;
+            --bedtime-text: #3b0764;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #f1f5f9;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 8px 12px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-weight: 800;
+            color: #dc2626;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            color: #7f1d1d;
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 18px;
+            letter-spacing: 0.6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-night h2 {
+            color: var(--night-text);
+            border-color: #ddd6fe;
+        }
+
+        .section-morning h2 {
+            color: var(--morning-text);
+            border-color: #fef3c7;
+        }
+
+        .section-midday h2 {
+            color: var(--midday-text);
+            border-color: #bfdbfe;
+        }
+
+        .section-ninth h2 {
+            color: var(--ninth-text);
+            border-color: #fecaca;
+        }
+
+        .section-evening h2 {
+            color: var(--evening-text);
+            border-color: #c7d2fe;
+        }
+
+        .section-bedtime h2 {
+            color: var(--bedtime-text);
+            border-color: #e9d5ff;
+        }
+
+        .scripture-list {
+            font-size: 1rem;
+            color: #334155;
+            margin-bottom: 18px;
+            font-weight: 600;
+            background-color: #f8fafc;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #94a3b8;
+        }
+
+        blockquote {
+            margin: 22px 0;
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 1.02rem;
+            line-height: 1.7;
+        }
+
+        .quote-night {
+            border-left: 5px solid var(--night-border);
+            background-color: var(--night-bg);
+            color: var(--night-text);
+        }
+
+        .quote-morning {
+            border-left: 5px solid var(--morning-border);
+            background-color: var(--morning-bg);
+            color: var(--morning-text);
+        }
+
+        .quote-midday {
+            border-left: 5px solid var(--midday-border);
+            background-color: var(--midday-bg);
+            color: var(--midday-text);
+        }
+
+        .quote-ninth {
+            border-left: 5px solid var(--ninth-border);
+            background-color: var(--ninth-bg);
+            color: var(--ninth-text);
+        }
+
+        .quote-evening {
+            border-left: 5px solid var(--evening-border);
+            background-color: var(--evening-bg);
+            color: var(--evening-text);
+        }
+
+        .quote-bedtime {
+            border-left: 5px solid var(--bedtime-border);
+            background-color: var(--bedtime-bg);
+            color: var(--bedtime-text);
+        }
+
+        .protocol-card {
+            padding: 26px;
+            margin-bottom: 24px;
+            border-radius: 10px;
+            border: 1px solid;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-night {
+            background-color: var(--night-bg);
+            border-color: #ddd6fe;
+            border-left: 6px solid var(--night-border);
+        }
+
+        .card-morning {
+            background-color: var(--morning-bg);
+            border-color: #fef3c7;
+            border-left: 6px solid var(--morning-border);
+        }
+
+        .card-midday {
+            background-color: var(--midday-bg);
+            border-color: #bfdbfe;
+            border-left: 6px solid var(--midday-border);
+        }
+
+        .card-ninth {
+            background-color: var(--ninth-bg);
+            border-color: #fecaca;
+            border-left: 6px solid var(--ninth-border);
+        }
+
+        .card-evening {
+            background-color: var(--evening-bg);
+            border-color: #c7d2fe;
+            border-left: 6px solid var(--evening-border);
+        }
+
+        .card-bedtime {
+            background-color: var(--bedtime-bg);
+            border-color: #e9d5ff;
+            border-left: 6px solid var(--bedtime-border);
+        }
+
+        .protocol-title {
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .title-night {
+            color: var(--night-text);
+        }
+
+        .title-morning {
+            color: var(--morning-text);
+        }
+
+        .title-midday {
+            color: var(--midday-text);
+        }
+
+        .title-ninth {
+            color: var(--ninth-text);
+        }
+
+        .title-evening {
+            color: var(--evening-text);
+        }
+
+        .title-bedtime {
+            color: var(--bedtime-text);
+        }
+
+        ul {
+            padding-left: 24px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 18px;
+            font-size: 1.02rem;
+            color: #1e293b;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .amen {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #7f1d1d;
+            margin-top: 50px;
+            padding: 32px;
+            background-color: #fef2f2;
+            border-radius: 12px;
+            border: 2px solid #dc2626;
+            line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .protocol-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <article id="sensitive-biblical-hours-protocol">
+            <header>
+                <span class="subtitle">Judicial Heaven-Access &amp; Authoritative Decrees</span>
+                <h1>Sensitive Biblical Hours &amp; Night Armor — Master Prayer Manual</h1>
+                <p><strong>Executing High-Power Altar Destruction, Time Command, Midday Revelation, Cross Victory,
+                        Evening Sacrifice Ascension &amp; Nighttime Anatomical Covenant Sealing</strong></p>
+                <div class="badge">
+                    ⏰ 3:00 AM • 6:00 AM • 12:00 PM • 3:00 PM • 6:00 PM • BEDTIME WATCHES
+                </div>
+            </header>
+
+            <!-- 3:00 AM WATCH -->
+            <section class="section-night">
+                <h2>🕒 3:00 AM Midnight Watch — Authoritative Altar-Destroying Warfare &amp; Terror Scattering</h2>
+                <div class="scripture-list">
+                    <strong>Primary Warfare Anchors:</strong> Acts 16:25–26 • Exodus 14:24 • Exodus 15:3 • Matthew 13:25
+                    • Jeremiah 23:29 • Psalm 2:9 • Isaiah 54:17 • Revelation 12:11
+                </div>
+
+                <blockquote class="quote-night">
+                    "Is not My word like as a fire? saith the LORD; and like a hammer that breaketh the rock in pieces?"
+                    — <strong>Jeremiah 23:29</strong><br><br>
+                    "At midnight Paul and Silas prayed, and sang praises unto God... and suddenly there was a great
+                    earthquake, so that the foundations of the prison were shaken." — <strong>Acts
+                        16:25–26</strong><br><br>
+                    "And it came to pass, that in the morning watch the LORD looked unto the host of the Egyptians
+                    through the pillar of fire and of the cloud, and troubled the host of the Egyptians." —
+                    <strong>Exodus 14:24</strong>
+                </blockquote>
+
+                <div class="protocol-card card-night">
+                    <div class="protocol-title title-night">🎯 Authoritative Midnight Execution &amp; Altar Annihilation
+                        Commands</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Authoritative Time Command &amp; Altar Annihilation (Jeremiah 23:29
+                                | Psalm 2:9):</span>
+                            In the Supreme Court of Almighty God, at this strategic 3:00 AM watch hour, I do not plead—I
+                            stand in the delegated authority of Jesus Christ and COMMAND TIME itself! I take full
+                            spiritual jurisdiction over this hour. I redirect the unquenchable Blood of Jesus and the
+                            Consuming Fire of the Holy Spirit simultaneously to hit, shatter, and completely incinerate
+                            every demonic altar, shrine, witch coven, occultic mirror, and territorial throne operating
+                            against me, my wife, my children, my finances, and my entire bloodline! Let every evil altar
+                            burning midnight candles or raising voices against my destiny collapse into ashes RIGHT NOW
+                            by the Rod of Iron!
+                        </li>
+                        <li>
+                            <span class="highlight">Commanding Holy Spirit Earthquakes (Acts 16:25–26):</span>
+                            By the authority of the Risen Christ, I command a violent, unshakeable spiritual earthquake
+                            to hit every satanic prison cell, spiritual tomb, and ancestral stronghold holding my
+                            destiny, health, wealth, or generational blessings! Foundations of dark incarceration,
+                            CRUMBLE NOW! Every prison gate, fly open! Every iron chain, yoke, and padlock binding my
+                            progress, break into pieces by the Holy Spirit Fire!
+                        </li>
+                        <li>
+                            <span class="highlight">Troubling &amp; Intercepting the Egyptian Pursuers (Exodus 14:24 |
+                                Exodus 15:3):</span>
+                            Jehovah Gibbor, You are the Lord Mighty in Battle! Look down during this morning watch
+                            through Your pillar of fire and cloud, and trouble every host of wickedness conspiring
+                            against my household! Intercept their nocturnal meetings, launch holy panic and total
+                            confusion into their ranks, and shatter their wheels of chase! Let those who dug a pit for
+                            my family fall into their own destruction before sunrise!
+                        </li>
+                        <li>
+                            <span class="highlight">Uprooting Midnight Tares Before Execution (Matthew 13:25):</span>
+                            While men slept, the enemy came to sow tares. But because I stand awake as an authoritative
+                            watchman, I exercise legal domain over the spirit realm! Every evil seed of sickness, delay,
+                            poverty, mind-fog, confusion, marital discord, or premature death planted into my life, my
+                            wife, or my children while we slept—I UPROOT YOU BY FIRE NOW! Dry up from the roots and burn
+                            to ashes!
+                        </li>
+                        <li>
+                            <span class="highlight">Enforcing Total Legal Weapon Nullification (Isaiah 54:17 |
+                                Revelation 12:11):</span>
+                            I decree authoritatively that NO WEAPON formed against me, my wife, my children, or my
+                            bloodline shall prosper! Every satanic prosecution, demonic curse, or false accusation
+                            raised against me in dark courts is OVERRULED AND CONDEMNED by the Blood of Jesus! I am
+                            completely victorious by the Blood of the Lamb and the word of my testimony! Amen!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6:00 AM WATCH -->
+            <section class="section-morning">
+                <h2>🌅 6:00 AM Watch — Prayer of Dedication, Morning Alignment &amp; New Beginnings</h2>
+                <div class="scripture-list">
+                    <strong>Primary Morning Anchors:</strong> Psalm 118:24 • Romans 12:1 • Psalm 37:23 • Lamentations
+                    3:22–23 • Proverbs 16:3 • 1 John 1:7 • Job 38:12–13
+                </div>
+
+                <blockquote class="quote-morning">
+                    "This is the day which the LORD hath made; we will rejoice and be glad in it." — <strong>Psalm
+                        118:24</strong><br><br>
+                    "His mercies are new every morning: great is Thy faithfulness." — <strong>Lamentations
+                        3:23</strong><br><br>
+                    "Have you commanded the morning since your days began, and caused the dayspring to know its place?"
+                    — <strong>Job 38:12</strong>
+                </blockquote>
+
+                <div class="protocol-card card-morning">
+                    <div class="protocol-title title-morning">🎯 Authoritative Decrees &amp; Morning Alignment Commands
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Commanding the Day &amp; Morning Light (Job 38:12–13):</span>
+                            Heavenly Father, I stand at the threshold of 6:00 AM and exercise divine authority over this
+                            day! I take command of the morning sun, the rays of light, and the atmosphere. I decree that
+                            this day MUST bow to God's divine purpose for my life! Shake out every wicked assignment
+                            lurking in the shadows of this day!
+                        </li>
+                        <li>
+                            <span class="highlight">Living Sacrifice &amp; Divine Step-Ordering (Romans 12:1 | Psalm
+                                37:23):</span>
+                            Lord, I present my body, mind, spirit, and vocal cords as a living sacrifice, holy and
+                            acceptable to You. Order my steps today! Let my foot not stumble into traps, deceptive
+                            offers, or wasteful detours. Every step I take today is directed by the Holy Spirit into
+                            supernatural favor and productivity!
+                        </li>
+                        <li>
+                            <span class="highlight">Claiming Fresh Mercies &amp; Renewal (Lamentations 3:22–23):</span>
+                            Your mercies are brand new this morning! By these fresh mercies, I receive complete
+                            cleansing, spiritual refreshing, and physical strength! Every weight, exhaustion, or shadow
+                            from yesterday is wiped clean by the Blood of Jesus!
+                        </li>
+                        <li>
+                            <span class="highlight">Establishing Works &amp; Locking Satanic Gates (Proverbs 16:3 | 1
+                                John 1:7):</span>
+                            I commit my plans, software systems, projects, family health, and business dealings to You!
+                            My thoughts are established! Every door You have not opened is PERMANENTLY SHUT today, and
+                            every door You have ordained for my elevation FLIES OPEN NOW! I walk in divine speed, favor,
+                            wisdom, and impenetrable protection in the Mighty Name of Jesus! Amen!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 12:00 PM WATCH -->
+            <section class="section-midday">
+                <h2>☀️ 12:00 PM Watch — Prayer of Revelation, Vision &amp; Midday Reset</h2>
+                <div class="scripture-list">
+                    <strong>Primary Midday Anchors:</strong> Acts 10:9 • Daniel 2:22 • Psalm 91:5–6 • Psalm 139:23–24 •
+                    2 Corinthians 3:17 • 1 Corinthians 2:16 • Hebrews 4:16
+                </div>
+
+                <blockquote class="quote-midday">
+                    "Peter went up upon the housetop to pray about the sixth hour... and he saw heaven opened." —
+                    <strong>Acts 10:9–11</strong><br><br>
+                    "He revealeth the deep and secret things: He knoweth what is in the darkness, and the light dwelleth
+                    with Him." — <strong>Daniel 2:22</strong><br><br>
+                    "Thou shalt not be afraid for the terror by night... nor for the destruction that wasteth at
+                    noonday." — <strong>Psalm 91:5–6</strong>
+                </blockquote>
+
+                <div class="protocol-card card-midday">
+                    <div class="protocol-title title-midday">🎯 Authoritative Decrees &amp; Midday Alignment Commands
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Activating Open Heavens at the Sixth Hour (Acts 10:9):</span>
+                            Father Lord, I come boldly to the throne of grace at this 12:00 PM midday watch through the
+                            Blood of Jesus! Just as You opened the heavens to Peter at the sixth hour, I command the
+                            heavens over my life, my mind, my family, and my career to OPEN NOW! Let divine revelation,
+                            clarity, and structural wisdom flow unhindered into my spirit!
+                        </li>
+                        <li>
+                            <span class="highlight">Uncovering Deep &amp; Secret Things (Daniel 2:22):</span>
+                            You reveal deep and secret things and light dwells with You! I dismantle every form of
+                            confusion, blind spot, deception, or spiritual fog! Reveal to me what I need to know
+                            regarding my destiny, my family's health, my business decisions, and my spiritual walk. Give
+                            me razor-sharp foresight and spiritual discernment!
+                        </li>
+                        <li>
+                            <span class="highlight">Dismantling Noonday Destruction (Psalm 91:5–6):</span>
+                            I decree immunity against every sickness, sudden calamity, waste, or demon of destruction
+                            assigned to operate at noonday! I shield my body, mind, career, wife, children, and
+                            household under the shadow of the Almighty. No arrow flying at midday shall penetrate my
+                            hedge!
+                        </li>
+                        <li>
+                            <span class="highlight">Enforcing the Mind of Christ &amp; Midday Alignment (1 Corinthians
+                                2:16 | Psalm 139:23–24):</span>
+                            Search me, O God, and know my heart. Test my thoughts and realign my momentum. I declare
+                            authoritatively that I possess the mind of Christ! I operate with divine wisdom, sound
+                            judgment, speed, and unwavering obedience. My afternoon is crowned with productivity,
+                            breakthrough, and kingdom authority, in the Mighty Name of Jesus! Amen!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 3:00 PM WATCH -->
+            <section class="section-ninth">
+                <h2>✝️ 3:00 PM Watch — Prayer of the Cross, Finished Work, Power &amp; Total Healing</h2>
+                <div class="scripture-list">
+                    <strong>Primary Ninth Hour Anchors:</strong> Matthew 27:45–50 • Isaiah 53:4–5 • Acts 3:1–8 • John
+                    19:30 • Colossians 2:14–15 • Galatians 3:13
+                </div>
+
+                <blockquote class="quote-ninth">
+                    "And about the ninth hour Jesus cried with a loud voice... When Jesus therefore had received the
+                    vinegar, He said, It is finished: and He bowed His head, and gave up the ghost." — <strong>Matthew
+                        27:46 | John 19:30</strong><br><br>
+                    "Now Peter and John went up together into the temple at the hour of prayer, being the ninth hour...
+                    And he leaping up stood, and walked, and entered with them into the temple." — <strong>Acts
+                        3:1–8</strong>
+                </blockquote>
+
+                <div class="protocol-card card-ninth">
+                    <div class="protocol-title title-ninth">🎯 Authoritative Decrees &amp; Ninth Hour Execution Commands
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Enforcing "IT IS FINISHED" over All Afflictions (John 19:30):</span>
+                            Father God, I stand at this sacred 3:00 PM Ninth Hour watch—the exact hour when Jesus
+                            completed redemption on the Cross! I enforce the decree of Calvary: <span
+                                class="highlight">"IT IS FINISHED!"</span> I declare that every legal claim of sickness,
+                            ancestral bondage, generational curse, financial stagnation, or spiritual oppression over my
+                            life IS FINALLY AND PERMANENTLY TERMINATED!
+                        </li>
+                        <li>
+                            <span class="highlight">Demanding Instant Physical &amp; Anatomical Healing (Isaiah
+                                53:5):</span>
+                            Lord Jesus, You took my infirmities and bore my sicknesses! By Your stripes I WAS HEALED,
+                            therefore I AM HEALED! I speak directly to my body, my blood vessels, my heart, my internal
+                            organs, my brain, my nervous system, and every cellular structure: BE HEALED NOW BY THE
+                            BLOOD OF JESUS! Sickness has no legal right to dwell in a body bought by the Blood!
+                        </li>
+                        <li>
+                            <span class="highlight">Releasing Ninth Hour Miracles &amp; Restoration (Acts 3:1–8):</span>
+                            Just as the lame man at the Beautiful Gate was instantly healed and restored at the ninth
+                            hour of prayer, I command instantaneous miracles, divine acceleration, and physical
+                            restoration to manifest in my life today! Let every paralyzed area of my potential, health,
+                            or finances LEAP UP AND WALK NOW!
+                        </li>
+                        <li>
+                            <span class="highlight">Canceling Satanic Handwritings &amp; Triumphs (Colossians
+                                2:14–15):</span>
+                            I declare that every handwriting of ordinances that was against me or my bloodline has been
+                            completely blotted out and nailed to the Cross! Principalities and powers are disarmed,
+                            spoiled, and made a public spectacle! I walk in absolute victory, unbroken divine health,
+                            and resurrecting power from this hour forward! In the supreme, glorious, and Mighty Name of
+                            JESUS CHRIST, AMEN AND AMEN!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6:00 PM WATCH -->
+            <section class="section-evening">
+                <h2>🌆 6:00 PM Evening Watch — Prayer of the Evening Sacrifice, Gratitude, Spiritual Realm Shift &amp;
+                    Higher-Dimension Power</h2>
+                <div class="scripture-list">
+                    <strong>Primary Evening Anchors:</strong> Psalm 141:2 • 1 Kings 18:36 • Ezra 9:5 • Daniel 6:10 •
+                    Daniel 9:21 • Matthew 14:23 • Exodus 30:8 • Psalm 65:8 • 1 Timothy 4:4–5
+                </div>
+
+                <blockquote class="quote-evening">
+                    "Let my prayer be set forth before Thee as incense; and the lifting up of my hands as the evening
+                    sacrifice." — <strong>Psalm 141:2</strong><br><br>
+                    "And it came to pass at the time of the offering of the evening sacrifice, that Elijah the prophet
+                    came near, and said, LORD God of Abraham, Isaac, and of Israel, let it be known this day that Thou
+                    art God in Israel..." — <strong>1 Kings 18:36</strong><br><br>
+                    "Now when Daniel knew that the writing was signed, he went into his house... and kneeled upon his
+                    knees three times a day, and prayed, and gave thanks before his God, as he did aforetime." —
+                    <strong>Daniel 6:10</strong>
+                </blockquote>
+
+                <div class="protocol-card card-evening">
+                    <div class="protocol-title title-evening">🎯 Authoritative Decrees, Prophetic Evening Sacrifice
+                        &amp; Higher Spiritual Realm Elevation</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Thorough Gratitude for Manifest &amp; Prophetic Victories (Psalm
+                                103:1–5):</span>
+                            Heavenly Father, I stand at this 6:00 PM evening watch—the transition from day to dusk—with
+                            a heart brimming with authoritative thanksgiving! I praise You for every victory I
+                            physically saw today: protection on the roads, wisdom in operations, breakthroughs in
+                            projects, and health sustained. Equally, I praise You for the UNSEEN VICTORIES—the demonic
+                            ambushes dismantled in secret, the arrows redirected, the legal accusations crushed in the
+                            Court of Heaven, and the blessings dispatched that are now heading to physical
+                            manifestation!
+                        </li>
+                        <li>
+                            <span class="highlight">Commanding the Evening Shift &amp; Ascending to Higher Power Realms
+                                (Daniel 9:21 | Matthew 14:23):</span>
+                            As creation shifts from daytime to evening, I exercise legal authority in the spirit realm
+                            to SHIFT MY SPIRITUAL STANDING FROM LOWER LEVELS OF POWER TO HIGHER-DIMENSION HEAVENLY
+                            DOMINION! I step out of terrestrial limitations and step into celestial authority! Just as
+                            the Angel Gabriel flew swiftly to Daniel at the time of the evening oblation, I command
+                            immediate angelic dispatch and high-ranking divine power to encamp around my life, my
+                            family, and my residence!
+                        </li>
+                        <li>
+                            <span class="highlight">Offering the Fire of Elijah &amp; Incense at the Evening Sacrifice
+                                (1 Kings 18:36 | Psalm 141:2):</span>
+                            I lift up my hands at this 6:00 PM watch as the prophetic evening sacrifice! Let the lifting
+                            up of my hands ascend before Your throne as sweet incense! Just as Elijah called down
+                            consuming fire at the time of the evening sacrifice to destroy the prophets of Baal and turn
+                            the heart of the nation back to God, I release Holy Spirit Fire NOW upon every demonic altar
+                            erected during the day to counter my progress! Answer my evening prayer by fire! Let it be
+                            known this evening that Jesus Christ is Lord over my life, my marriage, my children, and my
+                            works!
+                        </li>
+                        <li>
+                            <span class="highlight">Daniel’s Evening Steadfastness &amp; Kingdom Favor (Daniel 6:10 |
+                                Ezra 9:5):</span>
+                            Like Daniel, who kneeled and gave thanks three times a day despite royal decrees and lion
+                            dens, I declare my unshakeable allegiance to Jehovah! I decree that every satanic decree or
+                            plot signed against me by earthly or demonic enemies this evening is NULL AND VOID! The God
+                            of Daniel sends His angel to shut the mouth of every roaring lion targeting my career,
+                            health, or family!
+                        </li>
+                        <li>
+                            <span class="highlight">Holistic Alignment with Divine Nature &amp; Creation Outgoings
+                                (Psalm 65:8 | Psalm 19:1–2):</span>
+                            You make the outgoings of the morning and evening to rejoice! I decree that nature, the
+                            atmosphere, the stars, the winds, the soil, and the heavenly elements MUST ALIGN
+                            HOLISTICALLY with God’s divine purpose for my destiny! Creation will not fight me; creation
+                            will serve God’s plan for my life! As daylight fades, my spiritual light shines brighter and
+                            brighter unto the perfect day!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- BEDTIME WATCH -->
+            <section class="section-bedtime">
+                <h2>🌙 Bedtime Watch — Complete Night Atmosphere Sealing, Food &amp; Drink Purification, Dream Warfare
+                    &amp; Judicial Heavenly Court Covenant Seal</h2>
+                <div class="scripture-list">
+                    <strong>Primary Bedtime, Food &amp; Dream Anchors:</strong> Psalm 91:1–16 • Psalm 4:8 • Psalm
+                    121:3–5 • Zechariah 2:5 • Job 33:14–18 • Isaiah 49:25 • Revelation 12:11 • Colossians 2:14–15 • 1
+                    Timothy 4:4–5 • Mark 16:18
+                </div>
+
+                <blockquote class="quote-bedtime">
+                    "He that dwelleth in the secret place of the most High shall abide under the shadow of the
+                    Almighty." — <strong>Psalm 91:1</strong><br><br>
+                    "For every creature of God is good, and nothing to be refused, if it be received with thanksgiving:
+                    for it is sanctified by the word of God and prayer." — <strong>1 Timothy 4:4–5</strong><br><br>
+                    "I will both lay me down in peace, and sleep: for Thou, LORD, only makest me dwell in safety." —
+                    <strong>Psalm 4:8</strong>
+                </blockquote>
+
+                <div class="protocol-card card-bedtime">
+                    <div class="protocol-title title-bedtime">🎯 Authoritative Bedtime Decrees, Food Purification,
+                        Divine Empowerment &amp; Night Warfare Commands</div>
+                    <ul>
+                        <li>
+                            <span class="highlight">Sanctifying, Purifying &amp; Cleansing Evening Food and Drink (1
+                                Timothy 4:4–5 | Mark 16:18):</span>
+                            In the Mighty Name of Jesus Christ, I take full spiritual authority over every meal, food
+                            item, water, tea, or beverage consumed by me, my wife, and my children this evening before
+                            sleep! By the Word of God and prayer, I SANCTIFY, PURIFY, AND CLEANSE IT ALL IN THE BLOOD OF
+                            JESUS! I neutralize and destroy every trace of physical poison, chemical harm, environmental
+                            impurity, evil projection, or spiritual contamination planted by the enemy! If any deadly
+                            thing was ingested, it shall NOT hurt us! My body digest pure divine strength, health, and
+                            nourishment!
+                        </li>
+                        <li>
+                            <span class="highlight">Comprehensive Anatomical Point Sealing in the Blood of Jesus:</span>
+                            Father God, as I prepare to sleep, I explicitly apply the precious, eternal Blood of Jesus
+                            Christ over every gateway, access point, and entry point of my physical body, my soul, and
+                            my spirit—and over my wife, my children, and my entire bloodline!<br><br>
+                            • <strong>Forehead &amp; Mind:</strong> I seal my forehead and mind in the Blood of Jesus!
+                            Every subconscious thought, night vision, and mental gateway is sanitized by Holy Spirit
+                            Fire!<br>
+                            • <strong>Ears &amp; Soul-Ears:</strong> I seal my physical ears and my spiritual ears in
+                            the Blood of Jesus! My soul-ears are locked to my spirit and rendered 100% immune to demonic
+                            whispers, night projections, or seductive voices!<br>
+                            • <strong>Mouth &amp; Lips:</strong> I seal my mouth and tongue in the Blood of Jesus! No
+                            demonic food, evil communion, or evil words shall enter or proceed from my mouth!<br>
+                            • <strong>Hands &amp; Palms:</strong> I seal my hands and arms in the Blood of Jesus! My
+                            hands will never sign away my destiny, covenant, or wealth in the dream realm!<br>
+                            • <strong>Belly &amp; Stomach:</strong> I seal my belly, stomach, digestive tract, and naval
+                            line in the Blood of Jesus! I neutralize and consume with Holy Fire every demonic poison,
+                            evil meal, or spiritual manipulation planted in my belly!<br>
+                            • <strong>Feet &amp; Ankles:</strong> I seal my feet and entry points in the Blood of Jesus!
+                            My feet will never walk into demonic traps, witchcraft grounds, or evil summons in my
+                            sleep!<br>
+                            • <strong>Entire Body, Soul &amp; Spirit:</strong> I seal my whole anatomy, organ by organ,
+                            cell by cell, together with my wife, my children, and my entire bloodline in the
+                            impenetrable Blood of the Lamb!
+                        </li>
+                        <li>
+                            <span class="highlight">Renouncing Demonic Dream Manipulation, Deceptions &amp; False
+                                Voices:</span>
+                            I legally stand in the Court of Heaven and explicitly RENOUNCE, ABROGATE, AND NULLIFY every
+                            agreement, contract, transaction, or covenant entered into in the dream realm through
+                            demonic manipulation, deception, or subconscious vulnerability!<br><br>
+                            I call down the Consuming Fire of God upon all demonic dream manipulators! I issue a decree
+                            of absolute refusal: <strong>"I REFUSE TO EAT! I REFUSE TO SIGN ANYTHING! I REFUSE TO GIVE
+                                ANYONE MONEY OR ANY COVENANT RIGHT IN MY DREAMS WHEN I AM SUBCONSCIOUS! I REFUSE TO
+                                AGREE WITH ANY DEMONIC FORCE THAT TRIES TO MANIPULATE ME BY ACTING AS IF IT IS GOD'S
+                                VOICE!"</strong><br><br>
+                            I seal my soul-ears to my spirit in the Blood of Jesus Christ, making them forever immune to
+                            every attack, projection, or deceptive voice from the enemy from ANY angle, dimension, or
+                            direction!
+                        </li>
+                        <li>
+                            <span class="highlight">Activating Dual Impenetrable 360-Degree Perimeter Walls (Zechariah
+                                2:5):</span>
+                            Heavenly Father, activate NOW two impenetrable, invincible walls 360 degrees all around my
+                            life, body, soul, spirit, my wife, my children, our health, our home, and our finances:<br>
+                            1. <strong>A Wall of Consuming Holy Spirit Fire!</strong><br>
+                            2. <strong>A Wall of the Eternal Blood Covenant of Jesus!</strong><br><br>
+                            Let these dual walls form an unbreachable fortress surrounding our entire household,
+                            destroying every dream assignment, night terror, spirit spouse, witch attack, or demonic
+                            ambush BEFORE they can even attempt to launch!
+                        </li>
+                        <li>
+                            <span class="highlight">Empowerment to Do God's Will Perfectly &amp; Eternal Night
+                                Sealing:</span>
+                            Father, as I sleep, let my spirit man be supernaturally recharged, empowered, and saturated
+                            with Holy Spirit grace! I declare that I wake up tomorrow morning with divine energy, sharp
+                            mental clarity, physical stamina, and spiritual alignment to DO YOUR WILL PERFECTLY without
+                            weariness, struggle, or delay! I seal the entire night—every second, minute, and hour—in the
+                            Blood of Jesus!
+                        </li>
+                        <li>
+                            <span class="highlight">Permanent Sealing in Psalm 91:1 Secret Place Encampment:</span>
+                            By judicial decree in the Heavenly Court, I permanently seal my soul, my wife, my children,
+                            our future, our dream marriage, our household, and all generations after me in my bloodline
+                            into the SECRET PLACE OF THE MOST HIGH GOD (Psalm 91:1) PERMANENTLY FOREVER! We abide under
+                            the shadow of the Almighty—untouchable, hidden, and secured in Christ!
+                        </li>
+                        <li>
+                            <span class="highlight">Thanksgiving, Final Decree &amp; Judicial Heavenly Court Contract
+                                Seal:</span>
+                            Father God, I thank You for Your unshakeable protection, Your angels standing guard, and
+                            Your Blood surrounding us! I step before the Throne of Grace and enter this prayer manual as
+                            a legal covenant contract in the Heavenly Court of Almighty God.<br><br>
+                            I hereby SEAL this covenant contract with the Blood of Jesus Christ, signed by the Holy
+                            Spirit, and stamped with Heaven's seal! It cannot be altered, appealed, broken, or reversed
+                            by any devil, demon, witch, or ancestral power! It is established, binding, and active NOW
+                            and FOREVERMORE!<br><br>
+                            In the Supreme, Glorious, and Mighty Name of JESUS CHRIST, AMEN AND AMEN!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FINAL MASTER SEAL -->
+            <div class="amen">
+                ALL 6 SENSITIVE BIBLICAL &amp; NIGHT WATCHES ARE JUDICIALLY SEALED IN THE BLOOD OF JESUS<br>
+                ALTAR ANNIHILATION (3 AM) • MORNING DOMINION (6 AM) • MIDDAY REVELATION (12 PM) • CROSS REDEMPTION (3
+                PM) • EVENING SACRIFICE ASCENSION (6 PM) • BEDTIME ANATOMICAL &amp; FOOD COVENANT SEAL<br><br>
+                ESTABLISHED • UNCONTAINABLE • IMPENETRABLE • INSTANTLY MANIFESTED IN THE MIGHTY NAME OF JESUS, AMEN!
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>

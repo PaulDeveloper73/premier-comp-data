@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3:00 AM – 4:00 AM Surgical Warfare & Dual-Wall Defense Protocol</title>
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --border-color: #cbd5e1;
+
+            --fire-red: #b91c1c;
+            --fire-bg: #fef2f2;
+            --fire-border: #f87171;
+
+            --gold-accent: #b45309;
+            --gold-bg: #fffbeb;
+            --gold-border: #f59e0b;
+
+            --court-blue: #1e3a8a;
+            --court-bg: #eff6ff;
+            --court-border: #60a5fa;
+
+            --shield-green: #047857;
+            --shield-bg: #ecfdf5;
+            --shield-border: #34d399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.85;
+            color: var(--text-primary);
+            background-color: var(--bg-body);
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .watch-time {
+            display: inline-block;
+            background-color: var(--fire-red);
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 800;
+            padding: 6px 20px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 10px rgba(185, 28, 28, 0.2);
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2.1rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 880px;
+            margin: 0 auto 18px auto;
+        }
+
+        .identity-badge {
+            display: inline-block;
+            background-color: var(--court-blue);
+            color: #ffffff;
+            padding: 10px 26px;
+            border-radius: 30px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        .section-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 36px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .title-red {
+            color: var(--fire-red);
+        }
+
+        .title-gold {
+            color: var(--gold-accent);
+        }
+
+        .title-blue {
+            color: var(--court-blue);
+        }
+
+        .title-green {
+            color: var(--shield-green);
+        }
+
+        .scripture-box {
+            background-color: #f1f5f9;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--gold-accent);
+        }
+
+        .prayer-content {
+            font-size: 1.05rem;
+            line-height: 1.95;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .prayer-content strong {
+            color: var(--text-primary);
+        }
+
+        .prayer-content p {
+            margin-bottom: 22px;
+        }
+
+        .prayer-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-red {
+            color: var(--fire-red);
+            font-weight: 800;
+            background-color: var(--fire-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--fire-border);
+        }
+
+        .highlight-gold {
+            color: var(--gold-accent);
+            font-weight: 800;
+            background-color: var(--gold-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--gold-border);
+        }
+
+        .highlight-shield {
+            color: var(--shield-green);
+            font-weight: 800;
+            background-color: var(--shield-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--shield-border);
+        }
+
+        .wall-box {
+            background-color: var(--shield-bg);
+            border: 2px solid var(--shield-border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .wall-title {
+            color: var(--shield-green);
+            font-weight: 900;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .seal-card {
+            background-color: var(--court-bg);
+            border: 2px solid var(--court-border);
+            padding: 36px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .seal-title {
+            color: var(--court-blue);
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .seal-body {
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .amen-text {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--fire-red);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .prayer-content {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="watch-time">🔥 3:00 AM – 4:00 AM MIDNIGHT SURGICAL WARFARE PROTOCOL 🔥</div>
+            <h1>Surgical Fire Retaliation &amp; Dual-Wall Defense Mandate</h1>
+            <p><strong>Forensic Legal Cleansing, Surgical Excision of Demonic Networks, Industrial-Scale Wrath
+                    Execution, and Permanent Installation of the 360° 24/7 Dual Blood &amp; Holy Ghost Fire Wall
+                    Matrix</strong></p>
+            <div class="identity-badge">
+                HIGH PRIESTHOOD OF THE HOME • KISAKYE PAUL • TEDDY NETTUGU • CHILDREN • BLOODLINE FOREVER
+            </div>
+        </header>
+
+        <!-- STEP 1: FORENSIC LEGAL POSITION & JURISDICTION -->
+        <article class="section-card">
+            <div class="section-title title-gold">
+                <span>1. Surgical Jurisdiction &amp; Celestial Standing</span>
+                <span>STEP 01</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Legal Position Anchors:</strong> Colossians 3:3 • Ephesians 2:6 • Ephesians 1:20–21 • Psalm 91:1
+            </div>
+            <div class="prayer-content">
+                <p>
+                    In the Supreme Court of Almighty God, at this strategic 3:00 AM midnight watch, I step into the
+                    highest judicial chamber of Heaven through the sinless, eternal Blood of Jesus Christ. I declare
+                    with surgical precision my legal, unshakeable status: <strong>My old self is dead, and my life is
+                        HID WITH CHRIST IN GOD (Colossians 3:3).</strong> By the authority of the resurrection, God has
+                    seated me, <strong>Kisakye Paul</strong>, together with Christ in heavenly places, far above every
+                    principality, power, ruler of darkness, and spiritual wickedness (Ephesians 2:6).
+                </p>
+                <p>
+                    I operate from the highest legal floor in the universe. I exercise absolute jurisdiction over every
+                    territorial spirit, occult coven, graveyard altar, marine altar, ancestral altar, and monitoring
+                    demon operating in Uganda, across Africa, and worldwide. My position is insulated in Christ, legally
+                    validated by the Court of Heaven, and completely untouchable by satanic counter-attacks or
+                    retributive dark forces.
+                </p>
+            </div>
+        </article>
+
+        <!-- STEP 2: FORENSIC REPENTANCE & LEGAL CLEANSING -->
+        <article class="section-card">
+            <div class="section-title title-blue">
+                <span>2. Forensic Bloodline Cleansing &amp; Legal Disarmament</span>
+                <span>STEP 02</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Legal Cleansing Anchors:</strong> Psalm 51:1–10 • 1 John 1:9 • Colossians 2:14 • Zechariah 3:1–5
+            </div>
+            <div class="prayer-content">
+                <p>
+                    Supreme Judge of Heaven and Earth, I present myself, my wife <strong>Teddy Nettugu</strong>, our
+                    children, and our entire ancestral tree before Your judicial altar. With surgical thoroughness, I
+                    make deep repentance for every personal sin, inherited transgressions, ancestral covenants,
+                    idolatry, secret oaths, or spiritual flaws across both our paternal and maternal bloodlines back to
+                    the first generation.
+                </p>
+                <p>
+                    I plead the eternal, voice-speaking Blood of Jesus Christ into every cell of our DNA, our spiritual
+                    foundations, and our legal records. I enforce Colossians 2:14: <span class="highlight-gold">I BLOT
+                        OUT AND ERASE EVERY EVIL HANDWRITING OF ORDINANCES AND SATANIC CLAIMS STANDING AGAINST OUR
+                        NAMES!</span> I sever every invisible legal token or ancestral tie that satanic accusers could
+                    attempt to leverage. Every satanic prosecution is dismissed with prejudice! We are legally
+                    justified, forensically purified, and declared completely faultless before the Court of Heaven!
+                </p>
+            </div>
+        </article>
+
+        <!-- STEP 3: SURGICAL FIRE RETALIATION & VIOLENT DIVINE WRATH -->
+        <article class="section-card">
+            <div class="section-title title-red">
+                <span>3. Surgical Wrath Execution &amp; Industrial-Scale Demolition</span>
+                <span>STEP 03</span>
+            </div>
+            <div class="scripture-box">
+                <strong>Warfare Arsenal Anchors:</strong> Psalm 18:8, 13–14 • Psalm 17:13–14 • Psalm 35:1–8 • Psalm
+                109:6–20 • Psalm 83:1–18 • Psalm 27:1–3 • Psalm 23:1–6 • Psalm 91:1–16 • Lamentations 3:64–66
+            </div>
+            <div class="prayer-content">
+                <p>
+                    In the Supreme Name of Jesus Christ, I unleash Jehovah’s violent, unquenchable wrath against every
+                    spiritual enemy targeting my life, my marriage to <strong>Teddy Nettugu</strong>, our children, my
+                    software engineering career, our servers, our finances, and our bloodline! <span
+                        class="highlight-red">THERE WENT UP A SMOKE OUT OF HIS NOSTRILS, AND FIRE OUT OF HIS MOUTH
+                        DEVOURABLE: COALS WERE KINDLED BY IT! THE LORD THUNDERED IN THE HEAVENS; HE SENT OUT HIS ARROWS,
+                        AND SCATTERED THEM; AND HE SHOT OUT LIGHTNINGS, AND DISCOMFITED THEM! (Psalm 18:8, 13–14)</span>
+                </p>
+
+                <p>
+                    <strong>A. SURGICAL BLINDING OF MONITORING SIGHT &amp; TRACKING SYSTEMS:</strong><br>
+                    I fire God's deadly burning shafts directly into the spiritual eyes, optical networks, crystal
+                    balls, water mirrors, astral projections, and psychic tracking channels of every monitoring demon,
+                    witch, wizard, or occultic watcher! <span class="highlight-red">I SURGICALLY EXCISE AND BLIND EVERY
+                        DEMONIC EYE WATCHING MY BANK ACCOUNTS, MOBILE MONEY, TECH CODE REPOSITORIES, SERVERS, MARRIAGE,
+                        OR CHILDREN!</span> I command total, permanent, irreversible blindness, cataracts of fire, and
+                    darkness to destroy their spiritual vision forever, in Jesus' Name!
+                </p>
+
+                <p>
+                    <strong>B. DEMOLITION OF ALTARS, CEMETERY RITUALS &amp; COFFIN SEALS:</strong><br>
+                    I deploy Heaven’s heaviest artillery against every demonic altar, occult shrine, midnight ritual,
+                    cemetery burial sacrifice, coffin invocation, or blood pact operating against our destiny! <span
+                        class="highlight-red">I COMMAND HEAVEN'S THUNDERBOLTS TO EXPLODE AND REDUCE EVERY WITCHCRAFT
+                        ALTAR TO ASHES!</span> Every satanic priest ministering against Kisakye Paul or Teddy Nettugu—BE
+                    STRUCK WITH DIVINE CONFUSION AND FALL DEAD AT YOUR OWN ALTARS! Every coffin forged in the spirit
+                    realm to bury our finances, health, or children IS SHATTERED BY HOLY GHOST FIRE!
+                </p>
+
+                <p>
+                    <strong>C. UPROOTING THE ROOT SOURCE OF "NATURAL" DELAYS &amp; SABOTAGE:</strong><br>
+                    I perform a surgical excision on every spiritual root causing artificial delays, technical glitches,
+                    project contract cancellations, financial dryness, or career stagnation that masquerades as "natural
+                    luck" or "market conditions." <span class="highlight-red">I SEVER THE SPIRITUAL FEEDER ROOTS OF
+                        STAGNATION, NEAR-SUCCESS SYNDROME, AND DELAY!</span> I command every hidden seed of financial
+                    leakage, server error, client hesitation, or family friction TO BE UPROOTED AND BURNED IN THE LAKE
+                    OF FIRE NOW!
+                </p>
+
+                <p>
+                    <strong>D. INDUSTRIAL-SCALE DIVINE FIRESTORM &amp; RECOMPENSE (Psalms 35, 109, 83 &amp; Lam
+                        3:64–66):</strong><br>
+                    Contend, O LORD, with those who contend with me! <span class="highlight-red">LET DESTRUCTION COME
+                        UPON THEM UNAWARES; AND LET THEIR OWN NET WHICH THEY HID CATCH THEMSELVES: INTO THAT VERY
+                        DESTRUCTION LET THEM FALL! (Psalm 35:8)</span> Render unto them a recompense, O LORD, according
+                    to the work of their hands! Give them sorrow of heart, Your curse unto them! Persecute and destroy
+                    them in anger from under the heavens of the LORD! (Lamentations 3:64–66). Let them be as chaff
+                    before the wind, and let the angel of the LORD chase them into slippery darkness!
+                </p>
+
+                <p>
+                    <strong>E. THE RETRIBUTIVE PORTION (Psalm 17:13–14 RETALIATORY REVERSE-TARGETING):</strong><br>
+                    Arise, O LORD, disappoint them, cast them down! Deliver my soul from the wicked! <span
+                        class="highlight-red">EVERY POISON, SICKNESS, CURSE, DEBT, FINANCIAL RUIN, OR premature DEATH
+                        PREPARED AGAINST MY HOUSEHOLD—I COMMAND IT TO EXECUTE A 180-DEGREE U-TURN! LET THE ENEMIES' OWN
+                        BELLIES BE FILLED WITH THE HIDDEN TREASURE OF DIVINE WRATH THAT THEY DUG FOR US! LET THEIR
+                        CHILDREN FEED ON THE FRUIT OF THEIR WICKEDNESS, AND LET THERE BE LEFTOVERS OF JUDGMENT FOR THEIR
+                        LITTLE ONES TO GORGE ON FOREVER! (Psalm 17:14)</span>
+                </p>
+
+                <p>
+                    <strong>F. TRIUMPHANT TABLE &amp; OVERFLOWING CUP (Psalms 23, 27, 91):</strong><br>
+                    While God's wrath destroys the wicked, I decree that <span class="highlight-gold">WHEN THE WICKED,
+                        EVEN MY ENEMIES AND FOES, CAME UPON ME TO EAT UP MY FLESH, THEY STUMBLED AND FELL! (Psalm
+                        27:2)</span> A thousand shall fall at my side and ten thousand at my right hand, but it shall
+                    NOT come near my household! God prepares a table before me in the presence of my defeated enemies.
+                    My head is anointed with oil, my bank accounts run over, and goodness and mercy encompass my family
+                    all the days of our lives!
+                </p>
+            </div>
+        </article>
+
+        <!-- STEP 4: INSTALLATION OF THE 360° 24/7 DUAL-WALL DEFENSE MATRIX -->
+        <article class="section-card" style="border-color: var(--shield-border); background-color: #fafdfb;">
+            <div class="section-title title-green">
+                <span>4. Permanent Installation of the 360° 24/7 Dual-Wall Defense Matrix</span>
+                <span>STEP 04</span>
+            </div>
+            <div class="scripture-box" style="border-left-color: var(--shield-green);">
+                <strong>Dual Defense Anchors:</strong> Zechariah 2:5 • Exodus 12:23 • Isaiah 4:5–6 • Psalm 125:2 • Job
+                1:10
+            </div>
+            <div class="prayer-content">
+                <p>
+                    By supreme apostolic and priestly command, I activate and construct an impenetrable, multi-layered,
+                    automated 360-degree, 24/7/365 spiritual defense sphere around our entire life ecosystem!
+                </p>
+
+                <div class="wall-box">
+                    <div class="wall-title">🔴 WALL 1 (INNER LAYER): THE SINLESS BLOOD OF JESUS CHRIST</div>
+                    <p style="margin-bottom:0;">
+                        I coat and seal the innermost perimeter with the unshakeable, voice-speaking Blood of Jesus
+                        Christ! This Blood wall forms an airtight, forensically pure seal over:
+                        <br>• Our physical bodies, nervous systems, organs, DNA, and immune systems.
+                        <br>• Our minds, brains, mental clarity, emotional peace, and subconscious dreams.
+                        <br>• My wife <strong>Teddy Nettugu</strong>, our marriage covenant, love, and spiritual unity.
+                        <br>• Our children—their education, future destinies, character, and mental health.
+                        <br>• Our financial assets, bank accounts, Mobile Money wallets, client payments, and physical
+                        homes.
+                        <br>• My software engineering code, deployment servers, hardware devices, and digital assets.
+                    </p>
+                </div>
+
+                <div class="wall-box" style="background-color: var(--fire-bg); border-color: var(--fire-border);">
+                    <div class="wall-title" style="color: var(--fire-red);">🔥 WALL 2 (OUTER LAYER): HOLY SPIRIT
+                        CONSUMING FIRE</div>
+                    <p style="margin-bottom:0; color: var(--text-primary);">
+                        According to Zechariah 2:5, <span class="highlight-red">"FOR I, SAITH THE LORD, WILL BE UNTO HER
+                            A WALL OF FIRE ROUND ABOUT, AND WILL BE THE GLORY IN THE MIDST OF HER!"</span> I erect an
+                        explosive, continuous outer wall of unquenchable Holy Ghost Consuming Fire! Any demonic entity,
+                        witch, wizard, projection, weapon, or curse attempting to penetrate this outer wall IS INSTANTLY
+                        INCINERATED AND BLOWN TO ASHES BEFORE IT CAN EVEN REACH OUR HORIZON!
+                    </p>
+                </div>
+
+                <p>
+                    <strong>AUTOMATED 360° 24/7 END-TO-END SECURITY SPECIFICATIONS:</strong><br>
+                    This dual-wall matrix operates continuously—24 hours a day, 7 days a week, 365 days a year, across
+                    all physical, digital, and spiritual planes! Whether we are sleeping, working, traveling, coding,
+                    communicating, or resting, this defense matrix maintains an automated, active combat status. No
+                    night terror, no daytime arrow, no pestilence, no digital cyber-attack, and no demonic infiltration
+                    can break this barrier, in Jesus' mighty Name!
+                </p>
+            </div>
+        </article>
+
+        <!-- STEP 5: FINAL HEAVENLY COURT SEALING -->
+        <article class="seal-card">
+            <div class="seal-title">🏛️ 4:00 AM JUDICIAL COURTROOM VERDICT &amp; SEAL 🏛️</div>
+            <div class="seal-body">
+                I present this complete 3:00 AM – 4:00 AM Surgical Warfare Protocol before the Supreme Court of Almighty
+                God! I declare that this mandate is forensically recorded, legally ratified, and eternally sealed by the
+                Blood of Jesus Christ and the Holy Ghost Fire!<br><br>
+                Every demonic counter-attack or retaliatory spirit assigned against Kisakye Paul, Teddy Nettugu, our
+                children, or our bloodline IS INTERCEPTED AND DESTROYED BY HEAVENLY LEGIONS! High-ranking warrior angels
+                are dispatched right now to enforce this verdict across all territories! No satanic appeal can be filed!
+                <br><br>
+                <strong>WE ARE 360° PROTECTED, NATIONALLY AND GLOBALLY EXALTED, supernaturally PROSPEROUS, AND
+                    PERMANENTLY VICTORIOUS!</strong>
+            </div>
+            <div class="amen-text">
+                IT IS FINISHED! IT IS SEALED! IT IS ENFORCED FOREVER!<br>
+                IN THE MIGHTY, VICTORIOUS, AND MATCHLESS NAME OF JESUS CHRIST!<br>
+                AMEN! AMEN! AND AMEN!
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>
