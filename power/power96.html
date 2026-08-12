@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Bedtime Warfare & Complete Household Security Protocol</title>
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --border-color: #cbd5e1;
+
+            --fire-red: #dc2626;
+            --fire-bg: #fef2f2;
+            --fire-border: #fca5a5;
+
+            --gold-accent: #d97706;
+            --gold-bg: #fffbeb;
+            --gold-border: #fcd34d;
+
+            --court-blue: #2563eb;
+            --court-bg: #eff6ff;
+            --court-border: #bfdbfe;
+
+            --shield-green: #059669;
+            --shield-bg: #ecfdf5;
+            --shield-border: #a7f3d0;
+
+            --purple-realm: #7e22ce;
+            --purple-bg: #faf5ff;
+            --purple-border: #e9d5ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.85;
+            color: var(--text-primary);
+            background-color: var(--bg-body);
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .watch-time {
+            display: inline-block;
+            background-color: var(--shield-green);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 900;
+            padding: 8px 24px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .position-badge {
+            display: inline-block;
+            background-color: var(--court-blue);
+            color: #ffffff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+        }
+
+        .section-card {
+            background-color: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 36px;
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 14px;
+        }
+
+        .title-red {
+            color: var(--fire-red);
+        }
+
+        .title-gold {
+            color: var(--gold-accent);
+        }
+
+        .title-blue {
+            color: var(--court-blue);
+        }
+
+        .title-green {
+            color: var(--shield-green);
+        }
+
+        .title-purple {
+            color: var(--purple-realm);
+        }
+
+        .scripture-vault {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-left: 6px solid var(--gold-accent);
+            padding: 22px 26px;
+            border-radius: 8px;
+            margin-bottom: 26px;
+        }
+
+        .scripture-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .scripture-quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.85;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .scripture-quote:last-child {
+            margin-bottom: 0;
+        }
+
+        .scripture-ref {
+            font-weight: 800;
+            font-style: normal;
+            color: var(--text-primary);
+        }
+
+        .declaration-box {
+            background-color: var(--shield-bg);
+            border: 1px solid var(--shield-border);
+            border-left: 6px solid var(--shield-green);
+            padding: 26px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+        }
+
+        .declaration-title {
+            color: var(--shield-green);
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .prayer-content {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .prayer-content p {
+            margin-bottom: 20px;
+        }
+
+        .prayer-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-red {
+            color: #b91c1c;
+            font-weight: 800;
+        }
+
+        .highlight-gold {
+            color: #b45309;
+            font-weight: 800;
+        }
+
+        .highlight-blue {
+            color: #1d4ed8;
+            font-weight: 800;
+        }
+
+        .highlight-green {
+            color: #047857;
+            font-weight: 800;
+        }
+
+        .seal-card {
+            background-color: var(--court-bg);
+            border: 2px solid var(--court-border);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .seal-title {
+            color: var(--court-blue);
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .seal-body {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin-bottom: 26px;
+        }
+
+        .amen-text {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--shield-green);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .prayer-content {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="watch-time">🌙 HOLISTIC BEDTIME WARFARE &amp; HOUSEHOLD SECURITY PROTOCOL 🌙</div>
+            <h1>Surgical Nighttime Security Decree &amp; Restoration Mandate</h1>
+            <p><strong>Comprehensive End-to-End Protection for Marriage, Wife, Children, Health, Finances, Dream Realm
+                    Neutralization &amp; Total Restoration</strong></p>
+            <div class="position-badge">
+                HIGH COURT OF HEAVEN • EVENING WATCH COMMAND
+            </div>
+        </header>
+
+        <!-- SECTION 1: THE INVIOLABLE LEGAL POSITION -->
+        <article class="section-card">
+            <div class="section-title title-blue">
+                <span>1. Legal Standing &amp; Celestial Position of Governance</span>
+                <span>PART I</span>
+            </div>
+
+            <div class="scripture-vault" style="border-left-color: var(--court-blue);">
+                <span class="scripture-title" style="color: var(--court-blue);">📜 INVIOLABLE HEAVENLY STANDING:</span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Colossians 3:3 (KJV):</span> "For ye are dead, and your life is hid with
+                    Christ in God."
+                </span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Ephesians 2:6 (KJV):</span> "And hath raised us up together, and made us
+                    sit together in heavenly places in Christ Jesus:"
+                </span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Psalm 4:8 (KJV):</span> "I will both lay me down in peace, and sleep:
+                    for thou, LORD, only makest me dwell in safety."
+                </span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Psalm 121:3–4 (KJV):</span> "He will not suffer thy foot to be moved: he
+                    that keepeth thee will not slumber. Behold, he that keepeth Israel shall neither slumber nor sleep."
+                </span>
+            </div>
+
+            <div class="prayer-content">
+                <p>
+                    As the sun sets and night covers the earth, I take my seat in the Heavenly Places in Christ Jesus,
+                    operating under the supreme legal authority of <span class="highlight-blue">Ephesians 2:6</span>! I
+                    do not pray from a position of earthly fear, night dread, or vulnerability; I pray from the Bench of
+                    Heavenly Governance, legally seated far above all principalities, powers, nocturnal rulers,
+                    territorial altars, and witchcraft spirits!
+                </p>
+                <p>
+                    By the eternal decree of <span class="highlight-blue">Colossians 3:3</span>, my life, my marriage,
+                    my wife, our children, our finances, our physical health, our home, and our entire destiny ARE DEAD
+                    to the jurisdiction, reach, surveillance, and attacks of the kingdom of darkness! Our collective
+                    existence IS HID WITH CHRIST IN GOD!
+                </p>
+                <p>
+                    I decree according to <span class="highlight-blue">Psalm 4:8</span> and <span
+                        class="highlight-blue">Psalm 121:3–4</span> that as we lay down tonight, the Unslumbering
+                    Guardian of Israel keeps absolute watch over our domain! My family shall rest in deep, undisturbed,
+                    supernatural peace!
+                </p>
+            </div>
+        </article>
+
+        <!-- SECTION 2: SURGICAL DEEP REPENTANCE & BLOOD CLEANSIING -->
+        <article class="section-card">
+            <div class="section-title title-gold">
+                <span>2. Surgical Deep Repentance &amp; End-to-End Blood Cleansing</span>
+                <span>PART II</span>
+            </div>
+
+            <div class="scripture-vault">
+                <span class="scripture-title">📜 SURGICAL PURIFICATION FOUNDATION:</span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Psalm 51:2, 7 (KJV):</span> "Wash me thoroughly from mine iniquity, and
+                    cleanse me from my sin... Purge me with hyssop, and I shall be clean: wash me, and I shall be whiter
+                    than snow."
+                </span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">1 John 1:7 (KJV):</span> "But if we walk in the light, as he is in the
+                    light, we have fellowship one with another, and the blood of Jesus Christ his Son cleanseth us from
+                    all sin."
+                </span>
+                <span class="scripture-quote">
+                    <span class="scripture-ref">Hebrews 10:22 (KJV):</span> "Let us draw near with a true heart in full
+                    assurance of faith, having our hearts sprinkled from an evil conscience, and our bodies washed with
+                    pure water."
+                </span>
+            </div>
+
+            <div class="declaration-box"
+                style="background-color: var(--gold-bg); border-color: var(--gold-border); border-left-color: var(--gold-accent);">
+                <div class="declaration-title" style="color: var(--gold-accent);">🩸 SURGICAL HOUSEHOLD PURIFICATION
+                    &amp; DOCKET NULLIFICATION:</div>
+                <div class="prayer-content">
+                    <p>
+                        Heavenly Father, as the priest and spiritual covering over my home, I come before Your Heavenly
+                        Bench in deep, precise, and surgical repentance! Like a surgeon operating with live precision, I
+                        bring every area of our day, our thoughts, our words, our actions, and our transactions under
+                        the Holy Light of God.
+                    </p>
+                    <p>
+                        I repent deeply for any word spoken in anger, impatience, anxiety, or doubt today! I repent for
+                        any subtle compromise, any stray thought, any ungodly visual impression, any misplaced priority,
+                        or any negative declaration spoken over my wife, my children, our health, or our finances!
+                    </p>
+                    <p>
+                        <span class="highlight-gold">SURGICAL APPLICATION OF THE BLOOD OF JESUS:</span><br>
+                        I apply the sinless, eternal Blood of Jesus Christ end-to-end across our entire household:
+                    </p>
+                    <ul style="margin-left: 24px; margin-bottom: 20px; color: var(--text-secondary);">
+                        <li><strong>Over my spirit, soul, mind, brain, body, organ systems, blood vessels, and nervous
+                                system;</strong></li>
+                        <li><strong>Over my beloved wife: her spirit, emotional health, cellular structure, organs,
+                                immunity, and bodily wellness;</strong></li>
+                        <li><strong>Over our children: their minds, emotional stability, subconscious thoughts, growth,
+                                and physical bodies;</strong></li>
+                        <li><strong>Over our marriage covenant: cleansing it from every seed of friction,
+                                misunderstanding, or spiritual attack;</strong></li>
+                        <li><strong>Over our finances, software engineering career, business, contracts, bank accounts,
+                                and material assets!</strong></li>
+                    </ul>
+                    <p>
+                        I declare that every legal docket, accusation, or foothold that Satan sought to use against us
+                        tonight IS WIPED CLEAN BY THE BLOOD OF JESUS! There is NO LEGAL GROUND left for the adversary to
+                        stand on! Every night court indictment against my home IS DISMISSED WITH PREJUDICE!
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 3: SURGICAL NEUTRALIZATION OF DREAM ASSIGNMENTS -->
+        <article class="section-card">
+            <div class="section-title title-red">
+                <span>3. Surgical Dismantling &amp; Destruction of Dream Assignments</span>
+                <span>PART III</span>
+            </div>
+
+            <div class="scripture-vault" style="border-left-color: var(--fire-red);">
+                <span class="scripture-title" style="color: var(--fire-red);">📜 NIGHTTIME WARFARE SCRIPTURES:</span>
+                <span class="scripture-quote"><span class="scripture-ref">Matthew 13:25 (KJV):</span> "But while men
+                    slept, his enemy came and sowed tares among the wheat, and went his way."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Isaiah 54:17 (KJV):</span> "No weapon that is
+                    formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou
+                    shalt condemn."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Job 33:15–17 (KJV):</span> "In a dream, in a
+                    vision of the night, when deep sleep falleth upon men, in slumberings upon the bed; Then he openeth
+                    the ears of men, and sealeth their instruction, That he may withdraw man from his purpose..."</span>
+            </div>
+
+            <div class="declaration-box"
+                style="background-color: var(--fire-bg); border-color: var(--fire-border); border-left-color: var(--fire-red);">
+                <div class="declaration-title" style="color: var(--fire-red);">🔥 SURGICAL DREAM-REALM DEMOLITION
+                    DECREE:</div>
+                <div class="prayer-content">
+                    <p>
+                        In the Supreme Name of Jesus Christ, I exercise apostolic and prophetic authority over the dream
+                        realm tonight! I enforce a zero-tolerance mandate against every satanic project, demonic
+                        infiltrator, and evil seed planted while men sleep!
+                    </p>
+                    <p>
+                        <span class="highlight-red">SURGICAL DISMANTLING OF NIGHTTIME ASSIGNMENTS:</span>
+                    </p>
+                    <p>
+                        1. <strong>DESTRUCTION OF DEMONIC TARES:</strong> Every demonic seed of sickness, infirmity,
+                        organ failure, cancer, weakness, or organ dysfunction programmed to be injected into my body, my
+                        wife's body, or my children's bodies through dreams—<span class="highlight-red">BE CONSUMED BY
+                            HOLY GHOST FIRE NOW!</span>
+                    </p>
+                    <p>
+                        2. <strong>CANCELLATION OF SPIRITUAL FEEDING &amp; COVENANTS:</strong> I sever and burn every
+                        spiritual meal, demonic drink, or nocturnal communion offered in dreams! Every attempt to
+                        force-feed my family in sleep is met with the consuming fire of God!
+                    </p>
+                    <p>
+                        3. <strong>NEUTRALIZATION OF MENTAL &amp; EMOTIONAL ATTACKS:</strong> Every nightmare vector,
+                        spirit of terror, dream of defeat, pursuit by wild beasts, drowning, falling, or death—I REVERSE
+                        AND SHATTER YOU BY FIRE! I command our subconscious minds to be flooded with divine visions,
+                        heavenly instructions, creative insights, and angelic peace!
+                    </p>
+                    <p>
+                        4. <strong>TERMINATION OF SPIRITUAL HUSBANDS/WIVES &amp; INTRUDERS:</strong> Every incubus,
+                        succubus, or marine spirit attempting to violate the sanctity of our bed or marriage—<span
+                            class="highlight-red">I DECREE INSTANT EXECUTION BY THE LIGHTNING BOLTS OF GOD! BE CAST INTO
+                            THE BOTTOMLESS PIT FOREVER!</span>
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 4: ACTIVATION OF THE 3 IMPENETRABLE WALLS -->
+        <article class="section-card">
+            <div class="section-title title-green">
+                <span>4. Activation of the 3-Fold Impenetrable Wall System</span>
+                <span>PART IV</span>
+            </div>
+
+            <div class="scripture-vault" style="border-left-color: var(--shield-green);">
+                <span class="scripture-title" style="color: var(--shield-green);">📜 TRIPLE SHIELD GUARANTEE:</span>
+                <span class="scripture-quote"><span class="scripture-ref">Exodus 12:13 (KJV):</span> "And the blood
+                    shall be to you for a token upon the houses where ye are: and when I see the blood, I will pass over
+                    you, and the plague shall not be upon you to destroy you..."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Zechariah 2:5 (KJV):</span> "For I, saith the
+                    LORD, will be unto her a wall of fire round about, and will be the glory in the midst of
+                    her."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Psalm 34:7 (KJV):</span> "The angel of the
+                    LORD encampeth round about them that fear him, and delivereth them."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Psalm 91:11–12 (KJV):</span> "For he shall
+                    give his angels charge over thee, to keep thee in all thy ways. They shall bear thee up in their
+                    hands, lest thou dash thy foot against a stone."</span>
+            </div>
+
+            <div class="declaration-box">
+                <div class="declaration-title">🛡️ SURGICAL ERECTION OF THE 3 IMPENETRABLE WALLS (24/7 PERIMETER):</div>
+                <div class="prayer-content">
+                    <p>
+                        Like a master architect operating under divine instruction, I now construct, activate, and
+                        energize the 3-Fold Impenetrable Defense System around our entire compound, bedroom, property,
+                        digital networks, and bodily domains!
+                    </p>
+                    <p>
+                        <span class="highlight-green">WALL 1: THE WALL OF THE SACRED BLOOD OF JESUS</span><br>
+                        I paint the lintels, doorposts, windows, roofs, floors, boundaries, bedframes, and airwaves of
+                        our home with the Blood of Jesus! When the destroyer, night spirit, or flying pestilence
+                        approaches our home tonight, IT SEES THE BLOOD AND MUST PASS OVER! No sickness, no sudden death,
+                        no stroke, no heart failure, no evil projection can penetrate this Blood Wall!
+                    </p>
+                    <p>
+                        <span class="highlight-green">WALL 2: THE WALL OF HOLY SPIRIT CONSUMING FIRE</span><br>
+                        According to <span class="highlight-green">Zechariah 2:5</span>, God Himself becomes a raging
+                        Wall of Fire around our compound 360 degrees, top to bottom! Any demonic projectile, witchcraft
+                        arrow, evil eye, or stray spirit that touches this wall IS INSTANTLY INCINERATED INTO ASHES!
+                    </p>
+                    <p>
+                        <span class="highlight-green">WALL 3: THE ANGELIC BATTALION ENCAMPMENT</span><br>
+                        According to <span class="highlight-green">Psalm 34:7</span> and <span
+                            class="highlight-green">Psalm 91:11–12</span>, I activate the dispatch of warrior angels of
+                        Jehovah Sabaoth! Flaming-sword Archangels take up positions at every corner of our house, at our
+                        bedrooms, over our children's beds, over our property boundaries, over our vehicle, and across
+                        our spiritual portal! They stand guard 24/7, 365 days a year, preventing any dark entry!
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 5: COMMANDING TOTAL RESTORATION & HOLISTIC WELLNESS -->
+        <article class="section-card">
+            <div class="section-title title-purple">
+                <span>5. Mandatory Decree of Total Restoration &amp; Holistic Health</span>
+                <span>PART V</span>
+            </div>
+
+            <div class="scripture-vault" style="border-left-color: var(--purple-realm);">
+                <span class="scripture-title" style="color: var(--purple-realm);">📜 RESTORATION &amp; RECOVERY
+                    SCRIPTURES:</span>
+                <span class="scripture-quote"><span class="scripture-ref">Joel 2:25–26 (KJV):</span> "And I will restore
+                    to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the
+                    palmerworm... And ye shall eat in plenty, and be satisfied, and praise the name of the LORD your
+                    God, that hath dealt wondrously with you..."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Isaiah 61:7 (KJV):</span> "For your shame ye
+                    shall have double; and for confusion they shall rejoice in their portion: therefore in their land
+                    they shall possess the double: everlasting joy shall be unto them."</span>
+                <span class="scripture-quote"><span class="scripture-ref">Proverbs 3:24 (KJV):</span> "When thou liest
+                    down, thou shalt not be afraid: yea, thou shalt lie down, and thy sleep shall be sweet."</span>
+            </div>
+
+            <div class="declaration-box"
+                style="background-color: var(--purple-bg); border-color: var(--purple-border); border-left-color: var(--purple-realm);">
+                <div class="declaration-title" style="color: var(--purple-realm);">👑 MANDATORY DIVINE RESTORATION
+                    COMMAND:</div>
+                <div class="prayer-content">
+                    <p>
+                        In the Name of Jesus Christ, I stand as a ruler in Christ and command immediate, comprehensive,
+                        sevenfold restoration into every area where the enemy attempted to steal, kill, or destroy!
+                    </p>
+                    <p>
+                        1. <strong>RESTORATION OF PHYSICAL HEALTH &amp; VITALITY:</strong> I command total healing into
+                        my wife's body! Every organ, blood cell, nerve ending, hormone, joint, and tissue is restored to
+                        100% perfection! Sickness is permanently evicted! My health, my wife's health, and my children's
+                        physical strength are supernaturally renewed overnight as we sleep!
+                    </p>
+                    <p>
+                        2. <strong>RESTORATION OF FINANCES &amp; BUSINESS DOMINION:</strong> Every financial loss,
+                        delayed payment, drained resource, or stolen business opportunity IS RESTORED DOUBLE PORTION
+                        right now! I command financial channels to open, software projects to flourish, client
+                        partnerships to expand, and supernatural abundance to flow continuously into our home!
+                    </p>
+                    <p>
+                        3. <strong>RESTORATION OF MARITAL PEACE &amp; JOY:</strong> I release sweet harmony, unbreakable
+                        love, deep emotional intimacy, and joy into our marriage! Every root of bitterness, fatigue, or
+                        stress is replaced with the peace of God that passes all understanding!
+                    </p>
+                    <p>
+                        4. <strong>RESTORATION OF BRAIN POWER &amp; REFRESHING REST:</strong> As we sleep, our bodies
+                        receive biological cell regeneration, mental clarity, spiritual refreshing, and creative
+                        downloads from Heaven! Our sleep IS SWEET, DEEP, REFRESHING, AND ENERGIZING!
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 6: FINAL HEAVENLY COURT RATIFICATION & SEAL -->
+        <article class="seal-card">
+            <div class="seal-title">⚖️ FINAL HEAVENLY COURT RATIFICATION &amp; EVERLASTING SEAL ⚖️</div>
+            <div class="seal-body">
+                I decree on this night that this entire Bedtime Prayer &amp; Holistic Security Protocol—grounded in
+                <strong>Colossians 3:3</strong> and <strong>Ephesians 2:6</strong>, cleansed by <strong>Psalm
+                    51</strong>, protected by the <strong>3 Impenetrable Walls</strong>, and powered by the
+                <strong>Restoration Decrees of Joel 2</strong>—is officially REGISTERED, RATIFIED, AND SEALED IN THE
+                HIGH COURT OF HEAVEN!<br><br>
+
+                The Blood of Jesus Christ seals our home, health, marriage, wife, children, and finances! The Fire of
+                the Holy Ghost burns as our perimeter shield! The Archangels of Jehovah stand post at every entry
+                point!<br><br>
+
+                <strong>NO NIGHTMARES! NO SPIRITUAL ATTACKS! NO SICKNESS! NO FINANCIAL LEAKAGE! NO INTRUDERS! WE REST IN
+                    TOTAL SAFETY, PERFECT HEALTH, SUPERNATURAL PEACE, AND OVERFLOWING RESTORATION!</strong>
+            </div>
+            <div class="amen-text">
+                IT IS WRITTEN! IT IS SEALED! IT IS ENFORCED BY FIRE!<br>
+                IN THE MATCHLESS AND SUPREME NAME OF JESUS CHRIST!<br>
+                AMEN! AMEN! AND AMEN!
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>
