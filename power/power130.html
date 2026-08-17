@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedicated Warfare Prayer: Total Annihilation of Sickness & Poverty | Establishing Abundance</title>
+    <style>
+        :root {
+            --bg-color: #060911;
+            --card-bg: #0f172a;
+            --card-border: #1e293b;
+            --accent-gold: #fbbf24;
+            --accent-fire: #f87171;
+            --accent-blood: #dc2626;
+            --accent-cyan: #38bdf8;
+            --accent-emerald: #34d399;
+            --accent-purple: #c084fc;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --badge-bg: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            --badge-text: #000000;
+            --box-bg: rgba(220, 38, 38, 0.08);
+            --box-border: rgba(220, 38, 38, 0.3);
+            --abundance-bg: rgba(52, 211, 153, 0.08);
+            --abundance-border: rgba(52, 211, 153, 0.3);
+            --scripture-bg: #1e293b;
+            --scripture-text: #e2e8f0;
+            --grid-card-bg: rgba(15, 23, 42, 0.95);
+            --font-serif: "Georgia", "Times New Roman", serif;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body.light-mode {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #cbd5e1;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-gold: #b45309;
+            --accent-fire: #dc2626;
+            --accent-blood: #991b1b;
+            --accent-cyan: #0284c7;
+            --accent-emerald: #059669;
+            --accent-purple: #7e22ce;
+            --badge-bg: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            --badge-text: #ffffff;
+            --box-bg: rgba(220, 38, 38, 0.05);
+            --box-border: rgba(220, 38, 38, 0.25);
+            --abundance-bg: rgba(5, 150, 105, 0.05);
+            --abundance-border: rgba(5, 150, 105, 0.25);
+            --scripture-bg: #f1f5f9;
+            --scripture-text: #0f172a;
+            --grid-card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.8;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            border: none;
+            padding: 12px 22px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-theme {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            color: #000000;
+        }
+
+        .header-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-gold);
+            border-radius: 16px;
+            padding: 40px 28px;
+            text-align: center;
+            margin-bottom: 32px;
+            box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-blood), var(--accent-gold), var(--accent-emerald), var(--accent-blood));
+        }
+
+        .header-card h1 {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .positional-banner {
+            background: var(--scripture-bg);
+            border: 1px solid var(--accent-gold);
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--scripture-text);
+        }
+
+        .targets {
+            background: var(--box-bg);
+            border: 1px solid var(--box-border);
+            border-left: 6px solid var(--accent-blood);
+            padding: 20px 24px;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .target-primary {
+            color: var(--accent-fire);
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .target-secondary {
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .authority-badge {
+            display: inline-block;
+            margin-top: 14px;
+            background: var(--box-bg);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 34px 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title span.badge {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            font-weight: 900;
+            font-family: var(--font-sans);
+            flex-shrink: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-size: 1.08rem;
+        }
+
+        .command-phrase {
+            color: var(--accent-fire);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .abundance-phrase {
+            color: var(--accent-emerald);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .jesus-name {
+            color: var(--accent-gold);
+            font-weight: 900;
+        }
+
+        .blood-phrase {
+            color: var(--accent-fire);
+            font-weight: 800;
+            background: var(--box-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--box-border);
+        }
+
+        .fire-phrase {
+            color: var(--accent-gold);
+            font-weight: 800;
+            background: var(--box-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--box-border);
+        }
+
+        .scripture-box {
+            background-color: var(--scripture-bg);
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px 20px;
+            margin: 22px 0;
+            font-style: italic;
+            color: var(--scripture-text);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .decree-box {
+            background: var(--box-bg);
+            border: 1px solid var(--box-border);
+            border-left: 5px solid var(--accent-blood);
+            padding: 20px 24px;
+            margin: 22px 0;
+            color: var(--text-main);
+            border-radius: 0 8px 8px 0;
+            font-weight: 700;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .abundance-box {
+            background: var(--abundance-bg);
+            border: 1px solid var(--abundance-border);
+            border-left: 5px solid var(--accent-emerald);
+            padding: 20px 24px;
+            margin: 22px 0;
+            color: var(--text-main);
+            border-radius: 0 8px 8px 0;
+            font-weight: 700;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .surgical-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .surgical-list li {
+            position: relative;
+            padding-left: 34px;
+            margin-bottom: 18px;
+            color: var(--text-main);
+            font-size: 1.08rem;
+        }
+
+        .surgical-list li::before {
+            content: "⚔️";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
+        .abundance-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .abundance-list li {
+            position: relative;
+            padding-left: 34px;
+            margin-bottom: 18px;
+            color: var(--text-main);
+            font-size: 1.08rem;
+        }
+
+        .abundance-list li::before {
+            content: "👑";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 18px;
+            margin: 22px 0;
+        }
+
+        .grid-card {
+            background: var(--grid-card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .grid-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .wall-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .wall-card {
+            background: var(--grid-card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .wall-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .seal-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--abundance-bg) 100%);
+            border: 2px solid var(--accent-emerald);
+            border-radius: 16px;
+            padding: 44px 30px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+        }
+
+        .seal-card h2 {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .seal-signature {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-top: 28px;
+            padding: 20px;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        .amen-text {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            font-weight: 900;
+            margin-top: 22px;
+            color: var(--accent-emerald);
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0;
+            }
+
+            .toolbar {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .section-card,
+            .header-card,
+            .seal-card,
+            .grid-card,
+            .wall-card {
+                background: #ffffff !important;
+                border: 1px solid #000000 !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+            .header-card h1,
+            .section-title,
+            .seal-card h2,
+            .grid-card h4,
+            .wall-card h4 {
+                color: #000000 !important;
+            }
+
+            p,
+            li,
+            .scripture-box,
+            .decree-box,
+            .abundance-box,
+            .target-secondary {
+                color: #000000 !important;
+                background: transparent !important;
+                border-color: #cccccc !important;
+            }
+
+            .command-phrase,
+            .abundance-phrase,
+            .jesus-name,
+            .blood-phrase,
+            .fire-phrase {
+                color: #000000 !important;
+                font-weight: bold;
+                text-decoration: underline;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            .section-title span.badge {
+                background: #000000 !important;
+                color: #ffffff !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button class="btn btn-theme" id="theme-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print Warfare Decree</button>
+        </div>
+
+        <!-- Header -->
+        <header class="header-card">
+            <h1>DEDICATED WARFARE DECREE: TOTAL DESTRUCTION OF SICKNESS & POVERTY | COMMANDING OVERFLOWING ABUNDANCE
+            </h1>
+            <div class="header-subtitle">End-to-End Marital Deliverance, Health Restoration & Financial Kingdom
+                Supremacy</div>
+
+            <div class="positional-banner">
+                "For you died, and your life is now hidden with Christ in God." — <strong>Colossians 3:3</strong><br>
+                "And God raised us up with Christ and seated us with Him in the heavenly realms in Christ Jesus." —
+                <strong>Ephesians 2:6</strong><br>
+                "For you know the grace of our Lord Jesus Christ, that though He was rich, yet for your sakes He became
+                poor, that you through His poverty might become rich." — <strong>2 Corinthians 8:9</strong>
+            </div>
+
+            <div class="targets">
+                <div class="target-primary">LEGAL OPERATOR: KISAKYE PAUL (Priceless Son of the Most High God, Priest &
+                    King)</div>
+                <div class="target-secondary">
+                    <strong>LEGAL HOUSEHOLD & BLOODLINE COVENANT COVERAGE:</strong> My Wife (Teddy Nettugu), My Son
+                    (Magezi Joshua), My Children, Grandchildren, Great-Grandchildren, and the Entire Bloodline of Mr.
+                    Buyinza Patrick & Late Joy Mwesigwa.
+                </div>
+                <div class="authority-badge">SEATED IN HIGH HEAVENLY REALMS • IN THE MIGHTY NAME OF JESUS CHRIST</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- SECTION 1 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">1</span> HEAVENLY POSITION & HIGH ADORATION OF THE
+                    ALMIGHTY GOD</h2>
+                <p><strong>My Father and my God</strong>, I enter Your presence with deep awe and worship through <span
+                        class="jesus-name">Jesus Christ</span>! I stand firmly rooted in my legal, spiritual position
+                    <strong>IN CHRIST</strong>. According to <span class="scripture-box">Colossians 3:3 — "For you died,
+                        and your life is now hidden with Christ in God,"</span> my life, my marriage with <strong>Teddy
+                        Nettugu</strong>, my children including <strong>Magezi Joshua</strong>, and our entire lineage
+                    are completely submerged inside the resurrection power of Jesus!
+                </p>
+
+                <p>According to <span class="scripture-box">Ephesians 2:6 — "And God raised us up with Christ and seated
+                        us with Him in the heavenly realms in Christ Jesus,"</span> I do not fight for victory; I fight
+                    <strong>FROM VICTORY</strong>! I sit far above every spirit of infirmity, disease pathogen,
+                    financial starvation, poverty altar, and ancestral devourer!
+                </p>
+
+                <p><strong>Almighty God</strong>, You are El Shaddai — the All-Sufficient God! You are Jehovah Rapha —
+                    the Lord our Healer! You are Jehovah Jireh — the Lord our Provider! <span class="jesus-name">Lord
+                        Jesus Christ</span>, You became poor on the cross so that through Your sacrifice we might step
+                    into divine abundance! <span class="fire-phrase">Holy Spirit, Holy Spirit Fire</span>, take complete
+                    charge of this prayer operation right now!</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">2</span> SURGICAL BLOODLINE REPENTANCE & LEGAL GAP
+                    CLEANSING</h2>
+                <p>Father, I humble myself before Your throne of grace. I repent for every sin, transgression, and
+                    iniquity that allowed sickness, medical draining, financial leakages, and poverty to claim legal
+                    rights over our household:</p>
+
+                <div class="scripture-box">
+                    "If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all
+                    unrighteousness." — <strong>1 John 1:9</strong><br>
+                    "He Himself bore our sins in His own body on the tree... by whose stripes you were healed." —
+                    <strong>1 Peter 2:24</strong><br>
+                    "Christ has redeemed us from the curse of the law, having become a curse for us." —
+                    <strong>Galatians 3:13</strong>
+                </div>
+
+                <ul class="surgical-list">
+                    <li><strong>Cleansing Marital Foundations:</strong> Lord Jesus, I bring my marriage with
+                        <strong>Teddy Nettugu</strong> under <span class="blood-phrase">the precious Blood of Jesus
+                            Christ</span>. Forgive us for any past errors, compromises, or gaps. I wipe away every
+                        marital curse, every legal accusation of the enemy, and every ancestral claim against our union!
+                    </li>
+                    <li><strong>Sanctifying Magezi Joshua & All Children:</strong> I apply <span
+                            class="blood-phrase">the Blood of Jesus</span> over <strong>Magezi Joshua</strong> and all
+                        our present and future children! No generational consequence or inherited sickness shall touch
+                        them! They are sanctified, holy, healthy, and prosperous!</li>
+                    <li><strong>Ancestral Bloodline Repentance:</strong> Standing as a representative of the family of
+                        <strong>Mr. Buyinza Patrick</strong> and <strong>Late Joy Mwesigwa</strong>, I repent for all
+                        ancestral idolatry, occult alliances, financial dishonesty, witchcraft covenants, and sexual
+                        immorality across all generations. <span class="command-phrase">I DISCONNECT OUR BLOODLINE FROM
+                            EVERY ANCESTRAL CURSE OF POVERTY AND DISEASE NOW!</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">3</span> END-TO-END SURGICAL ANNIHILATION OF ALL SICKNESS
+                    & DISEASE</h2>
+                <p>In the mighty, precious, and victorious name of Jesus Christ, I wage surgical warfare against every
+                    disease, virus, bacteria, organ malfunction, and inherited medical curse in our bodies!</p>
+
+                <div class="decree-box">
+                    "I command every trace of sickness, disease, inflammation, infection, and physical decay in my body
+                    (Paul), my wife's body (Teddy Nettugu), our son Magezi Joshua, our children, and our entire
+                    bloodline to WITHER, DIE, AND BE PURGED OUT BY HOLY SPIRIT FIRE WITH IMMEDIATE EFFECT NOW!"
+                </div>
+
+                <div class="grid-container">
+                    <div class="grid-card">
+                        <h4>A. HIV/AIDS & Blood Viral Pathogens</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">HIV/AIDS, bloodborne viruses, immune system
+                            disorders, and anemia.<br><br><span class="command-phrase">COMMAND:</span> <span
+                                class="blood-phrase">The Blood of Jesus</span> sterilizes our bloodstream! I strip
+                            HIV/AIDS and all blood infections of their legal claim! Viral loads, BE REDUCED TO ZERO!
+                            Immune systems, BE FULLY REGENERATED!</p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>B. Oncological Roots (Cancer Destruction)</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Cancerous cells, malignant growths, genetic tumor
+                            markers, and the spirit of cancer that claimed late Joy Mwesigwa.<br><br><span
+                                class="command-phrase">COMMAND:</span> <span class="fire-phrase">Holy Spirit
+                                Fire</span>, burn out every cancer seed, cell mutation, and hereditary tumor root from
+                            our bloodline permanently!</p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>C. Ulcers, Pressure & Gastrointestinal</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Peptic ulcers, H. pylori, chronic heartburn,
+                            stomach erosions, high blood pressure, and cardiovascular distress.<br><br><span
+                                class="command-phrase">COMMAND:</span> Stomach linings, BE HEALED AND REPAIRED NOW!
+                            Blood pressure, LOCK PERMANENTLY AT 120/80! Arteries and veins, BE CLEARED BY FIRE!</p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>D. Reproductive Health & Inherited Diseases</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Fibroids, ovarian cysts, hormonal imbalance,
+                            painful cycles, and every known/unknown family illness.<br><br><span
+                                class="command-phrase">COMMAND:</span> Fibroids, DISSOLVE TO ASHES! Wombs and organs, BE
+                            PERFECTLY WHOLE! Weekly sickness in our family, END FOREVER WITH IMMEDIATE EFFECT!</p>
+                    </div>
+                </div>
+
+                <p><span class="command-phrase">With immediate effect now</span>, hospital bills born of spiritual
+                    attacks ARE TERMINATED! Sickness shall no longer swallow our money or destroy our joy!</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">4</span> END-TO-END DEMOLITION OF POVERTY, FINANCIAL
+                    LEAKAGE & DEVOURERS</h2>
+                <p>I address the root spirit of poverty, hand-to-mouth survival, paycheck-to-paycheck bondage, and
+                    financial destruction in the house of Buyinza Patrick and my marriage with Teddy Nettugu!</p>
+
+                <div class="decree-box">
+                    "Every hidden altar stealing our money every month, every financial devourer, every spirit of debt,
+                    every spirit of unprofitable spending, and every demon of financial stagnation operating in my
+                    marriage and bloodline — I RELEASE HOLY SPIRIT FIRE UPON YOU NOW! BURN TO ASHES WITH IMMEDIATE
+                    EFFECT!"
+                </div>
+
+                <ul class="surgical-list">
+                    <li><span class="command-phrase">Destruction of Financial Leakage:</span> <span
+                            class="command-phrase">With immediate effect now</span>, I seal every invisible hole in our
+                        wallets, bank accounts, businesses, and hands! Unexplainable money loss, emergency financial
+                        traps, and senseless spending ARE BROKEN FOREVER BY THE BLOOD OF JESUS!</li>
+                    <li><span class="command-phrase">Burying the Hand-to-Mouth Spirit:</span> I destroy the curse of
+                        living paycheck-to-paycheck! I destroy the spirit that causes money to arrive and instantly
+                        vanish without establishing anything tangible!</li>
+                    <li><span class="command-phrase">Annihilating Generational Poverty Altars:</span> Every dark altar
+                        in my ancestral bloodline that recorded our family for perpetual lack, borrowing, low-income
+                        struggle, and business failure — <span class="fire-phrase">Holy Spirit Fire</span>, BURST THEM
+                        INTO POWDER NOW!</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">5</span> SEVERANCE FROM JEZEBEL, MARINE ALTARS & DNA
+                    EXTRACTION</h2>
+                <p>Operating in high heavenly authority (<span class="scripture-box">Ephesians 2:6</span>), I execute
+                    absolute spiritual divorce and identity extraction:</p>
+
+                <div class="decree-box">
+                    "In the mighty name of Jesus, I officially DIVORCE, DISCONNECT, AND SEVER my marriage, my wife Teddy
+                    Nettugu, our children, and our entire bloodline from the Queen of Heaven (Jezebel spirit), marine
+                    water spirits, occult covenants, and serpentine idols! Every evil marriage covenant with darkness is
+                    VOID AND DISSOLVED BY THE BLOOD OF JESUS!"
+                </div>
+
+                <ul class="surgical-list">
+                    <li><span class="command-phrase">Identity & DNA Extraction:</span> Today, I command my name, the
+                        name and DNA of my wife <strong>Teddy Nettugu</strong>, our son <strong>Magezi Joshua</strong>,
+                        our children, grandchildren, and future descendants to be **SURGICALLY REMOVED AND EXTRACTED**
+                        from every dark altar, witchcraft graveyard, marine cauldron, or ancestral register where our
+                        wealth, health, or marital destiny was buried!</li>
+                    <li><span class="fire-phrase">Holy Spirit Fire</span>, burn every evil file holding our names! We
+                        are translated out of darkness into the kingdom of God's dear Son!</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">6</span> COMMANDING DIVINE ABUNDANCE, WEALTH CREATION &
+                    OVERFLOW</h2>
+                <p>Having wiped out sickness and poverty, I now release and command divine abundance, wealth, expansion,
+                    and multi-generational prosperity upon my marriage with Teddy Nettugu, our children, and our
+                    bloodline!</p>
+
+                <div class="abundance-box">
+                    "According to Deuteronomy 28:11-12, the Lord shall make us plenteous in goods! The Lord shall open
+                    unto us His good treasure, the heaven to give the rain unto our land in his season, and to bless all
+                    the work of our hand! We shall lend unto many nations, and we shall not borrow!"
+                </div>
+
+                <ul class="abundance-list">
+                    <li><span class="abundance-phrase">Commanding Tangible Company & Business Establishment:</span>
+                        <span class="abundance-phrase">With immediate effect now</span>, I command the rapid
+                        establishment of solid, highly profitable corporate entities, technology ventures, real estate
+                        assets, and multi-generational business systems under my hands and my wife's hands!
+                    </li>
+                    <li><span class="abundance-phrase">Commanding High-Value Client Overflow:</span> I command lucrative
+                        corporate contracts, high-paying clients, international partnerships, and continuous project
+                        flows to flood into our business! Every proposal we submit shall convert into signed deals and
+                        prompt full payments!</li>
+                    <li><span class="abundance-phrase">Commanding Wealth Transfer & Financial Freedom:</span> I release
+                        the wealth of the Gentiles into our bank accounts (<span class="scripture-box">Isaiah 60:5,
+                            Proverbs 13:22</span>)! We transition from survival to total financial independence, massive
+                        savings, strategic investments, and Kingdom philanthropy!</li>
+                    <li><span class="abundance-phrase">Commanding Multi-Generational Wealth:</span> My children and my
+                        children's children shall inherit massive financial estates, land, wisdom, spiritual fire, and
+                        divine health! Poverty is banished from our lineage forever!</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">7</span> MARITAL RESTORATION, COVENANT PEACE & FLOURISHING
+                </h2>
+                <p>Father, establish divine order, unbreakable love, and supernatural alignment in my marriage with
+                    <strong>Teddy Nettugu</strong>:
+                </p>
+
+                <ul class="abundance-list">
+                    <li><span class="abundance-phrase">Unbreakable Marital Unity:</span> Let my marriage with Teddy be
+                        characterized by deep mutual love, open communication, spiritual oneness, financial
+                        transparency, and burning affection! Every spirit of argument, disagreement, or emotional
+                        distance IS CAST OUT FOREVER!</li>
+                    <li><span class="abundance-phrase">Marital Favor & Prosperity:</span> Together with Teddy Nettugu,
+                        we shall build an enviable, glorious Christian home! Our home shall be a sanctuary of peace,
+                        divine health, spiritual power, and overflowing wealth!</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">8</span> ACTIVATION OF THE THREE IMPENETRABLE WALLS OF
+                    PROTECTION</h2>
+                <p>I activate the Three Impenetrable Walls of Divine Protection around myself, my wife Teddy Nettugu,
+                    our son Magezi Joshua, our children, our business, and our bloodline:</p>
+
+                <div class="wall-grid">
+                    <div class="wall-card">
+                        <h4>WALL ONE — THE POWERFUL PRECIOUS BLOOD OF JESUS CHRIST</h4>
+                        <p style="margin-bottom:0;">I apply <span class="blood-phrase">the Blood of Jesus</span> over
+                            our health, mind, marriage, bank accounts, investments, and home. No demonic pathogen,
+                            poverty curse, or witchcraft eye can breach this Blood perimeter!</p>
+                    </div>
+
+                    <div class="wall-card">
+                        <h4>WALL TWO — THE LIVING UNCHANGING WORD OF GOD</h4>
+                        <p style="margin-bottom:0;">I build our protective shield upon Psalm 91, Psalm 112, Isaiah
+                            54:17, and 3 John 1:2. "Beloved, I wish above all things that thou mayest prosper and be in
+                            health, even as thy soul prospereth!"</p>
+                    </div>
+
+                    <div class="wall-card">
+                        <h4>WALL THREE — THE CONSUMING HOLY GHOST FIRE</h4>
+                        <p style="margin-bottom:0;"><span class="fire-phrase">Holy Spirit Fire</span> forms an
+                            impenetrable ring of divine fire around our household (Zechariah 2:5). Any demonic agent or
+                            spiritual thief that attempts to touch our health or wealth is instantly consumed!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">9</span> FINAL COMMANDS — WITH IMMEDIATE EFFECT NOW</h2>
+                <p>Now, in the mighty, matchless, and supreme name of Jesus Christ, I decree and command:</p>
+
+                <ul class="surgical-list">
+                    <li><span class="command-phrase">SICKNESS IS PERMANENTLY DEAD IN OUR BLOODLINE!</span> Perfect
+                        divine health, whole organs, clean blood, and energetic bodies ARE OUR PORTION TODAY!</li>
+                    <li><span class="command-phrase">POVERTY IS PERMANENTLY BURIED!</span> Paycheck-to-paycheck living,
+                        financial leakage, debt, and lack ARE DESTROYED FOREVER!</li>
+                    <li><span class="abundance-phrase">DIVINE ABUNDANCE IS ESTABLISHED!</span> Overflowing bank
+                        accounts, multi-stream revenues, thriving corporate companies, real estate assets, and financial
+                        dominance ARE RELEASED NOW!</li>
+                    <li><span class="abundance-phrase">OUR MARRIAGE FLOURISHES IN GOD!</span> Kisakye Paul and Teddy
+                        Nettugu shall reign together in peace, joy, wealth, and long life!</li>
+                </ul>
+            </section>
+
+            <!-- SEALING FOOTER -->
+            <footer class="seal-card">
+                <h2>FINAL SEALING & CONSECRATION DECREE</h2>
+                <p>I have spoken these words from my high heavenly seat in Christ Jesus (<span class="scripture-box">Col
+                        3:3, Eph 2:6</span>). It is ratified in Heaven and executed upon the Earth with immediate
+                    effect!</p>
+
+                <p><span class="abundance-phrase">WITH IMMEDIATE EFFECT NOW</span>, WHAT IS LOOSED IS LOOSED! WHAT IS
+                    HEALED IS HEALED! WHAT IS BLESSED IS BLESSED! ABUNDANCE HAS COME TO STAY!</p>
+
+                <div class="seal-signature">
+                    DECREED BY KISAKYE PAUL (PRIEST & KING IN CHRIST)<br>
+                    FOR MY WIFE TEDDY NETTUGU, MY SON MAGEZI JOSHUA & OUR BLOODLINE.<br>
+                    SEALED IN THE POWERFUL PRECIOUS BLOOD OF JESUS CHRIST.<br>
+                    IN THE MIGHTY, VICTORIOUS, AND UNMATCHED NAME OF JESUS CHRIST.
+                </div>
+
+                <div class="amen-text">AMEN! AMEN! AMEN!</div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('theme-btn');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                btn.innerHTML = '🌙 Dark Mode';
+            } else {
+                btn.innerHTML = '☀️ Light Mode';
+            }
+        }
+    </script>
+</body>
+
+</html>

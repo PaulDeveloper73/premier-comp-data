@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia & Family — Deliverance, Healing & Restoration Prayer</title>
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --accent: #b91c1c;
+            --accent-gold: #b45309;
+            --border: #e2e8f0;
+            --header-bg: #1e293b;
+            --header-text: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0b0f19;
+            --bg-card: #111827;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent: #ef4444;
+            --accent-gold: #f59e0b;
+            --border: #1f2937;
+            --header-bg: #030712;
+            --header-text: #f9fafb;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 24px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .main-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 12px;
+        }
+
+        .target-box {
+            background-color: var(--bg-primary);
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .target-box strong {
+            color: var(--accent-gold);
+        }
+
+        .prayer-section {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .prayer-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin: 16px 0 8px 0;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        ul {
+            margin: 12px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .warfare-alert {
+            background-color: rgba(239, 68, 68, 0.08);
+            border: 1px solid var(--accent);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+
+        .amen-box {
+            text-align: center;
+            padding: 24px;
+            background-color: var(--bg-primary);
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-top: 24px;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-title">DELIVERANCE & RESTORATION PRAYER</div>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+                <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-card">
+            <h1>OLIVIA AND FAMILY — DEEP PRAYER OF DELIVERANCE, HEALING, FINANCIAL RESTORATION AND PERMANENT BREAKING OF
+                DESTRUCTIVE FAMILY PATTERNS</h1>
+
+            <div class="target-box">
+                <p><strong>Primary Target:</strong> OLIVIA — my firstborn sister</p>
+                <p><strong>Secondary Coverage:</strong> My sisters, brothers, wife, children, grandchildren, future
+                    descendants, and the entire family bloodline</p>
+                <p><strong>Authority:</strong> In the mighty name of Jesus Christ</p>
+            </div>
+
+            <!-- SECTION 1 -->
+            <div class="prayer-section">
+                <h2>1. ENTERING THE PRESENCE OF THE ALMIGHTY GOD</h2>
+                <p>My Father, Almighty God, Creator of heaven and earth, I come before You in the mighty name of Jesus
+                    Christ.</p>
+                <p>I take my position in Christ. According to Ephesians 2:6, I acknowledge that You have raised us up
+                    with Christ and seated us with Him in heavenly places. According to Colossians 3:3, my life is
+                    hidden with Christ in God.</p>
+                <p>Therefore, Father, I approach You through Jesus Christ. I do not approach You in my own
+                    righteousness; I approach You through Your mercy, through the finished work of Jesus Christ, through
+                    repentance, and through faith.</p>
+                <p>Father, I worship You. I adore You. I magnify You. You are Jehovah Jireh, Jehovah Rapha, Jehovah
+                    Nissi, Jehovah Gibbor.</p>
+                <ul>
+                    <li>No sickness is greater than You.</li>
+                    <li>No poverty is greater than You.</li>
+                    <li>No family problem is greater than You.</li>
+                    <li>No financial loss is greater than You.</li>
+                    <li>No diagnosis is greater than You.</li>
+                    <li>No destructive family pattern is greater than Your power to transform us.</li>
+                </ul>
+                <p>Let all glory, honor, dominion, and praise belong to You now and forever.</p>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="prayer-section">
+                <h2>2. OLIVIA — THE PRIMARY TARGET OF THIS PRAYER</h2>
+                <p>Father, today I deliberately place Olivia, my firstborn sister, before Your throne. Look upon Olivia
+                    with mercy.</p>
+                <p>You know her entire life, her childhood, her relationships, her marriages, her divorces, her
+                    children, every pregnancy, every financial crisis, every sickness, every hospital visit, every night
+                    of tears, every unpayable bill, every disappointment, and every secret burden.</p>
+                <p>I bring her before You intentionally: her health, her finances, her children, her emotional
+                    wellbeing, her relationships, her future, and her work.</p>
+                <p>With immediate effect now, Father, let Your mercy begin to operate in every area of Olivia's life
+                    that requires Your intervention.</p>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="prayer-section">
+                <h2>3. REPENTANCE BEFORE THE DESTRUCTION OF DESTRUCTIVE PATTERNS</h2>
+                <p>My Father, before I ask You to remove anything, I repent. According to Psalm 51, have mercy upon me,
+                    O God. Wash me thoroughly, cleanse me, create in me a clean heart, and renew a right spirit within
+                    me.</p>
+                <p>According to 1 John 1:9, I confess my sins and ask You to forgive and cleanse me. According to Isaiah
+                    1:18, wash away our scarlet sins. According to Psalm 103:3, forgive our iniquities and bring
+                    healing.</p>
+            </div>
+
+            <!-- SECTION 4 -->
+            <div class="prayer-section">
+                <h2>4. SPECIFIC REPENTANCE FOR MY OWN SEXUAL SIN</h2>
+                <p>Father, I specifically repent for my premarital fornication with Teddy Nettugu, my wife. I confess
+                    it. I do not excuse it, justify it, or hide it. Father, forgive me. Forgive Teddy. Have mercy upon
+                    our marriage and family.</p>
+                <p>And concerning Magezi Joshua, whom we conceived during that period, I reject shame and condemnation
+                    over his life. Joshua is a human life created by You. Let no circumstance surrounding his conception
+                    become a sentence over his future. Let him walk in righteousness, know Christ, be protected, and
+                    bring glory to You.</p>
+            </div>
+
+            <!-- SECTION 5 -->
+            <div class="prayer-section">
+                <h2>5. REPENTANCE FOR OLIVIA AND OUR FAMILY</h2>
+                <p>Father, I repent for every known sin within our family: fornication, adultery, sexual immorality,
+                    hatred, bitterness, unforgiveness, violence, dishonesty, theft, fraud, greed, corruption,
+                    drunkenness, destructive addictions, occult practices, idolatry, false worship, pride, manipulation,
+                    and oppression.</p>
+                <p>Where there has been sexual sin, establish purity. Where there has been hatred, establish love. Where
+                    there has been financial irresponsibility, establish wisdom. Where there has been false worship,
+                    establish wholehearted worship of Jesus Christ.</p>
+            </div>
+
+            <!-- SECTION 6 -->
+            <div class="prayer-section">
+                <h2>6. REPENTANCE CONCERNING OUR FAMILY HISTORY</h2>
+                <p>Father, I bring the history of our family associated with Mr. Buyinza Patrick and later Joy Mwesigwa
+                    before You. You know every generation, ancestor, covenant, and secret.</p>
+                <p>Father, have mercy upon us. Where destructive patterns have passed from one generation to another,
+                    let them stop. Where marriages have repeatedly failed, establish wisdom and faithfulness. Where
+                    money has repeatedly disappeared, establish stewardship. Where sickness has repeatedly occurred,
+                    establish divine healing.</p>
+            </div>
+
+            <!-- SECTION 7 -->
+            <div class="prayer-section">
+                <h2>7. THE FINANCIAL LOSS ALTAR — EXTREMELY SPECIFIC PRAYER</h2>
+                <p>Father, I focus specifically on the repeated financial losses affecting Olivia and our family. I
+                    expose and target every financial leakage:</p>
+                <ul>
+                    <li>Unnecessary medical expenses caused by untreated or poorly managed illness.</li>
+                    <li>Repeated emergency expenses and sudden liabilities.</li>
+                    <li>Impulsive purchases, destructive debt, fraud, scams, and financial manipulation.</li>
+                    <li>Dishonest business partners, bad investments, and unrecovered loans.</li>
+                    <li>Money disappearing without accountability (the bag with holes).</li>
+                </ul>
+                <div class="warfare-alert">
+                    <p><strong>Command of Destruction:</strong> In the mighty name of Jesus Christ, I release Holy
+                        Spirit Fire and divine thunderbolts against every spiritual altar, demonic vault, witchcraft
+                        pot, or ancestral covenant stealing money from Olivia and our family! I command these altars to
+                        catch fire, shatter into powder, and be completely incinerated now!</p>
+                    <p>According to <strong>Nahum 1:9</strong>, <em>affliction shall not rise up a second time!</em>
+                        Every financial-vampire spirit and spirit of poverty is permanently destroyed, never to arise
+                        again in our bloodline forever, with <strong>immediate effect now!</strong></p>
+                </div>
+            </div>
+
+            <!-- SECTION 8 -->
+            <div class="prayer-section">
+                <h2>8. "HIDDEN ALTAR STEALING OUR MONEY" — RENUNCIATION AND DESTRUCTION</h2>
+                <p>Father, concerning every spiritual concern represented by the phrase "hidden altar stealing our
+                    money," I place it before You. I renounce every form of idolatry, occultism, false worship, or
+                    covenants contrary to Jesus Christ.</p>
+                <p>Holy Spirit Fire, expose it! Holy Spirit Fire, purify it! Holy Spirit Fire, destroy its influence!
+                    Let wasted money stop, fraudulent arrangements stop, financial ignorance stop, and legitimate
+                    wealth-building begin with immediate effect now.</p>
+            </div>
+
+            <!-- SECTION 9 -->
+            <div class="prayer-section">
+                <h2>9. THE SICKNESS / HEALTH DESTRUCTION PRAYER — ANATOMICAL SPECIFICITY</h2>
+                <p>Father, I target specific anatomical systems and physical conditions affecting Olivia or members of
+                    our family:</p>
+
+                <h3>A. Blood & Circulatory Systems</h3>
+                <p>HIV/AIDS, viral loads, bacterial infections, leukemia, anemia, abnormal clotting, hypertension,
+                    arterial blockages, and stroke risks. <em>By the blood of Jesus, I command every virus and pathogen
+                        to die at the cellular level! Blood pressure, stabilize to 120/80!</em></p>
+
+                <h3>B. Reproductive & Endocrine Systems</h3>
+                <p>Uterine fibroids, ovarian cysts, hormonal imbalances, tubal blockages, and reproductive conditions.
+                    <em>Holy Spirit Fire, burn out every fibroid, cyst, and abnormal tissue growth! Hormones,
+                        normalize!</em></p>
+
+                <h3>C. Gastrointestinal & Digestive Systems</h3>
+                <p>Peptic ulcers, H. pylori, acid reflux, stomach lining erosions, chronic gastritis, and liver disease.
+                    <em>Stomach lining, be healed! Ulcerations, dry up instantly!</em></p>
+
+                <h3>D. Oncological & Autoimmune Disorders</h3>
+                <p>Cancerous cells, malignant or benign tumors, lupus, rheumatoid arthritis, and chronic fatigue.
+                    <em>Every mutated cell, be blasted by Holy Spirit Fire and withered to the roots!</em></p>
+
+                <h3>E. Systemic & Organ Health</h3>
+                <p>Diabetes, kidney disease, respiratory illnesses, asthma, chronic migraines, and neurological
+                    conditions. <em>Pancreas, produce pure insulin! Kidneys, filter blood perfectly! Lungs, receive
+                        clear oxygen!</em></p>
+            </div>
+
+            <!-- SECTION 10 -->
+            <div class="prayer-section">
+                <h2>10. THE "SICKNESS-MANUFACTURING ALTAR" — SPECIFIC RENUNCIATION</h2>
+                <p>Father, concerning what I describe as "sickness-manufacturing altars"—demonic laboratories or
+                    ancestral shrines manufacturing illness—I execute divine judgment.</p>
+                <div class="warfare-alert">
+                    <p>I call down fire from heaven upon every hidden altar manufacturing sickness for Olivia and our
+                        family! I shatter every demonic potion, witchcraft cauldron, and spirit-manifested disease! I
+                        decree these altars are burned to ashes, <strong>never to arise a second time forever</strong>,
+                        with <strong>immediate effect now!</strong></p>
+                </div>
+            </div>
+
+            <!-- SECTION 11 -->
+            <div class="prayer-section">
+                <h2>11. DESTROYING DESTRUCTIVE CYCLES — NOT PEOPLE</h2>
+                <p>Father, I break and dismantle every satanic vicious cycle:</p>
+                <ul>
+                    <li>Sickness &rarr; Financial Loss &rarr; Poverty &rarr; Stress &rarr; Further Sickness.</li>
+                    <li>Relationship Conflict &rarr; Separation &rarr; Financial Instability &rarr; Emotional Distress.
+                    </li>
+                    <li>Income &rarr; Uncontrolled Spending &rarr; Shortage &rarr; Borrowing &rarr; Debt.</li>
+                </ul>
+                <p>Replace each cycle with health, stewardship, understanding, stability, and righteous transformation.
+                </p>
+            </div>
+
+            <!-- SECTION 12 -->
+            <div class="prayer-section">
+                <h2>12. PERMANENT BREAKING OF DESTRUCTIVE FAMILY PATTERNS</h2>
+                <p>Father, I pray concerning the entire bloodline: Olivia, her children, my sisters, my brothers, my
+                    wife, my children, future grandchildren, and generations yet unborn.</p>
+                <p>Let the destructive pattern stop with immediate effect now. Let the next generation receive wisdom,
+                    healthy relationships, financial education, proper healthcare, stewardship, and personal knowledge
+                    of Christ.</p>
+            </div>
+
+            <!-- SECTION 13 -->
+            <div class="prayer-section">
+                <h2>13. RENOUNCING JEZEBEL, MARINE/WATER-SPIRITS AND FALSE WORSHIP</h2>
+                <p>In the mighty name of Jesus Christ, I renounce every relationship, vow, or agreement with darkness.
+                    Concerning Jezebel or marine/water-spirit influences, I reject every associated practice.</p>
+                <p>I belong to Jesus Christ. My wife, children, Olivia, siblings, and future descendants belong to Jesus
+                    Christ!</p>
+            </div>
+
+            <!-- SECTION 14 -->
+            <div class="prayer-section">
+                <h2>14. NAMES, IDENTITY AND FUTURE GENERATIONS</h2>
+                <p>Father, I place our names and identities before You. Wherever our names have been associated with
+                    false worship or destructive practices, I renounce them. Establish our identity in Christ. Let no
+                    past sin become a prophecy over our children.</p>
+            </div>
+
+            <!-- SECTION 15 -->
+            <div class="prayer-section">
+                <h2>15. THREE IMPENETRABLE WALLS</h2>
+                <p><strong>WALL ONE — THE PRECIOUS BLOOD OF JESUS CHRIST:</strong> Redemption, forgiveness, and
+                    reconciliation.</p>
+                <p><strong>WALL TWO — THE WORD OF GOD:</strong> Governed by truth, wisdom, righteousness, and love.</p>
+                <p><strong>WALL THREE — THE HOLY SPIRIT:</strong> Holy Spirit Fire, purify our lives, burn away sinful
+                    patterns, and shield us from darkness.</p>
+            </div>
+
+            <!-- SECTION 16 -->
+            <div class="prayer-section">
+                <h2>16. FINAL DECLARATION OVER OLIVIA</h2>
+                <p>Father, I declare concerning Olivia: Her story is not finished. Her sickness, poverty, or past
+                    mistakes do not define her. Give Olivia a new beginning, divine health, wisdom, provision, emotional
+                    stability, sustainable income, and peace, with immediate effect now!</p>
+            </div>
+
+            <!-- SECTION 17 -->
+            <div class="prayer-section">
+                <h2>17. FINAL DECLARATIONS OVER FINANCES</h2>
+                <p>Let financial confusion become wisdom. Let waste become stewardship. Let bad investments be
+                    identified and legitimate opportunities recognized. Let Olivia's hands, my hands, my wife's hands,
+                    and my siblings' hands become productive with immediate effect now.</p>
+            </div>
+
+            <!-- SECTION 18 -->
+            <div class="prayer-section">
+                <h2>18. FINAL DECLARATIONS OVER HEALTH</h2>
+                <p>Let sickness be diagnosed accurately and healed. Let infections be treated. Let blood pressure
+                    stabilize, anemia be corrected, ulcers heal, fibroids dissolve, cancer be cured, and HIV/AIDS
+                    receive treatment and supernatural healing. Strength and peace are restored now!</p>
+            </div>
+
+            <!-- SECTION 19 -->
+            <div class="prayer-section">
+                <h2>19. FINAL PERMANENT DECLARATION OVER THE BLOODLINE</h2>
+                <p>Father, establish a new family pattern. Let the destructive patterns of the past end permanently.
+                    Where there was fornication, teach purity. Where there was poverty, teach stewardship. Where there
+                    was sickness, teach health. With immediate effect now, let a new pattern begin.</p>
+            </div>
+
+            <!-- SECTION 20 -->
+            <div class="prayer-section">
+                <h2>20. FINAL SEALING</h2>
+                <p>My Father, I place Olivia, her children, my wife, my children, my siblings, and future generations
+                    completely into Your hands. Holy Spirit Fire, lead us.</p>
+                <p>Let everything that needs to be destroyed be destroyed. Let everything that needs to be healed be
+                    healed. Let everything that needs to be restored be restored. Jesus Christ is Lord over our entire
+                    family forever!</p>
+
+                <div class="amen-box">
+                    IN THE MIGHTY NAME OF JESUS CHRIST.<br>
+                    AMEN. AMEN. AMEN.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+
+            const themeText = document.getElementById('themeText');
+            const themeIcon = document.getElementById('themeIcon');
+
+            if (newTheme === 'dark') {
+                themeText.innerText = 'Light Mode';
+                themeIcon.innerText = '☀️';
+            } else {
+                themeText.innerText = 'Dark Mode';
+                themeIcon.innerText = '🌙';
+            }
+        }
+    </script>
+</body>
+
+</html>

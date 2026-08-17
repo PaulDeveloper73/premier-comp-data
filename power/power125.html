@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia & Family — Deep Fire Prayer & Family Restoration Decree</title>
+    <style>
+        :root {
+            --bg-color: #070a12;
+            --card-bg: #0f172a;
+            --card-border: #1e293b;
+            --accent-gold: #fbbf24;
+            --accent-gold-glow: rgba(251, 191, 36, 0.15);
+            --accent-fire: #ef4444;
+            --accent-fire-glow: rgba(239, 68, 68, 0.15);
+            --accent-blood: #881337;
+            --accent-cyan: #38bdf8;
+            --accent-emerald: #34d399;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-serif: "Georgia", "Times New Roman", serif;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.8;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Action Toolbar */
+        .toolbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .print-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Header Card */
+        .header-card {
+            background: linear-gradient(135deg, #1e112a 0%, #0f172a 60%, #1e1b4b 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 16px;
+            padding: 38px 28px;
+            text-align: center;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 32px -8px rgba(245, 158, 11, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-fire), var(--accent-gold), var(--accent-fire));
+        }
+
+        .header-card h1 {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .header-subtitle {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .targets {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-left: 5px solid var(--accent-fire);
+            padding: 18px 22px;
+            margin-top: 24px;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .target-primary {
+            color: #fca5a5;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .target-secondary {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .authority-badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 18px -2px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.2s ease;
+        }
+
+        .section-card:hover {
+            border-color: #334155;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title span.badge {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #d97706 100%);
+            color: #000;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 900;
+            font-family: var(--font-sans);
+            flex-shrink: 0;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        /* Highlight Phrases */
+        .command-phrase {
+            color: #f87171;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .jesus-name {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        .blood-phrase {
+            color: #fda4af;
+            font-weight: 800;
+            background: rgba(136, 19, 55, 0.25);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+
+        .fire-phrase {
+            color: #fb923c;
+            font-weight: 800;
+            background: rgba(234, 88, 12, 0.25);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(251, 146, 60, 0.2);
+        }
+
+        /* Callouts & Lists */
+        .scripture-box {
+            background-color: #1e293b;
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #cbd5e1;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.02rem;
+        }
+
+        .decree-box {
+            background: rgba(136, 19, 55, 0.2);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            border-left: 4px solid var(--accent-fire);
+            padding: 18px 22px;
+            margin: 20px 0;
+            color: #fecdd3;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .surgical-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 18px 0;
+        }
+
+        .surgical-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        .surgical-list li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-fire);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Anatomical & Specific Grids */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .grid-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .grid-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cycle-box {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px dashed rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+
+        .cycle-box h5 {
+            color: #fca5a5;
+            font-size: 0.98rem;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        /* Wall Cards */
+        .wall-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .wall-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .wall-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Sealing Card */
+        .seal-card {
+            background: linear-gradient(135deg, var(--accent-blood) 0%, #450a0a 60%, #1e112a 100%);
+            border: 2px solid var(--accent-fire);
+            border-radius: 16px;
+            padding: 40px 28px;
+            text-align: center;
+            margin-top: 36px;
+            box-shadow: 0 12px 32px rgba(239, 68, 68, 0.25);
+        }
+
+        .seal-card h2 {
+            color: #ffffff;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .seal-card p {
+            color: #fecdd3;
+            font-size: 1.1rem;
+        }
+
+        .seal-signature {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-top: 24px;
+            padding: 16px;
+            border-top: 1px solid rgba(251, 191, 36, 0.3);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        .amen-text {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            font-weight: 900;
+            margin-top: 18px;
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Print Override */
+        @media print {
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+                padding: 0;
+            }
+
+            .toolbar {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .section-card,
+            .header-card,
+            .seal-card,
+            .grid-card,
+            .wall-card,
+            .cycle-box {
+                background: #fff !important;
+                border: 1px solid #000 !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+            .header-card h1,
+            .section-title,
+            .seal-card h2,
+            .grid-card h4,
+            .wall-card h4,
+            .cycle-box h5 {
+                color: #000 !important;
+            }
+
+            p,
+            li,
+            .scripture-box,
+            .decree-box,
+            .target-secondary {
+                color: #000 !important;
+                background: transparent !important;
+                border-color: #ccc !important;
+            }
+
+            .command-phrase,
+            .jesus-name,
+            .blood-phrase,
+            .fire-phrase {
+                color: #000 !important;
+                font-weight: bold;
+                text-decoration: underline;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            .section-title span.badge {
+                background: #000 !important;
+                color: #fff !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="toolbar">
+            <button class="print-btn" onclick="window.print()">🖨️ Print Prayer Document</button>
+        </div>
+
+        <header class="header-card">
+            <h1>OLIVIA AND FAMILY — DEEP PRAYER OF DELIVERANCE, HEALING, FINANCIAL RESTORATION & PERMANENT BREAKING OF
+                DESTRUCTIVE FAMILY PATTERNS</h1>
+            <div class="header-subtitle">A Surgical Spiritual Warfare, Deep Repentance & Prophetic Intercessory Decree
+            </div>
+
+            <div class="targets">
+                <div class="target-primary">PRIMARY TARGET: Sister OLIVIA (Firstborn Sister)</div>
+                <div class="target-secondary">
+                    <strong>SECONDARY COVERAGE:</strong> All Sisters, Brothers, Wife (Teddy Nettugu), Children
+                    (including Magezi Joshua), Grandchildren, Future Descendants, Bloodline of Mr. Buyinza Patrick &
+                    Late Joy Mwesigwa, and Entire Family Bloodline.
+                </div>
+                <div class="authority-badge">AUTHORITY: IN THE MIGHTY NAME OF JESUS CHRIST</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- PART 1 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">1</span> TAKING MY POSITION & DIVINE ADORATION</h2>
+                <p><strong>My Father, Almighty God</strong>, Creator of the heavens and the earth, the Ancient of Days,
+                    I enter Your presence today solely through the rent veil, washed in <span class="blood-phrase">the
+                        powerful precious Blood of Jesus Christ</span>.</p>
+
+                <p>I take my legal spiritual standing directly from Your holy Word in <span
+                        class="scripture-box">Ephesians 2:6 — "And God raised us up with Christ and seated us with Him
+                        in the heavenly realms in Christ Jesus"</span> and <span class="scripture-box">Colossians 3:3 —
+                        "For I am dead, and my life is hidden with Christ in God."</span></p>
+
+                <p>Therefore, Father, I approach You through Jesus Christ. I do not approach You in my own
+                    righteousness; I approach You through Your mercy, through the finished work of Jesus Christ, through
+                    repentance, and through faith.</p>
+
+                <p>From this high heavenly seat, far above all principalities, powers, rulers of darkness, and spiritual
+                    forces of wickedness, I worship You. <span class="jesus-name">My Father</span>, You are
+                    <strong>Jehovah Jireh, Jehovah Rapha, Jehovah Nissi, Jehovah Gibbor</strong>! You are glorious,
+                    holy, righteous, infinite in mercy, and absolute in power! I exalt Your Holy Name. You are the God
+                    who answers by fire, the God who raises the poor out of the dust, and the God who heals all our
+                    diseases.
+                </p>
+
+                <div class="decree-box">
+                    "No sickness is greater than You! No poverty is greater than You! No family problem is greater than
+                    You! No financial loss is greater than You! No diagnosis is greater than You! No destructive family
+                    pattern is greater than Your power to transform us! Let all glory, honor, dominion, and praise
+                    belong to You now and forever!"
+                </div>
+            </section>
+
+            <!-- PART 2 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">2</span> OLIVIA — THE PRIMARY TARGET OF SURGICAL
+                    INTERCESSION</h2>
+                <p><span class="jesus-name">In the mighty name of Jesus Christ</span>, I deliberately place my beloved
+                    firstborn sister, <strong>OLIVIA</strong>, directly onto the altar of Your mercy and before Your
+                    Majestic Throne.</p>
+
+                <p>Father, You know her entire life: her childhood, her relationships, her marriages, her divorces, her
+                    children, every pregnancy, every financial crisis, every sickness, every hospital visit, every night
+                    of tears, every unpayable bill, every disappointment, and every secret burden.</p>
+
+                <p>I bring her before You intentionally: her health, her finances, her children, her emotional
+                    wellbeing, her relationships, her future, and her work:</p>
+
+                <ul class="surgical-list">
+                    <li><strong>Sickness & Health:</strong> <span class="command-phrase">With immediate effect
+                            now</span>, I command the relentless daily siege of sickness and bodily pain off Olivia's
+                        physical frame. Every root of infirmity eating her body is consumed by <span
+                            class="fire-phrase">Holy Spirit Fire</span>!</li>
+                    <li><strong>Poverty & Lack:</strong> <span class="command-phrase">With immediate effect now</span>,
+                        I break the curse of poverty that sits upon her dining table! I decree that starvation,
+                        embarrassment, debt, and total lack will no longer govern her household.</li>
+                    <li><strong>Marital & Relationship Restoration:</strong> <span class="jesus-name">In the mighty name
+                            of Jesus</span>, I target the demonic spirits of miscommunication, irrational anger, strife,
+                        and division brought by the devil that caused her holy matrimony wedding to collapse into
+                        divorce. I silence every voice of accusation that drove her and her former husband apart. I
+                        speak healing, emotional restoration, and spiritual sanity into her life.</li>
+                    <li><strong>Single Motherhood & Children:</strong> I bring all the children she has borne from
+                        different relationships before You. <span class="command-phrase">With immediate effect
+                            now</span>, let the spirit of rejection, shame, single-motherhood oppression, and
+                        generational instability be severed from her and every single child!</li>
+                </ul>
+
+                <p><span class="command-phrase">With immediate effect now</span>, Father, let Your mercy begin to
+                    operate in every area of Olivia's life that requires Your divine intervention!</p>
+            </section>
+
+            <!-- PART 3 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">3</span> DEEP SURGICAL REPENTANCE & ANCESTRAL CLEANSING
+                </h2>
+                <p>My Father, before I ask You to remove anything, I stand in the gap as a surgeon doing a live
+                    spiritual operation, piece by piece, going back through my entire bloodline to the youngest
+                    generation to REPENT.</p>
+
+                <p>According to <em>Psalm 51</em>, have mercy upon me, O God. Wash me thoroughly, cleanse me, create in
+                    me a clean heart, and renew a right spirit within me. According to <em>1 John 1:9</em>, I confess my
+                    sins and ask You to forgive and cleanse us. According to <em>Isaiah 1:18</em>, wash away our scarlet
+                    sins. According to <em>Psalm 103:3</em>, forgive our iniquities and bring healing. According to
+                    <em>Isaiah 43:25</em>, blot out our transgressions for Your own sake!
+                </p>
+
+                <p><strong>Personal Sexual Sin Repentance:</strong> Father, I specifically confess and deeply repent for
+                    my premarital fornication with my wife, <strong>Teddy Nettugu</strong>. I confess it openly. I do
+                    not excuse it, justify it, or hide it. Father, forgive me! Forgive Teddy! Have mercy upon our
+                    marriage and family! And concerning <strong>Magezi Joshua</strong>, whom we conceived during that
+                    period, I reject shame and condemnation over his life. Joshua is a human life created by You. Let no
+                    circumstance surrounding his conception become a sentence over his future. Let him walk in
+                    righteousness, know Christ, be protected, and bring glory to You!</p>
+
+                <p><strong>Bloodline & Ancestral Repentance:</strong> <span class="jesus-name">In the mighty name of
+                        Jesus</span>, I repent for Olivia and for our entire family line originating from <strong>Mr.
+                        Buyinza Patrick</strong> and our late mother <strong>Joy Mwesigwa</strong> (who died of cancer).
+                    I confess and repent for all known ancestral sins, iniquities, transgressions, Galatians 5:19-20
+                    works of the flesh, fornication, adultery, sexual immorality, hatred, bitterness, unforgiveness,
+                    violence, dishonesty, theft, fraud, greed, corruption, drunkenness, destructive addictions, occult
+                    practices, idolatry, false worship, pride, manipulation, and oppression:</p>
+
+                <div class="decree-box">
+                    "We compromised God's integrity! We illegally gave the enemy an inch, and he illegally took
+                    thousands of miles! We opened spiritual gaps that allowed legal rights for marriages to be
+                    destroyed, anger to rule, money to vanish, and terminal diseases to reign."
+                </div>
+
+                <p>Where there has been sexual sin, establish purity. Where there has been hatred, establish love. Where
+                    there has been financial irresponsibility, establish wisdom. Where there has been false worship,
+                    establish wholehearted worship of Jesus Christ!</p>
+
+                <p><strong>Territorial Repentance:</strong> I also extend surgical repentance to the entire territory
+                    and geographical area where I stay and live. I repent for the bloodshed, land pollution, idol
+                    worship, fornication, and wickedness committed on this soil. <span class="command-phrase">With
+                        immediate effect now</span>, let <span class="blood-phrase">the powerful precious Blood of Jesus
+                        Christ</span> sanitize our bloodline and clean the land beneath our feet!</p>
+            </section>
+
+            <!-- PART 4 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">4</span> EXPOSING & DESTROYING FINANCIAL LOSS & HIDDEN
+                    ALTARS</h2>
+                <p><span class="jesus-name">My Father</span>, Your Word says in <em>2 Chronicles 7:14-18</em> that when
+                    we humble ourselves and pray, You will heal our land. Today I focus specifically on the repeated
+                    financial losses affecting Olivia and our family, exposing and targeting every financial leakage:
+                </p>
+
+                <ul class="surgical-list">
+                    <li>Unnecessary medical expenses caused by untreated or poorly managed illness.</li>
+                    <li>Repeated emergency expenses and sudden unexpected liabilities.</li>
+                    <li>Impulsive purchases, destructive debt, fraud, scams, and financial manipulation.</li>
+                    <li>Dishonest business partners, bad investments, and unrecovered loans.</li>
+                    <li>Money disappearing without accountability (the bag with holes).</li>
+                </ul>
+
+                <p><span class="command-phrase">With immediate effect now</span>, I release <span
+                        class="fire-phrase">Holy Spirit Fire</span> and divine thunderbolts against every spiritual
+                    altar, demonic vault, witchcraft pot, or ancestral covenant stealing money from Olivia and our
+                    family! I command these altars to catch fire, shatter into powder, and be completely incinerated
+                    now!</p>
+
+                <p>According to <strong>Nahum 1:9</strong>, <em>"Affliction shall not rise up a second time!"</em> Every
+                    financial-vampire spirit and spirit of poverty is permanently destroyed, never to arise again in our
+                    bloodline forever!</p>
+
+                <p>Concerning every spiritual concern represented by the phrase <strong>"hidden altar stealing our
+                        money,"</strong> I place it before You. I renounce every form of idolatry, occultism, false
+                    worship, or covenants contrary to Jesus Christ. <span class="fire-phrase">Holy Spirit Fire</span>,
+                    expose it! <span class="fire-phrase">Holy Spirit Fire</span>, purify it! <span
+                        class="fire-phrase">Holy Spirit Fire</span>, destroy its influence! Let wasted money stop,
+                    fraudulent arrangements stop, financial ignorance stop, and legitimate wealth-building begin across
+                    our bloodline!</p>
+            </section>
+
+            <!-- PART 5 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">5</span> SURGICAL COMMAND AGAINST DISEASE & ANATOMICAL
+                    INFIRMITIES</h2>
+                <p><span class="jesus-name">In the mighty name of Jesus Christ</span>, I take spiritual scalpels and
+                    perform a precise operation against every sickness tormenting Olivia, myself, my wife Teddy, my
+                    children, my siblings, and our entire bloodline!</p>
+
+                <p><span class="command-phrase">With immediate effect now</span>, I target specific anatomical systems
+                    and physical conditions, commanding every disease spirit to LOOSE ITS HOLD and DIE:</p>
+
+                <div class="grid-container">
+                    <div class="grid-card">
+                        <h4>A. Blood & Circulatory</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">HIV/AIDS, viral loads, cellular infections,
+                            bacterial infections, leukemia, anemia, abnormal clotting, hypertension, arterial blockages,
+                            and stroke risks.<br><br><strong>Command:</strong> By <span class="blood-phrase">the blood
+                                of Jesus</span>, every virus and pathogen die at the cellular level! Blood pressure,
+                            STABILIZE TO 120/80!</p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>B. Reproductive & Endocrine</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Uterine fibroids, ovarian cysts, hormonal
+                            imbalances, tubal blockages, and reproductive conditions.<br><br><strong>Command:</strong>
+                            <span class="fire-phrase">Holy Spirit Fire</span>, burn out every fibroid, cyst, and
+                            abnormal tissue growth! Hormones, NORMALIZE NOW!
+                        </p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>C. Gastrointestinal & Digestive</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Peptic ulcers, H. pylori, acid reflux, stomach
+                            lining erosions, chronic gastritis, and liver disease.<br><br><strong>Command:</strong>
+                            Stomach lining, BE HEALED! Ulcerations, DRY UP INSTANTLY BY FIRE!</p>
+                    </div>
+
+                    <div class="grid-card">
+                        <h4>D. Oncological & Autoimmune</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Cancerous cells, malignant or benign tumors,
+                            lupus, rheumatoid arthritis, and chronic fatigue (addressing the cancer spirit that took
+                            late mother Joy Mwesigwa).<br><br><strong>Command:</strong> Every mutated cell, BE BLASTED
+                            BY HOLY SPIRIT FIRE AND WITHERED TO ROOTS!</p>
+                    </div>
+
+                    <div class="grid-card" style="grid-column: 1 / -1;">
+                        <h4>E. Systemic & Organ Health</h4>
+                        <p style="font-size:0.95rem; margin-bottom:0;">Diabetes, kidney disease, respiratory illnesses,
+                            asthma, chronic migraines, and neurological conditions.<br><br><strong>Command:</strong>
+                            Pancreas, produce pure insulin! Kidneys, filter blood perfectly! Lungs, receive clear
+                            oxygen! Every organ, FUNCTION IN DIVINE PERFECTION!</p>
+                    </div>
+                </div>
+
+                <p><strong>Destruction of "Sickness-Manufacturing Altars":</strong> Father, concerning demonic
+                    laboratories or ancestral shrines manufacturing illness for Olivia and our family, I execute divine
+                    judgment! I call down fire from heaven upon every hidden altar manufacturing sickness! I shatter
+                    every demonic potion, witchcraft cauldron, and spirit-manifested disease! I decree these altars are
+                    burned to ashes, <strong>never to arise a second time forever, with immediate effect now!</strong>
+                </p>
+            </section>
+
+            <!-- PART 6 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">6</span> BREAKING DESTRUCTIVE CYCLES & FAMILY PATTERNS
+                </h2>
+                <p>Father, I break and dismantle every satanic vicious cycle operating in our bloodline:</p>
+
+                <div class="cycle-box">
+                    <h5>CYCLE 1: Sickness → Financial Loss → Poverty → Stress → Further Sickness</h5>
+                    <p style="margin-bottom:0; font-size:0.95rem;"><strong>COMMAND:</strong> Broken by <span
+                            class="fire-phrase">Holy Spirit Fire</span>! Replaced with divine health, financial wisdom,
+                        peace, and abundance!</p>
+                </div>
+
+                <div class="cycle-box">
+                    <h5>CYCLE 2: Relationship Conflict → Separation → Financial Instability → Emotional Distress</h5>
+                    <p style="margin-bottom:0; font-size:0.95rem;"><strong>COMMAND:</strong> Broken by <span
+                            class="jesus-name">the Name of Jesus</span>! Replaced with understanding, godly wisdom,
+                        stability, and emotional sanity!</p>
+                </div>
+
+                <div class="cycle-box">
+                    <h5>CYCLE 3: Income → Uncontrolled Spending → Shortage → Borrowing → Debt</h5>
+                    <p style="margin-bottom:0; font-size:0.95rem;"><strong>COMMAND:</strong> Broken with <span
+                            class="command-phrase">immediate effect now</span>! Replaced with righteous stewardship,
+                        savings, investments, and financial freedom!</p>
+                </div>
+
+                <p>Father, I pray concerning the entire bloodline: Olivia, her children, my sisters, my brothers, my
+                    wife, my children, future grandchildren, and generations yet unborn. Let the destructive pattern
+                    stop <span class="command-phrase">with immediate effect now</span>! Let the next generation receive
+                    wisdom, healthy relationships, financial education, proper healthcare, stewardship, and personal
+                    knowledge of Christ.</p>
+            </section>
+
+            <!-- PART 7 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">7</span> RENUNCIATION OF JEZEBEL, MARINE SPIRITS & FALSE
+                    WORSHIP</h2>
+                <p><span class="jesus-name">In the mighty name of Jesus Christ</span>, I execute a formal, irrevocable
+                    spiritual divorce and severance from dark ancestral covenants!</p>
+
+                <div class="decree-box">
+                    "I divorce the spirit of Jezebel! I divorce the Marine spirits (water spirits, Queen of Heaven)! I
+                    disconnect, sever, and cut off every relationship, agreement, vow, alliance, and covenant made
+                    knowingly or unknowingly with these demonic powers in my bloodline!"
+                </div>
+
+                <p><span class="command-phrase">With immediate effect now</span>, I command that my name, my DNA, the
+                    name and DNA of my wife Teddy Nettugu, our children (including Magezi Joshua), my sister Olivia, her
+                    children, my siblings, and our unborn generations be <strong>REMOVED, ERASED, AND UNBURIED</strong>
+                    from every marine altar, graveyard altar, forest altar, or family shrine where our destinies were
+                    buried!</p>
+
+                <p>Where our names have been associated with false worship or destructive practices, I renounce them.
+                    Establish our identity in Christ! I declare our names written exclusively in the Lamb's Book of
+                    Life!</p>
+            </section>
+
+            <!-- PART 8 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">8</span> ACTIVATION OF THE THREE IMPENETRABLE WALLS</h2>
+                <p><span class="jesus-name">My Father</span>, I now construct and activate the three impenetrable walls
+                    of divine protection around Olivia, myself, my wife, our children, our siblings, and our finances:
+                </p>
+
+                <div class="wall-grid">
+                    <div class="wall-card">
+                        <h4>WALL 1: THE PRECIOUS BLOOD OF JESUS CHRIST</h4>
+                        <p style="margin-bottom:0;">I dip Olivia and our entire family into <span
+                                class="blood-phrase">the powerful precious Blood of Jesus Christ</span>. Redemption,
+                            forgiveness, legal defense, and total protection! No weapon formed against us shall prosper!
+                        </p>
+                    </div>
+
+                    <div class="wall-card">
+                        <h4>WALL 2: THE WORD OF GOD & HOLY SPIRIT FIRE</h4>
+                        <p style="margin-bottom:0;">Governed by divine truth, wisdom, righteousness, and love. I
+                            activate Zechariah 2:5 around our homes, bodies, and finances—a wall of <span
+                                class="fire-phrase">Holy Spirit Fire</span> that purifies our lives, burns away sinful
+                            patterns, and incinerates every demonic intruder!</p>
+                    </div>
+
+                    <div class="wall-card">
+                        <h4>WALL 3: THE ANGELIC HEAVENLY GUARDS</h4>
+                        <p style="margin-bottom:0;">According to Psalm 91, I dispatch legions of warring angels to
+                            encamp around Olivia and our households, keeping us safe in all our ways, blocking sickness,
+                            and securing our wealth!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PART 9 -->
+            <section class="section-card">
+                <h2 class="section-title"><span class="badge">9</span> PROPHETIC DECLARATIONS OF RESTORATION</h2>
+                <p><strong>Over Olivia:</strong> Father, I declare concerning Olivia: Her story is not finished! Her
+                    sickness, poverty, or past mistakes do not define her. Give Olivia a new beginning, divine health,
+                    wisdom, provision, emotional stability, sustainable income, and peace, <span
+                        class="command-phrase">with immediate effect now!</span></p>
+
+                <p><strong>Over Finances:</strong> Let financial confusion become wisdom! Let waste become stewardship!
+                    Let bad investments be identified and legitimate opportunities recognized! Let Olivia's hands, my
+                    hands, my wife's hands, and my siblings' hands become productive <span class="command-phrase">with
+                        immediate effect now!</span></p>
+
+                <p><strong>Over Health:</strong> Let sickness be diagnosed accurately and healed! Let infections be
+                    treated! Let blood pressure stabilize to 120/80, anemia be corrected, ulcers heal, fibroids
+                    dissolve, cancer be cured, and HIV/AIDS receive divine treatment and supernatural healing! Strength
+                    and peace are restored now!</p>
+
+                <p><strong>Over the Bloodline:</strong> Father, establish a new family pattern. Let the destructive
+                    patterns of the past end permanently. Where there was fornication, teach purity. Where there was
+                    poverty, teach stewardship. Where there was sickness, teach health. <span
+                        class="command-phrase">With immediate effect now</span>, let a new pattern begin!</p>
+            </section>
+
+            <!-- PART 10 / SEALING -->
+            <footer class="seal-card">
+                <h2>FINAL PROPHETIC DECLARATION & SEALING</h2>
+                <p>My Father, I place Olivia, her children, my wife Teddy Nettugu, my children (including Magezi
+                    Joshua), my siblings, and future generations completely into Your hands.</p>
+                <p><span class="command-phrase" style="color: #fff;">WITH IMMEDIATE EFFECT NOW</span>, let everything
+                    that needs to be destroyed be destroyed by Holy Spirit Fire! Let everything that needs to be healed
+                    be healed! Let everything that needs to be restored be restored!</p>
+                <p>Jesus Christ is Lord over our entire family forever!</p>
+
+                <div class="seal-signature">
+                    SEALED BY THE PRECIOUS BLOOD OF JESUS CHRIST.<br>
+                    COVERED BY HOLY SPIRIT FIRE.<br>
+                    IN THE MIGHTY NAME OF JESUS CHRIST.
+                </div>
+
+                <div class="amen-text">AMEN! AMEN! AMEN!</div>
+            </footer>
+        </main>
+    </div>
+
+</body>
+
+</html>
