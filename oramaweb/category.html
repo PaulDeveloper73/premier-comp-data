@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Categories | Orama Distributer Limited - Kampala, Uganda</title>
+    <meta name="description"
+        content="Explore Orama Distributer Limited's categories: Genuine IT equipment, Kids & STEM toys, Premium Korean stationery, Car accessories, and Home appliances in Uganda.">
+    <link rel="canonical" href="https://oramadistributor.com/categories">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://oramadistributor.com/favicon.png">
+
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        orama: {
+                            navy: '#161743',
+                            deep: '#0F1033',
+                            red: '#E52E2A',
+                            redhover: '#C8201C',
+                            lightbg: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+
+        function sendToWhatsApp(categoryName = 'General Catalog') {
+            const targetPhone = '256706647512';
+            const message = encodeURIComponent(`Hello Orama Distributer, I would like to inquire about products in your category: ${categoryName}`);
+            window.open(`https://wa.me/${targetPhone}?text=${message}`, '_blank');
+        }
+    </script>
+    <style>
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(22, 23, 67, 0.08) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-orama-lightbg text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-orama-red selection:text-white">
+
+    <!-- TOP BAR -->
+    <div class="bg-orama-deep text-white py-2 text-xs border-b border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span
+                    class="bg-orama-red text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">Licensed
+                    Ugandan Distributor</span>
+                <span class="text-slate-300">Industrial Area, Namuwongo, Kampala</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white transition"><i
+                        class="fa-solid fa-phone text-orama-red me-1"></i> +256 706 647512</a>
+                <span class="hidden sm:inline">•</span>
+                <a href="mailto:info@oramadistributor.com" class="hover:text-white transition hidden sm:inline"><i
+                        class="fa-regular fa-envelope text-orama-red me-1"></i> info@oramadistributor.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200/80 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="bg-white px-3 py-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center">
+                    <img src="https://oramadistributor.com/logo.png" alt="Orama Distributer Limited"
+                        class="h-8 sm:h-10 w-auto object-contain"
+                        onerror="this.onerror=null; this.replaceWith(document.getElementById('nav-logo-fallback').content.cloneNode(true));" />
+                    <template id="nav-logo-fallback">
+                        <span
+                            class="text-orama-navy font-black text-2xl tracking-tighter lowercase flex items-baseline">
+                            o<span class="text-orama-red -ml-0.5">r</span>ama
+                        </span>
+                    </template>
+                </div>
+                <div class="hidden lg:block border-l border-slate-300 pl-3">
+                    <p class="text-[10px] font-bold tracking-widest text-orama-navy uppercase leading-none">Global
+                        Products</p>
+                    <p class="text-[10px] font-bold tracking-widest text-orama-red uppercase leading-tight">Trusted
+                        Distribution</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-700">
+                <a href="/" class="hover:text-orama-red transition">Home</a>
+                <a href="/about" class="hover:text-orama-red transition">About Us</a>
+                <a href="/categories" class="text-orama-red font-bold">Categories</a>
+                <a href="/#contact" class="hover:text-orama-red transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="sendToWhatsApp('Product Catalog Inquiries')"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition shadow-md shadow-emerald-600/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Order via WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO SECTION -->
+    <section class="relative bg-dot-pattern py-14 lg:py-20 border-b border-slate-200/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+            <span
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orama-navy/10 border border-orama-navy/20 text-orama-navy text-xs font-bold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-boxes-stacked text-orama-red"></i> 100% Authentic Guaranteed Products
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-orama-navy leading-tight tracking-tight mb-4">
+                Our Product Distribution Categories
+            </h1>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                Directly connecting global manufacturers across China, India, the UK, and the US with businesses,
+                institutions, and homes across Uganda.
+            </p>
+
+            <!-- Quick Navigation Jump Tags -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-8">
+                <a href="#it-equipment"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-laptop text-orama-red me-1.5"></i> IT Equipment
+                </a>
+                <a href="#kids-toys"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-gamepad text-orama-red me-1.5"></i> Kids Toys
+                </a>
+                <a href="#stem-toys"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-microscope text-orama-red me-1.5"></i> STEM Toys
+                </a>
+                <a href="#stationery"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-pen-ruler text-orama-red me-1.5"></i> Stationery
+                </a>
+                <a href="#car-accessories"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-car text-orama-red me-1.5"></i> Car Accessories
+                </a>
+                <a href="#home-appliances"
+                    class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-bold text-orama-navy hover:border-orama-red hover:text-orama-red transition shadow-sm">
+                    <i class="fa-solid fa-blender text-orama-red me-1.5"></i> Home Appliances
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 1: IT EQUIPMENT & DEVICES -->
+    <section id="it-equipment" class="py-16 bg-white border-b border-slate-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-bold text-orama-red uppercase tracking-widest">
+                        <i class="fa-solid fa-server"></i> Category 01
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-orama-navy">
+                        IT Equipment & Devices
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Power your business, school, or home office with genuine, high-performance IT equipment from the
+                        world's most trusted technology brands. As authorized distributors for global technology
+                        leaders, we supply enterprise-grade equipment built to last.
+                    </p>
+
+                    <!-- Authorized Brand Badges -->
+                    <div class="bg-orama-lightbg p-4 rounded-2xl border border-slate-200">
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Official Global Brand
+                            Distribution:</p>
+                        <div class="flex flex-wrap gap-2 text-xs font-bold text-orama-navy">
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">Dell</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">HP</span>
+                            <span
+                                class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">Lenovo</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">Cisco</span>
+                            <span
+                                class="bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">Huawei</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-desktop text-orama-red me-1.5"></i> Desktop Computers
+                        </div>
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-laptop text-orama-red me-1.5"></i> Laptops
+                        </div>
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-tv text-orama-red me-1.5"></i> Monitors & Screens
+                        </div>
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-print text-orama-red me-1.5"></i> Printers
+                        </div>
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-network-wired text-orama-red me-1.5"></i> Network Switches
+                        </div>
+                        <div
+                            class="p-3 bg-orama-lightbg rounded-xl border border-slate-200 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-plug text-orama-red me-1.5"></i> IT Cables
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button onclick="sendToWhatsApp('IT Equipment & Devices')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orama-navy hover:bg-orama-deep text-white font-bold text-xs sm:text-sm transition shadow-lg">
+                            <span>Request IT Hardware Quote</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div
+                        class="bg-gradient-to-br from-orama-navy to-orama-deep text-white p-8 rounded-3xl space-y-6 shadow-xl relative overflow-hidden">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-orama-red">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Serving Enterprise & Public Sectors</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Whether you are setting up a new corporate office, upgrading a university computer lab, or
+                            deploying enterprise networking hardware, our local Kampala team assists with exact specs
+                            and bulk wholesale supply.
+                        </p>
+                        <div class="pt-2 border-t border-white/10 text-xs text-slate-400">
+                            <i class="fa-solid fa-circle-check text-emerald-400 me-1"></i> URA Compliant & Fully
+                            Licensed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 2: KIDS TOYS -->
+    <section id="kids-toys" class="py-16 bg-orama-lightbg border-b border-slate-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-child-reaching"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-orama-navy">Safe & Imaginative Play</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            We personally vet our global toy partners in China, India, the UK, and the US to prioritize
+                            non-toxic materials, physical safety, and long-lasting play value for Ugandan families.
+                        </p>
+                        <ul class="text-xs space-y-2 text-slate-700 font-semibold">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i>
+                                Toddlers to Pre-Teens</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i>
+                                Action Figures, Dolls & Soft Toys</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i>
+                                Outdoor Play & Puzzles</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-bold text-orama-red uppercase tracking-widest">
+                        <i class="fa-solid fa-teddy-bear"></i> Category 02
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-orama-navy">
+                        Kids Toys
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Every child deserves toys that are safe, fun, and made to last. We source unique, high-quality
+                        toys from trusted international partners—bringing variety and originality that you won't easily
+                        find elsewhere in the Ugandan market.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="sendToWhatsApp('Kids Toys Catalog')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orama-red hover:bg-orama-redhover text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-orama-red/20">
+                            <span>Inquire Toy Wholesale & Retail</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 3: STEM TOYS -->
+    <section id="stem-toys" class="py-16 bg-white border-b border-slate-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="inline-flex items-center gap-2 text-xs font-bold text-orama-red uppercase tracking-widest">
+                    <i class="fa-solid fa-atom"></i> Category 03
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-orama-navy">STEM Toys (Science, Technology,
+                    Engineering & Math)</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Building tomorrow's engineers, scientists, and innovators through hands-on educational play.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-orama-lightbg p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="text-base font-bold text-orama-navy">Robotics & Coding Kits</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Programmable kits that introduce young minds to
+                        logic algorithms and mechanical automation.</p>
+                </div>
+
+                <div class="bg-orama-lightbg p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-cubes"></i></div>
+                    <h3 class="text-base font-bold text-orama-navy">Building & Construction Sets</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Structural sets that foster spatial awareness and
+                        fundamental engineering concepts.</p>
+                </div>
+
+                <div class="bg-orama-lightbg p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-vial-circle-check"></i></div>
+                    <h3 class="text-base font-bold text-orama-navy">Science & Discovery Kits</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Safe chemistry and physics experiment sets turning
+                        abstract formulas into tangible discoveries.</p>
+                </div>
+
+                <div class="bg-orama-lightbg p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-calculator"></i></div>
+                    <h3 class="text-base font-bold text-orama-navy">Math & Logic Puzzles</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Interactive puzzles engineered to sharpen
+                        analytical problem-solving skills.</p>
+                </div>
+
+                <div class="bg-orama-lightbg p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-gears"></i></div>
+                    <h3 class="text-base font-bold text-orama-navy">Engineering Model Kits</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Real-world scale working models including solar
+                        power, hydraulics, and gear systems.</p>
+                </div>
+
+                <div class="bg-orama-navy text-white p-6 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="text-base font-bold">School & Lab Outfitting</h3>
+                        <p class="text-xs text-slate-300 mt-1">We equip STEM labs for primary and secondary schools
+                            across Uganda.</p>
+                    </div>
+                    <button onclick="sendToWhatsApp('STEM Toys & School Kits')"
+                        class="w-full py-2.5 bg-orama-red hover:bg-orama-redhover rounded-xl text-xs font-bold transition">
+                        Request School STEM Catalog
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 4: STATIONERY -->
+    <section id="stationery" class="py-16 bg-orama-lightbg border-b border-slate-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-bold text-purple-700 uppercase tracking-widest">
+                        <i class="fa-solid fa-pen-clip"></i> Category 04
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-orama-navy">
+                        Premium Korean Stationery
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Add a touch of quality and creativity to your school, office, or personal workspace. Celebrated
+                        globally for thoughtful design, durability, and style, Korean stationery brings a refined
+                        standard to everyday writing and organizing tools.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 text-xs font-semibold text-slate-700">
+                        <div class="p-3 bg-white rounded-xl border border-slate-200"><i
+                                class="fa-solid fa-book-open text-purple-600 me-2"></i> Notebooks, Planners & Journals
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200"><i
+                                class="fa-solid fa-pen text-purple-600 me-2"></i> Pens, Pencils & Writing Instruments
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200"><i
+                                class="fa-solid fa-box-archive text-purple-600 me-2"></i> Desk Organizers & Accessories
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-slate-200"><i
+                                class="fa-solid fa-palette text-purple-600 me-2"></i> Art & Craft Supplies</div>
+                    </div>
+                    <div class="pt-2">
+                        <button onclick="sendToWhatsApp('Korean Stationery Inquiries')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-orama-navy text-white font-bold text-xs sm:text-sm hover:bg-orama-deep transition">
+                            <span>Browse Stationery Sets</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-200 space-y-4 shadow-sm">
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Why Korean
+                        Stationery?</span>
+                    <h3 class="text-xl font-bold text-orama-navy">Craftsmanship Meets Function</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Korean stationery combines smooth ink flow, high-bleed-resistance paper, and ergonomic designs
+                        that elevate productivity for students, executive offices, and creative designers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 5 & 6: CAR ACCESSORIES & HOME APPLIANCES -->
+    <section id="car-accessories" class="py-16 bg-white border-b border-slate-200 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Car Accessories -->
+                <div
+                    class="bg-orama-lightbg p-8 rounded-3xl border border-slate-200 space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div
+                            class="inline-flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-widest">
+                            <i class="fa-solid fa-car-rear"></i> Category 05
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-orama-navy">Car Accessories</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Keep your vehicle running smoothly, safely, and looking great with practical, high-grade
+                            accessories sourced from verified global suppliers.
+                        </p>
+                        <ul class="text-xs space-y-2 text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-amber-500 text-[8px]"></i> Interior Accessories &
+                                Organizers</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-amber-500 text-[8px]"></i> Exterior Styling &
+                                Protective Gear</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-amber-500 text-[8px]"></i> Car Electronics & Dash
+                                Connectivity</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-amber-500 text-[8px]"></i> Safety & Maintenance
+                                Essentials</li>
+                        </ul>
+                    </div>
+                    <button onclick="sendToWhatsApp('Car Accessories')"
+                        class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl transition">
+                        Inquire Car Accessories
+                    </button>
+                </div>
+
+                <!-- Home Appliances -->
+                <div id="home-appliances"
+                    class="bg-orama-lightbg p-8 rounded-3xl border border-slate-200 space-y-6 flex flex-col justify-between scroll-mt-20">
+                    <div class="space-y-4">
+                        <div
+                            class="inline-flex items-center gap-2 text-xs font-bold text-sky-600 uppercase tracking-widest">
+                            <i class="fa-solid fa-house-laptop"></i> Category 06
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-orama-navy">Home Appliances</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Dependable home appliances engineered for energy efficiency, performance, and durability in
+                            modern Ugandan households.
+                        </p>
+                        <ul class="text-xs space-y-2 text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-sky-500 text-[8px]"></i> Kitchen & Cooking
+                                Appliances</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-sky-500 text-[8px]"></i> Cleaning & Household
+                                Electricals</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="fa-solid fa-circle-dot text-sky-500 text-[8px]"></i> Small Convenience
+                                Appliances</li>
+                        </ul>
+                    </div>
+                    <button onclick="sendToWhatsApp('Home Appliances')"
+                        class="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl transition">
+                        Inquire Home Appliances
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-orama-deep text-slate-400 py-12 text-xs border-t border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <p class="text-white font-bold">Orama Distributer Limited</p>
+                <p>© 2026. All Rights Reserved. Industrial Area, Namuwongo, Kampala, Uganda.</p>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white"><i
+                        class="fa-solid fa-phone me-1 text-orama-red"></i> +256 706 647512</a>
+                <a href="https://wa.me/256706647512" target="_blank" class="text-emerald-400 hover:text-emerald-300"><i
+                        class="fa-brands fa-whatsapp me-1"></i> WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

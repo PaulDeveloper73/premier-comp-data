@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Orama Distributer Limited - Namuwongo, Kampala</title>
+    <meta name="description"
+        content="Get in touch with Orama Distributer Limited in Namuwongo, Kampala. Contact us for bulk IT equipment, STEM toys, Korean stationery, car accessories, and home appliances.">
+    <link rel="canonical" href="https://oramadistributor.com/contact">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://oramadistributor.com/favicon.png">
+
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        orama: {
+                            navy: '#161743',
+                            deep: '#0F1033',
+                            red: '#E52E2A',
+                            redhover: '#C8201C',
+                            lightbg: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const category = document.getElementById('category').value;
+            const message = document.getElementById('userMessage').value;
+
+            const targetPhone = '256706647512';
+            const textMessage = encodeURIComponent(`Hello Orama Distributer,\n\nName: ${name}\nCategory: ${category}\nMessage: ${message}`);
+            window.open(`https://wa.me/${targetPhone}?text=${textMessage}`, '_blank');
+        }
+    </script>
+    <style>
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(22, 23, 67, 0.08) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-orama-lightbg text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-orama-red selection:text-white">
+
+    <!-- TOP BAR -->
+    <div class="bg-orama-deep text-white py-2 text-xs border-b border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span
+                    class="bg-orama-red text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">Licensed
+                    Ugandan Distributor</span>
+                <span class="text-slate-300">Industrial Area, Namuwongo, Kampala</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white transition"><i
+                        class="fa-solid fa-phone text-orama-red me-1"></i> +256 706 647512</a>
+                <span class="hidden sm:inline">•</span>
+                <a href="mailto:info@oramadistributor.com" class="hover:text-white transition hidden sm:inline"><i
+                        class="fa-regular fa-envelope text-orama-red me-1"></i> info@oramadistributor.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200/80 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="bg-white px-3 py-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center">
+                    <img src="https://oramadistributor.com/logo.png" alt="Orama Distributer Limited"
+                        class="h-8 sm:h-10 w-auto object-contain"
+                        onerror="this.onerror=null; this.replaceWith(document.getElementById('nav-logo-fallback').content.cloneNode(true));" />
+                    <template id="nav-logo-fallback">
+                        <span
+                            class="text-orama-navy font-black text-2xl tracking-tighter lowercase flex items-baseline">
+                            o<span class="text-orama-red -ml-0.5">r</span>ama
+                        </span>
+                    </template>
+                </div>
+                <div class="hidden lg:block border-l border-slate-300 pl-3">
+                    <p class="text-[10px] font-bold tracking-widest text-orama-navy uppercase leading-none">Global
+                        Products</p>
+                    <p class="text-[10px] font-bold tracking-widest text-orama-red uppercase leading-tight">Trusted
+                        Distribution</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-700">
+                <a href="/" class="hover:text-orama-red transition">Home</a>
+                <a href="/about" class="hover:text-orama-red transition">About Us</a>
+                <a href="/categories" class="hover:text-orama-red transition">Categories</a>
+                <a href="/insights" class="hover:text-orama-red transition">Market Insights</a>
+                <a href="/contact" class="text-orama-red font-bold">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/256706647512" target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition shadow-md shadow-emerald-600/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Direct WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO SECTION -->
+    <section class="relative bg-dot-pattern py-14 lg:py-20 border-b border-slate-200/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+            <span
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orama-navy/10 border border-orama-navy/20 text-orama-navy text-xs font-bold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-headset text-orama-red"></i> We're Here to Help
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-orama-navy leading-tight tracking-tight mb-4">
+                Get in Touch with Our Distribution Team
+            </h1>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                Whether you're a business seeking bulk IT hardware, a parent searching for educational STEM toys, or a
+                school outfitting a lab, we'd love to hear from you.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS & FORM SECTION -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Contact Information Cards -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-orama-red uppercase tracking-widest">Contact Details</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-orama-navy">Visit, Call, or Email Us</h2>
+                    </div>
+
+                    <!-- Address Card -->
+                    <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orama-navy text-white flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-orama-navy">Our Distribution Office</h3>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                Orama Distributer Limited<br>
+                                Industrial Area, Namuwongo<br>
+                                Kampala, Uganda
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phone & WhatsApp Card -->
+                    <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-orama-navy">Call & Direct Support</h3>
+                            <p class="text-xs text-slate-600 mt-1">
+                                <a href="tel:+256706647512" class="hover:text-orama-red font-semibold">+256 706
+                                    647512</a>
+                            </p>
+                            <p class="text-xs text-slate-500 mt-0.5">WhatsApp available during business hours</p>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orama-red text-white flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-orama-navy">Email Inquiries</h3>
+                            <p class="text-xs text-slate-600 mt-1">
+                                General: <a href="mailto:info@oramadistributor.com"
+                                    class="font-semibold text-orama-navy hover:underline">info@oramadistributor.com</a><br>
+                                Sales Desk: <a href="mailto:sales@oramadistributor.com"
+                                    class="font-semibold text-orama-navy hover:underline">sales@oramadistributor.com</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Operating Hours -->
+                    <div class="p-6 rounded-2xl bg-orama-navy text-white space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-bold text-orama-red uppercase tracking-wider">
+                            <i class="fa-regular fa-clock"></i> Business Hours
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-300 pt-1">
+                            <span>Monday – Saturday:</span>
+                            <span class="font-bold text-white">8:00 AM – 6:00 PM EAT</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span>Sunday & Holidays:</span>
+                            <span class="font-medium">Closed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-orama-lightbg p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="mb-6 space-y-1">
+                        <h3 class="text-2xl font-extrabold text-orama-navy">Send Us a Message</h3>
+                        <p class="text-xs text-slate-600">Fill out the form below and our team in Namuwongo will get
+                            back to you promptly.</p>
+                    </div>
+
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="fullName"
+                                    class="block text-xs font-bold text-orama-navy uppercase mb-1">Your Name *</label>
+                                <input type="text" id="fullName" required placeholder="John Doe"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-orama-navy focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-bold text-orama-navy uppercase mb-1">Email
+                                    Address *</label>
+                                <input type="email" id="email" required placeholder="john@example.com"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-orama-navy focus:outline-none bg-white">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="phone" class="block text-xs font-bold text-orama-navy uppercase mb-1">Phone
+                                    Number</label>
+                                <input type="tel" id="phone" placeholder="+256 700 000000"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-orama-navy focus:outline-none bg-white">
+                            </div>
+                            <div>
+                                <label for="category"
+                                    class="block text-xs font-bold text-orama-navy uppercase mb-1">Inquiry Category
+                                    *</label>
+                                <select id="category" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-orama-navy focus:outline-none bg-white font-semibold">
+                                    <option value="IT Equipment & Devices">IT Equipment & Devices</option>
+                                    <option value="Kids Toys">Kids Toys</option>
+                                    <option value="STEM Toys">STEM Toys</option>
+                                    <option value="Stationery">Korean Stationery</option>
+                                    <option value="Car Accessories">Car Accessories</option>
+                                    <option value="Home Appliances">Home Appliances</option>
+                                    <option value="Wholesale & Partnership">Wholesale & Partnership</option>
+                                    <option value="Other Inquiries">Other Inquiries</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="userMessage" class="block text-xs font-bold text-orama-navy uppercase mb-1">Your
+                                Message *</label>
+                            <textarea id="userMessage" rows="5" required
+                                placeholder="Tell us about your requirements or bulk quote request..."
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-orama-navy focus:outline-none bg-white"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-3.5 bg-orama-red hover:bg-orama-redhover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg shadow-orama-red/20 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Message</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP LOCATION SECTION -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <div class="max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold text-orama-red uppercase tracking-widest">Our Location</span>
+                <h2 class="text-3xl font-extrabold text-orama-navy">Find Us in Industrial Area, Namuwongo</h2>
+                <p class="text-xs text-slate-600">Conveniently located in Kampala for local pickups, institutional
+                    deliveries, and wholesale consultations.</p>
+            </div>
+
+            <!-- Map Placeholder Box -->
+            <div
+                class="w-full h-80 rounded-3xl bg-slate-100 border border-slate-200 overflow-hidden relative shadow-inner flex items-center justify-center">
+                <iframe title="Orama Distributer Location Map"
+                    src="https://maps.google.com/maps?q=Namuwongo%20Industrial%20Area%20Kampala%20Uganda&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    class="w-full h-full border-0" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-orama-deep text-slate-400 py-12 text-xs border-t border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <p class="text-white font-bold">Orama Distributer Limited</p>
+                <p>© 2026. All Rights Reserved. Industrial Area, Namuwongo, Kampala, Uganda.</p>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white"><i
+                        class="fa-solid fa-phone me-1 text-orama-red"></i> +256 706 647512</a>
+                <a href="https://wa.me/256706647512" target="_blank" class="text-emerald-400 hover:text-emerald-300"><i
+                        class="fa-brands fa-whatsapp me-1"></i> WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer of Deliverance, Restoration, and Financial Breakthrough</title>
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent-color: #0284c7;
+            --border-color: #e2e8f0;
+            --highlight-bg: #f0f9ff;
+            --highlight-border: #0284c7;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --btn-bg: #0284c7;
+            --btn-text: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --border-color: #334155;
+            --highlight-bg: #0c4a6e;
+            --highlight-border: #38bdf8;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --btn-bg: #38bdf8;
+            --btn-text: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 1000;
+            background: var(--card-bg);
+            padding: 0.5rem;
+            border-radius: 9999px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 3rem auto 0;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .scriptures {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        .declaration-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+        }
+
+        ul,
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed var(--border-color);
+            margin: 2rem 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: transparent !important;
+            }
+
+            header {
+                border-bottom: 2px solid #000000 !important;
+            }
+
+            h1,
+            h2 {
+                color: #000000 !important;
+            }
+
+            .declaration-box {
+                background-color: #f1f5f9 !important;
+                border-left-color: #000000 !important;
+                color: #000000 !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="toolbar no-print">
+        <button class="btn" id="themeToggle" onclick="toggleTheme()">
+            <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+        </button>
+        <button class="btn" onclick="window.print()">
+            🖨️ Print
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Prayer of Deliverance, Restoration, and Financial Breakthrough</h1>
+            <p class="scriptures">
+                <strong>Scriptural Foundation:</strong> Colossians 3:3; Ephesians 2:6; Psalm 51; 1 John 1:9; Isaiah
+                1:18; Isaiah 43:25; Psalm 103:3; 2 Chronicles 7:14–18; Galatians 5:19–21; Matthew 6:30–33; Philippians
+                4:19; Deuteronomy 8:18; Proverbs 20:9; Proverbs 20:18.
+            </p>
+        </header>
+
+        <div class="section">
+            <h2>1. Coming Before Almighty God</h2>
+            <p>Heavenly Father, Almighty God, Creator of heaven and earth, I come before You in the mighty and precious
+                name of Jesus Christ.</p>
+            <p>I begin from my position in Christ. Your Word says that my life is hidden with Christ in God, and that
+                You have raised me up and seated me with Christ in the heavenly places. Therefore, I do not come before
+                You as a defeated person, but as Your child, redeemed by the blood of Jesus Christ.</p>
+            <p>Father, I adore You. I magnify You. I worship You. You alone are God. You are holy, righteous, merciful,
+                faithful, powerful, and worthy of all praise.</p>
+            <p>Holy Spirit, take complete control of this prayer. Search me completely. Lead me into truth. Expose
+                anything in my life that needs repentance, correction, wisdom, discipline, or restoration.</p>
+            <p>Father, I surrender my finances, career, businesses, clients, contracts, projects, opportunities,
+                marriage, family, health, future, plans, decisions, relationships, words, thoughts, habits, and
+                possessions completely to You.</p>
+            <div class="declaration-box">
+                With immediate effect now, let everything in my life come under the lordship of Jesus Christ.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Deep Repentance and Appeal for Mercy</h2>
+            <p>Father, I come before You with humility and repentance.</p>
+            <p>I confess my sins before You and ask for mercy according to Psalm 51. Your Word says that if I confess my
+                sins, You are faithful and just to forgive me and cleanse me from all unrighteousness.</p>
+            <p>Lord, I repent of every known and unknown sin in my life.</p>
+            <p>I specifically repent of the sexual sin and fornication that occurred before marriage, including the
+                relationship with Teddy Nettugu, who is now my wife, and every sinful circumstance surrounding the
+                conception of our son, Magezi Joshua.</p>
+            <p>Father, where we violated Your will, we ask for mercy. Where we compromised Your standards, we ask for
+                mercy. Where our decisions created consequences, we ask for mercy. Where our words, actions, choices,
+                relationships, finances, or behavior opened doors to destruction, forgive us and help us walk
+                differently.</p>
+            <p>I do not use my past as an excuse. I do not use the past to condemn myself or my family. I bring it
+                completely under the finished work of Jesus Christ.</p>
+            <div class="declaration-box">
+                The blood of Jesus speaks a better word over me, my wife, my child, and my household.
+            </div>
+            <p>Father, forgive every sin of fornication, adultery, lust, sexual immorality, covetousness, greed,
+                dishonesty, anger, hatred, bitterness, unforgiveness, jealousy, envy, pride, deception, manipulation,
+                idolatry, occult involvement, drunkenness, addiction, theft, oppression, injustice, disobedience,
+                rebellion, gossip, slander, falsehood, unbelief, fear, anxiety, despair, and every other work of the
+                flesh.</p>
+            <p>I repent of every sin I knowingly or unknowingly participated in. I repent of every sinful pattern I have
+                tolerated. I repent of every agreement I made with lies contrary to Your Word. I repent of every word of
+                self-condemnation, poverty, failure, hopelessness, fear, and defeat that I have repeatedly spoken over
+                myself.</p>
+            <p>Father, cleanse me. Restore me. Correct me. Teach me. Transform me.</p>
+            <div class="declaration-box">
+                With immediate effect now, let every area requiring repentance come into the light of Christ.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Repentance Concerning My Family History</h2>
+            <p>Father, I cannot personally confess the individual sins of people who lived before me, but I can bring
+                before You the sinful patterns, consequences, and brokenness that have affected my family.</p>
+            <p>I repent for my own participation in any inherited sinful pattern. I ask You to break destructive cycles
+                through me rather than allowing them to continue into the next generation.</p>
+            <p>I pray concerning my family line associated with Buyinza Patrick and the generations that came after him.
+                Where there has been poverty, dishonesty, sexual immorality, adultery, addiction, violence, hatred,
+                unforgiveness, occult practices, idolatry, greed, financial disorder, exploitation, injustice, fear,
+                destructive relationships, or any other sinful pattern, Father, let the cycle end in Christ.</p>
+            <div class="declaration-box">
+                Let the destructive pattern stop here. Let it not continue into my marriage, into my wife, into my
+                children, into my grandchildren, or into future generations.
+            </div>
+            <p>Where Joy Mwesigwa suffered and died from cancer, Father, I commit her memory and the entire family
+                history into Your hands. I refuse to turn sickness or death into a spiritual accusation against specific
+                people. Instead, I ask You for mercy, wisdom, healing, protection, and responsible medical care for
+                every member of my family.</p>
+            <p>In Jesus' name, let fear of inherited sickness be broken. Let destructive family patterns be broken. Let
+                destructive financial habits be broken. Let destructive relational patterns be broken. Let destructive
+                spiritual patterns be broken.</p>
+            <div class="declaration-box">
+                With immediate effect now, establish a new pattern of righteousness, wisdom, health, stewardship, peace,
+                diligence, integrity, and faith in my household.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Destroying the “Near-Success” Cycle</h2>
+            <p>Father, I bring before You the recurring pattern in my career. Clients consult with me. People express
+                interest. Conversations begin positively. Opportunities appear. Contracts seem close. Projects appear
+                ready to begin. Then, suddenly, something changes. The client postpones. Communication slows. The
+                opportunity disappears. The contract never materializes. The project evaporates. Sometimes opportunities
+                that already exist begin declining one after another.</p>
+            <p>Father, I ask You to expose what is actually happening. Where there are legitimate practical causes, give
+                me wisdom to recognize and correct them. Where there are spiritual pressures against my peace, courage,
+                diligence, integrity, or progress, strengthen me to stand firm in Christ.</p>
+            <p>Where I have made mistakes in pricing, communication, follow-up, presentation, planning, delivery,
+                negotiation, professionalism, or client relationships, reveal them clearly. Where fear has caused me to
+                hesitate, remove the fear. Where discouragement has caused me to withdraw, restore my courage. Where
+                procrastination has caused opportunities to die, make me disciplined. Where poor planning has caused
+                failure, give me wisdom. Where financial disorder has weakened my business, teach me stewardship. Where
+                I have failed to follow up, give me consistency. Where I have accepted rejection as my identity, break
+                that mindset.</p>
+
+            <p>Father, destroy the cycle of near-success and repeated disappointment in my life.</p>
+            <div class="declaration-box">
+                With immediate effect now, let every legitimate opportunity that You have ordained for me receive
+                wisdom, favor, diligence, clarity, excellent execution, and completion.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Confronting the Hidden Financial Cycle</h2>
+            <p>Father, I bring before You the recurring financial pattern: Money arrives and disappears. Bills appear
+                unexpectedly. Unnecessary expenses consume resources. Income comes but does not seem to produce lasting
+                stability. Resources seem insufficient. Financial pressure increases. Debt becomes difficult to control.
+                At the end of the month, I feel that I have worked but have little tangible progress to show.</p>
+            <p>Father, I refuse to live permanently in fear of money. I refuse to worship money. I refuse to define
+                myself by my bank balance. I refuse to call myself cursed, useless, abandoned, or destined for poverty.
+            </p>
+            <p>Your Word says in Matthew 6:30–33 that You know what I need and that I should seek first Your Kingdom and
+                Your righteousness. Your Word says in Philippians 4:19 that You supply according to Your riches in glory
+                in Christ Jesus. Your Word says in Deuteronomy 8:18 that You give power to create wealth.</p>
+            <p>Therefore, Father, teach me how to steward money wisely. Give me wisdom to earn. Give me wisdom to save.
+                Give me wisdom to invest. Give me wisdom to price my services. Give me wisdom to negotiate. Give me
+                wisdom to identify genuine opportunities. Give me wisdom to reject destructive opportunities. Give me
+                discipline to control unnecessary spending. Give me courage to confront debt. Give me strategies to
+                eliminate destructive financial obligations. Give me diligence to build sustainable businesses. Give me
+                creativity to develop multiple legitimate sources of income.</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Beginning-of-Month Attack: Lack and Unexpected Expenses</h2>
+            <p>Father, I specifically bring before You the beginning-of-month pattern. I reject the mindset that every
+                month must begin with panic. I reject the expectation that money will disappear immediately. I reject
+                financial decisions driven by fear. I reject unnecessary spending. I reject destructive financial
+                habits.</p>
+            <div class="declaration-box">
+                With immediate effect now, establish wisdom, discipline, provision, planning, and stewardship at the
+                beginning of every month.
+            </div>
+            <p>Where unnecessary expenses can be prevented, give me wisdom to prevent them. Where legitimate bills must
+                be paid, give me provision and planning. Where I am responsible for a financial obligation, give me
+                courage to face it rather than avoid it. Let the beginning of each month become a period of planning
+                rather than panic.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. Mid-Month Attack: Anxiety and Worry</h2>
+            <p>Father, I reject the cycle of mid-month anxiety. I reject the voice that says, “There will not be
+                enough.” I reject the voice that says, “Everything will fail.” I reject the voice that says, “You will
+                never progress.” I reject comparison. I reject despair. I reject self-condemnation.</p>
+            <p>Every time fear speaks, let Your Word answer:</p>
+            <ul>
+                <li><strong>Philippians 4:19:</strong> My God shall supply all my need according to His riches in glory
+                    by Christ Jesus.</li>
+                <li><strong>Matthew 6:33:</strong> I will seek first the Kingdom of God and His righteousness.</li>
+                <li><strong>Deuteronomy 8:18:</strong> God gives power to create wealth.</li>
+            </ul>
+            <p>Father, replace anxiety with wisdom. Replace panic with planning. Replace comparison with contentment.
+                Replace fear with faith. Replace confusion with clarity. Replace impulsive decisions with disciplined
+                decisions.</p>
+            <div class="declaration-box">
+                With immediate effect now, let the middle of every month become a place of peace, wisdom, strategy, and
+                forward movement.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. End-of-Month Attack: “There Is Not Enough”</h2>
+            <p>Father, I reject the lie that my resources will always be insufficient. I reject regret. I reject
+                comparison. I reject the belief that everybody else is progressing while I remain permanently behind. I
+                reject the belief that my present circumstances define my future.</p>
+            <p>Father, help me examine the actual numbers without fear. Give me courage to check my bank account. Give
+                me courage to check my mobile-money balance. Give me courage to review my debts. Give me courage to
+                review my expenses. Give me courage to review my income. Give me courage to examine my business
+                performance. Give me courage to identify waste. Give me courage to make difficult but wise financial
+                decisions.</p>
+            <div class="declaration-box">
+                With immediate effect now, let financial reality become information that produces wisdom rather than
+                fear.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>9. Breaking Agreement With Financial Lies</h2>
+            <p>Father, I repent for every time I agreed with the lie that I am destined to fail. I repent for saying: “I
+                will never succeed,” “Money never stays with me,” “I am always broke,” “Nothing works for me,” “Every
+                opportunity disappears,” “My family is cursed,” “I will always struggle,” “I can never build anything,”
+                “I am destined to live from paycheck to paycheck.”</p>
+            <p>Father, forgive me for agreeing with these lies. I renounce them. I withdraw my agreement from them. I
+                replace them with Your Word. I am not condemned in Christ. I am a new creation in Christ. My past does
+                not have authority to define my future. My mistakes do not have authority to become my identity. My
+                financial circumstances do not determine my worth.</p>
+            <div class="declaration-box">
+                With immediate effect now, I choose agreement with God's truth rather than agreement with fear.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>10. Breaking Destructive Financial Patterns</h2>
+            <p>Father, show me every financial pattern that is destroying progress. Show me where I overspend,
+                undercharge, fail to negotiate, fail to follow up, fail to save, misuse credit, allow unnecessary
+                obligations, spend emotionally, give beyond wisdom, borrow unnecessarily, or fail to distinguish between
+                genuine needs and temporary desires. Show me where relationships, habits, environments, or commitments
+                are draining my finances.</p>
+            <p>Father, give me courage to disconnect from destructive financial systems and relationships where
+                appropriate. Give me wisdom to manage legitimate debts responsibly and systematically. Give me grace to
+                make sustainable decisions.</p>
+            <div class="declaration-box">
+                Let every destructive financial cycle be broken with immediate effect now.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>11. Prayer Over My Career and Clients</h2>
+            <p>Father, bless the work of my hands. Bring the right clients who value excellent work, communicate
+                clearly, honor agreements, and pay fairly and on time. Give me wisdom to identify unsuitable clients
+                early. Give me discernment before entering contracts.</p>
+            <p>Give me excellence in consultation, proposals, presentations, negotiations, delivery, communication, and
+                follow-up.</p>
+            <p>Father, where legitimate contracts were lost because of my mistakes, teach me. Where they were lost
+                because of circumstances beyond my control, comfort me. Where opportunities remain recoverable, give me
+                wisdom to pursue them appropriately. Restore what can legitimately be restored. Open new doors that are
+                aligned with Your will.</p>
+            <div class="declaration-box">
+                With immediate effect now, move me from merely discussing opportunities to successfully executing them.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>12. Restoration of Lost Opportunities</h2>
+            <p>Father, I ask for restoration. Restore lost opportunities where restoration is possible. Restore lost
+                relationships where reconciliation is appropriate. Restore lost clients where reconnecting is wise.
+                Restore lost projects where they can legitimately be recovered. Restore lost confidence, creativity,
+                discipline, vision, courage, momentum, and financial wisdom according to Your will.</p>
+            <p>But Father, do not merely return what I lost. Give me wisdom so that I do not lose it again. Give me
+                systems, discipline, excellent contracts, proper documentation, proper follow-up, financial records,
+                accountability, and sustainable business structures.</p>
+            <div class="declaration-box">
+                With immediate effect now, turn lessons from past losses into wisdom for future victories.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>13. Removing My Name From Every Place of Condemnation</h2>
+            <p>Father, I reject every spiritual accusation against me that is contrary to the finished work of Christ. I
+                belong to Jesus. My wife belongs to Jesus. My child belongs to Jesus. My household belongs to Jesus.
+                Therefore, I ask You to establish Your protection over our lives.</p>
+            <p>I do not place my trust in rituals, objects, secret knowledge, spiritual fear, or superstition. I place
+                my trust in Jesus Christ.</p>
+            <p>Father, wherever my name has been associated with darkness, fear, condemnation, destruction, or anything
+                contrary to Your will, let the authority of Christ prevail. Wherever my identity has been falsely
+                defined by my past, let the truth of Christ prevail. Wherever my family has been defined by destructive
+                patterns, establish a new pattern through repentance, wisdom, righteousness, and obedience.</p>
+            <div class="declaration-box">
+                With immediate effect now, let my identity be established in Christ alone.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>14. Renouncing Every Ungodly Agreement</h2>
+            <p>In the mighty name of Jesus Christ, I renounce every ungodly agreement I have personally made knowingly
+                or unknowingly. I renounce every vow contrary to God's will. I renounce every word of self-destruction.
+                I renounce every agreement with hopelessness, poverty as an identity, fear, failure, sexual immorality,
+                bitterness, hatred, greed, dishonesty, occultism, or idolatry. I renounce every agreement that
+                contradicts the lordship of Jesus Christ.</p>
+            <p>I belong to Jesus Christ. My household belongs to Jesus Christ. My future belongs to Jesus Christ.</p>
+            <div class="declaration-box">
+                With immediate effect now, I reject every identity and agreement that contradicts God's Word.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>15. Prayer for Health and Healing</h2>
+            <p>Father, I place my health, my wife's health, my children's health, and my entire family's health into
+                Your hands. I ask for healing, protection, wisdom, and proper medical care.</p>
+            <p>Where there is HIV/AIDS, cancer, ulcers, hypertension, anemia, fibroids, infections, viral illnesses,
+                chronic diseases, metabolic conditions, reproductive-health problems, or any other illness known or
+                unknown, Father, bring healing and restoration according to Your will.</p>
+            <p>I specifically pray for every part of the body: brain, heart, blood, blood vessels, lungs, liver,
+                kidneys, pancreas, stomach, intestines, bones, joints, muscles, skin, nervous system, immune system,
+                reproductive system, hormonal system, and every cell and organ.</p>
+            <p>Father, where sickness is present, guide us toward appropriate diagnosis and treatment. Where fear has
+                amplified symptoms, bring peace. Where medical care is required, provide access to competent
+                professionals. Where lifestyle changes are necessary, give us discipline. Where healing is needed, let
+                Your mercy prevail.</p>
+            <div class="declaration-box">
+                I refuse to use spiritual warfare as a substitute for medical care. I trust God for healing while
+                responsibly seeking appropriate healthcare.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>16. Breaking the Fear of Inherited Disease</h2>
+            <p>Father, I refuse to live under constant fear that my family's history determines my destiny. Family
+                history may inform wise medical screening, but it does not have to become a sentence over my future.</p>
+            <p>Give me wisdom to understand genuine health risks, seek appropriate screening, and improve nutrition,
+                exercise, rest, hygiene, mental wellbeing, and medical care. Let fear never control me.</p>
+            <div class="declaration-box">
+                With immediate effect now, replace fear with wisdom, vigilance, faith, and responsible action.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>17. Destroying the Financial Drain Associated With Sickness</h2>
+            <p>Father, sickness can create financial pressure through treatment, transport, medication, lost working
+                time, and other legitimate costs. Give my family wisdom to protect our health and finances. Let
+                preventable illness be prevented. Let treatable illness be treated early. Let resources be used wisely.
+                Let unnecessary financial waste stop. Let health decisions be guided by wisdom rather than fear.</p>
+            <div class="declaration-box">
+                With immediate effect now, establish health, wisdom, discipline, and responsible financial stewardship
+                in my household.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>18. Breaking the Cycle of Poverty Over My Household</h2>
+            <p>Father, I ask You to break destructive patterns of poverty and financial instability. Let the cycle stop
+                with me. Let me become a responsible builder. Let me build legitimate businesses, create sustainable
+                income, save, invest wisely, employ others where possible, create value, pay people fairly, honor
+                contracts, keep proper records, and build assets rather than merely consume.</p>
+            <p>Let my children inherit wisdom rather than destructive financial habits. Let my grandchildren inherit
+                opportunity rather than fear. Let future generations inherit discipline, education, integrity, faith,
+                wisdom, and productive systems.</p>
+            <div class="declaration-box">
+                With immediate effect now, let a new financial legacy begin in my household.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>19. Prayer for Vision and Wisdom</h2>
+            <p>Proverbs 20:18 reminds me of the importance of wise counsel and sound planning.</p>
+            <p>Father, restore my vision. Where discouragement has made me lose sight of my purpose, restore it. Where
+                comparison has distracted me, refocus me. Where disappointment has made me stop planning, restore my
+                courage. Where fear has made me think small, give me wisdom. Where pride has prevented correction,
+                humble me. Where ignorance has caused financial loss, teach me. Where I need mentors, send wise people.
+                Where I need training, provide it. Where I need new skills, teach me. Where I need strategic
+                partnerships, connect me with trustworthy people.</p>
+            <div class="declaration-box">
+                With immediate effect now, restore clear vision, wise counsel, strategic thinking, and disciplined
+                execution.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>20. Holy Spirit, Search Every Area</h2>
+            <p>Holy Spirit, search my finances, career, business, marriage, family, relationships, thoughts, words,
+                habits, time, health, spiritual life, decision-making, contracts, client relationships, business
+                systems, savings, debts, investments, and future plans.</p>
+            <p>Reveal what I cannot see. Expose what needs correction. Strengthen what is weak. Heal what is broken.
+                Remove what must go. Establish what must remain.</p>
+            <div class="declaration-box">
+                Holy Spirit, Holy Spirit Fire, purify my life and lead me into obedience to Christ.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>21. Three Impenetrable Walls of Protection</h2>
+
+            <p><strong>Wall One — The Blood of Jesus:</strong> I plead the powerful precious blood of Jesus Christ over
+                myself, my wife, my child, my household, my work, my finances, my business, my property, my health, my
+                travel, my relationships, and my future. Let the blood of Jesus speak mercy, redemption, protection,
+                forgiveness, and victory.</p>
+            <div class="declaration-box">
+                With immediate effect now, I place everything under the lordship and protection of Jesus Christ.
+            </div>
+
+            <p><strong>Wall Two — The Word of God:</strong> I establish the Word of God as the governing standard of my
+                life. Every thought must be tested against truth. Every financial decision must be tested against
+                wisdom. Every relationship must be tested against righteousness. Every business decision must be tested
+                against integrity. Every opportunity must be tested with discernment.</p>
+            <div class="declaration-box">
+                With immediate effect now, let God's Word govern my life.
+            </div>
+
+            <p><strong>Wall Three — The Presence and Power of the Holy Spirit:</strong> Holy Spirit, fill me, guide me,
+                correct me, strengthen me. Give me discernment, wisdom, courage, and self-control. Protect me from
+                deception, impulsive decisions, destructive relationships, and spiritual fear.</p>
+            <div class="declaration-box">
+                Holy Spirit, establish Your presence around my life and household with immediate effect now.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>22. Final Command Against the Cycle</h2>
+            <p>In the mighty name of Jesus Christ, I declare:</p>
+            <p>Every destructive cycle of repeated failure, discouragement, fear, financial disorder, wasted
+                opportunities, poor decisions, and near-success frustration must end. Every pattern that repeatedly
+                brings me to the edge of progress and then causes me to retreat must be confronted with truth, wisdom,
+                discipline, prayer, and action.</p>
+            <p>Every destructive financial habit must end. Every destructive relational pattern must end. Every
+                destructive spiritual pattern must end. Every destructive mindset must end. Every destructive
+                health-neglect pattern must end. Every agreement with fear must end. Every agreement with hopelessness
+                must end. Every agreement with self-condemnation must end.</p>
+            <div class="declaration-box">
+                With immediate effect now, I choose Christ, truth, wisdom, discipline, courage, integrity, diligence,
+                and faith.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>23. Final Declaration</h2>
+            <p>Father, I declare that my past is not my master. My mistakes are not my identity. My family history is
+                not my destiny. My financial circumstances are not my worth. My disappointments are not my future. My
+                rejected opportunities are not the final chapter. My fears are not my prophet. My anxiety is not my
+                guide. My bank balance is not my god.</p>
+            <p>Money is a tool, not my master. I will use resources responsibly. I will build with wisdom. I will work
+                with excellence. I will negotiate with wisdom. I will save with discipline. I will invest with
+                understanding. I will control debt responsibly. I will build legitimate businesses. I will create value.
+                I will serve people with integrity. I will seek first the Kingdom of God and His righteousness.</p>
+            <p>I will not be ruled by panic at the beginning of the month. I will not be ruled by anxiety in the middle
+                of the month. I will not be ruled by regret and comparison at the end of the month.</p>
+            <div class="declaration-box">
+                With immediate effect now, I choose peace over panic, wisdom over confusion, discipline over impulse,
+                faith over fear, truth over lies, diligence over procrastination, and Christ over every competing
+                influence.
+            </div>
+            <p>Father, restore what can be restored. Teach me what must be learned. Correct what must be corrected. Heal
+                what must be healed. Open what You have ordained. Close what would destroy me. Give me wisdom to
+                recognize the difference.</p>
+            <p>Let the work of my hands become fruitful. Let my career become stable. Let my legitimate opportunities
+                become fruitful. Let my business become sustainable. Let my finances become orderly. Let my household
+                become peaceful. Let my marriage become stronger. Let my children inherit wisdom and righteousness. Let
+                future generations inherit a better foundation. And above everything else, let my life glorify Jesus
+                Christ.</p>
+            <p>I cover this prayer in the powerful precious blood of Jesus Christ. I submit every declaration to the
+                authority of Scripture and the will of Almighty God.</p>
+            <p>Holy Spirit, continue to guide me after this prayer. Give me the courage to act on the wisdom You reveal.
+                Give me discipline to follow through. Give me humility to receive correction. Give me strength to keep
+                going.</p>
+            <div class="declaration-box" style="text-align: center;">
+                In the mighty name of Jesus Christ, my Lord and Savior.<br><strong>Amen.</strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Preserve theme preference across sessions
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Light Mode';
+            }
+        });
+    </script>
+</body>
+
+</html>

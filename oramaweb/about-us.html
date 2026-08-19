@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Orama Distributer Limited - Trusted Ugandan Distributor</title>
+    <meta name="description"
+        content="Learn about Orama Distributer Limited. Sourcing genuine IT equipment, STEM toys, Korean stationery, car accessories, and home appliances directly from global manufacturers to Kampala, Uganda.">
+    <link rel="canonical" href="https://oramadistributor.com/about">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://oramadistributor.com/favicon.png">
+
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        orama: {
+                            navy: '#161743',
+                            deep: '#0F1033',
+                            red: '#E52E2A',
+                            redhover: '#C8201C',
+                            lightbg: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+
+        function sendToWhatsApp(subject = 'General Inquiry') {
+            const targetPhone = '256706647512';
+            const message = encodeURIComponent(`Hello Orama Distributer, I would like to learn more about your company regarding: ${subject}`);
+            window.open(`https://wa.me/${targetPhone}?text=${message}`, '_blank');
+        }
+    </script>
+    <style>
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(22, 23, 67, 0.08) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-orama-lightbg text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-orama-red selection:text-white">
+
+    <!-- TOP BAR -->
+    <div class="bg-orama-deep text-white py-2 text-xs border-b border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span
+                    class="bg-orama-red text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">Licensed
+                    Ugandan Distributor</span>
+                <span class="text-slate-300">Industrial Area, Namuwongo, Kampala</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white transition"><i
+                        class="fa-solid fa-phone text-orama-red me-1"></i> +256 706 647512</a>
+                <span class="hidden sm:inline">•</span>
+                <a href="mailto:info@oramadistributor.com" class="hover:text-white transition hidden sm:inline"><i
+                        class="fa-regular fa-envelope text-orama-red me-1"></i> info@oramadistributor.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200/80 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="bg-white px-3 py-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center">
+                    <img src="https://oramadistributor.com/logo.png" alt="Orama Distributer Limited"
+                        class="h-8 sm:h-10 w-auto object-contain"
+                        onerror="this.onerror=null; this.replaceWith(document.getElementById('nav-logo-fallback').content.cloneNode(true));" />
+                    <template id="nav-logo-fallback">
+                        <span
+                            class="text-orama-navy font-black text-2xl tracking-tighter lowercase flex items-baseline">
+                            o<span class="text-orama-red -ml-0.5">r</span>ama
+                        </span>
+                    </template>
+                </div>
+                <div class="hidden lg:block border-l border-slate-300 pl-3">
+                    <p class="text-[10px] font-bold tracking-widest text-orama-navy uppercase leading-none">Global
+                        Products</p>
+                    <p class="text-[10px] font-bold tracking-widest text-orama-red uppercase leading-tight">Trusted
+                        Distribution</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-700">
+                <a href="/" class="hover:text-orama-red transition">Home</a>
+                <a href="/about" class="text-orama-red font-bold">About Us</a>
+                <a href="/#categories" class="hover:text-orama-red transition">Categories</a>
+                <a href="/#blog" class="hover:text-orama-red transition">Market Insights</a>
+                <a href="/#contact" class="hover:text-orama-red transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="sendToWhatsApp('Company Inquiry from About Page')"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition shadow-md shadow-emerald-600/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Contact Sales Desk</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO SECTION -->
+    <section class="relative bg-dot-pattern py-16 lg:py-24 border-b border-slate-200/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+            <span
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orama-red/10 border border-orama-red/20 text-orama-red text-xs font-bold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-building-flag text-orama-red"></i> Sourcing Globally • Serving Nationally
+            </span>
+            <h1
+                class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-orama-navy leading-tight tracking-tight mb-6">
+                Closing the Gap Between World-Class Manufacturers & Everyday Ugandan Customers
+            </h1>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                Orama Distributer Limited is a proudly Ugandan distribution company operating from Namuwongo, Kampala.
+                We eliminate supply chain friction to bring authenticated IT equipment, STEM toys, stationery, car
+                accessories, and appliances straight to your doorstep.
+            </p>
+        </div>
+    </section>
+
+    <!-- OUR STORY SECTION -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-bold text-orama-red uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-orama-red"></span> Our Genesis
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-orama-navy leading-tight">
+                        Founded with a Clear Purpose: Authenticity & Integrity in Distribution
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Too often, consumers and businesses in Uganda struggle to access genuine products at honest
+                        prices—caught between counterfeit goods and unreliable suppliers. Orama Distributer Limited set
+                        out to fundamentally change that landscape.
+                    </p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Operating from our primary base in the Industrial Area, Namuwongo, Kampala, we have established
+                        direct relationships with vetted global vendors and manufacturing partners across China, India,
+                        the United Kingdom, and the United States. This network allows us to bring authenticated,
+                        high-quality products directly to the Ugandan market—cutting out unnecessary middlemen while
+                        maintaining strict quality control at every step.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="relative bg-orama-navy text-white rounded-3xl p-8 sm:p-10 shadow-2xl overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-orama-red/20 rounded-full blur-3xl">
+                        </div>
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-orama-red mb-4">Our Primary Trade
+                            Corridors</h3>
+
+                        <div class="grid grid-cols-2 gap-4 text-xs font-semibold">
+                            <div class="bg-white/10 p-4 rounded-2xl border border-white/10">
+                                <i class="fa-solid fa-microchip text-orama-red text-xl mb-2"></i>
+                                <p class="text-white text-sm font-bold">United States</p>
+                                <p class="text-slate-300">Enterprise Computing & Server Networks</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-2xl border border-white/10">
+                                <i class="fa-solid fa-graduation-cap text-emerald-400 text-xl mb-2"></i>
+                                <p class="text-white text-sm font-bold">United Kingdom</p>
+                                <p class="text-slate-300">Curriculum STEM Kits & EdTech Toys</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-2xl border border-white/10">
+                                <i class="fa-solid fa-car text-amber-400 text-xl mb-2"></i>
+                                <p class="text-white text-sm font-bold">China</p>
+                                <p class="text-slate-300">Car Gear, Dashcams & Consumer Hardware</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-2xl border border-white/10">
+                                <i class="fa-solid fa-pen-ruler text-purple-400 text-xl mb-2"></i>
+                                <p class="text-white text-sm font-bold">South Korea & India</p>
+                                <p class="text-slate-300">Premium Stationery & Appliances</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION & VISION CARDS -->
+    <section class="py-16 bg-orama-lightbg border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Mission Card -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 relative overflow-hidden">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-orama-red/10 border border-orama-red/20 text-orama-red flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-orama-navy">Our Mission</h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        To provide unique, authentic toys, gadgets, and essential equipment sourced from global
+                        manufacturers to local customers—reliably, affordably, and with integrity.
+                    </p>
+                </div>
+
+                <!-- Vision Card -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 relative overflow-hidden">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-orama-navy/10 border border-orama-navy/20 text-orama-navy flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-orama-navy">Our Vision</h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        To become East Africa's most trusted distribution partner for technology, education-focused
+                        toys, and everyday household products, known for authenticity, fair dealing, and exceptional
+                        service.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT SETS US APART -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+                <h2 class="text-xs font-bold text-orama-red uppercase tracking-widest">Our Guiding Pillars</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-orama-navy">What Sets Orama Apart</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 space-y-3">
+                    <div class="text-orama-red text-2xl"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="text-lg font-bold text-orama-navy">Authenticity, Guaranteed</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Every product we distribute is sourced through verified manufacturer channels. When you buy from
+                        us, you get the genuine article—never an imitation.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 space-y-3">
+                    <div class="text-orama-navy text-2xl"><i class="fa-solid fa-earth-africa"></i></div>
+                    <h4 class="text-lg font-bold text-orama-navy">Global Network, Local Heart</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        We combine international sourcing across China, India, the UK, and the US with on-the-ground
+                        support from our team right here in Namuwongo, Kampala.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 space-y-3">
+                    <div class="text-emerald-600 text-2xl"><i class="fa-solid fa-handshake"></i></div>
+                    <h4 class="text-lg font-bold text-orama-navy">Trusted World Vendors</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Proud distributors of globally recognized hardware names including Dell, HP, Lenovo, Cisco, and
+                        Huawei—bringing enterprise-grade reliability to local clients.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-orama-lightbg border border-slate-200 space-y-3">
+                    <div class="text-amber-600 text-2xl"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h4 class="text-lg font-bold text-orama-navy">Compliance You Can Count On</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Fully licensed under the laws of the Republic of Uganda. We operate with complete transparency,
+                        tax compliance, and trade regulation adherence.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEYOND BUSINESS (COMMUNITY) -->
+    <section class="py-16 bg-orama-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
+            <span class="text-orama-red font-extrabold text-xs uppercase tracking-widest">Our Social Impact</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold">Beyond Business — A Commitment to Communities</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                We believe distribution is about more than moving boxes; it's about equipping Ugandan students with STEM
+                tools to innovate, giving parents safe and enriching toys for their children, and helping local
+                enterprises run efficiently with dependable technology.
+            </p>
+            <div class="pt-4">
+                <button onclick="sendToWhatsApp('Partnership & Community Inquiry')"
+                    class="px-8 py-3.5 bg-orama-red hover:bg-orama-redhover text-white font-bold text-sm rounded-xl transition shadow-lg shadow-orama-red/30">
+                    Partner With Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-orama-deep text-slate-400 py-12 text-xs border-t border-slate-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <p class="text-white font-bold">Orama Distributer Limited</p>
+                <p>© 2026. All Rights Reserved. Industrial Area, Namuwongo, Kampala, Uganda.</p>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="tel:+256706647512" class="hover:text-white"><i
+                        class="fa-solid fa-phone me-1 text-orama-red"></i> +256 706 647512</a>
+                <a href="https://wa.me/256706647512" target="_blank" class="text-emerald-400 hover:text-emerald-300"><i
+                        class="fa-brands fa-whatsapp me-1"></i> WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
