@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight & Territorial Authority Prayer — Legally Binding Decrees</title>
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent-red: #991b1b;
+            --accent-red-bg: #fef2f2;
+            --gold: #b45309;
+            --gold-bg: #fffbeb;
+            --border-color: #cbd5e1;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .no-print-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-light);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: #1d4ed8;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.1rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .badge-primary {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-red {
+            background: var(--accent-red-bg);
+            color: var(--accent-red);
+            border: 1px solid #fecaca;
+        }
+
+        .badge-gold {
+            background: var(--gold-bg);
+            color: var(--gold);
+            border: 1px solid #fde68a;
+        }
+
+        .scripture-box {
+            background-color: var(--gold-bg);
+            border-left: 5px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #78350f;
+        }
+
+        .scripture-box strong {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            border-left: 4px solid var(--primary);
+            padding-left: 0.75rem;
+        }
+
+        .section-title.warfare {
+            color: var(--accent-red);
+            border-left-color: var(--accent-red);
+        }
+
+        .section-title.restoration {
+            color: var(--gold);
+            border-left-color: var(--gold);
+        }
+
+        .decree-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .decree-card.danger {
+            border-left: 5px solid var(--accent-red);
+            background-color: #fff8f8;
+        }
+
+        .decree-card.gold-card {
+            border-left: 5px solid var(--gold);
+            background-color: #fffdf5;
+        }
+
+        .decree-card.blue-card {
+            border-left: 5px solid var(--primary);
+            background-color: #f8fafc;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul,
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .command-text {
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .highlight-red {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .footer-seal {
+            text-align: center;
+            background: var(--primary-light);
+            border: 2px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .footer-seal h2 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        /* PRINT STYLESHEET */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .no-print-bar {
+                display: none !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .decree-card {
+                page-break-inside: avoid;
+                border: 1px solid #ccc !important;
+                background: #fff !important;
+            }
+
+            .header {
+                border-bottom: 2px solid #000;
+            }
+
+            .badge {
+                border: 1px solid #000 !important;
+                color: #000 !important;
+                background: none !important;
+            }
+
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Print Navigation Bar -->
+        <div class="no-print-bar">
+            <div>
+                <strong>Print-Ready Format</strong> &bull; Authoritative Spiritual Warfare & Legal Decree Document
+            </div>
+            <button class="btn-print" onclick="window.print()">Print Document / Save PDF</button>
+        </div>
+
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Territorial Authority & Midnight Legal Decree</h1>
+            <div class="subtitle">Authoritative Command, Covenant Renunciation, 7-Fold Legal Restoration & Absolute
+                Enforcement</div>
+            <div class="badges">
+                <span class="badge badge-primary">Colossians 3:3 Positioned</span>
+                <span class="badge badge-primary">Ephesians 2:6 Seated</span>
+                <span class="badge badge-red">Effective Immediately</span>
+                <span class="badge badge-gold">Hebrews 12:24 Active</span>
+            </div>
+        </div>
+
+        <!-- Foundation Scripture -->
+        <div class="scripture-box">
+            “For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers
+            of the darkness of this world, against spiritual wickedness in high places.”
+            <strong>— Ephesians 6:12 (KJV)</strong>
+        </div>
+
+        <!-- SECTION 1 -->
+        <div class="section">
+            <h2 class="section-title">1. Legal Position & Absolute Sovereignty of Christ</h2>
+            <div class="decree-card blue-card">
+                <p>Under the legal authority of <strong>Colossians 3:3</strong> (<em>“For ye are dead, and your life is
+                        hid with Christ in God”</em>) and <strong>Ephesians 2:6</strong> (<em>“And hath raised us up
+                        together, and made us sit together in heavenly places in Christ Jesus”</em>), I enter the courts
+                    of heaven. I do not come to beg, plead, or negotiate with darkness. I come taking my rightful, legal
+                    seat of victory in Christ Jesus.</p>
+                <p>I decree and declare that Jehovah alone is God—Sovereign, Supreme, and Almighty. I release high
+                    praises and adoration into the atmosphere like sweet incense ascending before the Throne of Grace. I
+                    exalt Jesus Christ above every principality, power, territorial spirit, ancestral alter, ruler of
+                    darkness, and spiritual wickedness in high places.</p>
+                <p><span class="command-text">I LEGALLY DECREE AND DECLARE:</span> My life, my marriage, my wife, my
+                    children, my bloodline, my work, my finances, and my destiny belong exclusively to Jesus Christ.
+                    Effective immediately, I enforce the supreme lordship of Jesus Christ over every dimension of my
+                    existence!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section">
+            <h2 class="section-title">2. Targeted Legal Repentance & Bloodline Cleansing</h2>
+            <div class="decree-card gold-card">
+                <p>I stand in the breach pursuant to <strong>1 John 1:9, Isaiah 1:18, Isaiah 43:25, Psalm 103:3, and 2
+                        Chronicles 7:14</strong>. I present a precise, targeted legal repentance on behalf of myself, my
+                    wife, my children, and my entire paternal and maternal bloodlines.</p>
+
+                <p><span class="command-text">SPECIFIC LEGAL CONFESSION & REPENTANCE:</span> I bring before the Throne
+                    of God the specific sin of premarital sexual relations that occurred between my wife and me prior to
+                    our marriage, through which our son, <strong>Magezi Joshua</strong>, was conceived. I do not excuse,
+                    cover, or minimize this transgression. I present the sin directly under the blood of Jesus Christ
+                    for complete forgiveness and total legal erasure.</p>
+
+                <p>I legally apply the precious blood of Jesus Christ to completely cleanse, blot out, and extinguish
+                    this act and every legal claim, accusation, or curse attached to it. I declare that our son,
+                    <strong>Magezi Joshua</strong>, is clean, sanctified, covered, and legally redeemed from any
+                    generational penalty or altar accusation.
+                </p>
+
+                <p><span class="command-text">BLOODLINE CLEANSING:</span> On behalf of my entire bloodline (paternal and
+                    maternal sides for both myself and my wife), I repent of every ancestral idolatry, witchcraft,
+                    sorcery, blood covenant, sacrifice, sexual immorality, drunkenness, murder, injustice, and demonic
+                    dedication. By the blood of Jesus shed at Calvary (<strong>Hebrews 12:24</strong>), I declare every
+                    transgression blotted out, every iniquity removed, and every legal right of Satan permanently
+                    revoked!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="section">
+            <h2 class="section-title warfare">3. Surgical Renunciation & Revocation of Covenants</h2>
+            <div class="decree-card danger">
+                <p><span class="command-text">I COMMAND AND LEGALLY ENFORCE:</span> With absolute surgical precision, I
+                    sever, break, dismantle, and annul every ungodly covenant, oath, vow, agreement, ritual, dedication,
+                    and blood alliance formed by anyone in my bloodline—past, present, living, or dead—knowingly or
+                    unknowingly, directly or by proxy!</p>
+                <ul>
+                    <li>I strip every demonic entity, spirit, and altar of all legal rights, claims, and access over my
+                        bloodline.</li>
+                    <li>I break and annul all ancestral covenants with familiar spirits, marine spirits, occult orders,
+                        sorcerers, and local deities.</li>
+                    <li>I formally cancel the old covenant of bloodline bondage and enter into the <strong>New Covenant
+                            of the Blood of Jesus Christ (Hebrews 12:24)</strong>, effective immediately!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div class="section">
+            <h2 class="section-title warfare">4. Dismantling Territorial Altars & Specific Evil Strongholds</h2>
+            <div class="decree-card danger">
+                <p><span class="command-text">IN THE MIGHTY NAME OF JESUS, I EXECUTE JUDGMENT AGAINST:</span></p>
+                <p>All principalities, powers, rulers of darkness, and spiritual wickedness operating over this city,
+                    over my place of employment, over my current residence, and over the territory I am departing from!
+                </p>
+
+                <p><span class="command-text">I STRIKE DOWN AND DEMOLISH THE FOLLOWING SPECIFIC ALTARS WITH DIVINE
+                        FIRE:</span></p>
+                <ul>
+                    <li><strong>Altars of Territorial Spirits:</strong> Jezebel spirits, marine spirits, python spirits,
+                        and territorial rulers enforcing spiritual blindness and control.</li>
+                    <li><strong>Altars of Poverty & Financial Destruction:</strong> Altars causing money to pass through
+                        hands like water, recurring monthly medical bills, perpetual debt, financial leakage, and
+                        economic stagnation.</li>
+                    <li><strong>Altars of Near-Success Syndrome:</strong> Powers causing contracts to collapse at the
+                        verge of signing, business failure at the point of breakthrough, enterprise destruction, and
+                        repeated disappointment.</li>
+                    <li><strong>Altars of Sexual Immorality:</strong> Spirits of fornication, adultery, masturbation,
+                        pornography, homosexuality, lesbianism, and abortion.</li>
+                    <li><strong>Altars of Social & Moral Corruption:</strong> Spirit of drunkenness, addiction, sorcery,
+                        witchcraft, spirit of false worship/Allah, and anti-development spirits.</li>
+                    <li><strong>Altars of Family Breakdown:</strong> Altars of marital conflict, divorce, persistent
+                        singlehood, educational failure, and premature death.</li>
+                </ul>
+                <p><span class="highlight-red">I COMMAND THESE ALTARS TO CATCH FIRE, BE DEMOLISHED, AND BE REDUCED TO
+                        ASHES INSTANTLY AND SIMULTANEOUSLY NOW IN JESUS' MIGHTY NAME!</span></p>
+            </div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <div class="section">
+            <h2 class="section-title restoration">5. Legally Demanding 7-Fold Restoration</h2>
+            <div class="decree-card gold-card">
+                <p>Pursuant to <strong>Proverbs 6:30-31</strong> (<em>“If he be found, he shall restore
+                        sevenfold”</em>), <strong>Joel 2:25</strong> (<em>“I will restore to you the years that the
+                        locust hath eaten”</em>), and <strong>Job 20:15</strong> (<em>“He hath swallowed down riches,
+                        and he shall vomit them up again”</em>):</p>
+
+                <p><span class="command-text">I LEGALLY DEMAND AND COMMAND AN IMMEDIATE 7-FOLD RESTORATION OF:</span>
+                </p>
+                <ol>
+                    <li><strong>Financial Assets & Wealth:</strong> Every stolen dollar, wasted resource, lost
+                        investment, and diverted profit must be vomited back immediately!</li>
+                    <li><strong>Business & Contract Opportunities:</strong> Full execution and completion of collapsed
+                        contracts, failed projects, and aborted business enterprises.</li>
+                    <li><strong>Wasted Time & Years:</strong> Rapid accelerated restoration of delayed years, stalled
+                        progress, and lost career opportunities.</li>
+                    <li><strong>Health & Vitality:</strong> Complete healing and restoration of physical body, immunity,
+                        strength, and freedom from artificial medical burdens.</li>
+                    <li><strong>Education & Wisdom:</strong> Total recovery of educational advancement, sharp mental
+                        clarity, and divine positioning.</li>
+                    <li><strong>Marital & Family Peace:</strong> Total harmony, divine love, stability, and joy within
+                        my marriage and home.</li>
+                    <li><strong>Territorial Dominion:</strong> Full spiritual authority, peace, favor, and elevation in
+                        every city and jurisdiction I step into!</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION 6 -->
+        <div class="section">
+            <h2 class="section-title">6. Activation of the Three Impenetrable Walls of Protection</h2>
+
+            <div class="decree-card blue-card">
+                <h3 style="color: var(--primary); margin-bottom: 0.5rem;">WALL 1: THE PRECIOUS BLOOD OF JESUS (Hebrews
+                    12:24)</h3>
+                <p><span class="command-text">I ACTIVELY ERECT AND DECREE:</span> An impenetrable perimeter of the Blood
+                    of Jesus Christ around my mind, body, spirit, wife, children (Magezi Joshua), home, work, finances,
+                    and bloodline. The blood speaks life, protection, and immunity against every arrow of darkness!</p>
+            </div>
+
+            <div class="decree-card danger">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.5rem;">WALL 2: THE CONSUMING FIRE OF THE HOLY
+                    SPIRIT (Hebrews 12:29, Deut 9:3)</h3>
+                <p><span class="command-text">I ACTIVELY ERECT AND DECREE:</span> A wall of consuming Holy Ghost fire
+                    encircling my territory. Any evil entity, witch, wizard, sorcerer, or demonic spy attempting to
+                    breach this perimeter shall be instantly consumed by divine fire!</p>
+            </div>
+
+            <div class="decree-card gold-card">
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">WALL 3: WARRIOR MILITARY ANGELS OF JEHOVAH (Psalm
+                    91:11-13, Psalm 34:7)</h3>
+                <p><span class="command-text">I ACTIVELY DEPLOY AND COMMAND:</span> Fully armed, warrior military angels
+                    of Jehovah to encamp around my household. I command them to execute immediate judgment against any
+                    invading force, neutralize all evil assignments, and enforce absolute protection 24/7!</p>
+            </div>
+        </div>
+
+        <!-- SECTION 7 -->
+        <div class="section">
+            <h2 class="section-title warfare">7. Sealing Entry Points & Final Judgment to the Abyss</h2>
+            <div class="decree-card danger">
+                <p><span class="command-text">I PERMANENTLY SEAL EVERY GATEWAY AND ENTRY POINT:</span></p>
+                <p>I close every door opened through past sins, spoken words, evil covenants, or ancestral
+                    transgressions. I seal them permanently with the Blood of Jesus Christ!</p>
+
+                <p><span class="command-text">PROHIBITION OF COUNTER-ATTACK & REGROUPING:</span></p>
+                <ul>
+                    <li>I strip the enemy of all retaliatory rights, legal counter-claims, and revenge strategies.</li>
+                    <li>I strictly forbid any demonic regrouping, rearming, reinforcement, or transfer of operations to
+                        another demonic operator.</li>
+                    <li>I decree absolute, permanent destruction of their network over my family forever!</li>
+                </ul>
+
+                <p><span class="command-text">EXECUTION MANDATE TO THE ABYSS:</span></p>
+                <p>I command Jesus Christ Himself to dispatch every displaced principality, Jezebel spirit, marine
+                    spirit, python spirit, territorial ruler, and altar spirit <span class="highlight-red">DIRECTLY AND
+                        IMMEDIATELY TO THE BOTTOMLESS ABYSS</span>, never to return, strike, or operate against me, my
+                    wife, my children, or my bloodline ever again!</p>
+            </div>
+        </div>
+
+        <!-- FINAL SEAL -->
+        <div class="footer-seal">
+            <h2>FINAL LEGAL SEAL & ETERNAL VICTORY</h2>
+            <p>I seal this entire Authoritative Midnight & Territorial Prayer in the finished work of Jesus Christ.</p>
+            <p style="font-size: 1.25rem; font-weight: 800; color: var(--accent-red); margin-top: 1rem;">
+                IT IS DECREED. IT IS ESTABLISHED. IT IS LEGALLY ENFORCED.<br>
+                EFFECTIVE IMMEDIATELY NOW IN JESUS' MIGHTY NAME!
+            </p>
+            <p style="font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-top: 0.75rem;">
+                AMEN. AMEN. AMEN! 🔥🩸🛡️⚔️👑
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Bloodline Report, Generational Covenant & Authoritative Warfare Prayer</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #b45309;
+            --accent-light: #fffbeb;
+            --border-color: #cbd5e1;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Base & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 50px 60px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Action Bar (Print Control) */
+        .action-bar {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .header-banner h1 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 22px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .header-banner h2 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .scripture-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 14.5px;
+            color: #1e3a8a;
+            text-align: left;
+        }
+
+        .scripture-box p {
+            margin-bottom: 6px;
+        }
+
+        .scripture-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Content Sections */
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        ul,
+        ol {
+            margin-left: 22px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        blockquote {
+            background-color: #f1f5f9;
+            border-left: 3px solid var(--accent);
+            padding: 10px 16px;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* Lineage Visual Diagram */
+        .lineage-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #f1f5f9;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        .lineage-node {
+            background: #ffffff;
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .lineage-arrow {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Comparison Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 15px 0;
+        }
+
+        .card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 6px;
+        }
+
+        .card-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* Cycle Comparison Box */
+        .cycle-box {
+            background: var(--accent-light);
+            border: 1px solid #fde68a;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 13.5px;
+        }
+
+        .cycle-title {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .cycle-flow {
+            font-weight: 600;
+            color: #78350f;
+            word-spacing: 2px;
+        }
+
+        .amen-block {
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: var(--primary);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--primary);
+        }
+
+        /* Print Ready Styles */
+        @media print {
+            @page {
+                size: letter;
+                margin: 1.8cm 1.5cm;
+            }
+
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 0;
+                font-size: 10.5pt;
+                line-height: 1.45;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .action-bar {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+                margin-bottom: 22px;
+            }
+
+            .header-banner {
+                padding-bottom: 15px;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #000000;
+            }
+
+            .header-banner h1 {
+                color: #000000;
+                font-size: 18pt;
+            }
+
+            .header-banner h2 {
+                color: #333333;
+                font-size: 11pt;
+            }
+
+            .section-title {
+                color: #000000;
+                border-bottom: 1px solid #000000;
+                font-size: 11pt;
+            }
+
+            .scripture-box {
+                background-color: #f4f4f5;
+                border-left: 4px solid #000000;
+                color: #000000;
+            }
+
+            .lineage-flow,
+            .card,
+            .cycle-box {
+                background-color: #ffffff;
+                border: 1px solid #666666;
+            }
+
+            .lineage-node {
+                border-color: #666666;
+            }
+
+            blockquote {
+                background-color: #f8f8f8;
+                border-left-color: #333333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="action-bar">
+        <button class="btn-print" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                <path
+                    d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm15 0a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12zm-2 9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2h10v2z" />
+            </svg>
+            Print / Save as PDF
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header-banner">
+            <h1>Holistic Bloodline Report, Generational Covenant & Authoritative Warfare Prayer</h1>
+            <h2>Standing in Christ • Bloodline Repentance • Breaking Generational Patterns • Healing & Restoration •
+                Territorial Warfare • Sealing a New Legacy</h2>
+
+            <div class="scripture-box">
+                <p><strong>“For ye are dead, and your life is hid with Christ in God.”</strong> — Colossians 3:3</p>
+                <p><strong>“And hath raised us up together, and made us sit together in heavenly places in Christ
+                        Jesus.”</strong> — Ephesians 2:6</p>
+            </div>
+        </header>
+
+        <!-- Opening Preamble -->
+        <div class="section">
+            <p>In the mighty, precious, and authoritative name of Jesus Christ of Nazareth, I approach the throne of
+                Almighty God. I do not come in fear, desperation, intimidation, or as a victim of my past. I stand upon
+                the finished work of Jesus Christ—His death, burial, resurrection, absolute victory, and eternal grace.
+                My life is hidden with Christ in God, and I am seated in heavenly places.</p>
+            <p>Almighty Father—Creator, Redeemer, Supreme Judge, Refuge, Provider, Healer, and Defender—I worship You
+                alone. No ancestral power, generational history, dark altar, or territorial influence is greater than
+                Your light and redemption. In Jesus' mighty Name, I bring our entire bloodline record, history, personal
+                confessions, and future legacy before You for total holistic transformation.</p>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <h3 class="section-title">1. Acknowledgment of Bloodline & Family Identification</h3>
+            <p>Father, I bring before You the complete historical record and identity of my family line:</p>
+            <ul>
+                <li><strong>Tribe:</strong> Basoga</li>
+                <li><strong>Clan:</strong> Baisemuwaya</li>
+                <li><strong>Geographical Roots:</strong> Butongole Village, Iganga District, Kaliro District, Bugweri
+                    District, and all surrounding areas where family members reside or work.</li>
+            </ul>
+
+            <div class="lineage-flow">
+                <span class="lineage-node">Amos Lwomunwa</span>
+                <span class="lineage-arrow">&rarr;</span>
+                <span class="lineage-node">Waibi Gilsomu</span>
+                <span class="lineage-arrow">&rarr;</span>
+                <span class="lineage-node">Gilson Waibi</span>
+                <span class="lineage-arrow">&rarr;</span>
+                <span class="lineage-node">Buyinza Patrick</span>
+                <span class="lineage-arrow">&rarr;</span>
+                <span class="lineage-node">Kisakye Paul</span>
+                <span class="lineage-arrow">&rarr;</span>
+                <span class="lineage-node">Magezi Joshua</span>
+            </div>
+
+            <ul>
+                <li><strong>Immediate Family:</strong> Kisakye Paul, my wife Teddy Nettugu, and our son Magezi Joshua.
+                </li>
+                <li><strong>Extended Household:</strong> Uncles, aunts, cousins, siblings, nephews, nieces, extended
+                    descendants, and all future generations.</li>
+            </ul>
+            <p>You know every individual, secret, wound, injustice, financial struggle, sickness, marital breakdown,
+                premature death, and hidden sin across these generations. Nothing is hidden from Your sight. I bring
+                this entire background under the light of Jesus Christ.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <h3 class="section-title">2. Evaluation & Prayerful Handling of Family Branches</h3>
+            <p>Father, You know the comparative history between the two main branches originating from our
+                great-grandfather <strong>Amos Lwomunwa</strong>:</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">Branch One: Wakabi Gilsomu</div>
+                    <p style="font-size: 13.5px; margin: 0;">Reported to have experienced comparative stability, higher
+                        education, stable marriages, financial stability, vehicle ownership, business establishment,
+                        asset accumulation, and visible economic progress.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Branch Two: Waibi Gilsomu (Our Line)</div>
+                    <p style="font-size: 13.5px; margin: 0;">Directly connected to us, which has experienced chronic
+                        financial strain, uneven access to education, repeated medical bills, premature deaths,
+                        single-parent households, and family divisions.</p>
+                </div>
+            </div>
+
+            <p><strong>Prayerful Directive & Truth Over Speculation:</strong> Father, I refuse to operate in envy,
+                bitterness, or spiritual superstition by assuming the Wakabi branch's success proves a curse on our
+                line. I ask You to reveal the real roots of our challenges—whether spiritual, relational, financial,
+                educational, medical, behavioral, or structural. Where injustice occurred, bring divine restoration.
+                Where wisdom was lacking, teach us. Where assets were lost, open legitimate doors for wealth creation
+                through faith and diligence.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <h3 class="section-title">3. Specific Generational Line Details & Current Status</h3>
+            <p>Father, I lay the specific details of our direct branch at Your feet:</p>
+            <ul>
+                <li><strong>Gilson Waibi (Grandfather):</strong> Central figure of this report who has fathered many
+                    children and descendants. He has endured deep economic, health, and social hardships, the loss of
+                    his wife years ago, financial depletion, and ongoing health and mental confusion challenges. His
+                    estate consists mainly of limited clan land insufficient for all descendants. I pray for Your mercy,
+                    physical healing, mental clarity, and peace upon him.</li>
+                <li><strong>Buyinza Patrick (Father):</strong> Father to seven children (four daughters, three sons). He
+                    suffered a severe personal and financial loss when his wife, <strong>Joy Mwesigwa</strong>, died
+                    from cancer, bringing intense emotional grief and medical expenses to the household. I lift him up
+                    for comfort, restoration, and strength.</li>
+                <li><strong>Kisakye Paul (Current Generation):</strong> Fourth-born child of Buyinza Patrick and the
+                    late Joy Mwesigwa. Married to <strong>Teddy Nettugu</strong>, and together blessed with our son,
+                    <strong>Magezi Joshua</strong>.
+                </li>
+            </ul>
+            <p>I declare that our generation represents a critical transition point. We stand in the gap to break
+                destructive cycles, preserve family records, pursue wisdom, build sustainable wealth, and set a
+                righteous foundation for <strong>Magezi Joshua</strong> and all generations to come.</p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section">
+            <h3 class="section-title">4. Personal Confession & Deep Repentance</h3>
+            <p>Father, before I address any external or ancestral pattern, I ask You to search my heart according to
+                <strong>Psalm 139:23</strong>. I take full personal responsibility for my actions and repent sincerely
+                before You:
+            </p>
+            <ul>
+                <li>I repent of pride, disobedience, unbelief, fear, anger, bitterness, and unforgiveness.</li>
+                <li>I repent of jealousy, envy, selfish ambition, dishonesty, greed, covetousness, and manipulation.
+                </li>
+                <li>I repent of every word spoken outside Your will and every ungodly decision that opened doors to
+                    destruction.</li>
+            </ul>
+
+            <p><strong>Specific Repentance for Pre-Marital Sexual Sin:</strong> Father, I specifically confess and
+                repent of the sexual sin committed before marriage between myself (<strong>Kisakye Paul</strong>) and
+                <strong>Teddy Nettugu</strong>. I acknowledge that sexual intimacy outside Your holy covenant design was
+                sin. I do not justify, excuse, or hide it. Through the blood of Jesus, forgive us, cleanse us, and
+                restore our marital covenant in purity and honor.
+            </p>
+
+            <p><strong>Dedication and Blessing Over Magezi Joshua:</strong> Concerning the circumstances surrounding the
+                conception of our son, <strong>Magezi Joshua</strong>:</p>
+            <ul>
+                <li>I completely reject and break every label of shame, illegitimacy, or condemnation over him.</li>
+                <li><strong>Magezi Joshua is NOT a curse.</strong> He is not responsible for our past mistakes or
+                    generational struggles.</li>
+                <li>I bless him in Jesus' mighty Name. I declare that he is a divine gift, holy, protected, highly
+                    favored, filled with wisdom, and established in a secure future in Christ.</li>
+            </ul>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section">
+            <h3 class="section-title">5. Ancestral & Generational Repentance & Renunciation</h3>
+            <p>Father, while I am not personally guilty of the sins committed by past generations, I stand as an
+                intercessor acknowledging the broken patterns and sins of our bloodline:</p>
+            <ul>
+                <li>I repent for all ancestral idolatry, occult involvement, witchcraft, divination, blood rituals, and
+                    ungodly covenants made within the Baisemuwaya clan or Butongole roots.</li>
+                <li>I repent for all past violence, abuse, hatred, murder, oppression, exploitation, dishonesty, and
+                    greed.</li>
+                <li>I repent for all sexual immorality, adultery, polygamous strife, contempt for marriage, abandonment,
+                    and single-parent neglect.</li>
+                <li>I repent for family divisions, malice, rivalries, destructive speech, curses spoken between
+                    relatives, and the rejection of Almighty God.</li>
+            </ul>
+
+            <p><strong>Renunciation of Ungodly Agreements:</strong> In the mighty name of Jesus Christ, I explicitly
+                renounce every ungodly covenant, vow, oath, dedication, ritual, or allegiance made by my ancestors or
+                myself. I sever all ties with darkness. My allegiance, body, mind, marriage, children, household,
+                finances, and future belong exclusively to <strong>Jesus Christ</strong>.</p>
+
+            <blockquote>
+                “If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all
+                unrighteousness.” — <strong>1 John 1:9</strong><br>
+                “Though your sins be as scarlet, they shall be as white as snow.” — <strong>Isaiah 1:18</strong><br>
+                “I, even I, am he that blotteth out thy transgressions for mine own sake, and will not remember thy
+                sins.” — <strong>Isaiah 43:25</strong>
+            </blockquote>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section">
+            <h3 class="section-title">6. Breaking Generational Health Challenges & Premature Death</h3>
+            <p>Father, I bring before You the severe health conditions documented in the Gilson Waibi family line:
+                Cancer (which claimed the life of Joy Mwesigwa), Ulcers, High Blood Pressure, Anemia, Chronic
+                Sicknesses, Mental/Neurological Instability, Unexpected Illnesses, and Premature Bereavement.</p>
+
+            <p><strong>Prayer & Practical Directive:</strong></p>
+            <ul>
+                <li>I reject the spirit of fatalism. I break the belief that because sickness occurred in previous
+                    generations, it must automatically pass to us.</li>
+                <li>I command every generational line of sickness, premature death, and infirmity to be broken by the
+                    Blood of Jesus.</li>
+                <li>I pray for divine healing, bodily restoration, and long life for our family.</li>
+                <li>Grant us medical wisdom, discipline in nutrition, exercise, routine medical screenings, proper
+                    healthcare access, and healthy stress management.</li>
+                <li>Comfort every heart wounded by past losses and restore mental clarity to all family members
+                    experiencing confusion.</li>
+            </ul>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section">
+            <h3 class="section-title">7. Breaking Financial Poverty & Establishing Generational Wealth</h3>
+            <p>Father, I bring the heavy financial pattern of our branch before You: salary-to-salary living, money
+                entering hands only to be drained immediately by recurring medical bills and emergency debts, and the
+                absence of long-lasting family companies or inherited investments.</p>
+
+            <p>In Jesus' Name, I break the cycle of poverty, financial frustration, wasted resources, and failed
+                business ventures.</p>
+
+            <blockquote>
+                “But thou shalt remember the LORD thy God: for it is he that giveth thee power to get wealth.” —
+                <strong>Deuteronomy 8:18</strong><br>
+                “A good man leaveth an inheritance to his children's children.” — <strong>Proverbs 13:22</strong>
+            </blockquote>
+
+            <p>Father, grant me and my family:</p>
+            <ul>
+                <li>Financial discipline to eliminate unnecessary waste and handle debt wisely.</li>
+                <li>Knowledge and courage to save, invest, and acquire durable, long-term assets.</li>
+                <li>Business insight to establish ethical, profitable, and sustainable enterprises that outlive our
+                    generation.</li>
+                <li>Profitable opportunities, honest business contracts, trustworthy advisers, and financial literacy.
+                </li>
+                <li>The grace to transfer financial wisdom—not financial ignorance—to Magezi Joshua and future
+                    generations.</li>
+            </ul>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="section">
+            <h3 class="section-title">8. Divine Restoration & Sevenfold Recovery</h3>
+            <p>Standing on Your Holy Word, I ask for total restoration of everything lost through ignorance,
+                generational patterns, injustice, or poor stewardship:</p>
+
+            <blockquote>
+                “And I will restore to you the years that the locust hath eaten...” — <strong>Joel 2:25</strong><br>
+                “If a thief be found, he shall restore sevenfold...” — <strong>Proverbs 6:31</strong>
+            </blockquote>
+
+            <ul>
+                <li><strong>Restore Wasted Years & Lost Opportunities:</strong> Open new, legitimate doors for economic
+                    advancement and career success.</li>
+                <li><strong>Restore Lost Wisdom & Confidence:</strong> Replace past regrets and painful failures with
+                    divine vision and clear focus.</li>
+                <li><strong>Restore Relationships & Justice:</strong> Where land, assets, or opportunities were
+                    wrongfully diverted or stolen, let divine justice, lawful recovery, and restoration take place.</li>
+            </ul>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="section">
+            <h3 class="section-title">9. Breaking Marital Breakdown & Building Family Unity</h3>
+            <p>Father, I address the recurring patterns of divorce, separation, single motherhood, marital unhappiness,
+                anger, jealousy, and lack of communication within the Waibi line:</p>
+            <ul>
+                <li>I break every pattern of marital failure, relational dysfunction, and domestic turmoil.</li>
+                <li>I declare over my marriage—<strong>Kisakye Paul and Teddy Nettugu</strong>—that we are bound
+                    together in love, mutual respect, open communication, physical fidelity, financial harmony, and
+                    spiritual unity.</li>
+            </ul>
+
+            <blockquote>
+                “What therefore God hath joined together, let not man put asunder.” — <strong>Mark 10:9</strong><br>
+                “As for me and my house, we will serve the LORD.” — <strong>Joshua 24:15</strong>
+            </blockquote>
+
+            <p>Grant our extended family the spirit of reconciliation, active communication, mutual support during
+                crises, and genuine unity across all branches.</p>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="section">
+            <h3 class="section-title">10. Systematic Documentation & Unresolved Questions</h3>
+            <p>Father, grant our family wisdom to pursue clarity rather than living in unresolved confusion:</p>
+            <ul>
+                <li>Help us accurately document complete family records: full names, dates of birth/death, verified
+                    causes of death, marital records, education levels, asset/land ownership, medical histories, and
+                    photographs.</li>
+                <li>Give us practical insight to answer why our branch lagged economically, ensuring future generations
+                    learn from historical facts rather than unsubstantiated claims.</li>
+            </ul>
+        </div>
+
+        <!-- Section 11 -->
+        <div class="section">
+            <h3 class="section-title">11. Silencing Accusations & Destroying Dark Works</h3>
+            <p>Father, I bring every accusation—whether spiritual, legal, relational, or emotional—before Your
+                courtroom:</p>
+            <ul>
+                <li>If I have wronged anyone or owe any debt, give me humility, wisdom, and resources to make it right.
+                </li>
+                <li>If an accusation is false, malicious, or demonic, I silence it by the Blood of Jesus.</li>
+            </ul>
+
+            <blockquote>
+                “No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in
+                judgment thou shalt condemn.” — <strong>Isaiah 54:17</strong>
+            </blockquote>
+
+            <p>I render completely powerless every occult ritual, dark invocation, evil decree, or generational
+                assignment against my home, wife, child, health, and finances. They are destroyed at the cross of
+                Christ.</p>
+        </div>
+
+        <!-- Section 12 -->
+        <div class="section">
+            <h3 class="section-title">12. Territorial Prayer & Environment Sanctification</h3>
+            <p>Father, I surrender every territory connected to us—our home, neighborhood, workplaces, businesses,
+                Butongole Village, Iganga, Kaliro, Bugweri, and beyond—to Your divine authority:</p>
+            <ul>
+                <li>Sanctify our environment with Your peace and righteousness.</li>
+                <li>Let corruption, violence, exploitation, and occult influences lose their hold in our land.</li>
+                <li>Establish safety, clean economic growth, strong family units, and local community prosperity.</li>
+                <li>My trust is not in local geography, rituals, or human systems; my foundation is Almighty God.</li>
+            </ul>
+        </div>
+
+        <!-- Section 13 -->
+        <div class="section">
+            <h3 class="section-title">13. Putting on the Full Armor of God</h3>
+            <p>I consciously equip myself with the full spiritual armor of God according to <strong>Ephesians
+                    6:10–18</strong>:</p>
+            <ul>
+                <li><strong>Belt of Truth:</strong> I stand anchored in the absolute truth of God's Word, rejecting all
+                    lies regarding my identity and family background.</li>
+                <li><strong>Breastplate of Righteousness:</strong> I am guarded by the righteousness of Christ, walking
+                    in clean integrity.</li>
+                <li><strong>Shoes of the Gospel of Peace:</strong> My feet are steady; I walk in divine peace, refusing
+                    panic or confusion.</li>
+                <li><strong>Shield of Faith:</strong> I extinguish every fiery dart of fear, doubt, shame, accusation,
+                    and financial intimidation.</li>
+                <li><strong>Helmet of Salvation:</strong> My mind, thoughts, and mental health are protected by the
+                    assurance of my salvation in Christ.</li>
+                <li><strong>Sword of the Spirit:</strong> I declare the living Word of God (Hebrews 4:12), which cuts
+                    down every false pattern.</li>
+                <li><strong>Praying in the Spirit:</strong> I maintain continuous watchfulness, prayer, and
+                    supplication.</li>
+            </ul>
+        </div>
+
+        <!-- Section 14 -->
+        <div class="section">
+            <h3 class="section-title">14. Cutting Off the Cycle of Fear</h3>
+            <p>I break and dismantle the destructive cycle of:</p>
+
+            <div class="cycle-box">
+                <div class="cycle-title">Destructive Pattern Broken:</div>
+                <div class="cycle-flow">Fear &rarr; Panic &rarr; Poor Decisions &rarr; Financial Strain &rarr; Regret
+                    &rarr; Comparison &rarr; Hopelessness</div>
+            </div>
+
+            <p>And by God's grace, I replace it with the divine cycle of:</p>
+
+            <div class="cycle-box" style="background: var(--primary-light); border-color: #bfdbfe;">
+                <div class="cycle-title" style="color: var(--primary);">Divine Replacement Cycle Established:</div>
+                <div class="cycle-flow" style="color: #1e3a8a;">Faith &rarr; Wisdom &rarr; Discipline &rarr; Obedience
+                    &rarr; Action &rarr; Perseverance &rarr; Stewardship &rarr; Generational Growth</div>
+            </div>
+
+            <blockquote>
+                “For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.” —
+                <strong>2 Timothy 1:7</strong><br>
+                “But my God shall supply all your need according to his riches in glory by Christ Jesus.” —
+                <strong>Philippians 4:19</strong>
+            </blockquote>
+        </div>
+
+        <!-- Section 15 -->
+        <div class="section">
+            <h3 class="section-title">15. Establishing the Three Walls of Protection</h3>
+            <p>I seal my life, my wife Teddy Nettugu, my son Magezi Joshua, my household, and our assets behind Three
+                Divine Walls of Protection:</p>
+            <ol>
+                <li><strong>WALL ONE — THE BLOOD OF JESUS:</strong> The eternal covenant mark that shields us from all
+                    destructive judgments and spiritual forces.</li>
+                <li><strong>WALL TWO — THE FIRE OF THE HOLY SPIRIT:</strong> Purifying our hearts, granting discernment,
+                    burning away evil assignments, and filling our home with God's presence.</li>
+                <li><strong>WALL THREE — GOD'S ANGELIC PROTECTION:</strong> <em>“For he shall give his angels charge
+                        over thee, to keep thee in all thy ways.”</em> (Psalm 91:11). Angels of God encamp around our
+                    household to preserve our going out and coming in.</li>
+            </ol>
+        </div>
+
+        <!-- Section 16 -->
+        <div class="section">
+            <h3 class="section-title">16. Authoritative Generational Decrees</h3>
+            <p>Standing in my position in Christ, I decree and declare:</p>
+            <ul>
+                <li><strong>I belong to Jesus Christ.</strong> My past does not define me; my bloodline's failures are
+                    not my destiny.</li>
+                <li><strong>The cycle of poverty ends with me.</strong> I am empowered to create, steward, and transfer
+                    lasting wealth.</li>
+                <li><strong>The cycle of sickness and premature death is broken.</strong> Divine health, medical wisdom,
+                    and longevity are our portion.</li>
+                <li><strong>The cycle of marital breakdown and family division is broken.</strong> Covenant fidelity,
+                    peace, and deep love govern my marriage and home.</li>
+                <li><strong>Magezi Joshua and all future generations will walk in faith, wisdom, health, education,
+                        integrity, high productivity, and the fear of the Lord.</strong></li>
+            </ul>
+        </div>
+
+        <!-- Section 17 -->
+        <div class="section">
+            <h3 class="section-title">17. Final Scriptural Declarations & Sealing</h3>
+            <blockquote>
+                <p>“What shall we then say to these things? If God be for us, who can be against us?” — <strong>Romans
+                        8:31</strong></p>
+                <p>“Nay, in all these things we are more than conquerors through him that loved us.” — <strong>Romans
+                        8:37</strong></p>
+                <p>“There is therefore now no condemnation to them which are in Christ Jesus.” — <strong>Romans
+                        8:1</strong></p>
+                <p>“Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all
+                    things are become new.” — <strong>2 Corinthians 5:17</strong></p>
+                <p>“Greater is he that is in you, than he that is in the world.” — <strong>1 John 4:4</strong></p>
+                <p>“The LORD is my light and my salvation; whom shall I fear? The LORD is the strength of my life; of
+                    whom shall I be afraid?” — <strong>Psalm 27:1</strong></p>
+                <p>“The LORD is my shepherd; I shall not want.” — <strong>Psalm 23:1</strong></p>
+                <p>“Let the beauty of the LORD our God be upon us: and establish thou the work of our hands upon us.” —
+                    <strong>Psalm 90:17</strong>
+                </p>
+            </blockquote>
+
+            <p>Father, I surrender my history, present life, family line, marriage, child, health, career, investments,
+                and future into Your hands. Let Your divine will be fully established. Let our family become a living
+                monument of Your grace, power, restoration, and redemption.</p>
+            <p>In the mighty, victorious, and matchless Name of Jesus Christ of Nazareth, I pray.</p>
+
+            <div class="amen-block">
+                AMEN. AMEN. AMEN.
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
