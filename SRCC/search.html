@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Capacity Chart & Specifications</title>
+    <style>
+        :root {
+            --color-primary: #540C18;
+            --color-secondary: #540C18;
+            --color-text-default: #333333;
+            --color-alt-text: #6E6E6E;
+            --color-bg-light: #F8F9FA;
+            --color-white: #FFFFFF;
+            --color-border: #E5E7EB;
+            --color-hover: #FDF2F4;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-default);
+            line-height: 1.5;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header.page-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header.page-header h1 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        header.page-header p {
+            color: var(--color-alt-text);
+            font-size: 1rem;
+        }
+
+        /* SEARCH BAR COMPONENT */
+        .search-section {
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+            margin-bottom: 32px;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--color-white);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(84, 12, 24, 0.15);
+        }
+
+        .search-icon {
+            padding-left: 16px;
+            color: var(--color-alt-text);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 12px;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--color-text-default);
+            font-family: inherit;
+        }
+
+        .search-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 12px;
+        }
+
+        .search-badge {
+            background-color: var(--color-hover);
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+            display: none;
+        }
+
+        .kbd-shortcut {
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            color: var(--color-alt-text);
+            font-family: monospace;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: var(--color-alt-text);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .clear-btn:hover {
+            background-color: #f3f4f6;
+            color: var(--color-text-default);
+        }
+
+        .clear-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* SEARCH DROPDOWN */
+        .search-dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            max-height: 360px;
+            overflow-y: auto;
+            display: none;
+            z-index: 101;
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--color-bg-light);
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item.active {
+            background-color: var(--color-hover);
+        }
+
+        .dropdown-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-item-title {
+            font-weight: 600;
+            color: var(--color-text-default);
+        }
+
+        .dropdown-item-meta {
+            font-size: 0.825rem;
+            color: var(--color-alt-text);
+        }
+
+        .dropdown-item-action {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .dropdown-no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--color-alt-text);
+            font-size: 0.95rem;
+        }
+
+        /* SEARCH CHIPS */
+        .search-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .search-chip {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 4px 12px;
+            font-size: 0.825rem;
+            color: var(--color-alt-text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .search-chip:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: var(--color-hover);
+        }
+
+        /* TEXT HIGHLIGHT & FLASH TARGET */
+        mark.search-highlight {
+            background-color: #FEF08A;
+            color: #854D0E;
+            font-weight: 600;
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+
+        @keyframes targetPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(84, 12, 24, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(84, 12, 24, 0.15);
+                transform: scale(1.01);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(84, 12, 24, 0);
+                transform: scale(1);
+            }
+        }
+
+        .venue-card.highlight-target {
+            animation: targetPulse 1.2s ease-in-out;
+            border-color: var(--color-primary) !important;
+        }
+
+        .venue-card.search-dimmed {
+            opacity: 0.35;
+            filter: grayscale(30%);
+            transition: opacity 0.2s ease, filter 0.2s ease;
+        }
+
+        /* VENUE LAYOUT & CARDS */
+        .venue-section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .venue-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .venue-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .venue-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .venue-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .venue-location {
+            font-size: 0.8rem;
+            background: var(--color-bg-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--color-alt-text);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+        }
+
+        .spec-item {
+            background: var(--color-bg-light);
+            padding: 8px 10px;
+            border-radius: 6px;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--color-alt-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--color-text-default);
+        }
+
+        .capacity-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .capacity-table th,
+        .capacity-table td {
+            padding: 6px 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .capacity-table th {
+            color: var(--color-alt-text);
+            font-weight: 600;
+            background: #fafafa;
+        }
+
+        .venue-features {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .feature-tag {
+            font-size: 0.75rem;
+            background-color: var(--color-hover);
+            color: var(--color-primary);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .venue-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kbd-shortcut {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Venue Capacity Chart & Specifications</h1>
+            <p>Search and compare event space dimensions, capacities, and layout options.</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </span>
+                    <input type="text" id="venue-search-input" class="search-input"
+                        placeholder="Search venues by name, capacity, setup style (e.g. Banquet, 300 pax)..."
+                        autocomplete="off">
+                    <div class="search-controls">
+                        <span id="search-match-count" class="search-badge">0 matches</span>
+                        <kbd class="kbd-shortcut">⌘K</kbd>
+                        <button type="button" id="search-clear-btn" class="clear-btn" title="Clear search (Esc)">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="search-dropdown" class="search-dropdown"></div>
+
+                <div class="search-chips">
+                    <button type="button" class="search-chip" data-search="Ballroom">Ballrooms</button>
+                    <button type="button" class="search-chip" data-search="Banquet">Banquet Style</button>
+                    <button type="button" class="search-chip" data-search="Outdoor">Outdoor</button>
+                    <button type="button" class="search-chip" data-search="Executive">Executive</button>
+                    <button type="button" class="search-chip" data-search="500">500+ Guests</button>
+                </div>
+            </div>
+        </section>
+
+        <main id="venue-content-area">
+
+            <section class="venue-section">
+                <div class="section-header">
+                    <h2>Grand Ballrooms</h2>
+                </div>
+                <div class="venue-grid">
+
+                    <div class="venue-card" data-category="Grand Ballrooms">
+                        <div class="venue-card-header">
+                            <h3 class="venue-title">Grand Imperial Ballroom</h3>
+                            <span class="venue-location">Level 1</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <div class="spec-label">Area</div>
+                                <div class="spec-value">1,200 sq.m / 12,900 sq.ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Ceiling Height</div>
+                                <div class="spec-value">7.5m / 24.6ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Max Capacity</div>
+                                <div class="spec-value venue-capacity-highlight">1,000 Pax</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Natural Daylight</div>
+                                <div class="spec-value">Yes</div>
+                            </div>
+                        </div>
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th>Setup Style</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Banquet Style</td>
+                                    <td>700 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Theatre Style</td>
+                                    <td>1,000 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Cocktail Reception</td>
+                                    <td>1,200 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Classroom Style</td>
+                                    <td>550 Guests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="venue-features">
+                            <span class="feature-tag">AV Built-in</span>
+                            <span class="feature-tag">Stage Ready</span>
+                            <span class="feature-tag">Private Foyer</span>
+                        </div>
+                    </div>
+
+                    <div class="venue-card" data-category="Grand Ballrooms">
+                        <div class="venue-card-header">
+                            <h3 class="venue-title">Royal Crown Pavilion</h3>
+                            <span class="venue-location">Ground Floor</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <div class="spec-label">Area</div>
+                                <div class="spec-value">850 sq.m / 9,150 sq.ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Ceiling Height</div>
+                                <div class="spec-value">6.0m / 19.6ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Max Capacity</div>
+                                <div class="spec-value venue-capacity-highlight">650 Pax</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Natural Daylight</div>
+                                <div class="spec-value">Partial</div>
+                            </div>
+                        </div>
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th>Setup Style</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Banquet Style</td>
+                                    <td>450 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Theatre Style</td>
+                                    <td>650 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Cocktail Reception</td>
+                                    <td>750 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Classroom Style</td>
+                                    <td>320 Guests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="venue-features">
+                            <span class="feature-tag">Chandeliers</span>
+                            <span class="feature-tag">Vehicle Access</span>
+                            <span class="feature-tag">Partitionable</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="venue-section">
+                <div class="section-header">
+                    <h2>Meeting & Executive Suites</h2>
+                </div>
+                <div class="venue-grid">
+
+                    <div class="venue-card" data-category="Meeting Suites">
+                        <div class="venue-card-header">
+                            <h3 class="venue-title">Executive Boardroom A</h3>
+                            <span class="venue-location">Level 2</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <div class="spec-label">Area</div>
+                                <div class="spec-value">85 sq.m / 915 sq.ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Ceiling Height</div>
+                                <div class="spec-value">3.2m / 10.5ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Max Capacity</div>
+                                <div class="spec-value venue-capacity-highlight">30 Pax</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Natural Daylight</div>
+                                <div class="spec-value">Yes</div>
+                            </div>
+                        </div>
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th>Setup Style</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Boardroom Style</td>
+                                    <td>24 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>U-Shape Style</td>
+                                    <td>20 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Hollow Square</td>
+                                    <td>22 Guests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="venue-features">
+                            <span class="feature-tag">4K Display</span>
+                            <span class="feature-tag">Video Conf</span>
+                            <span class="feature-tag">Executive Chairs</span>
+                        </div>
+                    </div>
+
+                    <div class="venue-card" data-category="Meeting Suites">
+                        <div class="venue-card-header">
+                            <h3 class="venue-title">Summit Conference Room</h3>
+                            <span class="venue-location">Level 2</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <div class="spec-label">Area</div>
+                                <div class="spec-value">210 sq.m / 2,260 sq.ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Ceiling Height</div>
+                                <div class="spec-value">3.8m / 12.4ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Max Capacity</div>
+                                <div class="spec-value venue-capacity-highlight">180 Pax</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Natural Daylight</div>
+                                <div class="spec-value">Yes</div>
+                            </div>
+                        </div>
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th>Setup Style</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Banquet Style</td>
+                                    <td>120 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Theatre Style</td>
+                                    <td>180 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Classroom Style</td>
+                                    <td>90 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>U-Shape Style</td>
+                                    <td>45 Guests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="venue-features">
+                            <span class="feature-tag">Dual Projectors</span>
+                            <span class="feature-tag">Soundproof</span>
+                            <span class="feature-tag">Coffee Lounge</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="venue-section">
+                <div class="section-header">
+                    <h2>Outdoor Spaces & Gardens</h2>
+                </div>
+                <div class="venue-grid">
+
+                    <div class="venue-card" data-category="Outdoor Spaces">
+                        <div class="venue-card-header">
+                            <h3 class="venue-title">Skyline Garden Terrace</h3>
+                            <span class="venue-location">Rooftop Level 5</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <div class="spec-label">Area</div>
+                                <div class="spec-value">600 sq.m / 6,450 sq.ft</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Ceiling Height</div>
+                                <div class="spec-value">Open Air</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">Max Capacity</div>
+                                <div class="spec-value venue-capacity-highlight">500 Pax</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-label">View</div>
+                                <div class="spec-value">Panoramic City</div>
+                            </div>
+                        </div>
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th>Setup Style</th>
+                                    <th>Capacity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cocktail Reception</td>
+                                    <td>500 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Banquet Style</td>
+                                    <td>300 Guests</td>
+                                </tr>
+                                <tr>
+                                    <td>Theatre Style</td>
+                                    <td>350 Guests</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="venue-features">
+                            <span class="feature-tag">Outdoor Bar</span>
+                            <span class="feature-tag">Ambient Lighting</span>
+                            <span class="feature-tag">Weather Canopy</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('venue-search-input');
+            const clearBtn = document.getElementById('search-clear-btn');
+            const matchBadge = document.getElementById('search-match-count');
+            const dropdown = document.getElementById('search-dropdown');
+            const chips = document.querySelectorAll('.search-chip');
+            const venueCards = Array.from(document.querySelectorAll('.venue-card'));
+            const contentContainer = document.getElementById('venue-content-area');
+
+            let selectedIndex = -1;
+            let currentMatches = [];
+
+            // Helper: Escape Special Characters for Regex
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            // Helper: Normalize String
+            function normalize(str) {
+                return str ? str.toString().toLowerCase().trim() : '';
+            }
+
+            // Helper: Escape HTML
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            // Highlight Text Engine
+            function highlightMatches(query) {
+                removeHighlights(contentContainer);
+
+                if (!query.trim()) return;
+
+                const term = escapeRegExp(query.trim());
+                const regex = new RegExp(`(${term})`, 'gi');
+
+                function walk(node) {
+                    if (node.nodeType === 3) { // Text Node
+                        if (node.nodeValue.trim() && regex.test(node.nodeValue)) {
+                            const span = document.createElement('span');
+                            span.className = 'highlight-wrapper';
+                            span.innerHTML = node.nodeValue.replace(regex, '<mark class="search-highlight">$1</mark>');
+                            node.parentNode.replaceChild(span, node);
+                        }
+                    } else if (node.nodeType === 1) { // Element Node
+                        if (!['SCRIPT', 'STYLE', 'MARK', 'INPUT', 'TEXTAREA', 'BUTTON'].includes(node.tagName)) {
+                            Array.from(node.childNodes).forEach(walk);
+                        }
+                    }
+                }
+                walk(contentContainer);
+            }
+
+            // Clear Highlight Engine
+            function removeHighlights(container) {
+                const marks = container.querySelectorAll('mark.search-highlight');
+                marks.forEach(mark => {
+                    const parent = mark.parentNode;
+                    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                    parent.normalize();
+                });
+                container.querySelectorAll('span.highlight-wrapper').forEach(span => {
+                    const parent = span.parentNode;
+                    while (span.firstChild) {
+                        parent.insertBefore(span.firstChild, span);
+                    }
+                    parent.removeChild(span);
+                    parent.normalize();
+                });
+            }
+
+            // Core Search Execution Routine
+            function executeSearch(query) {
+                const normQuery = normalize(query);
+                selectedIndex = -1;
+
+                if (!normQuery) {
+                    clearBtn.style.display = 'none';
+                    matchBadge.style.display = 'none';
+                    dropdown.style.display = 'none';
+                    dropdown.innerHTML = '';
+                    removeHighlights(contentContainer);
+                    venueCards.forEach(card => {
+                        card.style.display = '';
+                        card.classList.remove('search-dimmed');
+                    });
+                    currentMatches = [];
+                    return;
+                }
+
+                clearBtn.style.display = 'flex';
+
+                // Filter Cards
+                currentMatches = [];
+                venueCards.forEach(card => {
+                    const textContent = card.innerText || card.textContent;
+                    const isMatch = normalize(textContent).includes(normQuery);
+
+                    if (isMatch) {
+                        currentMatches.push(card);
+                        card.style.display = '';
+                        card.classList.remove('search-dimmed');
+                    } else {
+                        card.classList.add('search-dimmed');
+                    }
+                });
+
+                // Apply text highlights across matching DOM
+                highlightMatches(query);
+
+                // Update badge counter
+                matchBadge.style.display = 'inline-flex';
+                matchBadge.textContent = `${currentMatches.length} ${currentMatches.length === 1 ? 'match' : 'matches'}`;
+
+                // Render Dropdown List
+                renderDropdown(query);
+            }
+
+            // Render Auto-complete Search Dropdown
+            function renderDropdown(query) {
+                if (currentMatches.length === 0) {
+                    dropdown.innerHTML = `
+                        <div class="dropdown-no-results">
+                            <span>🚫</span> No matching venues found for "<strong>${escapeHtml(query)}</strong>"
+                        </div>`;
+                    dropdown.style.display = 'block';
+                    return;
+                }
+
+                dropdown.innerHTML = currentMatches.map((card, idx) => {
+                    const title = card.querySelector('.venue-title')?.textContent || 'Venue Space';
+                    const category = card.dataset.category || card.closest('.venue-section')?.querySelector('.section-header h2')?.textContent || 'Venue Section';
+                    const capacity = card.querySelector('.venue-capacity-highlight')?.textContent || '';
+
+                    return `
+                        <div class="dropdown-item ${idx === selectedIndex ? 'active' : ''}" data-index="${idx}">
+                            <div class="dropdown-item-info">
+                                <span class="dropdown-item-title">${escapeHtml(title)}</span>
+                                <span class="dropdown-item-meta">${escapeHtml(category)} ${capacity ? '• ' + escapeHtml(capacity) : ''}</span>
+                            </div>
+                            <span class="dropdown-item-action">Jump ➔</span>
+                        </div>
+                    `;
+                }).join('');
+
+                dropdown.style.display = 'block';
+
+                dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.dataset.index, 10);
+                        jumpToVenue(currentMatches[index]);
+                    });
+                });
+            }
+
+            // Jump / Scroll to Venue with Pulsing Highlight Animation
+            function jumpToVenue(targetCard) {
+                if (!targetCard) return;
+
+                dropdown.style.display = 'none';
+
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                targetCard.classList.add('highlight-target');
+                setTimeout(() => {
+                    targetCard.classList.remove('highlight-target');
+                }, 1800);
+            }
+
+            // Input Event Listener
+            searchInput.addEventListener('input', (e) => {
+                executeSearch(e.target.value);
+            });
+
+            // Keyboard Interactions Navigation
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    clearSearch();
+                    searchInput.blur();
+                    return;
+                }
+
+                const items = dropdown.querySelectorAll('.dropdown-item');
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        selectedIndex = (selectedIndex + 1) % items.length;
+                        updateActiveDropdownItem(items);
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+                        updateActiveDropdownItem(items);
+                    }
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (selectedIndex >= 0 && selectedIndex < currentMatches.length) {
+                        jumpToVenue(currentMatches[selectedIndex]);
+                    } else if (currentMatches.length > 0) {
+                        jumpToVenue(currentMatches[0]);
+                    }
+                }
+            });
+
+            function updateActiveDropdownItem(items) {
+                items.forEach((item, index) => {
+                    if (index === selectedIndex) {
+                        item.classList.add('active');
+                        item.scrollIntoView({ block: 'nearest' });
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+            // Clear Search Handler
+            clearBtn.addEventListener('click', () => {
+                clearSearch();
+                searchInput.focus();
+            });
+
+            function clearSearch() {
+                searchInput.value = '';
+                executeSearch('');
+            }
+
+            // Global Keyboard Shortcut (Cmd+K / Ctrl+K)
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            });
+
+            // Chip Filter Buttons
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const val = chip.dataset.search || chip.textContent.trim();
+                    searchInput.value = val;
+                    executeSearch(val);
+                    searchInput.focus();
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-container')) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

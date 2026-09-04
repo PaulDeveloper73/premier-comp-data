@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Capacity Chart</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --bg-surface: #ffffff;
+            --bg-app: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-app);
+            color: var(--text-main);
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 48px);
+        }
+
+        .header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #ffffff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .header-title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .header-title p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 260px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px 8px 36px;
+            font-size: 0.875rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .pill-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .pill-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-main);
+        }
+
+        .pill-btn.active {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .table-wrapper {
+            flex: 1;
+            overflow: auto;
+            position: relative;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.8125rem;
+            text-align: left;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 600;
+            padding: 10px 12px;
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-size: 0.725rem;
+            letter-spacing: 0.05em;
+        }
+
+        thead tr:nth-child(2) th {
+            top: 35px;
+            background-color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+            color: #334155;
+        }
+
+        .venue-cell {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .venue-link-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 2px;
+            border-radius: 4px;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .venue-link-icon:hover {
+            background-color: #dbeafe;
+            color: var(--primary-hover);
+        }
+
+        .tag-location {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .num-col {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .na-val {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .section-divider {
+            background-color: #334155 !important;
+            color: #ffffff !important;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 8px 12px;
+        }
+
+        .footer-bar {
+            padding: 12px 24px;
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                height: auto;
+                min-height: calc(100vh - 24px);
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .controls {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-title">
+                <h1>Venue Capacity Chart</h1>
+                <p>Comprehensive specifications & seating capacity directory</p>
+            </div>
+            <div class="controls">
+                <div class="search-box">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" stroke-width="2" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search venue name or location..."
+                        onkeyup="filterVenues()">
+                </div>
+                <div class="filter-pills">
+                    <button class="pill-btn active" onclick="setCategory('ALL', this)">All</button>
+                    <button class="pill-btn" onclick="setCategory('SRCC', this)">SRCC</button>
+                    <button class="pill-btn" onclick="setCategory('EAST', this)">East Wing</button>
+                    <button class="pill-btn" onclick="setCategory('WEST', this)">West Wing</button>
+                    <button class="pill-btn" onclick="setCategory('COMMONWEALTH', this)">Commonwealth</button>
+                    <button class="pill-btn" onclick="setCategory('OUTDOOR', this)">Outdoor</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="capacityTable">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="left: 0; z-index: 12;">Venue / Hall</th>
+                        <th rowspan="2">Location</th>
+                        <th rowspan="2" class="num-col">Area (m²)</th>
+                        <th colspan="3" style="text-align: center;">Dimensions (m)</th>
+                        <th rowspan="2" class="num-col">Acc.</th>
+                        <th colspan="7" style="text-align: center;">Configuration & Capacity</th>
+                    </tr>
+                    <tr>
+                        <th class="num-col">L</th>
+                        <th class="num-col">W</th>
+                        <th class="num-col">H</th>
+                        <th class="num-col">Theatre</th>
+                        <th class="num-col">Classroom</th>
+                        <th class="num-col">Boardroom</th>
+                        <th class="num-col">Horseshoe</th>
+                        <th class="num-col">Fishbone</th>
+                        <th class="num-col">U-Shape</th>
+                        <th class="num-col">Banquet</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Rendered dynamically via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer-bar">
+            <span id="venueCount">Showing all 46 venues</span>
+            <span>Click the inline link icon (<svg width="12" height="12" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" style="display:inline; vertical-align:middle;">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-width="2" />
+                    <polyline points="15 3 21 3 21 9" stroke-width="2" />
+                    <line x1="10" y1="14" x2="21" y2="3" stroke-width="2" />
+                </svg>) to view venue details in a new tab.</span>
+        </div>
+    </div>
+
+    <script>
+        const venuesData = [
+            // INDOOR VENUES
+            { name: "RWENZORIA+B", location: "SRCC Ground Floor", area: "3,200", l: "80.0", w: "40.0", h: "10.5", acc: "10", theatre: "3,200", classroom: "2,200", boardroom: "240", horseshoe: "1,800", fishbone: "1,800", ushape: "600", banquet: "2,400", type: "INDOOR", zone: "SRCC" },
+            { name: "RWENZORIA", location: "SRCC Ground Floor", area: "1,600", l: "40.0", w: "40.0", h: "10.5", acc: "5", theatre: "1,600", classroom: "1,100", boardroom: "120", horseshoe: "900", fishbone: "900", ushape: "200", banquet: "1,200", type: "INDOOR", zone: "SRCC" },
+            { name: "RWENZORI B", location: "SRCC Ground Floor", area: "1,600", l: "40.0", w: "40.0", h: "10.5", acc: "5", theatre: "1,600", classroom: "1,100", boardroom: "120", horseshoe: "900", fishbone: "900", ushape: "200", banquet: "1,200", type: "INDOOR", zone: "SRCC" },
+            { name: "GALLERY 1-fixed seating", location: "SRCC Entrance from 1st Floor", area: "300", l: "NA", w: "NA", h: "NA", acc: "2", theatre: "300", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "GALLERY 2-fixed seating", location: "SRCC Entrance from 1st Floor", area: "300", l: "NA", w: "NA", h: "NA", acc: "2", theatre: "300", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Speke Ballroom", location: "East Wing 1st Floor", area: "1,140", l: "63.0", w: "17.6", h: "5.3", acc: "7", theatre: "1,400", classroom: "700", boardroom: "130", horseshoe: "500", fishbone: "500", ushape: "200", banquet: "800", type: "INDOOR", zone: "EAST" },
+            { name: "Victoria Ballroom", location: "West Wing Upper Ground Floor", area: "957", l: "34.4", w: "27.8", h: "3.7", acc: "2", theatre: "900", classroom: "500", boardroom: "100", horseshoe: "450", fishbone: "450", ushape: "160", banquet: "650", type: "INDOOR", zone: "WEST" },
+            { name: "Royal Palm", location: "East Wing First Floor", area: "600", l: "33.0", w: "18.2", h: "3.2", acc: "3", theatre: "600", classroom: "350", boardroom: "90", horseshoe: "300", fishbone: "340", ushape: "120", banquet: "350", type: "INDOOR", zone: "EAST" },
+            { name: "Commonwealth Banquet Hall", location: "Commonwealth Block", area: "332", l: "22.9", w: "15.4", h: "4.9", acc: "6", theatre: "250", classroom: "150", boardroom: "65", horseshoe: "100", fishbone: "100", ushape: "80", banquet: "200", type: "INDOOR", zone: "COMMONWEALTH" },
+            { name: "Albert", location: "West Wing Lower Ground Floor", area: "262", l: "22.0", w: "12.0", h: "3.7", acc: "1", theatre: "250", classroom: "175", boardroom: "60", horseshoe: "120", fishbone: "120", ushape: "50", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Sheena", location: "West Wing Lower Ground Floor", area: "242", l: "22.0", w: "11.0", h: "3.4", acc: "1", theatre: "175", classroom: "150", boardroom: "50", horseshoe: "100", fishbone: "100", ushape: "40", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Meera", location: "West Wing Lower Ground Floor", area: "242", l: "22.0", w: "11.0", h: "34.0", acc: "1", theatre: "175", classroom: "150", boardroom: "50", horseshoe: "100", fishbone: "100", ushape: "40", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Acacia", location: "East Wing Mezzanine Floor", area: "228", l: "17.5", w: "13.0", h: "2.7", acc: "2", theatre: "140", classroom: "125", boardroom: "40", horseshoe: "90", fishbone: "90", ushape: "40", banquet: "NA", type: "INDOOR", zone: "EAST" },
+            { name: "Ebony", location: "East Wing Mezzanine Floor", area: "228", l: "17.5", w: "13.0", h: "2.7", acc: "2", theatre: "140", classroom: "125", boardroom: "40", horseshoe: "90", fishbone: "90", ushape: "40", banquet: "NA", type: "INDOOR", zone: "EAST" },
+            { name: "Jacaranda", location: "East Wing Mezzanine Floor", area: "228", l: "17.5", w: "13.0", h: "2.7", acc: "2", theatre: "140", classroom: "125", boardroom: "40", horseshoe: "90", fishbone: "90", ushape: "40", banquet: "NA", type: "INDOOR", zone: "EAST" },
+            { name: "Mahogany", location: "East Wing Mezzanine Floor", area: "228", l: "17.5", w: "13.0", h: "2.7", acc: "2", theatre: "140", classroom: "125", boardroom: "40", horseshoe: "90", fishbone: "90", ushape: "40", banquet: "NA", type: "INDOOR", zone: "EAST" },
+            { name: "Majestic", location: "West Wing Lower Ground Floor", area: "126", l: "11.5", w: "11.0", h: "3.5", acc: "1", theatre: "95", classroom: "70", boardroom: "40", horseshoe: "50", fishbone: "50", ushape: "40", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Regal", location: "West Wing Lower Ground Floor", area: "126", l: "11.5", w: "11.0", h: "3.5", acc: "1", theatre: "95", classroom: "70", boardroom: "40", horseshoe: "50", fishbone: "50", ushape: "40", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Royal", location: "West Wing Lower Ground Floor", area: "126", l: "11.5", w: "11.0", h: "3.5", acc: "1", theatre: "95", classroom: "70", boardroom: "40", horseshoe: "50", fishbone: "50", ushape: "40", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Kabalega Hall", location: "SRCC Lower Ground Floor", area: "150", l: "15.5", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Kidepo Hall", location: "SRCC Lower Ground Floor", area: "170", l: "18.4", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Bunyonyi Hall", location: "SRCC Lower Ground Floor", area: "150", l: "15.5", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Bujagali Hall", location: "SRCC Lower Ground Floor", area: "170", l: "18.4", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Kibale Hall", location: "SRCC Lower Ground Floor", area: "150", l: "15.5", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Bwindi Hall", location: "SRCC Lower Ground Floor", area: "170", l: "18.4", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Mburo Hall.", location: "SRCC Lower Ground Floor", area: "150", l: "15.5", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Semuliki Hall", location: "SRCC Lower Ground Floor", area: "170", l: "18.4", w: "9.7", h: "2.6", acc: "2", theatre: "120", classroom: "85", boardroom: "30", horseshoe: "30", fishbone: "60", ushape: "60", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Royal Club (Lounge Setup)", location: "Commonwealth Block", area: "107", l: "11.5", w: "9.5", h: "2.4", acc: "1", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "COMMONWEALTH" },
+            { name: "Kalangala", location: "Commonwealth Block", area: "84", l: "9.5", w: "8.8", h: "2.4", acc: "1", theatre: "50", classroom: "30", boardroom: "18", horseshoe: "NA", fishbone: "NA", ushape: "20", banquet: "NA", type: "INDOOR", zone: "COMMONWEALTH" },
+            { name: "Emerald", location: "West Wing Lower Ground Floor", area: "73", l: "9.0", w: "7.6", h: "2.4", acc: "1", theatre: "NA", classroom: "NA", boardroom: "20", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Sapphire", location: "West Wing Lower Ground Floor", area: "62", l: "7.9", w: "7.6", h: "2.4", acc: "1", theatre: "35", classroom: "20", boardroom: "10", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Amethyst", location: "West Wing Lower Ground Floor", area: "58", l: "7.6", w: "7.5", h: "2.5", acc: "1", theatre: "35", classroom: "20", boardroom: "10", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "INDOOR", zone: "WEST" },
+            { name: "Sanga", location: "Commonwealth Block", area: "34", l: "8.8.", w: "3.9", h: "2.4", acc: "1", theatre: "24", classroom: "12", boardroom: "12", horseshoe: "NA", fishbone: "NA", ushape: "8", banquet: "NA", type: "INDOOR", zone: "COMMONWEALTH" },
+            { name: "Nalubaale Boardroom", location: "SRCC First Floor", area: "30", l: "7.8", w: "4.0", h: "3.9", acc: "1", theatre: "20", classroom: "12", boardroom: "12", horseshoe: "NA", fishbone: "NA", ushape: "12", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Katwe Boardroom.", location: "SRCC First Floor", area: "30", l: "7.8", w: "4.0", h: "3.9", acc: "1", theatre: "20", classroom: "12", boardroom: "12", horseshoe: "NA", fishbone: "NA", ushape: "12", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Kabatoro Boardroom", location: "SRCC First Floor", area: "30", l: "7.8", w: "4.0", h: "3.9", acc: "1", theatre: "20", classroom: "12", boardroom: "12", horseshoe: "NA", fishbone: "NA", ushape: "12", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+            { name: "Kyaninga Boardroom", location: "SRCC First Floor", area: "30", l: "7.8", w: "4.0", h: "3.9", acc: "1", theatre: "20", classroom: "12", boardroom: "12", horseshoe: "NA", fishbone: "NA", ushape: "12", banquet: "NA", type: "INDOOR", zone: "SRCC" },
+
+            // OUTDOOR VENUES
+            { name: "Lakeside", location: "Outdoor Grounds", area: "14,400", l: "144.0", w: "100.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Lower Peacehub", location: "Outdoor Grounds", area: "6,480", l: "120.0", w: "54.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Flagmast", location: "Outdoor Grounds", area: "5,766", l: "93.0", w: "62.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Upper Peacehub Gardens", location: "Outdoor Gardens", area: "5,400", l: "100.0", w: "54.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Speke Ballroom Gardens", location: "Outdoor Gardens", area: "2,736", l: "57.0", w: "48.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Mango Garden", location: "Outdoor Gardens", area: "2,580", l: "60.0", w: "43.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Commonwealth Pooside", location: "Poolside", area: "2,100", l: "70.0", w: "30.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Speke Resort Poolside", location: "Poolside", area: "1,500", l: "75.0", w: "20.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" },
+            { name: "Marina Restaurant", location: "Outdoor Restaurant", area: "340", l: "22.0", w: "16.0", h: "NA", acc: "NA", theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA", type: "OUTDOOR", zone: "OUTDOOR" }
+        ];
+
+        let currentCategory = 'ALL';
+
+        function createSlug(name) {
+            return name.toLowerCase().replace(/[^a-z0-0]/g, '-').replace(/-+/g, '-');
+        }
+
+        function formatValue(val) {
+            if (!val || val === 'NA') {
+                return `<span class="na-val">-</span>`;
+            }
+            return val;
+        }
+
+        function renderTable() {
+            const tableBody = document.getElementById('tableBody');
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+
+            tableBody.innerHTML = '';
+
+            const filtered = venuesData.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchValue) ||
+                    item.location.toLowerCase().includes(searchValue);
+
+                let matchesCategory = true;
+                if (currentCategory === 'SRCC') matchesCategory = item.zone === 'SRCC';
+                else if (currentCategory === 'EAST') matchesCategory = item.zone === 'EAST';
+                else if (currentCategory === 'WEST') matchesCategory = item.zone === 'WEST';
+                else if (currentCategory === 'COMMONWEALTH') matchesCategory = item.zone === 'COMMONWEALTH';
+                else if (currentCategory === 'OUTDOOR') matchesCategory = item.type === 'OUTDOOR';
+
+                return matchesSearch && matchesCategory;
+            });
+
+            let currentSection = null;
+
+            filtered.forEach(item => {
+                // Header dividing indoor and outdoor sections if 'ALL' is selected
+                if (currentCategory === 'ALL' && item.type !== currentSection) {
+                    currentSection = item.type;
+                    const dividerRow = document.createElement('tr');
+                    dividerRow.innerHTML = `
+          <td colspan="15" class="section-divider">
+            ${currentSection === 'INDOOR' ? 'Indoor Venues & Conference Halls' : 'Outdoor Venues & Grounds'}
+          </td>
+        `;
+                    tableBody.appendChild(dividerRow);
+                }
+
+                const row = document.createElement('tr');
+                const venueSlug = createSlug(item.name);
+                const detailUrl = `venue_details.html?venue=${venueSlug}`;
+
+                row.innerHTML = `
+        <td>
+          <div class="venue-cell">
+            <span>${item.name}</span>
+            <a href="${detailUrl}" target="_blank" class="venue-link-icon" title="Open ${item.name} details in new tab">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="15 3 21 3 21 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="10" y1="14" x2="21" y2="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </td>
+        <td><span class="tag-location">${item.location}</span></td>
+        <td class="num-col">${formatValue(item.area)}</td>
+        <td class="num-col">${formatValue(item.l)}</td>
+        <td class="num-col">${formatValue(item.w)}</td>
+        <td class="num-col">${formatValue(item.h)}</td>
+        <td class="num-col">${formatValue(item.acc)}</td>
+        <td class="num-col">${formatValue(item.theatre)}</td>
+        <td class="num-col">${formatValue(item.classroom)}</td>
+        <td class="num-col">${formatValue(item.boardroom)}</td>
+        <td class="num-col">${formatValue(item.horseshoe)}</td>
+        <td class="num-col">${formatValue(item.fishbone)}</td>
+        <td class="num-col">${formatValue(item.ushape)}</td>
+        <td class="num-col">${formatValue(item.banquet)}</td>
+      `;
+                tableBody.appendChild(row);
+            });
+
+            document.getElementById('venueCount').textContent = `Showing ${filtered.length} of ${venuesData.length} venues`;
+        }
+
+        function filterVenues() {
+            renderTable();
+        }
+
+        function setCategory(category, btnElement) {
+            currentCategory = category;
+            document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            renderTable();
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable();
+        });
+    </script>
+
+</body>
+
+</html>

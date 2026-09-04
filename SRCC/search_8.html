@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speke Resort & Conference Centre - Venue Capacity Chart</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #111827;
+            --primary-accent: #9a7b38;
+            --primary-accent-hover: #b89243;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --table-header-bg: #0f172a;
+            --table-row-alt: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-accent);
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        /* Stats Bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-accent);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .stat-card .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        /* Controls / Filter Bar */
+        .controls-card {
+            background: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.65rem 1rem 0.65rem 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-accent);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            fill: var(--text-muted);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-filter {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-main);
+        }
+
+        .btn-filter:hover,
+        .btn-filter.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* Table Area */
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.88rem;
+            min-width: 1100px;
+        }
+
+        thead {
+            background-color: var(--table-header-bg);
+            color: #ffffff;
+        }
+
+        th {
+            padding: 1rem 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            border-bottom: 2px solid var(--primary-accent);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.85rem 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--table-row-alt);
+        }
+
+        tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Venue Link & Name styling */
+        .venue-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .venue-link-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #cbd5e1;
+        }
+
+        .venue-link-icon:hover {
+            background: var(--primary-accent);
+            color: #ffffff;
+            border-color: var(--primary-accent);
+            transform: translateY(-1px);
+        }
+
+        .venue-link-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: #e2e8f0;
+            color: var(--text-main);
+        }
+
+        .badge-outdoor {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-indoor {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .num-val {
+            text-align: center;
+        }
+
+        .text-na {
+            color: #cbd5e1;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Speke Resort & Conference Centre</h1>
+            <p>Official Venue & Conference Room Capacity Chart</p>
+        </header>
+
+        <!-- Stats Summary -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">Total Venues</div>
+                <div class="value" id="stat-total">46</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Indoor Venues</div>
+                <div class="value">37</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Outdoor Venues</div>
+                <div class="value">9</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Max Indoor Capacity</div>
+                <div class="value">3,200 Pax</div>
+            </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="controls-card">
+            <div class="search-box">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search venue name, location, or floor...">
+            </div>
+            <div class="filter-buttons">
+                <button class="btn-filter active" onclick="filterData('all', this)">All Venues</button>
+                <button class="btn-filter" onclick="filterData('indoor', this)">Indoor Halls</button>
+                <button class="btn-filter" onclick="filterData('outdoor', this)">Outdoor Grounds</button>
+            </div>
+        </div>
+
+        <!-- Data Table Container -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Venue / Hall</th>
+                        <th>Category</th>
+                        <th>Location</th>
+                        <th>Area (m²)</th>
+                        <th>Dims (L×W×H m)</th>
+                        <th>Doors</th>
+                        <th>Theatre</th>
+                        <th>Classroom</th>
+                        <th>Board Room</th>
+                        <th>Horse Shoe</th>
+                        <th>Fish Bone</th>
+                        <th>U-Shape</th>
+                        <th>Banquet</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data dynamically inserted via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Speke Resort & Conference Centre. All dimensions and capacities are subject to event
+                configuration.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Venue Data directly extracted from the CAPACITY CHART specification
+        const venueData = [
+            // Indoor Venues
+            { name: "RWENZORI A+B", type: "indoor", loc: "SRCC Ground Floor", area: 3200, l: 80.0, w: 40.0, h: 10.5, access: 10, theatre: 3200, classroom: 2200, boardroom: 240, horseshoe: 1800, fishbone: 1800, ushape: 600, banquet: 2400, url: "https://www.spekeresort.com" },
+            { name: "RWENZORI A", type: "indoor", loc: "SRCC Ground Floor", area: 1600, l: 40.0, w: 40.0, h: 10.5, access: 5, theatre: 1600, classroom: 1100, boardroom: 120, horseshoe: 900, fishbone: 900, ushape: 200, banquet: 1200, url: "https://www.spekeresort.com" },
+            { name: "RWENZORI B", type: "indoor", loc: "SRCC Ground Floor", area: 1600, l: 40.0, w: 40.0, h: 10.5, access: 5, theatre: 1600, classroom: 1100, boardroom: 120, horseshoe: 900, fishbone: 900, ushape: 200, banquet: 1200, url: "https://www.spekeresort.com" },
+            { name: "GALLERY 1-fixed seating", type: "indoor", loc: "SRCC Entrance from 1st Floor", area: 300, l: null, w: null, h: null, access: 2, theatre: 300, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "GALLERY 2-fixed seating", type: "indoor", loc: "SRCC Entrance from 1st Floor", area: 300, l: null, w: null, h: null, access: 2, theatre: 300, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Speke Ballroom", type: "indoor", loc: "East Wing 1st Floor", area: 1140, l: 63.0, w: 17.6, h: 5.3, access: 7, theatre: 1400, classroom: 700, boardroom: 130, horseshoe: 500, fishbone: 500, ushape: 200, banquet: 800, url: "https://www.spekeresort.com" },
+            { name: "Victoria Ballroom", type: "indoor", loc: "West Wing Upper Ground Floor", area: 957, l: 34.4, w: 27.8, h: 3.7, access: 2, theatre: 900, classroom: 500, boardroom: 100, horseshoe: 450, fishbone: 450, ushape: 160, banquet: 650, url: "https://www.spekeresort.com" },
+            { name: "Royal Palm", type: "indoor", loc: "East Wing First Floor", area: 600, l: 33.0, w: 18.2, h: 3.2, access: 3, theatre: 600, classroom: 350, boardroom: 90, horseshoe: 300, fishbone: 340, ushape: 120, banquet: 350, url: "https://www.spekeresort.com" },
+            { name: "Commonwealth Banquet Hall", type: "indoor", loc: "Commonwealth Block", area: 332, l: 22.9, w: 15.4, h: 4.9, access: 6, theatre: 250, classroom: 150, boardroom: 65, horseshoe: 100, fishbone: 100, ushape: 80, banquet: 200, url: "https://www.spekeresort.com" },
+            { name: "Albert", type: "indoor", loc: "West Wing Lower Ground Floor", area: 262, l: 22.0, w: 12.0, h: 3.7, access: 1, theatre: 250, classroom: 175, boardroom: 60, horseshoe: 120, fishbone: 120, ushape: 50, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Sheena", type: "indoor", loc: "West Wing Lower Ground Floor", area: 242, l: 22.0, w: 11.0, h: 3.4, access: 1, theatre: 175, classroom: 150, boardroom: 50, horseshoe: 100, fishbone: 100, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Meera", type: "indoor", loc: "West Wing Lower Ground Floor", area: 242, l: 22.0, w: 11.0, h: 34.0, access: 1, theatre: 175, classroom: 150, boardroom: 50, horseshoe: 100, fishbone: 100, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Acacia", type: "indoor", loc: "East Wing Mezzanine Floor", area: 228, l: 17.5, w: 13.0, h: 2.7, access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Ebony", type: "indoor", loc: "East Wing Mezzanine Floor", area: 228, l: 17.5, w: 13.0, h: 2.7, access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Jacaranda", type: "indoor", loc: "East Wing Mezzanine Floor", area: 228, l: 17.5, w: 13.0, h: 2.7, access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Mahogany", type: "indoor", loc: "East Wing Mezzanine Floor", area: 228, l: 17.5, w: 13.0, h: 2.7, access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Majestic", type: "indoor", loc: "West Wing Lower Ground Floor", area: 126, l: 11.5, w: 11.0, h: 3.5, access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Regal", type: "indoor", loc: "West Wing Lower Ground Floor", area: 126, l: 11.5, w: 11.0, h: 3.5, access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Royal", type: "indoor", loc: "West Wing Lower Ground Floor", area: 126, l: 11.5, w: 11.0, h: 3.5, access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kabalega Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 150, l: 15.5, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kidepo Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 170, l: 18.4, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Bunyonyi Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 150, l: 15.5, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Bujagali Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 170, l: 18.4, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kibale Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 150, l: 15.5, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Bwindi Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 170, l: 18.4, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Mburo Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 150, l: 15.5, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Semuliki Hall", type: "indoor", loc: "SRCC Lower Ground Floor", area: 170, l: 18.4, w: 9.7, h: 2.6, access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Royal Club (Lounge Setup)", type: "indoor", loc: "Commonwealth Block", area: 107, l: 11.5, w: 9.5, h: 2.4, access: 1, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kalangala", type: "indoor", loc: "Commonwealth Block", area: 84, l: 9.5, w: 8.8, h: 2.4, access: 1, theatre: 50, classroom: 30, boardroom: 18, horseshoe: null, fishbone: null, ushape: 20, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Emerald", type: "indoor", loc: "West Wing Lower Ground Floor", area: 73, l: 9.0, w: 7.6, h: 2.4, access: 1, theatre: null, classroom: null, boardroom: 20, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Sapphire", type: "indoor", loc: "West Wing Lower Ground Floor", area: 62, l: 7.9, w: 7.6, h: 2.4, access: 1, theatre: 35, classroom: 20, boardroom: 10, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Amethyst", type: "indoor", loc: "West Wing Lower Ground Floor", area: 58, l: 7.6, w: 7.5, h: 2.5, access: 1, theatre: 35, classroom: 20, boardroom: 10, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Sanga", type: "indoor", loc: "Commonwealth Block", area: 34, l: 8.8, w: 3.9, h: 2.4, access: 1, theatre: 24, classroom: 12, boardroom: 12, horseshoe: null, fishbone: null, ushape: 8, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Nalubaale Boardroom", type: "indoor", loc: "SRCC First Floor", area: 30, l: 7.8, w: 4.0, h: 3.9, access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: null, fishbone: null, ushape: 12, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Katwe Boardroom", type: "indoor", loc: "SRCC First Floor", area: 30, l: 7.8, w: 4.0, h: 3.9, access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: null, fishbone: null, ushape: 12, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kabatoro Boardroom", type: "indoor", loc: "SRCC First Floor", area: 30, l: 7.8, w: 4.0, h: 3.9, access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: null, fishbone: null, ushape: 12, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Kyaninga Boardroom", type: "indoor", loc: "SRCC First Floor", area: 30, l: 7.8, w: 4.0, h: 3.9, access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: null, fishbone: null, ushape: 12, banquet: null, url: "https://www.spekeresort.com" },
+
+            // Outdoor Venues
+            { name: "Lakeside", type: "outdoor", loc: "Outdoor Grounds", area: 14400, l: 144.0, w: 100.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Lower Peacehub", type: "outdoor", loc: "Outdoor Grounds", area: 6480, l: 120.0, w: 54.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Flagmast", type: "outdoor", loc: "Outdoor Grounds", area: 5766, l: 93.0, w: 62.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Upper Peacehub Gardens", type: "outdoor", loc: "Outdoor Grounds", area: 5400, l: 100.0, w: 54.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Speke Ballroom Gardens", type: "outdoor", loc: "Outdoor Grounds", area: 2736, l: 57.0, w: 48.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Mango Garden", type: "outdoor", loc: "Outdoor Grounds", area: 2580, l: 60.0, w: 43.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Commonwealth Poolside", type: "outdoor", loc: "Outdoor Grounds", area: 2100, l: 70.0, w: 30.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Speke Resort Poolside", type: "outdoor", loc: "Outdoor Grounds", area: 1500, l: 75.0, w: 20.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" },
+            { name: "Marina Restaurant", type: "outdoor", loc: "Outdoor Grounds", area: 340, l: 22.0, w: 16.0, h: null, access: null, theatre: null, classroom: null, boardroom: null, horseshoe: null, fishbone: null, ushape: null, banquet: null, url: "https://www.spekeresort.com" }
+        ];
+
+        let currentFilter = 'all';
+
+        // SVG icon string for opening external link in new tab
+        const externalLinkSvg = `<svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>`;
+
+        function formatVal(val) {
+            if (val === null || val === undefined) return `<span class="text-na">-</span>`;
+            return `<span class="num-val">${val.toLocaleString()}</span>`;
+        }
+
+        function formatDims(l, w, h) {
+            if (!l || !w) return `<span class="text-na">-</span>`;
+            let str = `${l} × ${w}`;
+            if (h) str += ` × ${h}`;
+            return str;
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="13" style="text-align: center; padding: 2rem; color: var(--text-muted);">No matching venues found.</td></tr>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+
+                const badgeClass = item.type === 'outdoor' ? 'badge-outdoor' : 'badge-indoor';
+                const badgeText = item.type === 'outdoor' ? 'Outdoor' : 'Indoor';
+
+                tr.innerHTML = `
+                <td>
+                    <div class="venue-cell">
+                        <span>${item.name}</span>
+                        <a href="${item.url}" target="_blank" class="venue-link-icon" title="Visit ${item.name} page in new tab">
+                            ${externalLinkSvg}
+                        </a>
+                    </div>
+                </td>
+                <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+                <td>${item.loc}</td>
+                <td><strong>${formatVal(item.area)}</strong></td>
+                <td>${formatDims(item.l, item.w, item.h)}</td>
+                <td>${formatVal(item.access)}</td>
+                <td>${formatVal(item.theatre)}</td>
+                <td>${formatVal(item.classroom)}</td>
+                <td>${formatVal(item.boardroom)}</td>
+                <td>${formatVal(item.horseshoe)}</td>
+                <td>${formatVal(item.fishbone)}</td>
+                <td>${formatVal(item.ushape)}</td>
+                <td>${formatVal(item.banquet)}</td>
+            `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('stat-total').textContent = data.length;
+        }
+
+        function filterData(type, btnElement) {
+            currentFilter = type;
+
+            // Update button styles
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            const filtered = venueData.filter(item => {
+                const matchesType = (currentFilter === 'all') || (item.type === currentFilter);
+                const matchesSearch = item.name.toLowerCase().includes(query) ||
+                    item.loc.toLowerCase().includes(query);
+                return matchesType && matchesSearch;
+            });
+
+            renderTable(filtered);
+        }
+
+        // Event listener for search
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+        // Initial render
+        renderTable(venueData);
+    </script>
+
+</body>
+
+</html>
