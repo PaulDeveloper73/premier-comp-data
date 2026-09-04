@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Capacity Chart & Specifications</title>
+    <!-- Font Awesome for UI Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Modern Custom CSS Variables & Reset */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-header: #540C18;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --primary: #d8a626;
+            --primary-hover: #b45309;
+            --primary-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --table-header-bg: #540C18;
+            --table-row-alt: #f8fafc;
+            --table-row-hover: #fffbeb;
+            --badge-outdoor-bg: #dcfce7;
+            --badge-outdoor-text: #15803d;
+            --badge-location-bg: #f1f5f9;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-header);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .header-title-group h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-title-group h1 i {
+            color: var(--primary);
+        }
+
+        .header-title-group p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(217, 119, 6, 0.15);
+            color: var(--primary);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            padding: 0.375rem 0.875rem;
+            border-radius: 50px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        .btn-add-venue {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-add-venue:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Filter Controls Card */
+        .controls-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+
+        .filter-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i.search-icon {
+            position: absolute;
+            left: 0.75rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            pointer-events: none;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-input {
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            background-color: var(--bg-surface);
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            right: 0.625rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.25rem;
+            display: none;
+            font-size: 0.875rem;
+        }
+
+        .clear-search-btn:hover {
+            color: var(--text-main);
+        }
+
+        /* Active Filter Bar & Actions */
+        .controls-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-top: 0.875rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .active-filters-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .filter-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: var(--text-main);
+            padding: 0.25rem 0.625rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .filter-pill button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-pill button:hover {
+            color: var(--primary-hover);
+        }
+
+        .no-filter-text {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .reset-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .reset-btn:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* Dynamic Alert Banner */
+        .alert-banner {
+            display: none;
+            margin-top: 0.875rem;
+            padding: 0.625rem 0.875rem;
+            background-color: var(--primary-light);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: var(--radius-sm);
+            color: #92400e;
+            font-size: 0.8125rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .alert-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .alert-dismiss {
+            background: none;
+            border: none;
+            color: #92400e;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Data Table Styling */
+        .table-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.8125rem;
+        }
+
+        thead tr {
+            background-color: var(--table-header-bg);
+            color: #f8fafc;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+
+        th {
+            padding: 0.875rem 0.75rem;
+            font-weight: 600;
+            border-bottom: 1px solid #1e293b;
+            white-space: nowrap;
+        }
+
+        th.sticky-col,
+        td.sticky-col {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+        }
+
+        th.sticky-col {
+            background-color: var(--table-header-bg);
+        }
+
+        td.sticky-col {
+            background-color: inherit;
+            border-right: 1px solid var(--border-color);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.15s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--table-row-alt);
+        }
+
+        tbody tr:hover {
+            background-color: var(--table-row-hover);
+        }
+
+        td {
+            padding: 0.75rem;
+            color: var(--text-main);
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        td.text-center,
+        th.text-center {
+            text-align: center;
+        }
+
+        .venue-name-cell {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Inline Link Icon */
+        .venue-link-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            background-color: rgba(217, 119, 6, 0.1);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.75rem;
+        }
+
+        .venue-link-icon:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .type-badge {
+            padding: 0.125rem 0.375rem;
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            background-color: var(--badge-outdoor-bg);
+            color: var(--badge-outdoor-text);
+        }
+
+        .location-tag {
+            background-color: var(--badge-location-bg);
+            color: var(--text-muted);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+        }
+
+        .val-na {
+            color: var(--text-light);
+            font-family: monospace;
+        }
+
+        .val-num {
+            font-weight: 500;
+        }
+
+        .dim-cell {
+            color: var(--text-muted);
+            font-family: monospace;
+            font-size: 0.75rem;
+        }
+
+        /* Table Action Buttons */
+        .action-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.375rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            transition: all 0.15s ease;
+        }
+
+        .icon-btn:hover {
+            background-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .icon-btn.edit-btn:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .icon-btn.delete-btn:hover {
+            color: var(--danger);
+            background-color: #fee2e2;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: none;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .empty-desc {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-action {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .footer-note {
+            margin-top: 1rem;
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* Modal Popup Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-card {
+            background-color: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background-color: var(--bg-header);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+        }
+
+        .modal-header h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+
+        .modal-close-btn:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            background-color: var(--bg-body);
+            border-bottom-left-radius: var(--radius-lg);
+            border-bottom-right-radius: var(--radius-lg);
+        }
+
+        .btn-cancel {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-cancel:hover {
+            background-color: var(--border-color);
+        }
+
+        #add-venue-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-container {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+
+            .controls-card {
+                padding: 1rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-title-group">
+                <h1><i class="fa-solid fa-building-user"></i> Venue Capacity Chart</h1>
+                <p>Full seating configurations, physical dimensions, and accessibility data for all venues</p>
+            </div>
+            <div class="header-actions">
+                <span class="count-badge">
+                    <i class="fa-solid fa-layer-group"></i> <span id="total-count">46</span> Venues Displayed
+                </span>
+                <button id="add-venue-btn" class="btn-add-venue">
+                    <i class="fa-solid fa-plus"></i> Add Venue
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- Controls Card -->
+        <div class="controls-card">
+
+            <div class="filters-grid">
+                <!-- Search Field -->
+                <div class="filter-group">
+                    <label class="filter-label" for="search-input">Search Venue Name or Location</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-input" class="form-input"
+                            placeholder="e.g. Speke, SRCC, Boardroom...">
+                        <button id="clear-search-btn" class="clear-search-btn" title="Clear search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Venue Category Filter -->
+                <div class="filter-group">
+                    <label class="filter-label" for="category-filter">Category</label>
+                    <select id="category-filter" class="form-select">
+                        <option value="all">All Categories (Indoor & Outdoor)</option>
+                        <option value="indoor">Indoor Halls & Boardrooms</option>
+                        <option value="outdoor">Outdoor Gardens & Grounds</option>
+                    </select>
+                </div>
+
+                <!-- Location Filter -->
+                <div class="filter-group">
+                    <label class="filter-label" for="location-filter">Location</label>
+                    <select id="location-filter" class="form-select">
+                        <option value="all">All Locations</option>
+                    </select>
+                </div>
+
+                <!-- Minimum Capacity Filter -->
+                <div class="filter-group">
+                    <label class="filter-label" for="min-capacity">Min Capacity (Guests)</label>
+                    <select id="min-capacity" class="form-select">
+                        <option value="0">Any Capacity</option>
+                        <option value="30">30+ Guests</option>
+                        <option value="100">100+ Guests</option>
+                        <option value="250">250+ Guests</option>
+                        <option value="500">500+ Guests</option>
+                        <option value="1000">1,000+ Guests</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Active Filters Tag Bar & Reset -->
+            <div class="controls-footer">
+                <div class="active-filters" id="active-filters-list">
+                    <span class="active-filters-label">Active Filters:</span>
+                    <span id="no-filter-badge" class="no-filter-text">None (showing all venues)</span>
+                </div>
+                <button id="reset-all-btn" class="reset-btn">
+                    <i class="fa-solid fa-rotate-left"></i> Reset All Filters
+                </button>
+            </div>
+
+            <!-- Dynamic Notification Alert -->
+            <div id="auto-reset-alert" class="alert-banner">
+                <div class="alert-banner-content">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span id="auto-reset-msg">Search term cleared to match your selected dropdown filter.</span>
+                </div>
+                <button id="dismiss-alert-btn" class="alert-dismiss"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+        </div>
+
+        <!-- Table View -->
+        <div class="table-card">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="sticky-col min-w-200">Venue / Hall</th>
+                            <th>Location</th>
+                            <th class="text-center">Area (m²)</th>
+                            <th class="text-center">Dimensions (L×W×H m)</th>
+                            <th class="text-center" title="Accessibility Doors">Access</th>
+                            <th class="text-center">Theatre</th>
+                            <th class="text-center">Classroom</th>
+                            <th class="text-center">Board Room</th>
+                            <th class="text-center">Horse Shoe</th>
+                            <th class="text-center">Fish Bone</th>
+                            <th class="text-center">U-Shape</th>
+                            <th class="text-center">Banquet/Cocktail</th>
+                        </tr>
+                    </thead>
+                    <tbody id="venue-table-body">
+                        <!-- Dynamic Rows Rendered via JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+                </div>
+                <div class="empty-title">No Matching Venues Found</div>
+                <div class="empty-desc">No venue matches the exact combination of filters and search keywords.</div>
+                <button id="empty-reset-btn" class="btn-action">Reset Filters & Search</button>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Source: Official Venue Specification Capacity Chart Document
+        </div>
+
+    </main>
+
+    <!-- Modal for Add/Edit Venue -->
+    <div id="venue-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title"><i class="fa-solid fa-building-circle-check"></i> Add New Venue</h2>
+                <button id="close-modal-btn" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="venue-form">
+                <div class="modal-body">
+                    <input type="hidden" id="venue-id">
+                    <div class="form-grid">
+                        <div class="filter-group full-width">
+                            <label class="filter-label" for="form-name">Venue Name*</label>
+                            <input type="text" id="form-name" class="form-input" placeholder="e.g. Royal Ballroom"
+                                required style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group full-width">
+                            <label class="filter-label" for="form-url">Venue Link / URL*</label>
+                            <input type="url" id="form-url" class="form-input" placeholder="https://example.com/venue"
+                                required style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-location">Location*</label>
+                            <input type="text" id="form-location" class="form-input"
+                                placeholder="e.g. East Wing 1st Floor" required style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-type">Category*</label>
+                            <select id="form-type" class="form-select" required>
+                                <option value="indoor">Indoor</option>
+                                <option value="outdoor">Outdoor</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-area">Area (m²)</label>
+                            <input type="text" id="form-area" class="form-input" placeholder="e.g. 500"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-access">Access Doors</label>
+                            <input type="text" id="form-access" class="form-input" placeholder="e.g. 2 or Open"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-length">Length (m)</label>
+                            <input type="text" id="form-length" class="form-input" placeholder="e.g. 20.0"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-width">Width (m)</label>
+                            <input type="text" id="form-width" class="form-input" placeholder="e.g. 15.0"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group full-width">
+                            <label class="filter-label" for="form-height">Height (m)</label>
+                            <input type="text" id="form-height" class="form-input" placeholder="e.g. 3.5 or Outdoor"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <!-- Capacity Inputs -->
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-theatre">Theatre Cap.</label>
+                            <input type="text" id="form-theatre" class="form-input" placeholder="e.g. 300"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-classroom">Classroom Cap.</label>
+                            <input type="text" id="form-classroom" class="form-input" placeholder="e.g. 150"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-boardroom">Boardroom Cap.</label>
+                            <input type="text" id="form-boardroom" class="form-input" placeholder="e.g. 50"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-horseshoe">Horseshoe Cap.</label>
+                            <input type="text" id="form-horseshoe" class="form-input" placeholder="e.g. 40"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-fishbone">Fishbone Cap.</label>
+                            <input type="text" id="form-fishbone" class="form-input" placeholder="e.g. 60"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" for="form-ushape">U-Shape Cap.</label>
+                            <input type="text" id="form-ushape" class="form-input" placeholder="e.g. 40"
+                                style="padding-left:0.75rem;">
+                        </div>
+
+                        <div class="filter-group full-width">
+                            <label class="filter-label" for="form-banquet">Banquet / Cocktail Cap.</label>
+                            <input type="text" id="form-banquet" class="form-input" placeholder="e.g. 200"
+                                style="padding-left:0.75rem;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel-modal-btn" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-action">Save Venue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Exact 46 Master Venue Records Extracted directly from Attached Specification File
+        // Editable URL property included in each record.
+        let venueData = [
+            // INDOOR VENUES (37 Entries)
+            { id: 1, name: "RWENZORIA+B", location: "SRCC Ground Floor", type: "indoor", url: "https://example.com/venues/rwenzori-ab", area: 3200, length: "80.0", width: "40.0", height: "10.5", access: 10, theatre: 3200, classroom: 2200, boardroom: 240, horseshoe: 1800, fishbone: 1800, ushape: 600, banquet: 2400 },
+            { id: 2, name: "RWENZORIA", location: "SRCC Ground Floor", type: "indoor", url: "https://example.com/venues/rwenzori-a", area: 1600, length: "40.0", width: "40.0", height: "10.5", access: 5, theatre: 1600, classroom: 1100, boardroom: 120, horseshoe: 900, fishbone: 900, ushape: 200, banquet: 1200 },
+            { id: 3, name: "RWENZORI B", location: "SRCC Ground Floor", type: "indoor", url: "https://example.com/venues/rwenzori-b", area: 1600, length: "40.0", width: "40.0", height: "10.5", access: 5, theatre: 1600, classroom: 1100, boardroom: 120, horseshoe: 900, fishbone: 900, ushape: 200, banquet: 1200 },
+            { id: 4, name: "GALLERY 1-fixed seating", location: "SRCC Entrance from 1st Floor", type: "indoor", url: "https://example.com/venues/gallery-1", area: 300, length: "NA", width: "NA", height: "NA", access: 2, theatre: 300, classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 5, name: "GALLERY 2-fixed seating", location: "SRCC Entrance from 1st Floor", type: "indoor", url: "https://example.com/venues/gallery-2", area: 300, length: "NA", width: "NA", height: "NA", access: 2, theatre: 300, classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 6, name: "Speke Ballroom", location: "East Wing 1st Floor", type: "indoor", url: "https://example.com/venues/speke-ballroom", area: 1140, length: "63.0", width: "17.6", height: "5.3", access: 7, theatre: 1400, classroom: 700, boardroom: 130, horseshoe: 500, fishbone: 500, ushape: 200, banquet: 800 },
+            { id: 7, name: "Victoria Ballroom", location: "West Wing Upper Ground Floor", type: "indoor", url: "https://example.com/venues/victoria-ballroom", area: 957, length: "34.4", width: "27.8", height: "3.7", access: 2, theatre: 900, classroom: 500, boardroom: 100, horseshoe: 450, fishbone: 450, ushape: 160, banquet: 650 },
+            { id: 8, name: "Royal Palm", location: "East Wing First Floor", type: "indoor", url: "https://example.com/venues/royal-palm", area: 600, length: "33.0", width: "18.2", height: "3.2", access: 3, theatre: 600, classroom: 350, boardroom: 90, horseshoe: 300, fishbone: 340, ushape: 120, banquet: 350 },
+            { id: 9, name: "Commonwealth Banquet Hall", location: "Commonwealth Block", type: "indoor", url: "https://example.com/venues/commonwealth-banquet", area: 332, length: "22.9", width: "15.4", height: "4.9", access: 6, theatre: 250, classroom: 150, boardroom: 65, horseshoe: 100, fishbone: 100, ushape: 80, banquet: 200 },
+            { id: 10, name: "Albert", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/albert", area: 262, length: "22.0", width: "12.0", height: "3.7", access: 1, theatre: 250, classroom: 175, boardroom: 60, horseshoe: 120, fishbone: 120, ushape: 50, banquet: "NA" },
+            { id: 11, name: "Sheena", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/sheena", area: 242, length: "22.0", width: "11.0", height: "3.4", access: 1, theatre: 175, classroom: 150, boardroom: 50, horseshoe: 100, fishbone: 100, ushape: 40, banquet: "NA" },
+            { id: 12, name: "Meera", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/meera", area: 242, length: "22.0", width: "11.0", height: "34.0", access: 1, theatre: 175, classroom: 150, boardroom: 50, horseshoe: 100, fishbone: 100, ushape: 40, banquet: "NA" },
+            { id: 13, name: "Acacia", location: "East Wing Mezzanine Floor", type: "indoor", url: "https://example.com/venues/acacia", area: 228, length: "17.5", width: "13.0", height: "2.7", access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: "NA" },
+            { id: 14, name: "Ebony", location: "East Wing Mezzanine Floor", type: "indoor", url: "https://example.com/venues/ebony", area: 228, length: "17.5", width: "13.0", height: "2.7", access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: "NA" },
+            { id: 15, name: "Jacaranda", location: "East Wing Mezzanine Floor", type: "indoor", url: "https://example.com/venues/jacaranda", area: 228, length: "17.5", width: "13.0", height: "2.7", access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: "NA" },
+            { id: 16, name: "Mahogany", location: "East Wing Mezzanine Floor", type: "indoor", url: "https://example.com/venues/mahogany", area: 228, length: "17.5", width: "13.0", height: "2.7", access: 2, theatre: 140, classroom: 125, boardroom: 40, horseshoe: 90, fishbone: 90, ushape: 40, banquet: "NA" },
+            { id: 17, name: "Majestic", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/majestic", area: 126, length: "11.5", width: "11.0", height: "3.5", access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: "NA" },
+            { id: 18, name: "Regal", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/regal", area: 126, length: "11.5", width: "11.0", height: "3.5", access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: "NA" },
+            { id: 19, name: "Royal", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/royal", area: 126, length: "11.5", width: "11.0", height: "3.5", access: 1, theatre: 95, classroom: 70, boardroom: 40, horseshoe: 50, fishbone: 50, ushape: 40, banquet: "NA" },
+            { id: 20, name: "Kabalega Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/kabalega", area: 150, length: "15.5", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 21, name: "Kidepo Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/kidepo", area: 170, length: "18.4", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 22, name: "Bunyonyi Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/bunyonyi", area: 150, length: "15.5", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 23, name: "Bujagali Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/bujagali", area: 170, length: "18.4", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 24, name: "Kibale Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/kibale", area: 150, length: "15.5", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 25, name: "Bwindi Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/bwindi", area: 170, length: "18.4", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 26, name: "Mburo Hall.", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/mburo", area: 150, length: "15.5", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 27, name: "Semuliki Hall", location: "SRCC Lower Ground Floor", type: "indoor", url: "https://example.com/venues/semuliki", area: 170, length: "18.4", width: "9.7", height: "2.6", access: 2, theatre: 120, classroom: 85, boardroom: 30, horseshoe: 30, fishbone: 60, ushape: 60, banquet: "NA" },
+            { id: 28, name: "Royal Club (Lounge Setup)", location: "Commonwealth Block", type: "indoor", url: "https://example.com/venues/royal-club", area: 107, length: "11.5", width: "9.5", height: "2.4", access: 1, theatre: "NA", classroom: "NA", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 29, name: "Kalangala", location: "Commonwealth Block", type: "indoor", url: "https://example.com/venues/kalangala", area: 84, length: "9.5", width: "8.8", height: "2.4", access: 1, theatre: 50, classroom: 30, boardroom: 18, horseshoe: "NA", fishbone: "NA", ushape: 20, banquet: "NA" },
+            { id: 30, name: "Emerald", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/emerald", area: 73, length: "9.0", width: "7.6", height: "2.4", access: 1, theatre: "NA", classroom: "NA", boardroom: 20, horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 31, name: "Sapphire", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/sapphire", area: 62, length: "7.9", width: "7.6", height: "2.4", access: 1, theatre: 35, classroom: 20, boardroom: 10, horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 32, name: "Amethyst", location: "West Wing Lower Ground Floor", type: "indoor", url: "https://example.com/venues/amethyst", area: 58, length: "7.6", width: "7.5", height: "2.5", access: 1, theatre: 35, classroom: 20, boardroom: 10, horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "NA" },
+            { id: 33, name: "Sanga", location: "Commonwealth Block", type: "indoor", url: "https://example.com/venues/sanga", area: 34, length: "8.8", width: "3.9", height: "2.4", access: 1, theatre: 24, classroom: 12, boardroom: 12, horseshoe: "NA", fishbone: "NA", ushape: 8, banquet: "NA" },
+            { id: 34, name: "Nalubaale Boardroom", location: "SRCC First Floor", type: "indoor", url: "https://example.com/venues/nalubaale", area: 30, length: "7.8", width: "4.0", height: "3.9", access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: "NA", fishbone: "NA", ushape: 12, banquet: "NA" },
+            { id: 35, name: "Katwe Boardroom.", location: "SRCC First Floor", type: "indoor", url: "https://example.com/venues/katwe", area: 30, length: "7.8", width: "4.0", height: "3.9", access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: "NA", fishbone: "NA", ushape: 12, banquet: "NA" },
+            { id: 36, name: "Kabatoro Boardroom", location: "SRCC First Floor", type: "indoor", url: "https://example.com/venues/kabatoro", area: 30, length: "7.8", width: "4.0", height: "3.9", access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: "NA", fishbone: "NA", ushape: 12, banquet: "NA" },
+            { id: 37, name: "Kyaninga Boardroom", location: "SRCC First Floor", type: "indoor", url: "https://example.com/venues/kyaninga", area: 30, length: "7.8", width: "4.0", height: "3.9", access: 1, theatre: 20, classroom: 12, boardroom: 12, horseshoe: "NA", fishbone: "NA", ushape: 12, banquet: "NA" },
+
+            // OUTDOOR VENUES (9 Entries)
+            { id: 38, name: "Lakeside", location: "Outdoor Gardens", type: "outdoor", url: "https://example.com/venues/lakeside", area: 14400, length: "144.0", width: "100.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+            { id: 39, name: "Lower Peacehub", location: "Outdoor Gardens", type: "outdoor", url: "https://example.com/venues/lower-peacehub", area: 6480, length: "120.0", width: "54.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+            { id: 40, name: "Flagmast", location: "Outdoor Grounds", type: "outdoor", url: "https://example.com/venues/flagmast", area: 5766, length: "93.0", width: "62.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+            { id: 41, name: "Upper Peacehub Gardens", location: "Outdoor Gardens", type: "outdoor", url: "https://example.com/venues/upper-peacehub", area: 5400, length: "100.0", width: "54.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+            { id: 42, name: "Speke Ballroom Gardens", location: "Outdoor Gardens", type: "outdoor", url: "https://example.com/venues/speke-gardens", area: 2736, length: "57.0", width: "48.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+
+            { id: 45, name: "Speke Resort Poolside", location: "Poolside Area", type: "outdoor", url: "https://example.com/venues/speke-poolside", area: 1500, length: "75.0", width: "20.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" },
+            { id: 46, name: "Marina Restaurant", location: "Lakeside Deck", type: "outdoor", url: "https://example.com/venues/marina-restaurant", area: 340, length: "22.0", width: "16.0", height: "Outdoor", access: "Open", theatre: "Custom", classroom: "Custom", boardroom: "NA", horseshoe: "NA", fishbone: "NA", ushape: "NA", banquet: "Custom" }
+        ];
+
+        // UI DOM Elements
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        const categoryFilter = document.getElementById('category-filter');
+        const locationFilter = document.getElementById('location-filter');
+        const minCapacitySelect = document.getElementById('min-capacity');
+        const venueTableBody = document.getElementById('venue-table-body');
+        const emptyState = document.getElementById('empty-state');
+        const totalCountEl = document.getElementById('total-count');
+        const activeFiltersList = document.getElementById('active-filters-list');
+        const noFilterBadge = document.getElementById('no-filter-badge');
+        const resetAllBtn = document.getElementById('reset-all-btn');
+        const emptyResetBtn = document.getElementById('empty-reset-btn');
+        const autoResetAlert = document.getElementById('auto-reset-alert');
+        const autoResetMsg = document.getElementById('auto-reset-msg');
+        const dismissAlertBtn = document.getElementById('dismiss-alert-btn');
+
+        // Modal Elements
+        const addVenueBtn = document.getElementById('add-venue-btn');
+        const venueModal = document.getElementById('venue-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelModalBtn = document.getElementById('cancel-modal-btn');
+        const venueForm = document.getElementById('venue-form');
+
+        // Form Fields
+        const formId = document.getElementById('venue-id');
+        const formName = document.getElementById('form-name');
+        const formUrl = document.getElementById('form-url');
+        const formLocation = document.getElementById('form-location');
+        const formType = document.getElementById('form-type');
+        const formArea = document.getElementById('form-area');
+        const formAccess = document.getElementById('form-access');
+        const formLength = document.getElementById('form-length');
+        const formWidth = document.getElementById('form-width');
+        const formHeight = document.getElementById('form-height');
+        const formTheatre = document.getElementById('form-theatre');
+        const formClassroom = document.getElementById('form-classroom');
+        const formBoardroom = document.getElementById('form-boardroom');
+        const formHorseshoe = document.getElementById('form-horseshoe');
+        const formFishbone = document.getElementById('form-fishbone');
+        const formUshape = document.getElementById('form-ushape');
+        const formBanquet = document.getElementById('form-banquet');
+
+        // Populate Location Options Dynamically
+        function populateLocations() {
+            const currentSelected = locationFilter.value;
+            locationFilter.innerHTML = '<option value="all">All Locations</option>';
+            const locations = [...new Set(venueData.map(v => v.location))].sort();
+            locations.forEach(loc => {
+                const opt = document.createElement('option');
+                opt.value = loc;
+                opt.textContent = loc;
+                if (loc === currentSelected) opt.selected = true;
+                locationFilter.appendChild(opt);
+            });
+        }
+
+        // Cell Value Formatting Helper
+        function formatVal(val) {
+            if (val === "NA" || val === null || val === undefined || val === "") {
+                return `<span class="val-na">-</span>`;
+            }
+            if (typeof val === "number" || (!isNaN(val) && !isNaN(parseFloat(val)))) {
+                return `<span class="val-num">${Number(val).toLocaleString()}</span>`;
+            }
+            return `<span>${val}</span>`;
+        }
+
+        function parseNumOrRaw(val) {
+            if (val === "NA" || val === "" || val === null || val === undefined) return "NA";
+            const parsed = Number(val);
+            return isNaN(parsed) ? val : parsed;
+        }
+
+        function getMaxCapacity(v) {
+            const caps = [v.theatre, v.classroom, v.boardroom, v.horseshoe, v.fishbone, v.ushape, v.banquet];
+            const numCaps = caps.filter(c => typeof c === 'number');
+            return numCaps.length > 0 ? Math.max(...numCaps) : 0;
+        }
+
+        // Render Table Data
+        function renderTable(data) {
+            venueTableBody.innerHTML = '';
+
+            if (data.length === 0) {
+                emptyState.style.display = 'block';
+                totalCountEl.textContent = '0';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            totalCountEl.textContent = data.length;
+
+            data.forEach((v) => {
+                const row = document.createElement('tr');
+
+                const dimStr = (v.length !== "NA" && v.width !== "NA")
+                    ? `${v.length}×${v.width}${v.height !== "NA" && v.height !== "Outdoor" ? '×' + v.height : ''}`
+                    : '-';
+
+                const isOutdoor = v.type === 'outdoor';
+
+                row.innerHTML = `
+                    <td class="sticky-col">
+                        <div class="venue-name-cell">
+                            <span>${v.name}</span>
+                            ${isOutdoor ? `<span class="type-badge">Outdoor</span>` : ''}
+                            <a href="${v.url || '#'}" target="_blank" rel="noopener noreferrer" class="venue-link-icon" title="Visit ${v.name} Page">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td><span class="location-tag">${v.location}</span></td>
+                    <td class="text-center font-mono">${formatVal(v.area)}</td>
+                    <td class="text-center dim-cell">${dimStr}</td>
+                    <td class="text-center">${formatVal(v.access)}</td>
+                    <td class="text-center font-semibold">${formatVal(v.theatre)}</td>
+                    <td class="text-center">${formatVal(v.classroom)}</td>
+                    <td class="text-center">${formatVal(v.boardroom)}</td>
+                    <td class="text-center">${formatVal(v.horseshoe)}</td>
+                    <td class="text-center">${formatVal(v.fishbone)}</td>
+                    <td class="text-center">${formatVal(v.ushape)}</td>
+                    <td class="text-center">${formatVal(v.banquet)}</td>
+                    <td class="text-center">
+                       
+                    </td>
+                `;
+                venueTableBody.appendChild(row);
+            });
+        }
+
+        // Dynamic Filtering
+        function filterVenues(changedSource = 'input') {
+            let query = searchInput.value.trim().toLowerCase();
+            const category = categoryFilter.value;
+            const location = locationFilter.value;
+            const minCap = parseInt(minCapacitySelect.value, 10) || 0;
+
+            // Intelligent Search Auto-Clearing logic
+            if (changedSource === 'dropdown' && query.length > 0) {
+                const matchesWithSearch = venueData.filter(v => {
+                    const matchQ = v.name.toLowerCase().includes(query) || v.location.toLowerCase().includes(query);
+                    const matchCat = (category === 'all') || (v.type === category);
+                    const matchLoc = (location === 'all') || (v.location === location);
+                    let matchCap = true;
+                    if (minCap > 0 && v.type !== 'outdoor') matchCap = getMaxCapacity(v) >= minCap;
+                    return matchQ && matchCat && matchLoc && matchCap;
+                });
+
+                if (matchesWithSearch.length === 0) {
+                    const matchesWithoutSearch = venueData.filter(v => {
+                        const matchCat = (category === 'all') || (v.type === category);
+                        const matchLoc = (location === 'all') || (v.location === location);
+                        let matchCap = true;
+                        if (minCap > 0 && v.type !== 'outdoor') matchCap = getMaxCapacity(v) >= minCap;
+                        return matchCat && matchLoc && matchCap;
+                    });
+
+                    if (matchesWithoutSearch.length > 0) {
+                        searchInput.value = '';
+                        query = '';
+                        showAlert(`Search text auto-cleared to show results for selected filter.`);
+                    }
+                }
+            }
+
+            clearSearchBtn.style.display = query.length > 0 ? 'block' : 'none';
+
+            const filtered = venueData.filter(v => {
+                const matchesSearch = !query ||
+                    v.name.toLowerCase().includes(query) ||
+                    v.location.toLowerCase().includes(query);
+
+                const matchesCategory = (category === 'all') || (v.type === category);
+                const matchesLocation = (location === 'all') || (v.location === location);
+
+                let matchesCapacity = true;
+                if (minCap > 0) {
+                    if (v.type === 'outdoor') {
+                        matchesCapacity = true;
+                    } else {
+                        matchesCapacity = getMaxCapacity(v) >= minCap;
+                    }
+                }
+
+                return matchesSearch && matchesCategory && matchesLocation && matchesCapacity;
+            });
+
+            updateActiveFilterBadges(query, category, location, minCap);
+            renderTable(filtered);
+        }
+
+        function showAlert(msg) {
+            autoResetMsg.textContent = msg;
+            autoResetAlert.style.display = 'flex';
+            setTimeout(() => {
+                autoResetAlert.style.display = 'none';
+            }, 4000);
+        }
+
+        // Active Filter Badges
+        function updateActiveFilterBadges(query, category, location, minCap) {
+            const existingBadges = activeFiltersList.querySelectorAll('.filter-pill');
+            existingBadges.forEach(b => b.remove());
+
+            let count = 0;
+
+            if (query) {
+                count++;
+                createPill(`Search: "${query}"`, () => {
+                    searchInput.value = '';
+                    filterVenues('input');
+                });
+            }
+
+            if (category !== 'all') {
+                count++;
+                createPill(`Category: ${category}`, () => {
+                    categoryFilter.value = 'all';
+                    filterVenues('input');
+                });
+            }
+
+            if (location !== 'all') {
+                count++;
+                createPill(`Location: ${location}`, () => {
+                    locationFilter.value = 'all';
+                    filterVenues('input');
+                });
+            }
+
+            if (minCap > 0) {
+                count++;
+                createPill(`Min Cap: ${minCap}+`, () => {
+                    minCapacitySelect.value = '0';
+                    filterVenues('input');
+                });
+            }
+
+            noFilterBadge.style.display = count === 0 ? 'inline' : 'none';
+        }
+
+        function createPill(label, onRemove) {
+            const pill = document.createElement('span');
+            pill.className = 'filter-pill';
+            pill.innerHTML = `${label} <button title="Remove filter"><i class="fa-solid fa-xmark"></i></button>`;
+            pill.querySelector('button').addEventListener('click', onRemove);
+            activeFiltersList.appendChild(pill);
+        }
+
+        function resetAll() {
+            searchInput.value = '';
+            categoryFilter.value = 'all';
+            locationFilter.value = 'all';
+            minCapacitySelect.value = '0';
+            autoResetAlert.style.display = 'none';
+            filterVenues('input');
+        }
+
+        // Modal Logic (Add/Edit/Delete)
+        function openModal(isEdit = false) {
+            modalTitle.innerHTML = isEdit
+                ? `<i class="fa-solid fa-pen-to-square"></i> Edit Venue`
+                : `<i class="fa-solid fa-building-circle-check"></i> Add New Venue`;
+            venueModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            venueModal.style.display = 'none';
+            venueForm.reset();
+            formId.value = '';
+        }
+
+        function editVenue(id) {
+            const v = venueData.find(item => item.id === id);
+            if (!v) return;
+
+            formId.value = v.id;
+            formName.value = v.name;
+            formUrl.value = v.url || '';
+            formLocation.value = v.location;
+            formType.value = v.type;
+            formArea.value = v.area === "NA" ? "" : v.area;
+            formAccess.value = v.access === "NA" ? "" : v.access;
+            formLength.value = v.length === "NA" ? "" : v.length;
+            formWidth.value = v.width === "NA" ? "" : v.width;
+            formHeight.value = v.height === "NA" ? "" : v.height;
+
+            formTheatre.value = v.theatre === "NA" ? "" : v.theatre;
+            formClassroom.value = v.classroom === "NA" ? "" : v.classroom;
+            formBoardroom.value = v.boardroom === "NA" ? "" : v.boardroom;
+            formHorseshoe.value = v.horseshoe === "NA" ? "" : v.horseshoe;
+            formFishbone.value = v.fishbone === "NA" ? "" : v.fishbone;
+            formUshape.value = v.ushape === "NA" ? "" : v.ushape;
+            formBanquet.value = v.banquet === "NA" ? "" : v.banquet;
+
+            openModal(true);
+        }
+
+        function deleteVenue(id) {
+            const v = venueData.find(item => item.id === id);
+            if (!v) return;
+
+            if (confirm(`Are you sure you want to delete "${v.name}"?`)) {
+                venueData = venueData.filter(item => item.id !== id);
+                populateLocations();
+                filterVenues('input');
+            }
+        }
+
+        venueForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const existingId = formId.value ? parseInt(formId.value, 10) : null;
+
+            const venueObj = {
+                id: existingId || Date.now(),
+                name: formName.value.trim(),
+                url: formUrl.value.trim(),
+                location: formLocation.value.trim(),
+                type: formType.value,
+                area: parseNumOrRaw(formArea.value.trim()),
+                access: parseNumOrRaw(formAccess.value.trim()),
+                length: formLength.value.trim() || "NA",
+                width: formWidth.value.trim() || "NA",
+                height: formHeight.value.trim() || "NA",
+                theatre: parseNumOrRaw(formTheatre.value.trim()),
+                classroom: parseNumOrRaw(formClassroom.value.trim()),
+                boardroom: parseNumOrRaw(formBoardroom.value.trim()),
+                horseshoe: parseNumOrRaw(formHorseshoe.value.trim()),
+                fishbone: parseNumOrRaw(formFishbone.value.trim()),
+                ushape: parseNumOrRaw(formUshape.value.trim()),
+                banquet: parseNumOrRaw(formBanquet.value.trim())
+            };
+
+            if (existingId) {
+                const index = venueData.findIndex(item => item.id === existingId);
+                if (index !== -1) venueData[index] = venueObj;
+            } else {
+                venueData.unshift(venueObj);
+            }
+
+            populateLocations();
+            filterVenues('input');
+            closeModal();
+        });
+
+        // Event Listeners
+        searchInput.addEventListener('input', () => filterVenues('input'));
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            filterVenues('input');
+        });
+
+        categoryFilter.addEventListener('change', () => filterVenues('dropdown'));
+        locationFilter.addEventListener('change', () => filterVenues('dropdown'));
+        minCapacitySelect.addEventListener('change', () => filterVenues('dropdown'));
+
+        resetAllBtn.addEventListener('click', resetAll);
+        emptyResetBtn.addEventListener('click', resetAll);
+        dismissAlertBtn.addEventListener('click', () => autoResetAlert.style.display = 'none');
+
+        addVenueBtn.addEventListener('click', () => openModal(false));
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelModalBtn.addEventListener('click', closeModal);
+
+        // Initial Load
+        populateLocations();
+        filterVenues('input');
+    </script>
+</body>
+
+</html>

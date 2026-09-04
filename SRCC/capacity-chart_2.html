@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Capacity Chart & Specifications</title>
+    <style>
+        :root {
+            --color-secondary: #540C18;
+            --color-text-default: #333333;
+            --color-alt-text: #6E6E6E;
+            --color-bg-light: #F8F9FA;
+            --color-white: #FFFFFF;
+            --color-border: #E5E7EB;
+            --color-hover: #FDF2F4;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--color-text-default);
+            background-color: var(--color-bg-light);
+            line-height: 1.5;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--color-white);
+            padding: 24px 32px;
+            border-radius: var(--radius);
+            border-left: 6px solid var(--color-secondary);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            color: var(--color-secondary);
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            color: var(--color-alt-text);
+            font-size: 0.95rem;
+        }
+
+        /* Venue Interactive Links */
+        .venue-link {
+            color: var(--color-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .venue-link:hover {
+            text-decoration: underline;
+            opacity: 0.85;
+        }
+
+        .venue-link-icon {
+            flex-shrink: 0;
+            stroke: var(--color-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .venue-link:hover .venue-link-icon {
+            transform: translate(2px, -2px);
+        }
+
+        /* Analytics Overview */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .metric-card {
+            background: var(--color-white);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric-card .title {
+            color: var(--color-alt-text);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .metric-card .value {
+            color: var(--color-secondary);
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .metric-card .subtitle {
+            color: var(--color-alt-text);
+            font-size: 0.825rem;
+            margin-top: 4px;
+        }
+
+        /* CSS Navigation */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: var(--color-white);
+            padding: 8px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .tab-btn {
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-alt-text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .tab-btn:hover {
+            color: var(--color-secondary);
+            background-color: var(--color-hover);
+        }
+
+        /* Content Card Structures */
+        .section-card {
+            background: var(--color-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+            overflow: hidden;
+            scroll-margin-top: 20px;
+        }
+
+        .section-header {
+            background-color: var(--color-white);
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            font-size: 1.25rem;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+
+        .badge {
+            background-color: var(--color-hover);
+            color: var(--color-secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(84, 12, 24, 0.15);
+        }
+
+        /* Responsive Data Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: var(--color-bg-light);
+            color: var(--color-text-default);
+            font-weight: 700;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--color-border);
+            text-transform: uppercase;
+            font-size: 0.725rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-default);
+        }
+
+        tr:nth-child(even) {
+            background-color: #FAFAFA;
+        }
+
+        tr:hover {
+            background-color: var(--color-hover);
+        }
+
+        td.location-cell {
+            color: var(--color-alt-text);
+            font-size: 0.825rem;
+        }
+
+        td.na-cell {
+            color: #A3A3A3;
+            font-style: italic;
+        }
+
+        /* Outdoor Grid Cards */
+        .outdoor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .outdoor-card {
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 16px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .outdoor-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-secondary);
+        }
+
+        .outdoor-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .outdoor-card .spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 4px 0;
+            border-bottom: 1px dashed var(--color-border);
+        }
+
+        .outdoor-card .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .outdoor-card .spec-label {
+            color: var(--color-alt-text);
+        }
+
+        .outdoor-card .spec-val {
+            font-weight: 600;
+            color: var(--color-text-default);
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--color-alt-text);
+            font-size: 0.825rem;
+            border-top: 1px solid var(--color-border);
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px 8px;
+            }
+
+            header {
+                padding: 16px 20px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header Block -->
+        <header>
+            <h1>Venue Capacity Chart & Specifications[cite: 1]</h1>
+            <p>Comprehensive layout dimensions, capacity configurations, and direct venue links[cite: 1].</p>
+        </header>
+
+        <!-- Data Analytics Highlights -->
+        <div class="analytics-grid">
+            <div class="metric-card">
+                <div class="title">Max Indoor Capacity</div>
+                <div class="value">3,200</div>
+                <div class="subtitle">Rwenzori A+B (Theatre Setup)</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Max Outdoor Space</div>
+                <div class="value">14,400 m²</div>
+                <div class="subtitle">Lakeside Venue</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Indoor Venues Total</div>
+                <div class="value">37</div>
+                <div class="subtitle">Halls, Ballrooms & Boardrooms</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Outdoor Grounds</div>
+                <div class="value">9</div>
+                <div class="subtitle">Gardens, Hubs & Poolsides</div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-tabs">
+            <a href="#srcc-ground" class="tab-btn">SRCC Main Halls</a>
+            <a href="#ballrooms" class="tab-btn">Ballrooms & Banquet</a>
+            <a href="#lower-ground" class="tab-btn">Lower Ground Halls</a>
+            <a href="#boardrooms" class="tab-btn">Meeting & Boardrooms</a>
+            <a href="#outdoor" class="tab-btn">Outdoor Venues</a>
+        </nav>
+
+        <!-- Table 1: SRCC Ground & 1st Floor -->
+        <section id="srcc-ground" class="section-card">
+            <div class="section-header">
+                <h2>SRCC Ground & 1st Floor Halls</h2>
+                <span class="badge">5 Venues</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Venue / Hall</th>
+                            <th>Location</th>
+                            <th>Area (m²)</th>
+                            <th>L × W × H (m)</th>
+                            <th>Acc.</th>
+                            <th>Theatre</th>
+                            <th>Classroom</th>
+                            <th>Board Room</th>
+                            <th>Horse Shoe</th>
+                            <th>Fish Bone</th>
+                            <th>U-Shape</th>
+                            <th>Banquet / Cocktail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#rwenzoria-b" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit RWENZORIA+B details">
+                                    <span>RWENZORIA+B</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Ground Floor</td>
+                            <td>3,200</td>
+                            <td>80.0 × 40.0 × 10.5</td>
+                            <td>10</td>
+                            <td>3,200</td>
+                            <td>2,200</td>
+                            <td>240</td>
+                            <td>1,800</td>
+                            <td>1,800</td>
+                            <td>600</td>
+                            <td>2,400</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#rwenzori-a" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit RWENZORI A details">
+                                    <span>RWENZORI A</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Ground Floor</td>
+                            <td>1,600</td>
+                            <td>40.0 × 40.0 × 10.5</td>
+                            <td>5</td>
+                            <td>1,600</td>
+                            <td>1,100</td>
+                            <td>120</td>
+                            <td>900</td>
+                            <td>900</td>
+                            <td>200</td>
+                            <td>1,200</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#rwenzori-b" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit RWENZORI B details">
+                                    <span>RWENZORI B</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Ground Floor</td>
+                            <td>1,600</td>
+                            <td>40.0 × 40.0 × 10.5</td>
+                            <td>5</td>
+                            <td>1,600</td>
+                            <td>1,100</td>
+                            <td>120</td>
+                            <td>900</td>
+                            <td>900</td>
+                            <td>200</td>
+                            <td>1,200</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#gallery-1" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit GALLERY 1 details">
+                                    <span>GALLERY 1 (Fixed)</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Entrance 1st Fl.</td>
+                            <td>300</td>
+                            <td class="na-cell">N/A</td>
+                            <td>2</td>
+                            <td>300</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#gallery-2" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit GALLERY 2 details">
+                                    <span>GALLERY 2 (Fixed)</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Entrance 1st Fl.</td>
+                            <td>300</td>
+                            <td class="na-cell">N/A</td>
+                            <td>2</td>
+                            <td>300</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Table 2: Ballrooms & Banquet Halls -->
+        <section id="ballrooms" class="section-card">
+            <div class="section-header">
+                <h2>Ballrooms & Banquet Halls</h2>
+                <span class="badge">4 Venues</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Venue / Hall</th>
+                            <th>Location</th>
+                            <th>Area (m²)</th>
+                            <th>L × W × H (m)</th>
+                            <th>Acc.</th>
+                            <th>Theatre</th>
+                            <th>Classroom</th>
+                            <th>Board Room</th>
+                            <th>Horse Shoe</th>
+                            <th>Fish Bone</th>
+                            <th>U-Shape</th>
+                            <th>Banquet / Cocktail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#speke-ballroom" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Speke Ballroom details">
+                                    <span>Speke Ballroom</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing 1st Floor</td>
+                            <td>1,140</td>
+                            <td>63.0 × 17.6 × 5.3</td>
+                            <td>7</td>
+                            <td>1,400</td>
+                            <td>700</td>
+                            <td>130</td>
+                            <td>500</td>
+                            <td>500</td>
+                            <td>200</td>
+                            <td>800</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#victoria-ballroom" target="_blank" rel="noopener noreferrer"
+                                    class="venue-link" title="Visit Victoria Ballroom details">
+                                    <span>Victoria Ballroom</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Upper Ground</td>
+                            <td>957</td>
+                            <td>34.4 × 27.8 × 3.7</td>
+                            <td>2</td>
+                            <td>900</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>450</td>
+                            <td>450</td>
+                            <td>160</td>
+                            <td>650</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#royal-palm" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Royal Palm details">
+                                    <span>Royal Palm</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing First Floor</td>
+                            <td>600</td>
+                            <td>33.0 × 18.2 × 3.2</td>
+                            <td>3</td>
+                            <td>600</td>
+                            <td>350</td>
+                            <td>90</td>
+                            <td>300</td>
+                            <td>340</td>
+                            <td>120</td>
+                            <td>350</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#commonwealth-banquet" target="_blank" rel="noopener noreferrer"
+                                    class="venue-link" title="Visit Commonwealth Banquet Hall details">
+                                    <span>Commonwealth Banquet Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">Commonwealth Block</td>
+                            <td>332</td>
+                            <td>22.9 × 15.4 × 4.9</td>
+                            <td>6</td>
+                            <td>250</td>
+                            <td>150</td>
+                            <td>65</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>80</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Table 3: Wing Halls & SRCC Lower Ground -->
+        <section id="lower-ground" class="section-card">
+            <div class="section-header">
+                <h2>Wing Halls & SRCC Lower Ground</h2>
+                <span class="badge">18 Venues</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Venue / Hall</th>
+                            <th>Location</th>
+                            <th>Area (m²)</th>
+                            <th>L × W × H (m)</th>
+                            <th>Acc.</th>
+                            <th>Theatre</th>
+                            <th>Classroom</th>
+                            <th>Board Room</th>
+                            <th>Horse Shoe</th>
+                            <th>Fish Bone</th>
+                            <th>U-Shape</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#albert" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Albert details">
+                                    <span>Albert</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>262</td>
+                            <td>22.0 × 12.0 × 3.7</td>
+                            <td>1</td>
+                            <td>250</td>
+                            <td>175</td>
+                            <td>60</td>
+                            <td>120</td>
+                            <td>120</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#sheena" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Sheena details">
+                                    <span>Sheena</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>242</td>
+                            <td>22.0 × 11.0 × 3.4</td>
+                            <td>1</td>
+                            <td>175</td>
+                            <td>150</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#meera" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Meera details">
+                                    <span>Meera</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>242</td>
+                            <td>22.0 × 11.0 × 34.0</td>
+                            <td>1</td>
+                            <td>175</td>
+                            <td>150</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#acacia" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Acacia details">
+                                    <span>Acacia</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing Mezzanine</td>
+                            <td>228</td>
+                            <td>17.5 × 13.0 × 2.7</td>
+                            <td>2</td>
+                            <td>140</td>
+                            <td>125</td>
+                            <td>40</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#ebony" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Ebony details">
+                                    <span>Ebony</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing Mezzanine</td>
+                            <td>228</td>
+                            <td>17.5 × 13.0 × 2.7</td>
+                            <td>2</td>
+                            <td>140</td>
+                            <td>125</td>
+                            <td>40</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#jacaranda" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Jacaranda details">
+                                    <span>Jacaranda</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing Mezzanine</td>
+                            <td>228</td>
+                            <td>17.5 × 13.0 × 2.7</td>
+                            <td>2</td>
+                            <td>140</td>
+                            <td>125</td>
+                            <td>40</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#mahogany" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Mahogany details">
+                                    <span>Mahogany</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">East Wing Mezzanine</td>
+                            <td>228</td>
+                            <td>17.5 × 13.0 × 2.7</td>
+                            <td>2</td>
+                            <td>140</td>
+                            <td>125</td>
+                            <td>40</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#majestic" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Majestic details">
+                                    <span>Majestic</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>126</td>
+                            <td>11.5 × 11.0 × 3.5</td>
+                            <td>1</td>
+                            <td>95</td>
+                            <td>70</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#regal" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Regal details">
+                                    <span>Regal</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>126</td>
+                            <td>11.5 × 11.0 × 3.5</td>
+                            <td>1</td>
+                            <td>95</td>
+                            <td>70</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#royal" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Royal details">
+                                    <span>Royal</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>126</td>
+                            <td>11.5 × 11.0 × 3.5</td>
+                            <td>1</td>
+                            <td>95</td>
+                            <td>70</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kabalega-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kabalega Hall details">
+                                    <span>Kabalega Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>150</td>
+                            <td>15.5 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kidepo-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kidepo Hall details">
+                                    <span>Kidepo Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>170</td>
+                            <td>18.4 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#bunyonyi-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Bunyonyi Hall details">
+                                    <span>Bunyonyi Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>150</td>
+                            <td>15.5 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#bujagali-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Bujagali Hall details">
+                                    <span>Bujagali Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>170</td>
+                            <td>18.4 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kibale-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kibale Hall details">
+                                    <span>Kibale Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>150</td>
+                            <td>15.5 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#bwindi-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Bwindi Hall details">
+                                    <span>Bwindi Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>170</td>
+                            <td>18.4 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#mburo-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Mburo Hall details">
+                                    <span>Mburo Hall.</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>150</td>
+                            <td>15.5 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#semuliki-hall" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Semuliki Hall details">
+                                    <span>Semuliki Hall</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC Lower Ground Floor</td>
+                            <td>170</td>
+                            <td>18.4 × 9.7 × 2.6</td>
+                            <td>2</td>
+                            <td>120</td>
+                            <td>85</td>
+                            <td>30</td>
+                            <td>30</td>
+                            <td>60</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Table 4: Meeting Rooms & Executive Boardrooms -->
+        <section id="boardrooms" class="section-card">
+            <div class="section-header">
+                <h2>Meeting Rooms & Boardrooms</h2>
+                <span class="badge">10 Venues</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Venue / Hall</th>
+                            <th>Location</th>
+                            <th>Area (m²)</th>
+                            <th>L × W × H (m)</th>
+                            <th>Acc.</th>
+                            <th>Theatre</th>
+                            <th>Classroom</th>
+                            <th>Board Room</th>
+                            <th>U-Shape</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#royal-club" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Royal Club details">
+                                    <span>Royal Club (Lounge Setup)</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">Commonwealth Block</td>
+                            <td>107</td>
+                            <td>11.5 × 9.5 × 2.4</td>
+                            <td>1</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kalangala" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kalangala details">
+                                    <span>Kalangala</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">Commonwealth Block</td>
+                            <td>84</td>
+                            <td>9.5 × 8.8 × 2.4</td>
+                            <td>1</td>
+                            <td>50</td>
+                            <td>30</td>
+                            <td>18</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#emerald" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Emerald details">
+                                    <span>Emerald</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>73</td>
+                            <td>9.0 × 7.6 × 2.4</td>
+                            <td>1</td>
+                            <td class="na-cell">N/A</td>
+                            <td class="na-cell">N/A</td>
+                            <td>20</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#sapphire" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Sapphire details">
+                                    <span>Sapphire</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>62</td>
+                            <td>7.9 × 7.6 × 2.4</td>
+                            <td>1</td>
+                            <td>35</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#amethyst" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Amethyst details">
+                                    <span>Amethyst</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">West Wing Lower Ground</td>
+                            <td>58</td>
+                            <td>7.6 × 7.5 × 2.5</td>
+                            <td>1</td>
+                            <td>35</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td class="na-cell">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#sanga" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Sanga details">
+                                    <span>Sanga</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">Commonwealth Block</td>
+                            <td>34</td>
+                            <td>8.8 × 3.9 × 2.4</td>
+                            <td>1</td>
+                            <td>24</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#nalubaale" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Nalubaale Boardroom details">
+                                    <span>Nalubaale Boardroom</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC First Floor</td>
+                            <td>30</td>
+                            <td>7.8 × 4.0 × 3.9</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#katwe" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Katwe Boardroom details">
+                                    <span>Katwe Boardroom.</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC First Floor</td>
+                            <td>30</td>
+                            <td>7.8 × 4.0 × 3.9</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kabatoro" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kabatoro Boardroom details">
+                                    <span>Kabatoro Boardroom</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC First Floor</td>
+                            <td>30</td>
+                            <td>7.8 × 4.0 × 3.9</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td class="venue-name">
+                                <a href="#kyaninga" target="_blank" rel="noopener noreferrer" class="venue-link"
+                                    title="Visit Kyaninga Boardroom details">
+                                    <span>Kyaninga Boardroom</span>
+                                    <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td class="location-cell">SRCC First Floor</td>
+                            <td>30</td>
+                            <td>7.8 × 4.0 × 3.9</td>
+                            <td>1</td>
+                            <td>20</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Table 5: Outdoor Venues -->
+        <section id="outdoor" class="section-card">
+            <div class="section-header">
+                <h2>Outdoor Venues & Gardens</h2>
+                <span class="badge">9 Locations</span>
+            </div>
+            <div class="outdoor-grid">
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#lakeside" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Lakeside venue">
+                            <span>Lakeside</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">14,400 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">144 m × 100 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#lower-peacehub" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Lower Peacehub venue">
+                            <span>Lower Peacehub</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">6,480 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">120 m × 54 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#flagmast" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Flagmast venue">
+                            <span>Flagmast</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">5,766 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">93 m × 62 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#upper-peacehub" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Upper Peacehub Gardens venue">
+                            <span>Upper Peacehub Gardens</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">5,400 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">100 m × 54 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#speke-gardens" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Speke Ballroom Gardens venue">
+                            <span>Speke Ballroom Gardens</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">2,736 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">57 m × 48 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#mango-garden" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Mango Garden venue">
+                            <span>Mango Garden</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">2,580 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">60 m × 43 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#commonwealth-poolside" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Commonwealth Poolside venue">
+                            <span>Commonwealth Poolside</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">2,100 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">70 m × 30 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#speke-poolside" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Speke Resort Poolside venue">
+                            <span>Speke Resort Poolside</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">1,500 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">75 m × 20 m</span>
+                    </div>
+                </div>
+                <div class="outdoor-card">
+                    <h3>
+                        <a href="#marina-restaurant" target="_blank" rel="noopener noreferrer" class="venue-link"
+                            title="Visit Marina Restaurant venue">
+                            <span>Marina Restaurant</span>
+                            <svg class="venue-link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-val">340 m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions</span>
+                        <span class="spec-val">22 m × 16 m</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Capacity Chart Data Sheet. Designed with Pure HTML5 & CSS3. No JavaScript Required.
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

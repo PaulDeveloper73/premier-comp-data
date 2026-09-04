@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Capacity Chart & Specifications</title>
+    <style>
+        :root {
+            --color-primary: #540C18;
+            --color-primary-hover: #3d0811;
+            --color-primary-light: #fdf2f4;
+            --color-primary-border: #f8e8eb;
+            --color-text-dark: #1a1a1a;
+            --color-text-muted: #666666;
+            --color-bg: #f8f9fa;
+            --color-white: #ffffff;
+            --color-border: #e2e8f0;
+            --color-border-light: #f1f5f9;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-text-dark);
+            line-height: 1.5;
+            padding: 32px 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* HEADER SECTION */
+        header.page-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        header.page-header h1 {
+            color: var(--color-primary);
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        header.page-header p {
+            color: var(--color-text-muted);
+            font-size: 0.975rem;
+        }
+
+        /* SEARCH CONTAINER & INPUT */
+        .search-section {
+            position: sticky;
+            top: 12px;
+            z-index: 200;
+            margin-bottom: 24px;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 30px;
+            box-shadow: var(--shadow-md);
+            padding: 4px 8px 4px 18px;
+            transition: all 0.2s ease;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(84, 12, 24, 0.12), var(--shadow-md);
+        }
+
+        .search-icon {
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .search-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--color-text-dark);
+            font-family: inherit;
+        }
+
+        .search-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-badge {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.775rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            display: none;
+            border: 1px solid var(--color-primary-border);
+        }
+
+        .kbd-shortcut {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-size: 0.725rem;
+            color: var(--color-text-muted);
+            font-family: monospace;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .clear-btn:hover {
+            background-color: var(--color-border-light);
+            color: var(--color-text-dark);
+        }
+
+        .clear-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* AUTOCOMPLETE DROPDOWN */
+        .search-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            max-height: 380px;
+            overflow-y: auto;
+            display: none;
+            z-index: 201;
+        }
+
+        .dropdown-item {
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--color-border-light);
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item.active {
+            background-color: var(--color-primary-light);
+        }
+
+        .dropdown-item-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-text-dark);
+        }
+
+        .dropdown-item-meta {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: 2px;
+        }
+
+        .dropdown-item-action {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            white-space: nowrap;
+        }
+
+        .dropdown-no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* SEARCH CHIPS */
+        .search-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .search-chip {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 0.825rem;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-chip:hover,
+        .search-chip.active {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+
+        /* STATS SUMMARY CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat-label {
+            font-size: 0.725rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--color-text-muted);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-text-dark);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .stat-subtext {
+            font-size: 0.775rem;
+            color: var(--color-text-muted);
+        }
+
+        /* CATEGORY FILTER TABS / NAVIGATION */
+        .category-nav-wrapper {
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 6px;
+            overflow-x: auto;
+        }
+
+        .category-nav {
+            display: flex;
+            gap: 6px;
+            min-width: max-content;
+        }
+
+        .nav-tab {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover,
+        .nav-tab.active {
+            color: var(--color-primary);
+            background-color: var(--color-primary-light);
+        }
+
+        /* FULL WIDTH VENUE TABLES & SECTIONS */
+        .venue-section {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 28px;
+            overflow: hidden;
+            scroll-margin-top: 90px;
+        }
+
+        .section-header-bar {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-white);
+        }
+
+        .section-header-bar h2 {
+            color: var(--color-primary);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .venue-count-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            background-color: var(--color-primary-light);
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--color-primary-border);
+        }
+
+        /* TABLE STYLING */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .venue-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.825rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .venue-table th {
+            background-color: #fafafa;
+            color: var(--color-text-muted);
+            font-weight: 700;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 10px;
+            border-bottom: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .venue-table th:first-child,
+        .venue-table th:nth-child(2) {
+            text-align: left;
+        }
+
+        .venue-table td {
+            padding: 10px 10px;
+            border-bottom: 1px solid var(--color-border-light);
+            color: var(--color-text-dark);
+            text-align: center;
+        }
+
+        .venue-table td:first-child,
+        .venue-table td:nth-child(2) {
+            text-align: left;
+        }
+
+        .venue-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .venue-table tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
+        .venue-table tbody tr:hover {
+            background-color: var(--color-primary-light);
+        }
+
+        .venue-name-cell {
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        .cell-muted {
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+        }
+
+        .cap-num {
+            font-weight: 600;
+        }
+
+        .cap-empty {
+            color: #bbb;
+        }
+
+        .access-badge {
+            display: inline-block;
+            background: #edf2f7;
+            color: #4a5568;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* OUTDOOR GRID CARDS */
+        .outdoor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            padding: 20px;
+            background-color: var(--color-bg);
+        }
+
+        .outdoor-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .outdoor-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary-border);
+        }
+
+        .outdoor-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--color-border-light);
+            padding-bottom: 6px;
+        }
+
+        .outdoor-spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        .outdoor-spec-label {
+            color: var(--color-text-muted);
+        }
+
+        .outdoor-spec-val {
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        /* SEARCH HIGHLIGHTS & PULSE EFFECTS */
+        mark.search-highlight {
+            background-color: #fef08a;
+            color: #854d0e;
+            font-weight: 700;
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+
+        @keyframes pulseFlash {
+            0% {
+                background-color: var(--color-primary-light);
+            }
+
+            50% {
+                background-color: #fce7f3;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .highlight-row-target {
+            animation: pulseFlash 1.8s ease-in-out;
+            outline: 2px solid var(--color-primary);
+        }
+
+        .row-hidden,
+        .section-hidden {
+            display: none !important;
+        }
+
+        /* FOOTER DISCLAIMER */
+        footer.page-footer {
+            text-align: center;
+            margin-top: 36px;
+            padding-bottom: 24px;
+            font-size: 0.775rem;
+            color: var(--color-text-muted);
+        }
+
+        /* RESPONSIVE DESIGN BREAKPOINTS */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            header.page-header h1 {
+                font-size: 1.65rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kbd-shortcut {
+                display: none;
+            }
+
+            .search-section {
+                top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="page-header">
+            <h1>Venue Capacity Chart & Specifications</h1>
+            <p>Comprehensive layout configurations, room dimensions, accessibility ratings, and seating capacities.</p>
+        </header>
+
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </span>
+                    <input type="text" id="venue-search-input" class="search-input"
+                        placeholder="Search venues by name, location, setup style (e.g. Fish Bone, Boardroom)..."
+                        autocomplete="off">
+                    <div class="search-controls">
+                        <span id="search-match-count" class="search-badge">0 matches</span>
+                        <kbd class="kbd-shortcut">⌘K</kbd>
+                        <button type="button" id="search-clear-btn" class="clear-btn" title="Clear search (Esc)">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dropdown Auto-complete list -->
+                <div id="search-dropdown" class="search-dropdown"></div>
+
+                <!-- Quick Filter Chips -->
+                <div class="search-chips">
+                    <button type="button" class="search-chip" data-search="Rwenzori">Rwenzori Halls</button>
+                    <button type="button" class="search-chip" data-search="Ballroom">Ballrooms</button>
+                    <button type="button" class="search-chip" data-search="Fish Bone">Fish Bone Setup</button>
+                    <button type="button" class="search-chip" data-search="Horse Shoe">Horse Shoe Setup</button>
+                    <button type="button" class="search-chip" data-search="Mezzanine">Mezzanine Floor</button>
+                    <button type="button" class="search-chip" data-search="Lakeside">Lakeside Grounds</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SUMMARY CARDS -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div>
+                    <div class="stat-label">Max Indoor Capacity</div>
+                    <div class="stat-value">3,200 Pax</div>
+                </div>
+                <div class="stat-subtext">RWENZORI A+B (Theatre Style)</div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-label">Max Outdoor Ground</div>
+                    <div class="stat-value">14,400 m²</div>
+                </div>
+                <div class="stat-subtext">Lakeside Grounds</div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-label">Indoor Halls & Suites</div>
+                    <div class="stat-value">37</div>
+                </div>
+                <div class="stat-subtext">Halls, Ballrooms & Boardrooms</div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <div class="stat-label">Outdoor Grounds</div>
+                    <div class="stat-value">9</div>
+                </div>
+                <div class="stat-subtext">Gardens, Lawns & Poolsides</div>
+            </div>
+        </section>
+
+        <!-- CATEGORY NAVIGATION TABS -->
+        <nav class="category-nav-wrapper">
+            <div class="category-nav">
+                <button type="button" class="nav-tab active" data-target="sec-srcc">SRCC Main Halls & Galleries</button>
+                <button type="button" class="nav-tab" data-target="sec-ballrooms">Ballrooms & Banquet</button>
+                <button type="button" class="nav-tab" data-target="sec-lower">Lower Ground & Mezzanine</button>
+                <button type="button" class="nav-tab" data-target="sec-srcc-lower">SRCC Lower Ground Halls</button>
+                <button type="button" class="nav-tab" data-target="sec-meeting">Boardrooms & Suites</button>
+                <button type="button" class="nav-tab" data-target="sec-outdoor">Outdoor Venues</button>
+            </div>
+        </nav>
+
+        <!-- VENUES TABLES MAIN CONTENT AREA -->
+        <main id="venue-content-area">
+
+            <!-- SECTION 1: SRCC Main Halls & Galleries -->
+            <section id="sec-srcc" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>SRCC Main Halls & Galleries</h2>
+                    <span class="venue-count-badge">5 Venues</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="venue-table">
+                        <thead>
+                            <tr>
+                                <th>Venue / Hall</th>
+                                <th>Location</th>
+                                <th>Area (m²)</th>
+                                <th>L (m)</th>
+                                <th>W (m)</th>
+                                <th>H (m)</th>
+                                <th>Access</th>
+                                <th>Theatre</th>
+                                <th>Classroom</th>
+                                <th>Board Room</th>
+                                <th>Horse Shoe</th>
+                                <th>Fish Bone</th>
+                                <th>U-Shape</th>
+                                <th>Banquet / Cocktail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="venue-row" data-category="SRCC Main Halls & Galleries">
+                                <td class="venue-name-cell">RWENZORI A+B</td>
+                                <td class="cell-muted">SRCC Ground Floor</td>
+                                <td>3,200</td>
+                                <td>80.0</td>
+                                <td>40.0</td>
+                                <td>10.5</td>
+                                <td><span class="access-badge">10</span></td>
+                                <td class="cap-num">3,200</td>
+                                <td class="cap-num">2,200</td>
+                                <td class="cap-num">240</td>
+                                <td class="cap-num">1,800</td>
+                                <td class="cap-num">1,800</td>
+                                <td class="cap-num">600</td>
+                                <td class="cap-num">2,400</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Main Halls & Galleries">
+                                <td class="venue-name-cell">RWENZORI A</td>
+                                <td class="cell-muted">SRCC Ground Floor</td>
+                                <td>1,600</td>
+                                <td>40.0</td>
+                                <td>40.0</td>
+                                <td>10.5</td>
+                                <td><span class="access-badge">5</span></td>
+                                <td class="cap-num">1,600</td>
+                                <td class="cap-num">1,100</td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">900</td>
+                                <td class="cap-num">900</td>
+                                <td class="cap-num">200</td>
+                                <td class="cap-num">1,200</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Main Halls & Galleries">
+                                <td class="venue-name-cell">RWENZORI B</td>
+                                <td class="cell-muted">SRCC Ground Floor</td>
+                                <td>1,600</td>
+                                <td>40.0</td>
+                                <td>40.0</td>
+                                <td>10.5</td>
+                                <td><span class="access-badge">5</span></td>
+                                <td class="cap-num">1,600</td>
+                                <td class="cap-num">1,100</td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">900</td>
+                                <td class="cap-num">900</td>
+                                <td class="cap-num">200</td>
+                                <td class="cap-num">1,200</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Main Halls & Galleries">
+                                <td class="venue-name-cell">GALLERY 1 - Fixed Seating</td>
+                                <td class="cell-muted">SRCC Entrance from 1st Floor</td>
+                                <td>300</td>
+                                <td class="cap-empty">-</td>
+                                <td class="cap-empty">-</td>
+                                <td class="cap-empty">-</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">300</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Main Halls & Galleries">
+                                <td class="venue-name-cell">GALLERY 2 - Fixed Seating</td>
+                                <td class="cell-muted">SRCC Entrance from 1st Floor</td>
+                                <td>300</td>
+                                <td class="cap-empty">-</td>
+                                <td class="cap-empty">-</td>
+                                <td class="cap-empty">-</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">300</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 2: Ballrooms & Banquet Halls -->
+            <section id="sec-ballrooms" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>Ballrooms & Banquet Halls</h2>
+                    <span class="venue-count-badge">4 Venues</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="venue-table">
+                        <thead>
+                            <tr>
+                                <th>Venue / Hall</th>
+                                <th>Location</th>
+                                <th>Area (m²)</th>
+                                <th>L (m)</th>
+                                <th>W (m)</th>
+                                <th>H (m)</th>
+                                <th>Access</th>
+                                <th>Theatre</th>
+                                <th>Classroom</th>
+                                <th>Board Room</th>
+                                <th>Horse Shoe</th>
+                                <th>Fish Bone</th>
+                                <th>U-Shape</th>
+                                <th>Banquet / Cocktail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="venue-row" data-category="Ballrooms & Banquet">
+                                <td class="venue-name-cell">Speke Ballroom</td>
+                                <td class="cell-muted">East Wing 1st Floor</td>
+                                <td>1,140</td>
+                                <td>63.0</td>
+                                <td>17.6</td>
+                                <td>5.3</td>
+                                <td><span class="access-badge">7</span></td>
+                                <td class="cap-num">1,400</td>
+                                <td class="cap-num">700</td>
+                                <td class="cap-num">130</td>
+                                <td class="cap-num">500</td>
+                                <td class="cap-num">500</td>
+                                <td class="cap-num">200</td>
+                                <td class="cap-num">800</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Ballrooms & Banquet">
+                                <td class="venue-name-cell">Victoria Ballroom</td>
+                                <td class="cell-muted">West Wing Upper Ground Floor</td>
+                                <td>957</td>
+                                <td>34.4</td>
+                                <td>27.8</td>
+                                <td>3.7</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">900</td>
+                                <td class="cap-num">500</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">450</td>
+                                <td class="cap-num">450</td>
+                                <td class="cap-num">160</td>
+                                <td class="cap-num">650</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Ballrooms & Banquet">
+                                <td class="venue-name-cell">Royal Palm</td>
+                                <td class="cell-muted">East Wing First Floor</td>
+                                <td>600</td>
+                                <td>33.0</td>
+                                <td>18.2</td>
+                                <td>3.2</td>
+                                <td><span class="access-badge">3</span></td>
+                                <td class="cap-num">600</td>
+                                <td class="cap-num">350</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">300</td>
+                                <td class="cap-num">340</td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">350</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Ballrooms & Banquet">
+                                <td class="venue-name-cell">Commonwealth Banquet Hall</td>
+                                <td class="cell-muted">Commonwealth Block</td>
+                                <td>332</td>
+                                <td>22.9</td>
+                                <td>15.4</td>
+                                <td>4.9</td>
+                                <td><span class="access-badge">6</span></td>
+                                <td class="cap-num">250</td>
+                                <td class="cap-num">150</td>
+                                <td class="cap-num">65</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">80</td>
+                                <td class="cap-num">200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 3: Lower Ground & Mezzanine Floor Halls -->
+            <section id="sec-lower" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>Lower Ground & Mezzanine Floor Halls</h2>
+                    <span class="venue-count-badge">10 Venues</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="venue-table">
+                        <thead>
+                            <tr>
+                                <th>Venue / Hall</th>
+                                <th>Location</th>
+                                <th>Area (m²)</th>
+                                <th>L (m)</th>
+                                <th>W (m)</th>
+                                <th>H (m)</th>
+                                <th>Access</th>
+                                <th>Theatre</th>
+                                <th>Classroom</th>
+                                <th>Board Room</th>
+                                <th>Horse Shoe</th>
+                                <th>Fish Bone</th>
+                                <th>U-Shape</th>
+                                <th>Banquet / Cocktail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Albert</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>262</td>
+                                <td>22.0</td>
+                                <td>12.0</td>
+                                <td>3.7</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">250</td>
+                                <td class="cap-num">175</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Sheena</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>242</td>
+                                <td>22.0</td>
+                                <td>11.0</td>
+                                <td>3.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">175</td>
+                                <td class="cap-num">150</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Meera</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>242</td>
+                                <td>22.0</td>
+                                <td>11.0</td>
+                                <td>34.0</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">175</td>
+                                <td class="cap-num">150</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">100</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Acacia</td>
+                                <td class="cell-muted">East Wing Mezzanine Floor</td>
+                                <td>228</td>
+                                <td>17.5</td>
+                                <td>13.0</td>
+                                <td>2.7</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">140</td>
+                                <td class="cap-num">125</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Ebony</td>
+                                <td class="cell-muted">East Wing Mezzanine Floor</td>
+                                <td>228</td>
+                                <td>17.5</td>
+                                <td>13.0</td>
+                                <td>2.7</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">140</td>
+                                <td class="cap-num">125</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Jacaranda</td>
+                                <td class="cell-muted">East Wing Mezzanine Floor</td>
+                                <td>228</td>
+                                <td>17.5</td>
+                                <td>13.0</td>
+                                <td>2.7</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">140</td>
+                                <td class="cap-num">125</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Mahogany</td>
+                                <td class="cell-muted">East Wing Mezzanine Floor</td>
+                                <td>228</td>
+                                <td>17.5</td>
+                                <td>13.0</td>
+                                <td>2.7</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">140</td>
+                                <td class="cap-num">125</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">90</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Majestic</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>126</td>
+                                <td>11.5</td>
+                                <td>11.0</td>
+                                <td>3.5</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">95</td>
+                                <td class="cap-num">70</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Regal</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>126</td>
+                                <td>11.5</td>
+                                <td>11.0</td>
+                                <td>3.5</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">95</td>
+                                <td class="cap-num">70</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Lower Ground & Mezzanine">
+                                <td class="venue-name-cell">Royal</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>126</td>
+                                <td>11.5</td>
+                                <td>11.0</td>
+                                <td>3.5</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">95</td>
+                                <td class="cap-num">70</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">40</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 4: SRCC Lower Ground Halls -->
+            <section id="sec-srcc-lower" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>SRCC Lower Ground Halls</h2>
+                    <span class="venue-count-badge">8 Venues</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="venue-table">
+                        <thead>
+                            <tr>
+                                <th>Venue / Hall</th>
+                                <th>Location</th>
+                                <th>Area (m²)</th>
+                                <th>L (m)</th>
+                                <th>W (m)</th>
+                                <th>H (m)</th>
+                                <th>Access</th>
+                                <th>Theatre</th>
+                                <th>Classroom</th>
+                                <th>Board Room</th>
+                                <th>Horse Shoe</th>
+                                <th>Fish Bone</th>
+                                <th>U-Shape</th>
+                                <th>Banquet / Cocktail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Kabalega Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>150</td>
+                                <td>15.5</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Kidepo Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>170</td>
+                                <td>18.4</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Bunyonyi Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>150</td>
+                                <td>15.5</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Bujagali Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>170</td>
+                                <td>18.4</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Kibale Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>150</td>
+                                <td>15.5</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Bwindi Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>170</td>
+                                <td>18.4</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Mburo Hall.</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>150</td>
+                                <td>15.5</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="SRCC Lower Ground Halls">
+                                <td class="venue-name-cell">Semuliki Hall</td>
+                                <td class="cell-muted">SRCC Lower Ground Floor</td>
+                                <td>170</td>
+                                <td>18.4</td>
+                                <td>9.7</td>
+                                <td>2.6</td>
+                                <td><span class="access-badge">2</span></td>
+                                <td class="cap-num">120</td>
+                                <td class="cap-num">85</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-num">60</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 5: Boardrooms & Executive Suites -->
+            <section id="sec-meeting" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>Boardrooms, Executive Suites & Lounges</h2>
+                    <span class="venue-count-badge">10 Venues</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="venue-table">
+                        <thead>
+                            <tr>
+                                <th>Venue / Hall</th>
+                                <th>Location</th>
+                                <th>Area (m²)</th>
+                                <th>L (m)</th>
+                                <th>W (m)</th>
+                                <th>H (m)</th>
+                                <th>Access</th>
+                                <th>Theatre</th>
+                                <th>Classroom</th>
+                                <th>Board Room</th>
+                                <th>Horse Shoe</th>
+                                <th>Fish Bone</th>
+                                <th>U-Shape</th>
+                                <th>Banquet / Cocktail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Royal Club (Lounge Setup)</td>
+                                <td class="cell-muted">Commonwealth Block</td>
+                                <td>107</td>
+                                <td>11.5</td>
+                                <td>9.5</td>
+                                <td>2.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Kalangala</td>
+                                <td class="cell-muted">Commonwealth Block</td>
+                                <td>84</td>
+                                <td>9.5</td>
+                                <td>8.8</td>
+                                <td>2.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">50</td>
+                                <td class="cap-num">30</td>
+                                <td class="cap-num">18</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Emerald</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>73</td>
+                                <td>9.0</td>
+                                <td>7.6</td>
+                                <td>2.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Sapphire</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>62</td>
+                                <td>7.9</td>
+                                <td>7.6</td>
+                                <td>2.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">35</td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">10</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Amethyst</td>
+                                <td class="cell-muted">West Wing Lower Ground Floor</td>
+                                <td>58</td>
+                                <td>7.6</td>
+                                <td>7.5</td>
+                                <td>2.5</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">35</td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">10</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Sanga</td>
+                                <td class="cell-muted">Commonwealth Block</td>
+                                <td>34</td>
+                                <td>8.8</td>
+                                <td>3.9</td>
+                                <td>2.4</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">24</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">8</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Nalubaale Boardroom</td>
+                                <td class="cell-muted">SRCC First Floor</td>
+                                <td>30</td>
+                                <td>7.8</td>
+                                <td>4.0</td>
+                                <td>3.9</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Katwe Boardroom.</td>
+                                <td class="cell-muted">SRCC First Floor</td>
+                                <td>30</td>
+                                <td>7.8</td>
+                                <td>4.0</td>
+                                <td>3.9</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Kabatoro Boardroom</td>
+                                <td class="cell-muted">SRCC First Floor</td>
+                                <td>30</td>
+                                <td>7.8</td>
+                                <td>4.0</td>
+                                <td>3.9</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                            <tr class="venue-row" data-category="Boardrooms & Suites">
+                                <td class="venue-name-cell">Kyaninga Boardroom</td>
+                                <td class="cell-muted">SRCC First Floor</td>
+                                <td>30</td>
+                                <td>7.8</td>
+                                <td>4.0</td>
+                                <td>3.9</td>
+                                <td><span class="access-badge">1</span></td>
+                                <td class="cap-num">20</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-empty">NA</td>
+                                <td class="cap-num">12</td>
+                                <td class="cap-empty">NA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 6: Outdoor Venues -->
+            <section id="sec-outdoor" class="venue-section">
+                <div class="section-header-bar">
+                    <h2>Outdoor Venues</h2>
+                    <span class="venue-count-badge">9 Grounds</span>
+                </div>
+                <div class="outdoor-grid">
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Lakeside</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">14,400 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">144m × 100m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Lower Peacehub</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">6,480 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">120m × 54m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Flagmast</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">5,766 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">93m × 62m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Upper Peacehub Gardens</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">5,400 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">100m × 54m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Speke Ballroom Gardens</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">2,736 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">57m × 48m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Mango Garden</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">2,580 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">60m × 43m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Commonwealth Poolside</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">2,100 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">70m × 30m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Speke Resort Poolside</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">1,500 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">75m × 20m</span>
+                        </div>
+                    </div>
+
+                    <div class="outdoor-card venue-row" data-category="Outdoor Venues">
+                        <div class="outdoor-card-title">Marina Restaurant</div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Total Area:</span>
+                            <span class="outdoor-spec-val">340 m²</span>
+                        </div>
+                        <div class="outdoor-spec-row">
+                            <span class="outdoor-spec-label">Dimensions (L × W):</span>
+                            <span class="outdoor-spec-val">22m × 16m</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER DISCLAIMER -->
+        <footer class="page-footer">
+            <p>Capacity Chart Disclaimer: Figures shown above are subject to layout modifications, stage sizes, and
+                furniture layout setup.</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('venue-search-input');
+            const clearBtn = document.getElementById('search-clear-btn');
+            const matchBadge = document.getElementById('search-match-count');
+            const dropdown = document.getElementById('search-dropdown');
+            const chips = document.querySelectorAll('.search-chip');
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const venueRows = Array.from(document.querySelectorAll('.venue-row'));
+            const venueSections = Array.from(document.querySelectorAll('.venue-section'));
+            const contentContainer = document.getElementById('venue-content-area');
+
+            let selectedIndex = -1;
+            let currentMatches = [];
+
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function normalize(str) {
+                return str ? str.toString().toLowerCase().trim() : '';
+            }
+
+            function escapeHtml(str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            // HIGHLIGHT TEXT ENGINE
+            function highlightMatches(query) {
+                removeHighlights(contentContainer);
+                if (!query.trim()) return;
+
+                const term = escapeRegExp(query.trim());
+                const regex = new RegExp(`(${term})`, 'gi');
+
+                function walk(node) {
+                    if (node.nodeType === 3) {
+                        if (node.nodeValue.trim() && regex.test(node.nodeValue)) {
+                            const span = document.createElement('span');
+                            span.className = 'highlight-wrapper';
+                            span.innerHTML = node.nodeValue.replace(regex, '<mark class="search-highlight">$1</mark>');
+                            node.parentNode.replaceChild(span, node);
+                        }
+                    } else if (node.nodeType === 1) {
+                        if (!['SCRIPT', 'STYLE', 'MARK', 'INPUT', 'TEXTAREA', 'BUTTON'].includes(node.tagName)) {
+                            Array.from(node.childNodes).forEach(walk);
+                        }
+                    }
+                }
+                walk(contentContainer);
+            }
+
+            function removeHighlights(container) {
+                const marks = container.querySelectorAll('mark.search-highlight');
+                marks.forEach(mark => {
+                    const parent = mark.parentNode;
+                    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                    parent.normalize();
+                });
+                container.querySelectorAll('span.highlight-wrapper').forEach(span => {
+                    const parent = span.parentNode;
+                    while (span.firstChild) {
+                        parent.insertBefore(span.firstChild, span);
+                    }
+                    parent.removeChild(span);
+                    parent.normalize();
+                });
+            }
+
+            // CORE SEARCH EXECUTION
+            function executeSearch(query) {
+                const normQuery = normalize(query);
+                selectedIndex = -1;
+
+                chips.forEach(chip => {
+                    if (normalize(chip.dataset.search) === normQuery) {
+                        chip.classList.add('active');
+                    } else {
+                        chip.classList.remove('active');
+                    }
+                });
+
+                if (!normQuery) {
+                    clearBtn.style.display = 'none';
+                    matchBadge.style.display = 'none';
+                    dropdown.style.display = 'none';
+                    dropdown.innerHTML = '';
+                    removeHighlights(contentContainer);
+
+                    venueRows.forEach(row => row.classList.remove('row-hidden'));
+                    venueSections.forEach(sec => sec.classList.remove('section-hidden'));
+                    currentMatches = [];
+                    return;
+                }
+
+                clearBtn.style.display = 'flex';
+                currentMatches = [];
+
+                venueRows.forEach(row => {
+                    const textContent = row.innerText || row.textContent;
+                    const isMatch = normalize(textContent).includes(normQuery);
+
+                    if (isMatch) {
+                        currentMatches.push(row);
+                        row.classList.remove('row-hidden');
+                    } else {
+                        row.classList.add('row-hidden');
+                    }
+                });
+
+                // Manage Visibility of Empty Sections
+                venueSections.forEach(section => {
+                    const visibleRows = section.querySelectorAll('.venue-row:not(.row-hidden)');
+                    if (visibleRows.length === 0) {
+                        section.classList.add('section-hidden');
+                    } else {
+                        section.classList.remove('section-hidden');
+                    }
+                });
+
+                highlightMatches(query);
+
+                matchBadge.style.display = 'inline-flex';
+                matchBadge.textContent = `${currentMatches.length} ${currentMatches.length === 1 ? 'match' : 'matches'}`;
+
+                renderDropdown(query);
+            }
+
+            // RENDER DROPDOWN RESULTS
+            function renderDropdown(query) {
+                if (currentMatches.length === 0) {
+                    dropdown.innerHTML = `
+                        <div class="dropdown-no-results">
+                            🚫 No matching venues found for "<strong>${escapeHtml(query)}</strong>"
+                        </div>`;
+                    dropdown.style.display = 'block';
+                    return;
+                }
+
+                dropdown.innerHTML = currentMatches.map((row, idx) => {
+                    let title = 'Venue Space';
+                    if (row.classList.contains('outdoor-card')) {
+                        title = row.querySelector('.outdoor-card-title')?.textContent || title;
+                    } else {
+                        title = row.querySelector('.venue-name-cell')?.textContent.trim() || title;
+                    }
+
+                    const category = row.dataset.category || row.closest('.venue-section')?.querySelector('h2')?.textContent || 'Venue Section';
+
+                    return `
+                        <div class="dropdown-item ${idx === selectedIndex ? 'active' : ''}" data-index="${idx}">
+                            <div>
+                                <div class="dropdown-item-title">${escapeHtml(title)}</div>
+                                <div class="dropdown-item-meta">${escapeHtml(category)}</div>
+                            </div>
+                            <span class="dropdown-item-action">Jump ➔</span>
+                        </div>
+                    `;
+                }).join('');
+
+                dropdown.style.display = 'block';
+
+                dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.dataset.index, 10);
+                        jumpToVenue(currentMatches[index]);
+                    });
+                });
+            }
+
+            // JUMP AND SCROLL TO VENUE
+            function jumpToVenue(targetElement) {
+                if (!targetElement) return;
+
+                dropdown.style.display = 'none';
+
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                targetElement.classList.add('highlight-row-target');
+                setTimeout(() => {
+                    targetElement.classList.remove('highlight-row-target');
+                }, 2000);
+            }
+
+            // INPUT EVENT LISTENERS
+            searchInput.addEventListener('input', (e) => {
+                executeSearch(e.target.value);
+            });
+
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    clearSearch();
+                    searchInput.blur();
+                    return;
+                }
+
+                const items = dropdown.querySelectorAll('.dropdown-item');
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        selectedIndex = (selectedIndex + 1) % items.length;
+                        updateActiveDropdownItem(items);
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+                        updateActiveDropdownItem(items);
+                    }
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (selectedIndex >= 0 && selectedIndex < currentMatches.length) {
+                        jumpToVenue(currentMatches[selectedIndex]);
+                    } else if (currentMatches.length > 0) {
+                        jumpToVenue(currentMatches[0]);
+                    }
+                }
+            });
+
+            function updateActiveDropdownItem(items) {
+                items.forEach((item, index) => {
+                    if (index === selectedIndex) {
+                        item.classList.add('active');
+                        item.scrollIntoView({ block: 'nearest' });
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+            clearBtn.addEventListener('click', () => {
+                clearSearch();
+                searchInput.focus();
+            });
+
+            function clearSearch() {
+                searchInput.value = '';
+                executeSearch('');
+            }
+
+            // KEYBOARD SHORTCUT (Cmd+K / Ctrl+K)
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            });
+
+            // CHIP BUTTONS
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const val = chip.dataset.search || chip.textContent.trim();
+                    if (searchInput.value === val) {
+                        clearSearch();
+                    } else {
+                        searchInput.value = val;
+                        executeSearch(val);
+                    }
+                    searchInput.focus();
+                });
+            });
+
+            // CATEGORY NAV TAB SCROLLING
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const targetId = tab.dataset.target;
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-container')) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
