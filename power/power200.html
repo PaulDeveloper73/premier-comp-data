@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer of Faith & Declaration</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fffdf7 0%, #f8fafc 50%, #fff7ed 100%);
+            color: #1e293b;
+        }
+
+        .scripture-box {
+            border-left: 4px solid #b45309;
+            background: #fffbeb;
+            padding: 0.85rem 1.15rem;
+            border-radius: 0 .75rem .75rem 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .command {
+            background: #451a03;
+            color: #fff7ed;
+            border: 2px solid #d97706;
+        }
+
+        .identity-card {
+            background: linear-gradient(135deg, #fffbeb, #ffffff);
+            border: 1px solid #fcd34d;
+        }
+
+        .verse-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        @media print {
+            body {
+                background: #fff !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .page-card {
+                box-shadow: none !important;
+                border: 2px solid #92400e !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                background: #fff !important;
+                color: #000 !important;
+                padding: 1.5rem !important;
+            }
+
+            .verse-card {
+                border: 1px solid #cbd5e1 !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen py-10 px-4 flex flex-col items-center justify-center">
+
+    <main
+        class="page-card max-w-2xl w-full bg-white rounded-2xl shadow-xl border border-amber-200/60 p-6 md:p-8 space-y-6">
+
+        <!-- Header -->
+        <header class="text-center space-y-2 border-b border-amber-100 pb-6">
+            <span class="text-xs uppercase tracking-widest text-amber-700 font-semibold">Daily Spiritual Warfare & Faith
+                Declaration</span>
+            <h1 class="font-cinzel text-3xl md:text-4xl font-bold text-amber-950">Prayer of Strength & Victory</h1>
+            <p class="text-slate-600 italic text-sm">Standing Firm in God's Unshakable Promises</p>
+        </header>
+
+        <!-- Identity Card -->
+        <section class="identity-card rounded-xl p-5 shadow-sm space-y-2">
+            <h2 class="font-cinzel text-lg font-bold text-amber-900 flex items-center gap-2">
+                &#10013; Divine Identity Statement
+            </h2>
+            <p class="text-slate-700 text-sm leading-relaxed">
+                I am a child of God, redeemed by the blood of Christ, and empowered by the Holy Spirit. I walk not in
+                fear, but in power, love, and a sound mind. No weapon formed against my spirit, health, or purpose shall
+                prosper.
+            </p>
+        </section>
+
+        <!-- Verse Cards with Scripture Boxes -->
+        <section class="verse-card space-y-4">
+            <h2 class="font-cinzel text-lg font-semibold text-slate-800">Scriptural Foundation</h2>
+
+            <div class="scripture-box">
+                <p class="italic text-amber-950 text-sm md:text-base">
+                    "The Lord is my light and my salvation—whom shall I fear? The Lord is the stronghold of my life—of
+                    whom shall I be afraid?"
+                </p>
+                <span class="block text-right text-xs font-bold text-amber-800 mt-2">— Psalm 27:1</span>
+            </div>
+
+            <div class="scripture-box">
+                <p class="italic text-amber-950 text-sm md:text-base">
+                    "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let
+                    your hearts be troubled and do not be afraid."
+                </p>
+                <span class="block text-right text-xs font-bold text-amber-800 mt-2">— John 14:27</span>
+            </div>
+        </section>
+
+        <!-- Command Section -->
+        <section class="command rounded-xl p-5 space-y-3 shadow-md">
+            <h2 class="font-cinzel text-lg font-bold text-amber-300 border-b border-amber-700/50 pb-2">
+                Prayer Decrees & Declarations
+            </h2>
+            <ul class="space-y-2 text-sm text-amber-100/90 list-disc list-inside">
+                <li><strong class="text-white">Commanding Peace:</strong> I speak quietness and confidence over every
+                    storm in my mind, home, and circumstances today.</li>
+                <li><strong class="text-white">Claiming Wisdom:</strong> Heavenly Father, order my steps and grant me
+                    heavenly insight to navigate every decision.</li>
+                <li><strong class="text-white">Breaking Chains:</strong> I break every cycle of anxiety, defeat, and
+                    doubt in the authority of Jesus' name.</li>
+            </ul>
+        </section>
+
+        <!-- Controls / Print Actions -->
+        <footer class="no-print flex justify-between items-center pt-4 text-xs text-slate-500">
+            <span>Format optimized for print and daily reflection</span>
+            <button onclick="window.print()"
+                class="px-4 py-2 bg-amber-800 hover:bg-amber-900 text-amber-50 font-semibold rounded-lg shadow transition">
+                Print Prayer Card
+            </button>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
