@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Redesign Proposal - MCF Radio | Kisakye Paul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F19] text-[#F3F4F6] antialiased selection:bg-[#E11D48] selection:text-white">
+
+    <!-- Top Action Bar for PDF / Print -->
+    <div class="no-print bg-[#111827] border-b border-gray-800 py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <span class="text-sm font-medium text-gray-400">MCF Radio Proposal &bull; Kisakye Paul</span>
+        <button onclick="window.print()" class="bg-[#E11D48] hover:bg-rose-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all shadow-lg flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Save as PDF / Print
+        </button>
+    </div>
+
+    <!-- Main Document Container -->
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-16">
+
+        <!-- Header / Branding Block -->
+        <header class="border-b border-gray-800 pb-10 mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-[#E11D48] text-white text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded">Project Proposal</span>
+                    <span class="text-gray-400 text-xs">January 2026</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Website Redesign, Development & Ongoing Management</h1>
+                <p class="text-lg text-[#E11D48] font-medium mt-1">MCF Radio &bull; Inspire &bull; Inform &bull; Transform</p>
+            </div>
+            <div class="bg-[#111827] border border-gray-800 p-5 rounded-xl text-left min-w-[260px]">
+                <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Prepared By</p>
+                <p class="text-base font-bold text-white mt-1">Kisakye Paul</p>
+                <p class="text-xs text-gray-400 mt-0.5">Software & Web Developer (8+ Years Exp.)</p>
+                <div class="mt-3 pt-3 border-t border-gray-800 text-xs space-y-1 text-gray-300">
+                    <p>📧 kisakyepaul73@gmail.com</p>
+                    <p>📱 +256 774 185 964</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Section 1: Introduction -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <span class="text-[#E11D48]">01.</span> Introduction & Background
+            </h2>
+            <div class="bg-[#111827] border border-gray-800 p-6 rounded-xl space-y-4 text-gray-300 leading-relaxed">
+                <p>My name is <strong>Kisakye Paul</strong>, a Software Developer with over 8 years of experience in web and software engineering[cite: 1]. As a born-again Christian and a regular daily listener of MCF Radio—especially tuning into <em>Muza Omusumba</em>—I deeply appreciate the ministry, teachings, and music MCF brings to listeners[cite: 1].</p>
+                <p>Viewing MCF through both a spiritual lens and a professional digital perspective, I recognize that the current website does not fully reflect the quality, influence, and potential of your broadcast[cite: 1]. In today’s digital environment, your website should act as an active community platform rather than a static online brochure[cite: 1].</p>
+            </div>
+        </section>
+
+        <!-- Section 2: The Opportunity & Visual Concept -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <span class="text-[#E11D48]">02.</span> The Opportunity & UI/UX Concept
+            </h2>
+            <div class="bg-[#111827] border border-gray-800 p-6 rounded-xl space-y-4 text-gray-300 leading-relaxed">
+                <p>MCF Radio already possesses a real audience, professional presenters, and transformative content[cite: 1]. The goal is to build a digital platform matching that exact vitality around the core tagline: <strong>INSPIRE • INFORM • TRANSFORM</strong>[cite: 1].</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="bg-[#0B0F19] p-4 rounded-lg border border-gray-800">
+                        <h3 class="font-semibold text-white mb-2 text-sm uppercase tracking-wider text-[#E11D48]">Key Frontend Features</h3>
+                        <ul class="space-y-2 text-xs text-gray-400">
+                            <li>&bull; Persistent live streaming audio player with track progress</li>
+                            <li>&bull; Real-time "On Air Now" and "Coming Up Next" schedule widgets</li>
+                            <li>&bull; "Listen Again" audio archive for missed programmes</li>
+                            <li>&bull; Dedicated Presenters and Video/Interview showcases</li>
+                        </ul>
+                    </div>
+                    <div class="bg-[#0B0F19] p-4 rounded-lg border border-gray-800">
+                        <h3 class="font-semibold text-white mb-2 text-sm uppercase tracking-wider text-[#E11D48]">Community Integration</h3>
+                        <ul class="space-y-2 text-xs text-gray-400">
+                            <li>&bull; Direct WhatsApp live interaction and song requests</li>
+                            <li>&bull; Online prayer request submission forms</li>
+                            <li>&bull; Testimony sharing and interactive daily polls</li>
+                            <li>&bull; Mobile-first responsive optimization and fast loading</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Project Execution Phases -->
+        <section class="mb-10 page-break">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <span class="text-[#E11D48]">03.</span> Proposed Project Phases
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse bg-[#111827] rounded-xl overflow-hidden border border-gray-800 text-sm">
+                    <thead>
+                        <tr class="bg-gray-900 text-gray-400 uppercase text-xs tracking-wider border-b border-gray-800">
+                            <th class="p-4">Phase</th>
+                            <th class="p-4">Title</th>
+                            <th class="p-4">Core Scope & Deliverables</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 text-gray-300">
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 1</td>
+                            <td class="p-4 font-semibold text-white">Discovery & Planning[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Goal alignment, content workflow review, and technical scope agreement[cite: 1].</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 2</td>
+                            <td class="p-4 font-semibold text-white">UI/UX Design[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Visual direction aligned with MCF branding colors, wireframes, and layout approvals[cite: 1].</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 3</td>
+                            <td class="p-4 font-semibold text-white">Development[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Building custom code, live audio streaming integration, and content management (CMS)[cite: 1].</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 4</td>
+                            <td class="p-4 font-semibold text-white">Testing[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Rigorous cross-browser, mobile responsiveness, speed, and form security checks[cite: 1].</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 5</td>
+                            <td class="p-4 font-semibold text-white">Launch[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Domain/server configuration, SSL setup, SEO optimization, and final deployment[cite: 1].</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-[#E11D48]">Phase 6</td>
+                            <td class="p-4 font-semibold text-white">Maintenance[cite: 1]</td>
+                            <td class="p-4 text-xs text-gray-400">Ongoing security updates, automated backups, performance tracking, and support[cite: 1].</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: Why Collaborate -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <span class="text-[#E11D48]">04.</span> Why Partner With Me
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-[#111827] border border-gray-800 p-5 rounded-xl">
+                    <h3 class="font-bold text-white mb-2 text-sm">As a Christian[cite: 1]</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">I view this platform as a sacred ministry extension designed to reach lives and spread a message of hope and transformation[cite: 1].</p>
+                </div>
+                <div class="bg-[#111827] border border-gray-800 p-5 rounded-xl">
+                    <h3 class="font-bold text-white mb-2 text-sm">As a Listener[cite: 1]</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">I experience the broadcasts firsthand and understand what our community values most when navigating online[cite: 1].</p>
+                </div>
+                <div class="bg-[#111827] border border-gray-800 p-5 rounded-xl">
+                    <h3 class="font-bold text-white mb-2 text-sm">As a Developer[cite: 1]</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">I bring over 8 years of robust engineering experience to deliver high-performance, secure, and modern digital architectures[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Closing -->
+        <footer class="border-t border-gray-800 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>Proposal submitted by Kisakye Paul &bull; Portfolio: <a href="https://pauldeveloper73.github.io/Kisakye-Paul-Elite-Portifolio/" class="text-[#E11D48] hover:underline" target="_blank">View Elite Portfolio</a>[cite: 1]</p>
+            <p class="mt-2 md:mt-0">May this offering be granted successfully in Jesus' mighty name.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

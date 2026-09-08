@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom-First Authoritative Declaration — Matthew 6:33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #172033;
+            --gold: #a66a13;
+            --gold2: #e0b15a;
+            --paper: #fbfaf7;
+            --cream: #f4eee2;
+            --line: #d9cfbd;
+            --dark: #101827;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #e9e5dc;
+            color: var(--ink);
+            font-family: Inter, system-ui, sans-serif;
+            line-height: 1.72;
+        }
+
+        .font-cinzel {
+            font-family: Cinzel, serif;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 28px auto;
+            background: #fff;
+            box-shadow: 0 14px 50px rgba(0, 0, 0, .15);
+        }
+
+        .cover {
+            padding: 70px 65px 55px;
+            background: linear-gradient(135deg, #111827, #273449);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover:after {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 1px solid rgba(224, 177, 90, .45);
+            pointer-events: none;
+        }
+
+        .kicker {
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: #e0b15a;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .cover h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin: 18px 0 14px;
+        }
+
+        .cover p {
+            max-width: 820px;
+            color: #e6e9ef;
+        }
+
+        .lead-text {
+            font-size: 1.125rem;
+        }
+
+        .mt-spaced {
+            margin-top: 1.75rem;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #c99843;
+            color: #f1cb82;
+            border-radius: 999px;
+            padding: 7px 13px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            margin: 5px 4px 0 0;
+        }
+
+        .meta {
+            padding: 22px 65px;
+            background: #f4eee2;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .meta strong {
+            color: #70470b;
+        }
+
+        .phase {
+            padding: 34px 65px;
+            border-bottom: 1px solid #e7e1d6;
+        }
+
+        .phase-title {
+            font-family: Cinzel, serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: #573b0c;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: 12px;
+            margin: 0 0 22px 0;
+        }
+
+        .scripture {
+            background: #faf6ed;
+            border-left: 5px solid var(--gold);
+            padding: 18px 22px;
+            margin: 18px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .ref {
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #7c5418;
+            font-weight: 800;
+        }
+
+        .verse {
+            font-family: Georgia, serif;
+            font-size: 17px;
+            color: #30291f;
+            margin-top: 7px;
+        }
+
+        .decree {
+            background: #111827;
+            color: #fff;
+            padding: 22px 24px;
+            border-radius: 12px;
+            margin: 18px 0;
+            border: 1px solid #b8832f;
+        }
+
+        .decree-title {
+            color: #e0b15a;
+            font-family: Cinzel, serif;
+            font-weight: 800;
+            letter-spacing: .06em;
+        }
+
+        .decree p {
+            margin: 10px 0;
+            color: #f3f4f6;
+        }
+
+        .summary {
+            margin-top: 12px;
+            color: #f0c978;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .command {
+            font-weight: 800;
+        }
+
+        .list {
+            padding-left: 22px;
+        }
+
+        .list li {
+            margin: 7px 0;
+        }
+
+        .callout {
+            padding: 20px 22px;
+            background: #eef2f5;
+            border: 1px solid #ccd5df;
+            border-radius: 10px;
+            margin: 18px 0;
+        }
+
+        .gold {
+            color: #8b5a0b;
+            font-weight: 800;
+        }
+
+        .final {
+            background: #111827;
+            color: #fff;
+            padding: 48px 65px;
+        }
+
+        .final h2 {
+            color: #e0b15a;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .final p {
+            color: #eef1f5;
+        }
+
+        .signature {
+            margin-top: 28px;
+            text-align: center;
+            font-family: Cinzel, serif;
+            font-size: 23px;
+            color: #e0b15a;
+        }
+
+        .footer {
+            padding: 20px 65px;
+            text-align: center;
+            background: #f4eee2;
+            color: #655e52;
+            font-size: 12px;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                max-width: none;
+            }
+
+            .phase {
+                break-inside: avoid;
+            }
+
+            .cover {
+                min-height: 90vh;
+            }
+
+            .decree {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .cover,
+            .phase,
+            .final,
+            .meta,
+            .footer {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .cover h1 {
+                font-size: 31px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <section class="cover">
+            <div class="kicker">Kingdom Authority • Matthew 6:33</div>
+            <h1>KINGDOM-FIRST<br>AUTHORITATIVE DECLARATION</h1>
+            <p class="lead-text">A detailed prayer of worship, repentance, identity, consecration, Kingdom priority,
+                wisdom, righteousness, stewardship, family order, lawful prosperity, and multi-generational purpose.</p>
+            <div>
+                <span class="badge">GOD FIRST</span>
+                <span class="badge">KINGDOM FIRST</span>
+                <span class="badge">RIGHTEOUSNESS FIRST</span>
+                <span class="badge">FAITHFUL STEWARDSHIP</span>
+            </div>
+            <p class="mt-spaced"><strong>Core position:</strong> Colossians 3:3 • Ephesians 2:6</p>
+        </section>
+
+        <section class="meta">
+            <div class="grid">
+                <div><strong>Primary Covenant Head:</strong> Buyinza Patrick</div>
+                <div><strong>Covenant Son:</strong> Kisakye Paul — 4th born, Software Engineer & Full-Stack Architect
+                </div>
+                <div><strong>Wife:</strong> Teddy Nettugu — wife and co-heir in Christ</div>
+                <div><strong>Son:</strong> Magezi Joshua — firstborn grandson / covenant child</div>
+                <div><strong>Family:</strong> 7 children — 4 daughters and 3 sons</div>
+                <div><strong>Lineage:</strong> Amosi Lwomunwa → Gilsomu Waibi → Buyinza Patrick → Kisakye Paul</div>
+                <div><strong>Root Clan:</strong> Baisemuwaya Clan, Eastern Region of Uganda</div>
+                <div><strong>Coverage:</strong> Paternal and maternal ancestry, present household, future children,
+                    grandchildren, great-grandchildren and descendants</div>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 01 — ENTER WITH WORSHIP, ADORATION AND THANKSGIVING</h2>
+            <div class="scripture">
+                <div class="ref">Psalm 100:3–4</div>
+                <div class="verse">“Know ye that the LORD he is God: it is he that hath made us, and not we ourselves;
+                    we are his people, and the sheep of his pasture. Enter into his gates with thanksgiving, and into
+                    his courts with praise.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">AUTHORITATIVE WORSHIP DECREE</div>
+                <p>Father, Jehovah God Almighty, I deliberately establish worship as the first movement of this
+                    declaration. I exalt You above money, career, business, relationships, reputation, possessions,
+                    opportunity and every earthly ambition. You are Creator, King, Sustainer, Judge and Father. I
+                    declare Your greatness over my life, my household and every legitimate responsibility entrusted to
+                    me.</p>
+                <p>I praise You for Your power displayed in creation, Your faithfulness to Abraham, Your deliverance of
+                    Israel from Egypt, Your preservation of Daniel, Your victory over Goliath, Your deliverance of
+                    Jehoshaphat, Your protection of David, and the supreme victory of Jesus Christ through His death and
+                    resurrection.</p>
+                <p>I worship You because no created power outranks You. I enthrone Your will above my preferences and
+                    establish Your glory as the governing purpose of my life.</p>
+                <div class="summary">✓ Decree: God is first. His Kingdom is first. His glory is first.</div>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 02 — FORGIVENESS, HUMILITY AND DEEP REPENTANCE</h2>
+            <div class="scripture">
+                <div class="ref">1 John 1:9</div>
+                <div class="verse">“If we confess our sins, he is faithful and just to forgive us our sins, and to
+                    cleanse us from all unrighteousness.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">AUTHORITATIVE REPENTANCE DECREE</div>
+                <p>I forgive those who have wronged me. I release vengeance to God and refuse to carry bitterness into
+                    my marriage, parenting, career, finances or future generations.</p>
+                <p>I confess my own sin specifically and honestly before God. I repent of pride, selfish ambition,
+                    disobedience, dishonesty, anger, impure thoughts, careless speech, unforgiveness, sexual immorality,
+                    financial irresponsibility and every action contrary to God's Word.</p>
+                <p>I specifically repent of the premarital sexual relationship between myself and Teddy Nettugu before
+                    our marriage, including the circumstances in which our son Magezi Joshua was conceived. I take
+                    responsibility for my own conduct without placing guilt or shame upon Joshua. Joshua is not
+                    condemned by the circumstances of his conception.</p>
+                <p>I repent for every failure to honor my marriage covenant, every failure of patience, communication,
+                    purity, love, responsibility and Christ-centered leadership. I establish my marriage under truth,
+                    faithfulness and mutual honor.</p>
+                <p>I also confess and renounce every sinful pattern I knowingly participated in. I receive forgiveness
+                    through Christ and establish a continuing commitment to holiness and obedience.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Psalm 51:10</div>
+                <div class="verse">“Create in me a clean heart, O God; and renew a right spirit within me.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">CLEAN-HEART DECREE</div>
+                <p>I decree a clean heart, a steadfast spirit, disciplined desires, truthful speech, pure motives and
+                    obedient conduct. I refuse to use spiritual language to excuse practical disobedience. My faith
+                    produces responsible action.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 03 — MY IDENTITY AND POSITION IN CHRIST</h2>
+            <div class="scripture">
+                <div class="ref">Colossians 3:3</div>
+                <div class="verse">“For ye are dead, and your life is hid with Christ in God.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">IDENTITY DECREE</div>
+                <p>I decree that my identity is not defined by ancestral failure, poverty, sickness, rejection,
+                    disappointment, missed opportunities or past limitations. My life is hidden with Christ in God. I
+                    belong to Jesus Christ.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Ephesians 2:6</div>
+                <div class="verse">“And hath raised us up together, and made us sit together in heavenly places in
+                    Christ Jesus.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">KINGDOM POSITION DECREE</div>
+                <p>I establish my position in Christ: I approach God with confidence because of Christ, not because of
+                    personal merit. I exercise responsibility, wisdom and faith from this identity. I reject fear-driven
+                    spirituality and establish Christ-centered authority, obedience and discernment.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Ephesians 1:3–4</div>
+                <div class="verse">“Blessed be the God and Father of our Lord Jesus Christ, who hath blessed us with all
+                    spiritual blessings in heavenly places in Christ: According as he hath chosen us in him...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">PURPOSE DECREE</div>
+                <p>I decree that my life, marriage, parenting, career, technical gifts, business ideas, resources and
+                    future are submitted to God's purposes. I reject opportunities that require compromise. I choose
+                    what is true, righteous, lawful, useful and aligned with God's Word.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 04 — MATTHEW 6:33: KINGDOM FIRST</h2>
+            <div class="scripture">
+                <div class="ref">Matthew 6:33</div>
+                <div class="verse">“But seek ye first the kingdom of God, and his righteousness; and all these things
+                    shall be added unto you.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">SUPREME PRIORITY DECREE</div>
+                <p>I decree that God's Kingdom is the first priority of my life. God is my King. Jesus Christ is my
+                    Lord. I submit my decisions, desires, plans, relationships, resources, work, technology, career,
+                    finances and future to His government.</p>
+                <p>I command my priorities into divine order. God first. Kingdom first. Righteousness first. Everything
+                    else occupies its proper place beneath that order.</p>
+                <p>I reject money as my master. Money is a servant and stewardship responsibility. I reject possessions
+                    as my identity. I reject success without righteousness. I reject wealth that requires disobedience.
+                    I reject opportunities that require compromise.</p>
+                <p>I decree that my pursuit of wealth never outranks my pursuit of God. I work diligently, steward
+                    faithfully, give generously, plan wisely, save responsibly, invest prudently and conduct business
+                    honestly.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 05 — KINGDOM RIGHTEOUSNESS IN EVERY AREA</h2>
+            <div class="scripture">
+                <div class="ref">Matthew 6:31–32</div>
+                <div class="verse">“Therefore take no thought, saying, What shall we eat? or, What shall we drink? or,
+                    Wherewithal shall we be clothed?... for your heavenly Father knoweth that ye have need of all these
+                    things.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">FREEDOM FROM ANXIETY DECREE</div>
+                <p>I command anxiety about necessities to lose its governing place in my thinking. I refuse panic-driven
+                    decisions. I establish disciplined planning, prayerful judgment, diligence and trust in God.</p>
+                <p>I decree order over my income, expenses, debts, savings, investments, giving and business capital. I
+                    identify financial leaks and correct them. I reject waste and establish stewardship.</p>
+            </div>
+            <div class="callout">
+                <strong>Kingdom application:</strong> Trust in God does not cancel work, budgeting, professional
+                development, legal compliance, medical care, contracts, due diligence or responsible financial
+                management. Kingdom stewardship integrates faith with disciplined action.
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 06 — WISDOM, KNOWLEDGE AND UNDERSTANDING</h2>
+            <div class="scripture">
+                <div class="ref">Proverbs 3:13–18</div>
+                <div class="verse">“Happy is the man that findeth wisdom, and the man that getteth understanding...
+                    Length of days is in her right hand; and in her left hand riches and honour... She is a tree of life
+                    to them that lay hold upon her.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">WISDOM ACTIVATION DECREE</div>
+                <p>I decree wisdom into my decisions, architecture, engineering work, leadership, marriage, parenting,
+                    investments, contracts, negotiations, business formation and long-term planning. I command knowledge
+                    to become understanding and understanding to become wise action.</p>
+                <p>I decree discernment to distinguish profitable opportunity from distraction, truth from deception,
+                    sustainable wealth from temporary appearance, and righteous advancement from compromising
+                    advancement.</p>
+                <p>I decree that my software engineering and full-stack architectural skills are governed by wisdom,
+                    excellence, integrity and service. I establish a pattern of learning, building, documenting,
+                    testing, improving and delivering value.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Proverbs 24:3–4</div>
+                <div class="verse">“Through wisdom is an house builded; and by understanding it is established: And by
+                    knowledge shall the chambers be filled with all precious and pleasant riches.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">HOUSEHOLD AND ENTERPRISE DECREE</div>
+                <p>I decree that wisdom builds my household. Understanding establishes it. Knowledge fills it. I
+                    establish businesses, companies, systems, intellectual property, investments and productive assets
+                    through competence, discipline and lawful opportunity.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 07 — TRUTH, GRACE, POWER, GUIDANCE AND STRENGTH</h2>
+            <div class="scripture">
+                <div class="ref">John 8:31–32</div>
+                <div class="verse">“If ye continue in my word, then are ye my disciples indeed; And ye shall know the
+                    truth, and the truth shall make you free.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">TRUTH DECREE</div>
+                <p>I decree truth into my thoughts, speech, marriage, finances, contracts, technology, business records,
+                    relationships and decisions. I reject deception, exaggeration, hidden manipulation and dishonest
+                    gain. Truth governs my household and enterprise.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Titus 2:11–12</div>
+                <div class="verse">“For the grace of God that bringeth salvation hath appeared to all men, Teaching us
+                    that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly...”
+                </div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">GRACE DECREE</div>
+                <p>I decree that God's grace trains me toward righteousness rather than excuses disobedience. I receive
+                    grace to repent, learn, endure, work, forgive, lead, serve and remain faithful.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">2 Timothy 1:7</div>
+                <div class="verse">“For God hath not given us the spirit of fear; but of power, and of love, and of a
+                    sound mind.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">POWER AND SOUND-MIND DECREE</div>
+                <p>I decree power governed by love, courage governed by wisdom and a sound mind governing every
+                    decision. I reject fear-based paralysis and establish disciplined action.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 08 — FAMILY, BLOODLINE AND GENERATIONAL STEWARDSHIP</h2>
+            <div class="scripture">
+                <div class="ref">Psalm 112:1–3</div>
+                <div class="verse">“Blessed is the man that feareth the LORD, that delighteth greatly in his
+                    commandments. His seed shall be mighty upon earth... Wealth and riches shall be in his house...”
+                </div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">MULTI-GENERATIONAL KINGDOM STEWARDSHIP DECREE</div>
+                <p>I decree Kingdom order over the family line represented in this prayer: Amosi Lwomunwa, Gilsomu
+                    Waibi, Buyinza Patrick, Kisakye Paul, Teddy Nettugu, Magezi Joshua, and the descendants who come
+                    after us.</p>
+                <p>I do not declare inherited guilt upon descendants. I establish a new pattern of responsibility in
+                    Christ: truth, education, health stewardship, marriage faithfulness, financial discipline,
+                    entrepreneurship, generosity, service, lawful inheritance and wise asset management.</p>
+                <p>I decree that the family does not merely pursue paycheque-to-paycheque survival. We build skills,
+                    savings, productive assets, businesses, intellectual property, companies, land where appropriate,
+                    investments and systems that can serve future generations.</p>
+                <p>I decree that every generation is equipped to build upon what is good, correct what is harmful, and
+                    transfer wisdom rather than destructive patterns.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 09 — CAREER, BUSINESS, COMPANY AND OPPORTUNITY</h2>
+            <div class="scripture">
+                <div class="ref">Deuteronomy 8:18</div>
+                <div class="verse">“But thou shalt remember the LORD thy God: for it is he that giveth thee power to get
+                    wealth, that he may establish his covenant...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">WEALTH-CREATION CAPACITY DECREE</div>
+                <p>I decree capacity to create value and produce wealth through legitimate work. I command my
+                    professional skills to increase in depth, usefulness and market value. I establish excellence in
+                    software engineering, full-stack architecture, product development, consulting, leadership and
+                    entrepreneurship.</p>
+                <p>I decree strategic relationships, legitimate contracts, profitable projects, excellent delivery,
+                    repeatable systems, responsible investments and company establishment aligned with God's
+                    righteousness.</p>
+                <p>I reject failed endeavors caused by poor preparation. I command myself to prepare thoroughly,
+                    validate ideas, manage risk, document agreements, deliver excellence and learn from every result.
+                </p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Psalm 90:17</div>
+                <div class="verse">“And let the beauty of the LORD our God be upon us: and establish thou the work of
+                    our hands upon us; yea, the work of our hands establish thou it.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">WORK-OF-HANDS DECREE</div>
+                <p>I decree establishment over the work of my hands. I command my work to become useful, excellent,
+                    sustainable and capable of serving people while producing lawful income and long-term value.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 10 — FINANCIAL ORDER, SAVING, INVESTMENT AND MULTI-GENERATIONAL WEALTH</h2>
+            <div class="scripture">
+                <div class="ref">Proverbs 21:5</div>
+                <div class="verse">“The thoughts of the diligent tend only to plenteousness; but of every one that is
+                    hasty only to want.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">FINANCIAL DISCIPLINE DECREE</div>
+                <p>I decree diligence over haste. I command my financial decisions to be planned, measured and
+                    documented. I reject impulsive spending, destructive debt, dishonest gain, financial secrecy and
+                    careless commitments.</p>
+                <p>I establish emergency reserves, purposeful saving, lawful investing, productive assets, business
+                    reinvestment, generous giving and long-term planning according to my actual resources and
+                    responsibilities.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Proverbs 13:22</div>
+                <div class="verse">“A good man leaveth an inheritance to his children's children...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">INHERITANCE DECREE</div>
+                <p>I decree that my financial vision extends beyond consumption. I establish assets, knowledge,
+                    character, education and productive systems that can bless children and grandchildren. I command
+                    myself to build something durable rather than merely appear successful.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 11 — MARRIAGE, CHILDREN AND HOUSEHOLD GOVERNMENT</h2>
+            <div class="scripture">
+                <div class="ref">Joshua 24:15</div>
+                <div class="verse">“...as for me and my house, we will serve the LORD.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">HOUSEHOLD DECREE</div>
+                <p>I decree that my household belongs to Jesus Christ. I command my marriage to operate through love,
+                    truth, communication, faithfulness, patience and mutual honor.</p>
+                <p>I decree that Teddy Nettugu is honored as my wife and co-heir in Christ. I decree that Magezi Joshua
+                    is raised without shame, with identity, wisdom, education, discipline, love and knowledge of God. I
+                    decree the same intentional foundation for every future child, grandchild and descendant.</p>
+                <p>I establish a household culture where children learn Scripture, education, financial literacy, work
+                    ethic, technical skills, integrity, generosity, emotional maturity and responsible stewardship.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 12 — PROTECTION AND PEACE</h2>
+            <div class="scripture">
+                <div class="ref">Psalm 91:1–2</div>
+                <div class="verse">“He that dwelleth in the secret place of the most High shall abide under the shadow
+                    of the Almighty. I will say of the LORD, He is my refuge and my fortress...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">PROTECTION DECREE</div>
+                <p>I declare God as my refuge and fortress. I command my decisions, movements, home, marriage, children,
+                    work and legitimate assets to be governed by wisdom and protected according to God's will.</p>
+                <p>I establish practical vigilance alongside faith: wise travel, secure homes, responsible financial
+                    controls, healthy boundaries, lawful contracts, professional diligence and timely medical attention
+                    where needed.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Isaiah 54:17</div>
+                <div class="verse">“No weapon that is formed against thee shall prosper...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">NO-WEAPON DECREE</div>
+                <p>I decree that opposition does not determine my outcome. False accusations, deception, intimidation
+                    and destructive schemes do not govern my life. I respond with truth, wisdom, lawful action, prayer
+                    and perseverance.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 13 — RESTORATION AND REDEMPTION OF TIME</h2>
+            <div class="scripture">
+                <div class="ref">Joel 2:25</div>
+                <div class="verse">“And I will restore to you the years that the locust hath eaten...”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">RESTORATION DECREE</div>
+                <p>I decree restoration of lost time through redeemed opportunity, disciplined action, learning,
+                    healing, reconciliation, renewed productivity and wise stewardship. I refuse to remain trapped by
+                    yesterday.</p>
+                <p>I command wasted lessons to become wisdom, closed doors to become direction, failures to become
+                    education, and recovered opportunities to be handled with maturity.</p>
+            </div>
+            <div class="scripture">
+                <div class="ref">Ephesians 5:15–16</div>
+                <div class="verse">“See then that ye walk circumspectly... Redeeming the time, because the days are
+                    evil.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">TIME-REDEMPTION DECREE</div>
+                <p>I decree disciplined use of time. I command my calendar, attention, skills and energy toward God's
+                    purposes. I reject distraction that repeatedly consumes time without producing value.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 14 — THE KINGDOM-FIRST DAILY OPERATING ORDER</h2>
+            <div class="decree">
+                <div class="decree-title">MORNING COMMAND OF PRIORITIES</div>
+                <p>Every morning I establish God first. I establish Scripture before distraction, prayer before panic,
+                    wisdom before impulse, work before excuses, stewardship before consumption, and service before
+                    selfish ambition.</p>
+                <p>I command my day into order: worship → Word → wisdom → priorities → diligent work → stewardship →
+                    family → service → review → gratitude.</p>
+            </div>
+            <div class="decree">
+                <div class="decree-title">FINANCIAL OPERATING COMMAND</div>
+                <p>I command every legitimate income stream to be tracked. I command expenses to remain visible. I
+                    command unnecessary leakage to be corrected. I command savings to be intentional. I command
+                    investments to be researched. I command business capital to be separated from personal consumption.
+                    I command contracts to be reviewed before commitment.</p>
+            </div>
+            <div class="decree">
+                <div class="decree-title">CAREER OPERATING COMMAND</div>
+                <p>I command continuous learning, excellent execution, professional integrity, strategic networking,
+                    documentation, portfolio development and responsible leadership. I refuse to wait passively for
+                    breakthrough while neglecting preparation.</p>
+            </div>
+        </section>
+
+        <section class="phase">
+            <h2 class="phase-title">PHASE 15 — KINGDOM-FIRST DECLARATION OVER THE FUTURE</h2>
+            <div class="scripture">
+                <div class="ref">Jeremiah 29:11</div>
+                <div class="verse">“For I know the thoughts that I think toward you, saith the LORD, thoughts of peace,
+                    and not of evil, to give you an expected end.”</div>
+            </div>
+            <div class="decree">
+                <div class="decree-title">FUTURE DECREE</div>
+                <p>I decree that my future is not governed by fear. I submit my plans to God's wisdom and establish the
+                    courage to act when the path is clear.</p>
+                <p>I decree meaningful career advancement, excellent work, legitimate business growth, useful companies,
+                    financial stability, family unity, healthy relationships, education, generosity and
+                    multi-generational stewardship insofar as these align with God's will.</p>
+                <p>I decree that every future generation connected to this household receives a better foundation:
+                    faith, truth, wisdom, education, discipline, health stewardship, financial literacy, productive
+                    assets, responsible inheritance and a commitment to serve God and people.</p>
+            </div>
+        </section>
+
+        <section class="final">
+            <h2 class="font-cinzel">FINAL KINGDOM-FIRST VERDICT</h2>
+            <p>I now establish the governing order of my life:</p>
+            <p class="command">GOD FIRST.<br>KINGDOM FIRST.<br>RIGHTEOUSNESS FIRST.<br>TRUTH FIRST.<br>WISDOM
+                FIRST.<br>FAITHFUL STEWARDSHIP FIRST.</p>
+            <p>I decree that money does not rule me. Fear does not rule me. Pressure does not rule me. Vanity does not
+                rule me. Comparison does not rule me. Past failure does not rule me.</p>
+            <p>Jesus Christ is Lord over my identity, marriage, household, career, technical gifts, finances,
+                businesses, companies, opportunities, resources and future.</p>
+            <p>I decree that my household will pursue blessing without abandoning righteousness, wealth without
+                abandoning wisdom, advancement without abandoning integrity, and influence without abandoning service.
+            </p>
+            <p>I decree that the work of my hands becomes useful. I decree that my mind becomes disciplined. I decree
+                that my skills become excellent. I decree that my finances become orderly. I decree that my family
+                becomes intentional. I decree that my resources become instruments of Kingdom purpose.</p>
+            <p>I do not chase “the addition” while neglecting the Kingdom. I seek the Kingdom first, and I trust God
+                with the addition while I faithfully do the work assigned to me.</p>
+            <p>My highest pursuit is God Himself: to know Him, walk with Him, obey Him, represent Him and bring glory to
+                Him.</p>
+            <p>According to Matthew 6:33, I establish this order over my life today and recommit to it every day.</p>
+            <div class="signature">
+                KINGDOM FIRST • RIGHTEOUSNESS FIRST • GOD FIRST<br>
+                <span style="font-size:16px;">In Jesus Christ's mighty name. Amen.</span>
+            </div>
+        </section>
+
+        <footer class="footer">
+            Prepared as a personal Christian prayer and declaration. Scripture quotations are included for devotional
+            use; the declarations are faith statements and do not replace responsible action, professional advice,
+            lawful processes, medical care, financial planning or the exercise of wisdom.
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -70,6 +70,7 @@
         @media print {
             body {
                 background: #fff !important;
+                color: #000 !important;
             }
 
             .no-print {
@@ -89,6 +90,21 @@
             .verse-card {
                 border: 1px solid #cbd5e1 !important;
                 page-break-inside: avoid;
+            }
+
+            /* FIX FOR PRINTING: Force dark readable text and light background on print */
+            .command {
+                background: #fef3c7 !important;
+                color: #451a03 !important;
+                border: 1px solid #b45309 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .command strong,
+            .command em,
+            .command p {
+                color: #451a03 !important;
             }
         }
     </style>
@@ -168,7 +184,6 @@
                     3:3 | Psalm 27:5 | Psalm 31:20</div>
             </div>
 
-            
             <div class="command p-4 rounded-lg text-sm leading-relaxed mt-3 space-y-2">
                 <p>
                     <strong>JUDICIAL ENFORCEMENT & DECREE:</strong><br>
