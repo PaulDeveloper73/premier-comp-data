@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                line-height: 38px !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .page-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .text-amber-800,
+            .text-amber-900,
+            .text-amber-700 {
+                color: #854d0e !important;
+            }
+
+            .text-slate-700,
+            .text-slate-600,
+            .text-slate-800 {
+                color: #0f172a !important;
+            }
+
+            .bg-amber-50,
+            .bg-amber-100\/50,
+            .bg-slate-50,
+            .bg-slate-100 {
+                background-color: #ffffff !important;
+                border-color: #e2e8f0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="py-10 px-4 sm:px-6 lg:px-8">
+
+    <div
+        class="max-w-4xl mx-auto page-card bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-slate-200 space-y-6">
+        <header class="text-center border-b border-slate-200 pb-6">
+            <h1 class="font-cinzel text-3xl font-bold text-amber-900">Document Title</h1>
+            <p class="text-slate-600 mt-2">Subtitle or description goes here.</p>
+        </header>
+
+        <main class="space-y-4">
+            <section class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <h2 class="font-cinzel text-xl font-semibold text-amber-800">Section Title</h2>
+                <p class="text-slate-700 mt-2">Add your text or content here.</p>
+            </section>
+        </main>
+
+        <footer class="no-print pt-6 text-center">
+            <button onclick="window.print()"
+                class="bg-amber-800 hover:bg-amber-900 text-white font-medium py-2 px-6 rounded-lg transition">
+                Print Document
+            </button>
+        </footer>
+    </div>
+
+</body>
+
+</html>

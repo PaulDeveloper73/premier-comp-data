@@ -12,6 +12,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
+
   /* Trigger Buttons Container */
   .rhino-button-container {
     position: relative;
@@ -58,7 +59,9 @@
   }
 
   @media (min-width: 768px) {
-    .rhino-indicator { left: -3rem; }
+    .rhino-indicator {
+      left: -3rem;
+    }
   }
 
   .rhino-indicator-text {
@@ -79,8 +82,15 @@
   }
 
   @keyframes rhino-bounce {
-    0%, 100% { transform: translateY(-15%); }
-    50% { transform: translateY(0); }
+
+    0%,
+    100% {
+      transform: translateY(-15%);
+    }
+
+    50% {
+      transform: translateY(0);
+    }
   }
 
   /* ==================== BULLETPROOF MODAL OVERLAY ==================== */
@@ -93,7 +103,7 @@
     background-color: rgba(17, 24, 39, 0.8);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    z-index: 999999; 
+    z-index: 999999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,13 +126,14 @@
     border-radius: 1rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 1000px; 
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
     max-height: 90vh;
-    overflow-y: auto; /* Scrollable on mobile */
+    overflow-y: auto;
+    /* Scrollable on mobile */
     transform: scale(0.95);
     transition: transform 0.3s ease;
     scroll-behavior: smooth;
@@ -133,9 +144,10 @@
   }
 
   @media (min-width: 768px) {
-    .rhino-modal-box { 
-      flex-direction: row; 
-      overflow-y: hidden; /* Hide main scrollbar on desktop */
+    .rhino-modal-box {
+      flex-direction: row;
+      overflow-y: hidden;
+      /* Hide main scrollbar on desktop */
     }
   }
 
@@ -155,16 +167,20 @@
     border: none;
     border-radius: 2%;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Gives it depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Gives it depth */
     transition: all 0.3s ease;
   }
-  
-  .rhino-close-btn svg { width: 1.5rem; height: 1.5rem; }
-  
+
+  .rhino-close-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
   /* Modern rotation and color change on hover */
-  .rhino-close-btn:hover { 
-    background: #111827; 
-    color: #ffffff; 
+  .rhino-close-btn:hover {
+    background: #111827;
+    color: #ffffff;
     transform: rotate(90deg);
   }
 
@@ -177,36 +193,69 @@
     justify-content: flex-start;
     background: #ffffff;
     box-sizing: border-box;
-    overflow-y: auto; /* Scrollable internal form */
+    overflow-y: auto;
+    /* Scrollable internal form */
     scroll-behavior: smooth;
   }
 
   @media (min-width: 768px) {
-    .rhino-modal-content { width: 55%; padding: 3.5rem 3rem; }
+    .rhino-modal-content {
+      width: 55%;
+      padding: 3.5rem 3rem;
+    }
   }
 
-  .rhino-modal-header { margin-bottom: 2rem; }
-  
+  .rhino-modal-header {
+    margin-bottom: 2rem;
+  }
+
   /* Modern Professional Title Styles */
-  .rhino-modal-title { 
-    font-size: 2.2rem; 
-    font-weight: 800; 
-    color: #111827; 
-    margin-bottom: 1rem; 
-    line-height: 1.2; 
+  .rhino-modal-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 1rem;
+    line-height: 1.2;
     position: relative;
     padding-bottom: 0.75rem;
   }
-  
-  .rhino-modal-header p { color: #6b7280; line-height: 1.6; margin: 0; font-size: 1rem; }
+
+  .rhino-modal-header p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+  }
 
   /* Form Grid Styles */
-  .rhino-form-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1.25rem;}
-  @media (min-width: 600px) { .rhino-form-grid.two-cols { grid-template-columns: 1fr 1fr; } }
-  
-  .rhino-form-group { display: flex; flex-direction: column; margin-bottom: 0.75rem; }
-  .rhino-form-label { font-size: 0.85rem; font-weight: 700; color: #374151; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  
+  .rhino-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (min-width: 600px) {
+    .rhino-form-grid.two-cols {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .rhino-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+  }
+
+  .rhino-form-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   .rhino-form-control {
     width: 100%;
     padding: 0.85rem 1rem;
@@ -225,8 +274,11 @@
     box-shadow: 0 0 0 4px rgba(79, 156, 0, 0.15);
     background: #ffffff;
   }
-  
-  textarea.rhino-form-control { resize: vertical; min-height: 90px; }
+
+  textarea.rhino-form-control {
+    resize: vertical;
+    min-height: 90px;
+  }
 
   .rhino-submit-btn {
     width: 100%;
@@ -242,7 +294,11 @@
     transition: all 0.2s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
-  .rhino-submit-btn:hover { background-color: #3e7a00; transform: translateY(-2px); }
+
+  .rhino-submit-btn:hover {
+    background-color: #3e7a00;
+    transform: translateY(-2px);
+  }
 
   /* ==================== IMAGE SIDE ==================== */
   .rhino-modal-image {
@@ -253,7 +309,9 @@
   }
 
   @media (min-width: 768px) {
-    .rhino-modal-image { display: block; }
+    .rhino-modal-image {
+      display: block;
+    }
   }
 
   .rhino-modal-image img {
@@ -268,7 +326,7 @@
 </style>
 
 <div class="rhino-popup-wrapper">
-  
+
   <!-- Trigger Buttons -->
   <div class="rhino-button-container">
     <div class="rhino-indicator">
@@ -281,7 +339,8 @@
 
     <!-- Data attributes link to modal IDs -->
     <button data-rhino-target="rhino-modal-1" class="rhino-btn">Name A Rhino</button>
-    <button data-rhino-target="rhino-modal-2" class="rhino-btn" style="background-color: #07292c;">Friend A Rhino</button>
+    <button data-rhino-target="rhino-modal-2" class="rhino-btn" style="background-color: #07292c;">Friend A
+      Rhino</button>
   </div>
 
   <!-- ==================== POPUP 1: NAME A RHINO ==================== -->
@@ -291,15 +350,17 @@
       <button data-rhino-close class="rhino-close-btn" aria-label="Close">
         <span class="close">&#x2715;</span>
       </button>
-      
+
       <div class="rhino-modal-content">
         <div class="rhino-modal-header">
           <!-- Styled Professional Title with Underline Accent -->
           <h2 class="rhino-modal-title">
             Name A Rhino
-            <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 5px; background-color: #4f9c00; border-radius: 3px;"></span>
+            <span
+              style="position: absolute; bottom: 0; left: 0; width: 60px; height: 5px; background-color: #4f9c00; border-radius: 3px;"></span>
           </h2>
-          <p>Over 48 Southern White Rhinos thrive at Ziwa Rhino Sanctuary. <strong>17 juveniles born between 2021 and 2024 are ready for a name.</strong> Claim a piece of Uganda's wildlife legacy.</p>
+          <p>Over 48 Southern White Rhinos thrive at Ziwa Rhino Sanctuary. <strong>17 juveniles born between 2021 and
+              2024 are ready for a name.</strong> Claim a piece of Uganda's wildlife legacy.</p>
         </div>
         <form>
           <div class="rhino-form-grid two-cols">
@@ -330,7 +391,8 @@
 
           <div class="rhino-form-group">
             <label class="rhino-form-label">The Story Behind The Name</label>
-            <textarea placeholder="Why did you choose this name? (Will be featured in our registry)" class="rhino-form-control" required></textarea>
+            <textarea placeholder="Why did you choose this name? (Will be featured in our registry)"
+              class="rhino-form-control" required></textarea>
           </div>
 
           <div class="rhino-form-group">
@@ -346,7 +408,7 @@
         </form>
       </div>
       <div class="rhino-modal-image">
-        <img src="https://uwafeedback.org/wp-content/uploads/2026/05/Name-a-Rhino-66-2.jpg" alt="Rhino"/>
+        <img src="https://uwafeedback.org/wp-content/uploads/2026/05/Name-a-Rhino-66-2.jpg" alt="Rhino" />
       </div>
     </div>
   </div>
@@ -358,15 +420,17 @@
       <button data-rhino-close class="rhino-close-btn" aria-label="Close">
         <span class="close">&#x2715;</span>
       </button>
-      
+
       <div class="rhino-modal-content">
         <div class="rhino-modal-header">
           <!-- Styled Professional Title with Underline Accent matching button color -->
           <h2 class="rhino-modal-title" style="color: #07292c;">
             Friend A Rhino
-            <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 5px; background-color: #07292c; border-radius: 3px;"></span>
+            <span
+              style="position: absolute; bottom: 0; left: 0; width: 60px; height: 5px; background-color: #07292c; border-radius: 3px;"></span>
           </h2>
-          <p>Join the UWA campaign globally. Your ongoing support expands protected habitats and ensures the welfare of the rangers risking their lives for these animals.</p>
+          <p>Join the UWA campaign globally. Your ongoing support expands protected habitats and ensures the welfare of
+            the rangers risking their lives for these animals.</p>
         </div>
         <form>
           <div class="rhino-form-grid two-cols">
@@ -404,11 +468,12 @@
             <input type="text" placeholder="Card Number (Demo only)" class="rhino-form-control" required>
           </div>
 
-          <button type="submit" class="rhino-submit-btn" style="background-color: #07292c;">Become A Rhino Friend</button>
+          <button type="submit" class="rhino-submit-btn" style="background-color: #07292c;">Become A Rhino
+            Friend</button>
         </form>
       </div>
       <div class="rhino-modal-image">
-        <img src="https://uwafeedback.org/wp-content/uploads/2026/05/Name-a-Rhino-66-2.jpg" alt="Baby Rhino"/>
+        <img src="https://uwafeedback.org/wp-content/uploads/2026/05/Name-a-Rhino-66-2.jpg" alt="Baby Rhino" />
       </div>
     </div>
   </div>
@@ -433,15 +498,15 @@
         e.preventDefault();
         const targetId = button.getAttribute('data-rhino-target');
         const modalToOpen = document.getElementById(targetId);
-        
+
         if (modalToOpen) {
           // Open the modal
           modalToOpen.classList.add('is-open');
-          
+
           // Force scroll to top (Desktop view where content scrolls)
           const scrollableContent = modalToOpen.querySelector('.rhino-modal-content');
           if (scrollableContent) scrollableContent.scrollTop = 0;
-          
+
           // Force scroll to top (Mobile view where the whole box scrolls)
           const scrollableBox = modalToOpen.querySelector('.rhino-modal-box');
           if (scrollableBox) scrollableBox.scrollTop = 0;
