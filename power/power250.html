@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Court Identification Docket — 5:00 AM Gate Activation Watch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link
+        href="[https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap](https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap)"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fffdf7 0%, #f8fafc 50%, #fff7ed 100%);
+            color: #1e293b;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .scripture-box,
+        .scripture-text {
+            border-left: 4px solid #b45309;
+            background: #fffbeb;
+            padding: 0.85rem 1.15rem;
+            border-radius: 0 .75rem .75rem 0;
+            margin-bottom: 0.75rem;
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        .scripture-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .declaration-box {
+            background: #fffbeb;
+            color: #334155;
+            border: 1px solid #fde68a;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .jurisdiction-badge {
+            background-color: #fef3c7;
+            color: #78350f;
+            border: 1px solid #fde68a;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.375rem;
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+
+        .command-header {
+            background: #451a03;
+            color: #fff7ed;
+            border: 2px solid #d97706;
+            box-shadow: 0 10px 25px -5px rgba(120, 53, 15, 0.18);
+        }
+
+        .legal-highlight {
+            color: #854d0e;
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                line-height: 38px !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .page-card,
+            .scripture-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                max-width: 100% !important;
+                margin: 0 0 1rem 0 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .text-amber-800,
+            .text-amber-900,
+            .text-amber-700,
+            .legal-highlight {
+                color: #854d0e !important;
+            }
+
+            .text-slate-700,
+            .text-slate-600,
+            .text-slate-800 {
+                color: #0f172a !important;
+            }
+
+            .bg-amber-50,
+            .bg-amber-100\/50,
+            .bg-slate-50,
+            .bg-slate-100,
+            .scripture-box,
+            .scripture-text,
+            .declaration-box {
+                background-color: #ffffff !important;
+                border-color: #e2e8f0 !important;
+            }
+
+            .command-header {
+                background: #ffffff !important;
+                color: #000000 !important;
+                border: 2px solid #854d0e !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+
+
+    <div class="max-w-4xl mx-auto space-y-10">
+
+        <!-- Print Bar & Action Header -->
+        <div
+            class="no-print flex justify-between items-center bg-white border border-slate-200 p-4 rounded-xl shadow-sm">
+            <span class="text-xs text-amber-900 font-mono font-bold tracking-wider uppercase">SUPREME HIGH COURT DOCKET:
+                MORNING GATE AUTHORITATIVE EXECUTION</span>
+            <button onclick="window.print()"
+                class="bg-amber-900 hover:bg-amber-800 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-200 flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                    </path>
+                </svg>
+                Print Supreme Judicial Docket
+            </button>
+        </div>
+
+        <!-- Document Main Frame -->
+        <div class="page-card bg-white border border-slate-200 rounded-2xl p-6 md:p-12 shadow-xl space-y-10">
+
+            <!-- Title Header -->
+            <div class="text-center border-b-2 border-amber-900/20 pb-8 space-y-4">
+                <div class="jurisdiction-badge uppercase tracking-widest text-xs">
+                    5:00 AM – 6:00 AM Gate Activation Watch • Judicial Enforcement Docket
+                </div>
+                <h1 class="font-cinzel text-3xl md:text-5xl font-black text-amber-950 tracking-tight">SUPREME APOSTOLIC
+                    & PROPHETIC MORNING GATE DECREE</h1>
+                <h2 class="font-cinzel text-base md:text-xl text-amber-800 font-bold tracking-wide">DIVINE LIFE,
+                    ABUNDANCE, WEALTH, SHIELDING & CAREER ELEVATION MANDATE</h2>
+                <p class="text-slate-600 italic max-w-2xl mx-auto text-sm leading-relaxed font-medium">
+                    In the supreme, unmatchable, and legally binding name of Jesus Christ, I present myself before the
+                    High Court of Heaven at the gate of this new dawn. I take absolute spiritual jurisdiction over the
+                    5:00 AM to 6:00 AM watch, stripping the enemy naked and destroying every opposition out of my
+                    marriage, lineage, and territory permanently!
+                </p>
+            </div>
+
+            <!-- SECTION 1: OPENING GATE ACTIVATION -->
+            <div class="command-header rounded-2xl p-6 md:p-8 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span
+                        class="bg-amber-500 text-slate-950 font-black text-xs px-2.5 py-1 rounded tracking-widest uppercase">Gate
+                        Authority</span>
+                    <span class="text-amber-200 text-xs font-mono tracking-wider">PRE-EMPTIVE SHIELDING & BOOMERANG
+                        WARFARE</span>
+                </div>
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold text-amber-100">POSSESSING THE GATES OF THE MORNING
+                    & DISMANTLING EVIL ALTARS</h3>
+                <p class="text-amber-50/90 text-sm leading-relaxed">
+                    By the power of the Blood of the Everlasting Covenant, I command the dawn to take hold of the ends
+                    of the earth and violently shake every satanic altar, clandestine conspiracy, witchcraft network,
+                    and dark ambush out of my day! I enforce an immediate heavenly injunction against every
+                    monitoring spirit, evil watcher, or spiritual wiretap targeting my life, my wife, my children, my
+                    lineage, my health, my mind, my codebases, software architectures, digital systems, business deals,
+                    real estate, and financial streams. Every illegal legal claim, satanic summons, dark
+                    covenant, or ancestral ordinance crafted against my day is hereby revoked, nullified, and utterly
+                    consumed by the unquenchable fire of the Holy Ghost! What I lock at this gate remains eternally
+                    locked; what I loose stands legally established in Jesus' Mighty Name!
+                </p>
+            </div>
+
+            <!-- SECTION 2: VERSE-BY-VERSE PSALM 91 EXECUTION -->
+            <div class="space-y-6 pt-4">
+                <div class="border-b-2 border-amber-800/30 pb-2">
+                    <h2 class="font-cinzel text-xl md:text-2xl font-black text-amber-900">SECTION II: PSALM 91
+                        VERSE-BY-VERSE AUTHORITATIVE EXECUTION</h2>
+                    <p class="text-xs text-amber-800 font-semibold tracking-wide">Uncompromising Shielding, Divine
+                        Exemption & Absolute Dominion</p>
+                </div>
+
+                <!-- Psalm 91:1 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:1</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He who dwells in the secret place of the Most
+                            High shall abide under the shadow of the Almighty."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            By formal decree in the Supreme Tribunal of Heaven, I establish that I, my beloved wife, my
+                            children, and my entire household are legally seated in heavenly places with Christ Jesus,
+                            high above all principalities, powers, and rulers of darkness. We enter and
+                            permanently inhabit the Secret Place of Elyon. We are officially covered,
+                            garrisoned, and rendered completely invisible under the impenetrable shadow of El
+                            Shaddai. No demonic radar, evil eye, or satanic surveillance can locate or track
+                            our movements today.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: My household is legally exempt from darkness, immune to spiritual espionage, and
+                            permanently garrisoned under the shadow of the Almighty in Jesus' Mighty Name.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:2 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:2</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"I will say of the Lord, 'He is my refuge and
+                            my fortress; My God, in Him I will trust.'"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I issue a public and spiritual legal declaration into the atmosphere: Yahweh is my
+                            uncompromising Refuge and my unbreachable Citadel! I legally transfer every care,
+                            enterprise, and domain of my existence—my physical health, mental sanity, marital harmony,
+                            children's future, tech career, full-stack architectures, digital platforms, real estate
+                            holdings, and wealth streams—into His sovereign custody. I serve a restraining
+                            order against fear, doubt, anxiety, and panic; they have no standing in my mind or
+                            territory.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God is my official legal Guarantor. Every adversary targeting my mind, my family,
+                            or my financial platforms is met with the impenetrable fortress of Jehovah-Nissi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:3 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:3</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Surely He shall deliver you from the snare of
+                            the fowler and from the perilous pestilence."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I legally order the total dismantling and pre-emptive destruction of every snare of the
+                            fowler set against me today! Every hidden trap—whether financial sabotage,
+                            predatory contract, code exploit, system breakdown, corporate setup, workplace envy, marital
+                            conflict, or biological pestilence—is exposed, broken, and burned to ashes by Holy Ghost
+                            fire! I demand the immediate release of any asset, blessing, or opportunity the
+                            enemy has tried to catch in a net.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: The fowler's net is ripped to pieces! We walk in absolute legal exemption, total
+                            deliverance, and divine immunity from every trap of darkness.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:4 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:4</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He shall cover you with His feathers, and
+                            under His wings you shall take refuge; His truth shall be your shield and buckler."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I invoke the covenant wings of Jehovah as an inviolable canopy over my home, my wife, my
+                            children, and my intellectual property. The eternal, unalterable Truth of God's
+                            Word stands as my legal Shield, Body Armor, and Buckler! I issue an immediate
+                            judicial prohibition against false witness, slander, character assassination, contract
+                            manipulation, and deceptive spirits. Every lying tongue rising against me in
+                            judgment is condemned right now!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God's truth repels every slanderous arrow and legal entanglement. We operate
+                            under the impenetrable cover of the Almighty's wings in Jesus' Name.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:5 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:5</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"You shall not be afraid of the terror by
+                            night, nor of the arrow that flies by day,"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            In Jesus' Mighty Name, I disarm and shatter every demonic projectile assigned against my
+                            day! I command all arrows of sudden sickness, financial loss, code failure,
+                            operational chaos, marital friction, and bad news to be intercepted and broken in mid-air by
+                            the fire of God! By divine mandate, I decree a holy boomerang effect: every fiery
+                            dart launched from the kingdom of darkness against my family or career bounces back to its
+                            source sevenfold with devastating judgment!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Night terrors are abolished and daytime arrows are disarmed! I step forward in
+                            absolute boldness, crowned with unstoppable victory.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:6 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:6</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Nor of the pestilence that walks in darkness,
+                            nor of the destruction that lays waste at noonday."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I enforce divine biological immunity over my bloodstream, organs, cell structure, and the
+                            bodies of my wife and children! I legally prohibit any airborne virus, bacterial
+                            infection, toxic exposure, sudden organ breakdown, or chronic disease from attaching to our
+                            bodies. At the 12:00 PM Noonday watch, when spirits of destruction seek to lay
+                            waste to careers, highways, and households, I declare that the Blood of Jesus creates an
+                            impassable wall of fire around us!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Physical vigor, mental clarity, and supernatural health govern our DNA. No
+                            mid-day tragedy or hidden pestilence shall touch our domain.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:7 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:7</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"A thousand may fall at your side, and ten
+                            thousand at your right hand; but it shall not come near you."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I enact the Law of Divine Exemption! Though ten thousand suffer economic ruin, business
+                            bankruptcy, corporate layoffs, or health collapses around me, I decree with legal finality:
+                            IT SHALL NOT COME NEAR MY HOUSEHOLD OR ENTERPRISES! My software projects,
+                            investments, client contracts, and income streams are bound to the celestial economy of
+                            Heaven, which knows no recession, inflation, or failure.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Kingdom exemption is my legal entitlement. While others experience loss, my
+                            family, assets, and projects experience supernatural stability and expansion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:8 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:8</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Only with your eyes shall you look, and see
+                            the reward of the wicked."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I demand the execution of Divine Justice against every unrepentant agent of darkness, witch,
+                            occultic altar, or corrupt adversary seeking to block my destiny or harm my family.
+                            I take my place in the royal court, and I decree that every plot crafted against my
+                            reputation, marriage, or financial elevation shall collapse back onto the head of the
+                            conspirators! I shall stand untouched and witness Heaven's total vindication and
+                            judgment upon the wicked.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Divine justice is dispatched. Every evil plot against me collapses completely
+                            before my eyes while I remain triumphantly preserved.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:9-10 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:9-10</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Because you have made the Lord, who is my
+                            refuge, even the Most High, your dwelling place, no evil shall befall you, nor shall any
+                            plague come near your dwelling."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Because I have consecrated Yahweh as the supreme Lord of my home, I erect an indestructible
+                            wall of fire around my residential boundaries, real estate, and living spaces! I
+                            command every generational curse, hereditary sickness, demonic enchantment, family strife,
+                            and domestic tragedy to immediately cease and desist at my gates! No evil shall
+                            cross our threshold; no plague shall come near our dwelling!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: My residence is a sanctified Kingdom outpost. Peace, divine order, purity,
+                            legitimate wealth, and Holy Ghost joy reign within our walls.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:11-12 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:11-12</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"For He shall give His angels charge over you,
+                            to keep you in all your ways. In their hands they shall bear you up, lest you dash your foot
+                            against a stone."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I activate and dispatch Heaven's angelic legions under executive Kingdom authority!
+                            I command warring angels, guardian angels, and ministering spirits to take charge over my
+                            life, my wife, and my children today. I order them to clear our roads, secure our
+                            travel, shield our physical bodies, guard our digital infrastructure, escort our financial
+                            transactions, and eliminate every operational mistake or stumbling block in our path[cite:
+                            7]!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: My feet will not stumble, my software deployments will be error-free, and my
+                            daily movements are policed by Heaven's elite warrior forces.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:13 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:13</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"You shall tread upon the lion and the cobra,
+                            the young lion and the serpent you shall trample underfoot."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Under the supreme authority of Luke 10:19, I enforce my legal right to trample upon serpents
+                            and scorpions! I crush underfoot every roaring lion (intimidating spiritual
+                            attacks, aggressive adversaries) and every sneaky cobra (hidden toxicity, subtle witchcraft,
+                            secret betrayal, envy). Every spirit of stagnation, debt, delay, confusion, or
+                            generational limitation that tried to block my bloodline is now placed under my boots as a
+                            footstool!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I walk in unstoppable Kingdom dominion. What used to intimidate my ancestors is
+                            now utterly crushed under my feet in Jesus' Name!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:14 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:14</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Because he has set his love upon Me, therefore
+                            I will deliver him; I will set him on high, because he has known My name."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I pledge my unreserved love, loyalty, and worship to the Most High God. Because I
+                            revere and know His Holy Name—YAHWEH, JESUS CHRIST—I enforce Heaven's statutory promise: GOD
+                            IS DELIVERING ME RIGHT NOW AND ELEVATING ME ON HIGH! I demand the opening of doors
+                            of strategic influence, high-level technical contracts, kingdom wealth transfer, and divine
+                            recognition before key global decision-makers.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I am elevated above regional limits. Divine favor validates my leadership,
+                            positions my tech expertise, and sets me on high in Jesus' Name.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:15 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:15</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He shall call upon Me, and I will answer him;
+                            I will be with him in trouble; I will deliver him and honor him."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            As I invoke the Court of Heaven this morning, I demand and receive immediate answers, divine
+                            speed, architectural wisdom, and sharp prophetic insight! In every high-stakes
+                            meeting, technical obstacle, or pressure situation today, God is actively present with
+                            me. He converts every potential crisis into an undeniable platform for my public
+                            honor, promotion, and His ultimate glory!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Direct line to Heaven's court is active! My prayers receive instant rulings, my
+                            intellect is sharp, and my labor is crowned with supernatural honor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 91:16 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            91:16</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"With long life I will satisfy him, and show
+                            him My salvation."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I issue a final decree of long life, unbroken health, and generational fulfillment over
+                            myself, my wife, my children, and our future descendants! Premature death, terminal
+                            sickness, sudden accidents, and aging decay are legally outlawed from our bloodline[cite:
+                            7]! We shall live to see generations of godly, wealthy, powerful, and righteous descendants
+                            who dominate their fields for the Kingdom of God!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Satisfied with long life! Generational wealth and impact are secured. God's
+                            complete salvation is magnificently displayed through our lineage!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: VERSE-BY-VERSE PSALM 23 EXECUTION -->
+            <div class="space-y-6 pt-6">
+                <div class="border-b-2 border-amber-800/30 pb-2">
+                    <h2 class="font-cinzel text-xl md:text-2xl font-black text-amber-900">SECTION III: PSALM 23
+                        VERSE-BY-VERSE AUTHORITATIVE EXECUTION</h2>
+                    <p class="text-xs text-amber-800 font-semibold tracking-wide">Divine Provision, Abundance, Restored
+                        Wealth & Overflowing Blessings</p>
+                </div>
+
+                <!-- Psalm 23:1 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:1</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"The Lord is my shepherd; I shall not want."
+                        </p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Yahweh is my personal Shepherd, Chief Executive, and Financial Guarantor! I issue a total,
+                            absolute legal prohibition against financial lack, poverty, debt, and scarcity in my life,
+                            household, and businesses. Because the Lord governs my supply chains, lack is legally
+                            outlawed!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Lack has no legal standing in my territory. Wealth and surplus are my daily
+                            reality in Jesus' Name!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 23:2 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:2</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He makes me to lie down in green pastures; He
+                            leads me beside the still waters."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I decree supernatural rest, mental peace, and divine positioning into green pastures of
+                            high-value business contracts, lucrative tech opportunities, and commercial expansion. God
+                            leads my steps away from dry, barren investments and chaotic client negotiations into waters
+                            of absolute peace and refreshing productivity.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: My career and business operations rest in hyper-productive green pastures,
+                            shielded from stress and anxiety.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 23:3 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:3</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He restores my soul; He leads me in the paths
+                            of righteousness for His name's sake."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            My soul, emotions, and intellectual capacity are supernaturally restored, revitalized, and
+                            sharpened this morning. The Holy Spirit guides my professional and personal decisions into
+                            flawless paths of integrity, accuracy, and absolute righteousness, bringing maximum glory to
+                            the name of Jesus.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Total mental restoration and infallible guidance operate in my mind and daily
+                            execution.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 23:4 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:4</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Yea, though I walk through the valley of the
+                            shadow of death, I will fear no evil; For You are with me; Your rod and Your staff, they
+                            comfort me."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Even if I navigate turbulent corporate waters or hostile economic landscapes, fear is
+                            strictly barred from my heart! God's rod and staff protect me, breaking the teeth of every
+                            adversary and correcting every misstep. His unwavering presence guarantees my safe passage
+                            and absolute triumph.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Fear is dead. Divine protection and correction govern my path through every
+                            trial.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 23:5 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:5</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"You prepare a table before me in the presence
+                            of my enemies; You anoint my head with oil; My cup runs over."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            God sets a royal banquet of wealth, high-level contracts, and public promotion directly in
+                            the view of those who plotted my downfall! My head is saturated with the anointing of fresh
+                            oil for supernatural innovation and leadership, and my financial cup overflows with
+                            uncontainable abundance.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Open tables of great wealth are erected before my enemies, and my cup overflows
+                            permanently.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 23:6 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            23:6</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Surely goodness and mercy shall follow me all
+                            the days of my life; and I will dwell in the house of the Lord forever."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Unstoppable divine goodness and relentless mercy hunt me down wherever I go today and all
+                            the days of my life. I am permanently anchored in the safety, glory, and eternal provisions
+                            of God's sanctuary.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Goodness and mercy are my lifelong escort. My life is eternally anchored in God's
+                            presence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: VERSE-BY-VERSE PSALM 46 EXECUTION -->
+            <div class="space-y-6 pt-6">
+                <div class="border-b-2 border-amber-800/30 pb-2">
+                    <h2 class="font-cinzel text-xl md:text-2xl font-black text-amber-900">SECTION IV: PSALM 46
+                        VERSE-BY-VERSE AUTHORITATIVE EXECUTION</h2>
+                    <p class="text-xs text-amber-800 font-semibold tracking-wide">Unshakeable Fortitude, Divine Refuge &
+                        Territorial Dominion</p>
+                </div>
+
+                <!-- Psalm 46:1 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:1</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"God is our refuge and strength, a very present
+                            help in trouble."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            God is my immediate, unflinching Refuge and absolute Strength. In moments of high corporate
+                            or personal pressure, He is right here as my present, active, and victorious help,
+                            dismantling every obstacle with lightning speed.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God's immediate presence is my strength; no trouble can overpower my standing in
+                            Him.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:2 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:2</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Therefore we will not fear, even though the
+                            earth be removed, and though the mountains be carried into the midst of the sea;"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Even if global markets shift, economic systems shudder, or foundational structures around me
+                            shake, my heart remains anchored and entirely devoid of fear. I operate with supreme
+                            confidence in the unshakeable Kingdom of God.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Global and economic instability cannot shake my peace. I stand immovable on the
+                            Rock of Ages.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:3 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:3</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Though its waters roar and be troubled, though
+                            the mountains shake with its swelling."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Though the seas of human opposition, societal noise, and corporate turmoil roar against my
+                            destiny, they break uselessly against the wall of God's defense around my life, family, and
+                            enterprise.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Roaring opposition and swelling troubles are broken and rendered powerless
+                            against my domain.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:4 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:4</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"There is a river whose streams shall make glad
+                            the city of God, the holy place of the tabernacle of the Most High."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            The River of God flows directly into my household, career, and business systems, flooding my
+                            life with unceasing joy, refreshing inspiration, and non-stop streams of financial liquidity
+                            and creative genius.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: The gladness and life-giving streams of God's river saturate my dwelling place
+                            and work.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:5 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:5</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"God is in the midst of her, she shall not be
+                            moved; God shall help her, just at the break of dawn."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Because God dwells directly in the center of my marriage, home, and career, I shall not be
+                            moved by any crisis! Right here at the break of this morning gate, divine help is swiftly
+                            dispatched to secure my victory.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I am unmovable because God is in my midst. Dawn brings immediate, divine
+                            intervention!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:6 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:6</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"The nations raged, the kingdoms were moved; He
+                            uttered His voice, the earth melted."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Whenever hostile competitors, systems, or negative forces rage against my progress, the Lord
+                            utters His voice from Heaven, and every opposition melts away like wax before the fire!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God's voice melts every opposing agenda and hostile system standing in my way.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:7 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:7</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"The Lord of hosts is with us; The God of Jacob
+                            is our refuge. Selah"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            The Lord of Angelic Hosts—the commander of Heaven's armies—is actively with me! The Covenant
+                            God of Jacob is my personal, impregnable Refuge and fortress today and forever.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Yahweh Sabaoth (Lord of Hosts) marches with my household. Victory is guaranteed!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:8 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:8</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Come, behold the works of the Lord, who has
+                            made desolations in the earth."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I look with triumphant expectation as God makes a total desolation of every satanic network,
+                            network of delay, and poverty stronghold fighting against my generational line.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I witness the utter dismantling and desolation of every enemy structure opposing
+                            my elevation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:9 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:9</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He makes wars to cease to the end of the
+                            earth; He breaks the bow and cuts the spear in two; He burns the chariot in the fire."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            God forcefully terminates every spiritual war, conflict, or financial battle launched
+                            against my home and career. He snaps every weapon of witchcraft, breaks every spear of
+                            slander, and burns every demonic chariot of hindrance to ashes!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: All warfare weapons aimed at me are snapped in two and burned by divine fire.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:10 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:10</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"Be still, and know that I am God; I will be
+                            exalted among the nations, I will be exalted in the earth!"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I rest in absolute assurance, silencing all frantic striving, because I know that Jehovah is
+                            God, and He alone is exalted across my career, finances, and global platforms!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I rest in absolute victory while God is exalted through my success and
+                            breakthroughs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 46:11 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            46:11</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"The Lord of hosts is with us; The God of Jacob
+                            is our refuge. Selah"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I seal this Psalm with a holy Selah. The Lord of Hosts is with my household, and the God of
+                            Jacob is our eternal, unbreachable Refuge!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Sealed with divine power—Yahweh Sabaoth is our eternal stronghold!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 5: VERSE-BY-VERSE PSALM 18 EXECUTION -->
+            <div class="space-y-6 pt-6">
+                <div class="border-b-2 border-amber-800/30 pb-2">
+                    <h2 class="font-cinzel text-xl md:text-2xl font-black text-amber-900">SECTION V: PSALM 18
+                        VERSE-BY-VERSE AUTHORITATIVE EXECUTION</h2>
+                    <p class="text-xs text-amber-800 font-semibold tracking-wide">Deliverance from Strong Enemies,
+                        Career Elevation & Total Triumph</p>
+                </div>
+
+                <!-- Psalm 18:1-3 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            18:1-3</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"I will love You, O Lord, my strength. The Lord
+                            is my rock and my fortress and my deliverer; My God, my strength, in whom I will trust; My
+                            shield and the horn of my salvation, my stronghold. I will call upon the Lord, who is worthy
+                            to be praised; So shall I be saved from my enemies."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            I declare my unreserved devotion to Jehovah my Strength! He is my Rock, Fortress, Deliverer,
+                            Shield, and Horn of Salvation. As I call upon Him today, I am instantly rescued and
+                            liberated from every enemy.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God is my supreme Deliverer; every enemy arrayed against me is overthrown as I
+                            call upon His name.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 18:16-19 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            18:16-19</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"He sent from above, He took me; He drew me out
+                            of many waters. He delivered me from my strong enemy... They confronted me in the day of my
+                            calamity, but the Lord was my support. He also brought me out into a broad place; He
+                            delivered me because He delighted in me."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            When deep waters or strong adversaries tried to overwhelm me, God reached down from Heaven,
+                            pulled me out, and set my feet in a broad, spacious place of massive wealth, career
+                            elevation, and unhindered freedom because He delights in me!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God has brought me out into a broad place of great expansion and supernatural
+                            favor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 18:32-35 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            18:32-35</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"It is God who arms me with strength, and makes
+                            my way perfect. He makes my feet like the feet of deer, and sets me on my high places. He
+                            teaches my hands to make war, so that my arms can bend a bow of bronze. You have also given
+                            me the shield of Your salvation..."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            God arms me with divine strength, perfecting my paths in tech, business, and leadership. He
+                            grants me agility and sets me securely on high places of influence. He trains my hands for
+                            spiritual warfare, making me victorious over every hurdle!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: I am divinely armed, agile, and elevated to high places of unyielding victory and
+                            operational mastery.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Psalm 18:47-49 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Psalm
+                            18:47-49</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"It is God who avenges me, and subdues the
+                            peoples under me; He delivers me from my enemies. You also lift me up above those who rise
+                            against me... Therefore I will give thanks to You, O Lord..."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            God executes full vengeance on my behalf, subdues hostile forces under my feet, and lifts me
+                            high above every adversary that rises against my household or enterprise. I give eternal
+                            thanks for total, unrivaled triumph!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: God subdues my adversaries and lifts me in triumph far above all opposition.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 6: SUPPORTING COVENANT DECREES -->
+            <div class="space-y-6 pt-6">
+                <div class="border-b-2 border-amber-800/30 pb-2">
+                    <h2 class="font-cinzel text-xl md:text-2xl font-black text-amber-900">SECTION VI: COVENANT
+                        EXPANSION, CAREER ELEVATION & WEALTH TRANSFER</h2>
+                    <p class="text-xs text-amber-800 font-semibold tracking-wide">Establishing Marital Unity, Financial
+                        Dominance & New Commercial Channels</p>
+                </div>
+
+                <!-- Isaiah 54:17 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Isaiah
+                            54:17</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"'No weapon formed against you shall prosper,
+                            and every tongue which rises against you in judgment you shall condemn. This is the heritage
+                            of the servants of the Lord...'"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            No weapon formed against my marriage, career, software architecture, or business ventures
+                            shall ever prosper! I condemn every tongue rising against me in judgment.
+                            Absolute operational immunity and career elevation are my legal heritage in Christ!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Zero weapons shall prosper, and all slanderous tongues are publicly condemned.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Matthew 19:6 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span
+                            class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Matthew
+                            19:6</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"'So then, they are no longer two but one
+                            flesh. Therefore what God has joined together, let not man separate.'"</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            What God has joined together in my marriage, no demon, strange spirit, or human meddler can
+                            separate! My marriage is fused in unbreakable love, mutual respect, and divine
+                            harmony.
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: Unbreakable marital oneness is locked down by Divine law.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Genesis 22:17-18 -->
+                <div class="scripture-card">
+                    <div class="scripture-box">
+                        <span
+                            class="font-cinzel font-bold text-xs uppercase tracking-wider block text-amber-900">Genesis
+                            22:17-18</span>
+                        <p class="italic text-slate-800 mt-1 font-serif">"...blessing I will bless you, and multiplying
+                            I will multiply your descendants... and your descendants shall possess the gate of their
+                            enemies."</p>
+                    </div>
+                    <div class="declaration-box">
+                        <h4 class="font-cinzel text-amber-900 font-bold text-xs uppercase tracking-widest mb-1">
+                            Authoritative Judicial Decree:</h4>
+                        <p class="text-slate-800 text-sm leading-relaxed">
+                            Supernatural multiplication and massive wealth transfers are activated over my
+                            bloodline! New financial channels, high-ticket global contracts, and unprecedented
+                            business streams are unlocked today. My lineage possesses the gates of its
+                            enemies!
+                        </p>
+                        <p class="mt-2 text-xs font-bold text-amber-900 bg-amber-100/60 p-2 rounded">
+                            ✓ Decreed: New wealth channels open now, multiplying my enterprise and securing generational
+                            dominion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEAL OF THE MORNING GATE -->
+            <div
+                class="border-t-2 border-amber-900/30 pt-8 text-center space-y-6 bg-slate-50 p-6 md:p-8 rounded-2xl border border-amber-900/10">
+                <h3 class="font-cinzel text-xl font-black text-amber-950 uppercase tracking-widest">SEAL OF THE MORNING
+                    GATE & ETERNAL EXECUTION</h3>
+                <p class="text-slate-700 text-sm leading-relaxed max-w-2xl mx-auto italic font-medium">
+                    "I officially seal every decree made here today in the incorruptible, eternal, and all-powerful
+                    Blood of Jesus Christ! This entire day—from this morning gate through the noonday watch, evening
+                    gate, and night watches—is placed under the total Lordship of Jesus Christ and enforced by Psalm 91,
+                    Psalm 23, Psalm 46, and Psalm 18."
+                </p>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-left max-w-2xl mx-auto bg-white p-4 rounded-xl border border-slate-200 font-medium">
+                    <div class="space-y-2">
+                        <p>✓ The gates of my morning are locked against all darkness.</p>
+                        <p>✓ My wife and children walk under an open heaven of divine glory.</p>
+                        <p>✓ No second rising of evil or retaliatory spirit shall touch my lineage.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p>✓ My health, mind, body, and emotions are supernaturally energized.</p>
+                        <p>✓ My codebases, software architectures, real estate & wealth are blessed.</p>
+                        <p>✓ Warring angels lead my path and secure every step today.</p>
+                    </div>
+                </div>
+                <p class="font-cinzel font-black text-amber-950 text-xl md:text-2xl tracking-wider pt-2">
+                    IN JESUS CHRIST'S MIGHTY NAME, IT IS ESTABLISHED. AMEN & AMEN!
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    </body>
+
+</html>
