@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f3ee">
+    <title>Speke Resort - Our Spas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Keep all styling inside this iframe document. */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            min-width: 0;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            overflow-x: clip;
+            font-family: 'Montserrat', sans-serif;
+            background: #f7f3ee;
+            color: #2b2b2b;
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .spa_page_kp {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: clip;
+            background: #f7f3ee;
+            isolation: isolate;
+        }
+
+        /* Hero */
+        .hero_container_kp {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: clamp(350px, 43vw, 520px);
+            padding-bottom: 70px;
+            background:
+                linear-gradient(rgba(15, 10, 5, .45), rgba(15, 10, 5, .56)),
+                url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000&auto=format&fit=crop') center 52% / cover no-repeat;
+            color: #fff;
+        }
+
+        .navbar_kp {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 24px clamp(18px, 4vw, 40px);
+            z-index: 3;
+        }
+
+        .brand_logo_kp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo_icon_kp {
+            flex: 0 0 36px;
+            width: 36px;
+            height: 36px;
+            color: #d4af37;
+        }
+
+        .brand_text_kp {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .brand_title_kp {
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(17px, 2.2vw, 24px);
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .brand_subtitle_kp {
+            margin-top: 4px;
+            color: #e5c382;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav_menu_kp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(14px, 2.5vw, 32px);
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav_link_kp {
+            position: relative;
+            display: inline-block;
+            padding: 8px 0;
+            color: #f0f0f0;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .3px;
+            text-decoration: none;
+            transition: color .25s ease;
+        }
+
+        .nav_link_kp:hover,
+        .nav_link_kp:focus-visible {
+            color: #e5c382;
+        }
+
+        .nav_link_kp.active_kp {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .nav_link_kp.active_kp::after {
+            position: absolute;
+            right: 0;
+            bottom: 1px;
+            left: 0;
+            height: 2px;
+            background: #d4af37;
+            content: '';
+        }
+
+        .btn_book_nav_kp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 0 0 auto;
+            padding: 11px 20px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: #f3ad02;
+            color: #3b2518;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color .25s ease, color .25s ease;
+        }
+
+        .btn_book_nav_kp:hover,
+        .btn_book_nav_kp:focus-visible {
+            background: #3b2518;
+            color: #fff;
+        }
+
+        .hero_content_kp {
+            position: relative;
+            z-index: 2;
+            width: min(92%, 760px);
+            margin: auto 0 0;
+            padding: 25px 12px 5px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .tagline_wrap_kp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+
+        .tagline_line_kp {
+            width: clamp(18px, 4vw, 40px);
+            height: 1px;
+            background: rgba(212, 175, 55, .8);
+        }
+
+        .tagline_text_kp {
+            color: #e5c382;
+            font-size: clamp(9px, 1.15vw, 11px);
+            font-weight: 500;
+            letter-spacing: clamp(1.5px, .35vw, 3px);
+            text-transform: uppercase;
+        }
+
+        .hero_title_kp {
+            margin: 0 0 8px;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(42px, 7.2vw, 72px);
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: 1px;
+            line-height: 1.05;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+        }
+
+        .hero_subtitle_kp {
+            max-width: 580px;
+            margin: 0 auto;
+            color: #f0e6d8;
+            font-size: clamp(12px, 1.5vw, 16px);
+            font-weight: 300;
+            line-height: 1.7;
+            letter-spacing: .3px;
+        }
+
+        .wave_overlay_kp {
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            pointer-events: none;
+        }
+
+        .wave_overlay_kp svg {
+            display: block;
+            width: 100%;
+            height: clamp(45px, 9vw, 100px);
+        }
+
+        .leaf_decor_top_kp {
+            position: absolute;
+            top: 95px;
+            right: clamp(10px, 3vw, 35px);
+            width: clamp(70px, 13vw, 150px);
+            opacity: .22;
+            pointer-events: none;
+        }
+
+        /* Main three-column content. Grid collapses at tablet and phone widths. */
+        .main_section_kp {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.16fr) minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(14px, 2vw, 24px);
+            width: min(100% - 40px, 1240px);
+            margin: -44px auto 35px;
+            padding: 65px 0 0;
+        }
+
+        .info_card_light_kp,
+        .info_card_dark_kp {
+            position: relative;
+            min-width: 0;
+            padding: clamp(22px, 2.6vw, 35px) clamp(18px, 2.4vw, 30px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+        }
+
+        .info_card_light_kp {
+            border: 1px solid #f0e8dc;
+            background: #fcf9f4;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .06);
+        }
+
+        .info_card_light_kp:hover {
+            border-color: #b38b24;
+            background: #fcf9f4;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, .08);
+        }
+
+        .card_flower_icon_kp,
+        .card_building_icon_kp {
+            display: block;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 12px;
+            color: #3b2518;
+        }
+
+        .card_title_kp,
+        .card_title_light_kp {
+            margin: 0 0 20px;
+            color: #1c2b26;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 2.5vw, 30px);
+            font-weight: 600;
+            line-height: 1.12;
+            overflow-wrap: anywhere;
+        }
+
+        .card_title_light_kp {
+            margin-bottom: 25px;
+            color: #3b2518;
+        }
+
+        .card_divider_kp {
+            width: 35px;
+            height: 2px;
+            margin-bottom: 20px;
+            background: #3b2518;
+        }
+
+        .info_group_kp {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            min-width: 0;
+            margin-bottom: 18px;
+        }
+
+        .info_icon_kp,
+        .info_icon_gold_kp {
+            flex: 0 0 14px;
+            margin-top: 3px;
+            color: #3b2518;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .info_text_kp,
+        .info_text_light_kp {
+            min-width: 0;
+            color: #4a5568;
+            font-size: 12px;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+        }
+
+        .info_text_light_kp {
+            color: #3b2518;
+        }
+
+        .info_double_kp {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .info_double_kp .info_group_kp {
+            gap: 8px;
+            margin-bottom: 0;
+        }
+
+        .btn_card_gold_kp,
+        .btn_card_cream_kp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            max-width: 100%;
+            min-height: 44px;
+            margin-top: 8px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: #f3ad02;
+            color: #3b2518;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.25;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color .25s ease, color .25s ease, transform .25s ease;
+        }
+
+        .btn_card_gold_kp:hover,
+        .btn_card_gold_kp:focus-visible,
+        .btn_card_cream_kp:hover,
+        .btn_card_cream_kp:focus-visible {
+            transform: translateY(-1px);
+            background: #3b2518;
+            color: #fff;
+        }
+
+        .card_bg_decor_kp,
+        .dark_card_decor_kp {
+            position: absolute;
+            right: -12px;
+            bottom: -12px;
+            width: 115px;
+            opacity: .1;
+            pointer-events: none;
+        }
+
+        .info_card_dark_kp {
+            border: 1px solid rgba(212, 175, 55, .2);
+            background: rgba(212, 175, 55, .11);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
+        }
+
+        .info_card_dark_kp:hover {
+            border-color: #b38b24;
+            background: #fcf9f4;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, .08);
+        }
+
+        /* Gallery uses flexible widths and aspect ratios instead of fixed pixel widths. */
+        .gallery_center_kp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(6px, 1vw, 12px);
+            width: 100%;
+            min-width: 0;
+        }
+
+        .gallery_img_side_kp,
+        .gallery_img_center_kp {
+            display: block;
+            flex: 1 1 0;
+            width: 0;
+            min-width: 0;
+            height: auto;
+            aspect-ratio: 0.43 / 1;
+            object-fit: cover;
+            border: 1px solid transparent;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+            transition: transform .3s ease-in-out, opacity .3s ease-in-out, border-color .3s ease-in-out;
+            height: 350px;
+        }
+
+        .gallery_img_center_kp {
+            flex: 1.35 1 0;
+            aspect-ratio: 0.48 / 1;
+            border: 4px solid #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+            z-index: 1;
+            height: 420px;
+
+        }
+
+        .gallery_img_side_kp:hover,
+        .gallery_img_center_kp:hover {
+            opacity: .82;
+            cursor: pointer;
+            transform: scale(1.02);
+            border-color: #d4af37;
+        }
+
+        /* Bottom benefits */
+        .bottom_banner_kp {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            width: min(100% - 40px, 900px);
+            margin: 25px auto 50px;
+            padding: 0 8px;
+        }
+
+        .feature_item_kp {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .feature_icon_kp {
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+            color: #3b2518;
+        }
+
+        .feature_text_kp {
+            color: #2b2b2b;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .banner_divider_kp {
+            flex: 0 0 1px;
+            width: 1px;
+            height: 35px;
+            background: #d8cebe;
+        }
+
+        /* Tablet: each card/gallery gets a comfortable full-width row. */
+        @media (max-width: 1050px) {
+            .navbar_kp {
+                gap: 14px;
+            }
+
+            .nav_menu_kp {
+                gap: 16px;
+            }
+
+            .main_section_kp {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: 20px;
+                width: min(100% - 36px, 760px);
+                margin-top: -35px;
+                padding-top: 55px;
+            }
+
+            .gallery_center_kp {
+                grid-column: 1 / -1;
+                grid-row: 1;
+                width: min(100%, 520px);
+                margin: 0 auto 8px;
+            }
+
+            .info_card_light_kp,
+            .info_card_dark_kp {
+                width: 100%;
+            }
+
+            .gallery_img_side_kp {
+                aspect-ratio: .75 / 1;
+            }
+
+            .gallery_img_center_kp {
+                aspect-ratio: .7 / 1;
+            }
+
+            .bottom_banner_kp {
+                gap: 14px;
+            }
+        }
+
+        /* Narrow tablet / large phone: stack the cards to avoid cramped text. */
+        @media (max-width: 700px) {
+            .hero_container_kp {
+                min-height: 370px;
+                padding-bottom: 55px;
+            }
+
+            .navbar_kp {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 18px 16px 12px;
+            }
+
+            .brand_logo_kp {
+                margin-right: auto;
+            }
+
+            .nav_menu_kp {
+                order: 3;
+                justify-content: center;
+                width: 100%;
+                gap: clamp(16px, 5vw, 30px);
+            }
+
+            .nav_link_kp {
+                font-size: 11px;
+            }
+
+            .btn_book_nav_kp {
+                padding: 10px 15px;
+                font-size: 11px;
+            }
+
+            .hero_content_kp {
+                width: 100%;
+                padding: 30px 18px 10px;
+            }
+
+            .main_section_kp {
+                grid-template-columns: minmax(0, 1fr);
+                width: min(100% - 32px, 520px);
+                gap: 18px;
+                margin-top: -28px;
+                padding-top: 45px;
+            }
+
+            .gallery_center_kp {
+                grid-column: auto;
+                grid-row: auto;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto 4px;
+            }
+
+            .gallery_img_side_kp {
+                aspect-ratio: .62 / 1;
+            }
+
+            .gallery_img_center_kp {
+                aspect-ratio: .57 / 1;
+            }
+
+            .info_card_light_kp,
+            .info_card_dark_kp {
+                padding: 26px 24px;
+            }
+
+            .card_title_kp,
+            .card_title_light_kp {
+                font-size: 29px;
+            }
+
+            .info_text_kp,
+            .info_text_light_kp {
+                font-size: 12px;
+            }
+
+            .bottom_banner_kp {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: min(100% - 32px, 520px);
+                margin-top: 28px;
+                gap: 20px 18px;
+            }
+
+            .feature_item_kp {
+                flex: 1 1 135px;
+                justify-content: center;
+            }
+
+            .banner_divider_kp {
+                display: none;
+            }
+        }
+
+        /* Small phones and narrow WordPress iframe columns. */
+        @media (max-width: 380px) {
+            .navbar_kp {
+                padding-right: 12px;
+                padding-left: 12px;
+            }
+
+            .logo_icon_kp {
+                flex-basis: 30px;
+                width: 30px;
+                height: 30px;
+            }
+
+            .brand_title_kp {
+                font-size: 16px;
+                letter-spacing: .8px;
+            }
+
+            .brand_subtitle_kp {
+                font-size: 8px;
+                letter-spacing: 1.4px;
+            }
+
+            .btn_book_nav_kp {
+                padding: 9px 11px;
+            }
+
+            .nav_menu_kp {
+                gap: 13px;
+            }
+
+            .nav_link_kp {
+                font-size: 10px;
+            }
+
+            .main_section_kp {
+                width: calc(100% - 24px);
+            }
+
+            .info_card_light_kp,
+            .info_card_dark_kp {
+                padding: 22px 18px;
+            }
+
+            .info_double_kp {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .gallery_center_kp {
+                gap: 5px;
+            }
+
+            .gallery_img_side_kp {
+                border-radius: 9px;
+            }
+
+            .gallery_img_center_kp {
+                border-width: 3px;
+                border-radius: 13px;
+            }
+
+            .feature_item_kp {
+                flex-basis: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spa_page_kp">
+
+
+        <main class="main_section_kp" aria-label="Our spa locations">
+            <article class="info_card_light_kp" id="munyonyo">
+                <svg class="card_flower_icon_kp" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" aria-hidden="true">
+                    <path d="M12 3C10 7 6 8 3 9C6 12 7 16 12 21C17 16 18 12 21 9C18 8 14 7 12 3Z" />
+                </svg>
+                <h2 class="card_title_kp">Speke Resort<br>Munyonyo</h2>
+                <div class="card_divider_kp"></div>
+
+                <div class="info_group_kp">
+                    <i class="fa-solid fa-location-dot info_icon_kp" aria-hidden="true"></i>
+                    <div class="info_text_kp">Wavamunno Road, P. O. Box 446,<br>Kampala - Uganda</div>
+                </div>
+
+                <div class="info_double_kp">
+                    <div class="info_group_kp">
+                        <i class="fa-regular fa-clock info_icon_kp" aria-hidden="true"></i>
+                        <div class="info_text_kp"><strong>Opening hours:</strong><br>6:30am - 09:30pm</div>
+                    </div>
+                    <div class="info_group_kp">
+                        <i class="fa-solid fa-phone info_icon_kp" aria-hidden="true"></i>
+                        <div class="info_text_kp"><strong>Contact us:</strong><br><a href="tel:+256707780395"
+                                style="color:inherit;text-decoration:none;">+256 707 780 395</a></div>
+                    </div>
+                </div>
+
+                <a href="https://calabashspa.com/book-appointment/" class="btn_card_gold_kp">Book Now <i
+                        class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+
+                <svg class="card_bg_decor_kp" viewBox="0 0 100 100" fill="none" stroke="#3b2518" stroke-width="1"
+                    aria-hidden="true">
+                    <path d="M50 0 C20 40 20 60 50 100 C80 60 80 40 50 0 Z" />
+                </svg>
+            </article>
+
+            <div class="gallery_center_kp" aria-label="Spa gallery">
+                <img class="gallery_img_side_kp"
+                    src="https://calabashspa.com/wp-content/uploads/2026/09/Deep-Tissue-Massage-5.jpg"
+                    alt="Spa treatment room" loading="lazy">
+                <img class="gallery_img_center_kp"
+                    src="https://calabashspa.com/wp-content/uploads/2026/09/Luxury-Facials-6.jpg"
+                    alt="Luxury spa interior" loading="lazy">
+                <img class="gallery_img_side_kp"
+                    src="https://calabashspa.com/wp-content/uploads/2026/09/Prenatal-Massage-5.jpg"
+                    alt="Relaxation treatment" loading="lazy">
+            </div>
+
+            <article class="info_card_dark_kp" id="wampewo">
+                <svg class="card_building_icon_kp" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" aria-hidden="true">
+                    <rect x="4" y="2" width="16" height="20" rx="2" />
+                    <path d="M9 6h2M13 6h2M9 10h2M13 10h2M9 14h2M13 14h2M11 18h2" />
+                </svg>
+                <h2 class="card_title_light_kp">Speke Apartments<br>Wampewo</h2>
+
+                <div class="info_group_kp">
+                    <i class="fa-solid fa-location-dot info_icon_gold_kp" aria-hidden="true"></i>
+                    <div class="info_text_light_kp">Plot 19-21, Wampewo Avenue.<br>Kololo, Kampala - Uganda</div>
+                </div>
+
+                <div class="info_group_kp">
+                    <i class="fa-regular fa-clock info_icon_gold_kp" aria-hidden="true"></i>
+                    <div class="info_text_light_kp"><strong>Opening hours:</strong><br>6:30am - 09:30pm</div>
+                </div>
+
+                <div class="info_group_kp" style="margin-bottom:25px;">
+                    <i class="fa-solid fa-phone info_icon_gold_kp" aria-hidden="true"></i>
+                    <div class="info_text_light_kp"><strong>Contact us:</strong><br><a href="tel:+256702711286"
+                            style="color:inherit;text-decoration:none;">+256 702 711 286</a></div>
+                </div>
+
+                <a href="https://calabashspa.com/book-appointment/" class="btn_card_cream_kp">Book Now <i
+                        class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+
+                <svg class="dark_card_decor_kp" viewBox="0 0 100 100" fill="none" stroke="#3b2518" stroke-width="1"
+                    aria-hidden="true">
+                    <circle cx="50" cy="50" r="40" />
+                    <path d="M50 10 C30 50 30 70 50 90" />
+                </svg>
+            </article>
+        </main>
+
+        <footer class="bottom_banner_kp" aria-label="Spa benefits">
+            <div class="feature_item_kp">
+                <svg class="feature_icon_kp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    aria-hidden="true">
+                    <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" />
+                </svg>
+                <div class="feature_text_kp">World-Class<br>Spa Facilities</div>
+            </div>
+
+            <div class="banner_divider_kp" aria-hidden="true"></div>
+
+            <div class="feature_item_kp">
+                <svg class="feature_icon_kp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 3C10 7 6 8 3 9C6 12 7 16 12 21" />
+                </svg>
+                <div class="feature_text_kp">Relaxing<br>Ambience</div>
+            </div>
+
+            <div class="banner_divider_kp" aria-hidden="true"></div>
+
+            <div class="feature_item_kp">
+                <svg class="feature_icon_kp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    aria-hidden="true">
+                    <path
+                        d="M12 21C16.5 16.5 21 13 21 8.5C21 5.5 18.5 3 15.5 3C13.5 3 12 4 12 4C12 4 10.5 3 8.5 3C5.5 3 3 5.5 3 8.5C3 13 7.5 16.5 12 21Z" />
+                </svg>
+                <div class="feature_text_kp">Personalised<br>Wellness Experiences</div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
